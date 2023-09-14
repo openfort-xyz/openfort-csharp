@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openfort.SDK", "Openfort.SD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openfort.SDK.Test", "Openfort.SDK.Test\Openfort.SDK.Test.csproj", "{B249AD87-8883-4A5E-A082-EEC118ABABAA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{9A06DCDA-2585-45C7-9AC5-27D689620D4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CB8034C2-55A2-4513-B1AC-7868CE275F05}"
+	ProjectSection(SolutionItems) = preProject
+		release.yml = release.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59A5A6D9-6B89-407E-85B0-1AB4D7E95B9E}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB8034C2-55A2-4513-B1AC-7868CE275F05} = {9A06DCDA-2585-45C7-9AC5-27D689620D4F}
 	EndGlobalSection
 EndGlobal
