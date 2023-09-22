@@ -51,12 +51,12 @@ namespace Openfort.SDK.Model
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="chainId">chainId (required).</param>
+        /// <param name="chainId">The chain ID. (required).</param>
         /// <param name="address">address (required).</param>
         /// <param name="deleted">deleted (required).</param>
         /// <param name="abi">abi (required).</param>
         /// <param name="publicVerification">publicVerification (required).</param>
-        public ContractResponse(string id = default(string), EntityTypeCONTRACT _object = default(EntityTypeCONTRACT), int createdAt = default(int), string name = default(string), double chainId = default(double), string address = default(string), bool deleted = default(bool), List<Abi> abi = default(List<Abi>), bool publicVerification = default(bool))
+        public ContractResponse(string id = default(string), EntityTypeCONTRACT _object = default(EntityTypeCONTRACT), int createdAt = default(int), string name = default(string), int chainId = default(int), string address = default(string), bool deleted = default(bool), List<Abi> abi = default(List<Abi>), bool publicVerification = default(bool))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -108,10 +108,11 @@ namespace Openfort.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChainId
+        /// The chain ID.
         /// </summary>
+        /// <value>The chain ID.</value>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
-        public double ChainId { get; set; }
+        public int ChainId { get; set; }
 
         /// <summary>
         /// Gets or Sets Address

@@ -28,30 +28,38 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// MemberResponse
+    /// ProjectWebhookRequest
     /// </summary>
-    [DataContract(Name = "MemberResponse")]
-    public partial class MemberResponse : IEquatable<MemberResponse>, IValidatableObject
+    [DataContract(Name = "ProjectWebhookRequest")]
+    public partial class ProjectWebhookRequest : IEquatable<ProjectWebhookRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Role
-        /// </summary>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public ProjectRole Role { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MemberResponse" /> class.
+        /// Initializes a new instance of the <see cref="ProjectWebhookRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MemberResponse() { }
+        protected ProjectWebhookRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MemberResponse" /> class.
+        /// Initializes a new instance of the <see cref="ProjectWebhookRequest" /> class.
         /// </summary>
-        /// <param name="role">role (required).</param>
-        public MemberResponse(ProjectRole role = default(ProjectRole))
+        /// <param name="livemode">livemode (required).</param>
+        /// <param name="url">url.</param>
+        public ProjectWebhookRequest(bool livemode = default(bool), string url = default(string))
         {
-            this.Role = role;
+            this.Livemode = livemode;
+            this.Url = url;
         }
+
+        /// <summary>
+        /// Gets or Sets Livemode
+        /// </summary>
+        [DataMember(Name = "livemode", IsRequired = true, EmitDefaultValue = true)]
+        public bool Livemode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Url
+        /// </summary>
+        [DataMember(Name = "url", EmitDefaultValue = false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +68,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MemberResponse {\n");
-            sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("class ProjectWebhookRequest {\n");
+            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +91,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MemberResponse);
+            return this.Equals(input as ProjectWebhookRequest);
         }
 
         /// <summary>
-        /// Returns true if MemberResponse instances are equal
+        /// Returns true if ProjectWebhookRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MemberResponse to be compared</param>
+        /// <param name="input">Instance of ProjectWebhookRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MemberResponse input)
+        public bool Equals(ProjectWebhookRequest input)
         {
             if (input == null)
             {
@@ -98,8 +107,13 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Role == input.Role ||
-                    this.Role.Equals(input.Role)
+                    this.Livemode == input.Livemode ||
+                    this.Livemode.Equals(input.Livemode)
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -112,7 +126,11 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Role.GetHashCode();
+                hashCode = (hashCode * 59) + this.Livemode.GetHashCode();
+                if (this.Url != null)
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 return hashCode;
             }
         }

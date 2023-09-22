@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// MembersResponse
+    /// UserListResponse
     /// </summary>
-    [DataContract(Name = "MembersResponse")]
-    public partial class MembersResponse : IEquatable<MembersResponse>, IValidatableObject
+    [DataContract(Name = "UserListResponse")]
+    public partial class UserListResponse : IEquatable<UserListResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
         public ResponseTypeLIST Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MembersResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserListResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MembersResponse() { }
+        protected UserListResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MembersResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserListResponse" /> class.
         /// </summary>
         /// <param name="_object">_object (required).</param>
         /// <param name="url">url (required).</param>
@@ -53,19 +53,19 @@ namespace Openfort.SDK.Model
         /// <param name="start">start (required).</param>
         /// <param name="end">end (required).</param>
         /// <param name="total">total (required).</param>
-        public MembersResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<MemberResponse> data = default(List<MemberResponse>), double start = default(double), double end = default(double), double total = default(double))
+        public UserListResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<UserResponse> data = default(List<UserResponse>), double start = default(double), double end = default(double), double total = default(double))
         {
             this.Object = _object;
             // to ensure "url" is required (not null)
             if (url == null)
             {
-                throw new ArgumentNullException("url is a required property for MembersResponse and cannot be null");
+                throw new ArgumentNullException("url is a required property for UserListResponse and cannot be null");
             }
             this.Url = url;
             // to ensure "data" is required (not null)
             if (data == null)
             {
-                throw new ArgumentNullException("data is a required property for MembersResponse and cannot be null");
+                throw new ArgumentNullException("data is a required property for UserListResponse and cannot be null");
             }
             this.Data = data;
             this.Start = start;
@@ -83,7 +83,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public List<MemberResponse> Data { get; set; }
+        public List<UserResponse> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
@@ -110,7 +110,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MembersResponse {\n");
+            sb.Append("class UserListResponse {\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
@@ -137,15 +137,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MembersResponse);
+            return this.Equals(input as UserListResponse);
         }
 
         /// <summary>
-        /// Returns true if MembersResponse instances are equal
+        /// Returns true if UserListResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MembersResponse to be compared</param>
+        /// <param name="input">Instance of UserListResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MembersResponse input)
+        public bool Equals(UserListResponse input)
         {
             if (input == null)
             {

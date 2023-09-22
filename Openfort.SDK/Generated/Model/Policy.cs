@@ -52,11 +52,11 @@ namespace Openfort.SDK.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="deleted">deleted (required).</param>
-        /// <param name="chainId">chainId (required).</param>
+        /// <param name="chainId">The chain ID. (required).</param>
         /// <param name="strategy">strategy (required).</param>
         /// <param name="transactionIntents">transactionIntents (required).</param>
         /// <param name="policyRules">policyRules (required).</param>
-        public Policy(string id = default(string), EntityTypePOLICY _object = default(EntityTypePOLICY), int createdAt = default(int), string name = default(string), bool deleted = default(bool), double chainId = default(double), PolicyStrategy strategy = default(PolicyStrategy), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> policyRules = default(List<EntityIdResponse>))
+        public Policy(string id = default(string), EntityTypePOLICY _object = default(EntityTypePOLICY), int createdAt = default(int), string name = default(string), bool deleted = default(bool), int chainId = default(int), PolicyStrategy strategy = default(PolicyStrategy), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> policyRules = default(List<EntityIdResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -119,10 +119,11 @@ namespace Openfort.SDK.Model
         public bool Deleted { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChainId
+        /// The chain ID.
         /// </summary>
+        /// <value>The chain ID.</value>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
-        public double ChainId { get; set; }
+        public int ChainId { get; set; }
 
         /// <summary>
         /// Gets or Sets Strategy

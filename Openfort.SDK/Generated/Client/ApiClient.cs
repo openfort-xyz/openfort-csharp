@@ -520,7 +520,8 @@ namespace Openfort.SDK.Client
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
                 if (typeof(Openfort.SDK.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    responseData = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    var jsonContent = await response.Content.ReadAsStringAsync();
+                    responseData = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { jsonContent });
                 }
                 else if (typeof(T).Name == "Stream") // for binary response
                 {

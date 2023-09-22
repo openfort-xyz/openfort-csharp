@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Defines project_role
+    /// Defines UserProjectRole
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum ProjectRole
+    public enum UserProjectRole
     {
         /// <summary>
         /// Enum OWNER for value: OWNER

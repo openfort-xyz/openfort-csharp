@@ -28,36 +28,28 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ProjectRequest
+    /// UpdateProjectRequest
     /// </summary>
-    [DataContract(Name = "ProjectRequest")]
-    public partial class ProjectRequest : IEquatable<ProjectRequest>, IValidatableObject
+    [DataContract(Name = "UpdateProjectRequest")]
+    public partial class UpdateProjectRequest : IEquatable<UpdateProjectRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets PkPolicy
-        /// </summary>
-        [DataMember(Name = "pkPolicy", EmitDefaultValue = false)]
-        public PKPolicy? PkPolicy { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateProjectRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProjectRequest() { }
+        protected UpdateProjectRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateProjectRequest" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="pkPolicy">pkPolicy.</param>
-        public ProjectRequest(string name = default(string), PKPolicy? pkPolicy = default(PKPolicy?))
+        public UpdateProjectRequest(string name = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for ProjectRequest and cannot be null");
+                throw new ArgumentNullException("name is a required property for UpdateProjectRequest and cannot be null");
             }
             this.Name = name;
-            this.PkPolicy = pkPolicy;
         }
 
         /// <summary>
@@ -73,9 +65,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProjectRequest {\n");
+            sb.Append("class UpdateProjectRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PkPolicy: ").Append(PkPolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,15 +87,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProjectRequest);
+            return this.Equals(input as UpdateProjectRequest);
         }
 
         /// <summary>
-        /// Returns true if ProjectRequest instances are equal
+        /// Returns true if UpdateProjectRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProjectRequest to be compared</param>
+        /// <param name="input">Instance of UpdateProjectRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProjectRequest input)
+        public bool Equals(UpdateProjectRequest input)
         {
             if (input == null)
             {
@@ -115,10 +106,6 @@ namespace Openfort.SDK.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.PkPolicy == input.PkPolicy ||
-                    this.PkPolicy.Equals(input.PkPolicy)
                 );
         }
 
@@ -135,7 +122,6 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PkPolicy.GetHashCode();
                 return hashCode;
             }
         }

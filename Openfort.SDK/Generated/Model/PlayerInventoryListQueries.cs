@@ -52,7 +52,7 @@ namespace Openfort.SDK.Model
         /// <param name="order">order.</param>
         /// <param name="contractId">Filter by contract ID..</param>
         /// <param name="chainId">Filter by chain id. (required).</param>
-        public PlayerInventoryListQueries(double limit = default(double), double skip = default(double), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), double chainId = default(double))
+        public PlayerInventoryListQueries(double limit = default(double), double skip = default(double), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), int chainId = default(int))
         {
             this.ChainId = chainId;
             this.Limit = limit;
@@ -87,7 +87,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Filter by chain id.</value>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
-        public double ChainId { get; set; }
+        public int ChainId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

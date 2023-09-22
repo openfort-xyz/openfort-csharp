@@ -54,11 +54,11 @@ namespace Openfort.SDK.Model
         /// <param name="ownerAddress">ownerAddress (required).</param>
         /// <param name="deployed">deployed (required).</param>
         /// <param name="custodial">custodial (required).</param>
-        /// <param name="chainId">chainId (required).</param>
+        /// <param name="chainId">The chain ID. (required).</param>
         /// <param name="accountType">accountType (required).</param>
         /// <param name="pendingOwnerAddress">pendingOwnerAddress.</param>
         /// <param name="transactionIntents">transactionIntents.</param>
-        public Account(string id = default(string), EntityTypeACCOUNT _object = default(EntityTypeACCOUNT), int createdAt = default(int), string address = default(string), string ownerAddress = default(string), bool deployed = default(bool), bool custodial = default(bool), double chainId = default(double), string accountType = default(string), string pendingOwnerAddress = default(string), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>))
+        public Account(string id = default(string), EntityTypeACCOUNT _object = default(EntityTypeACCOUNT), int createdAt = default(int), string address = default(string), string ownerAddress = default(string), bool deployed = default(bool), bool custodial = default(bool), int chainId = default(int), string accountType = default(string), string pendingOwnerAddress = default(string), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -130,10 +130,11 @@ namespace Openfort.SDK.Model
         public bool Custodial { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChainId
+        /// The chain ID.
         /// </summary>
+        /// <value>The chain ID.</value>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
-        public double ChainId { get; set; }
+        public int ChainId { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountType

@@ -47,7 +47,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Money" /> class.
         /// </summary>
-        /// <param name="amount">Ammount in cents (required).</param>
+        /// <param name="amount">Amount in cents (required).</param>
         /// <param name="currency">currency (required).</param>
         public Money(long amount = default(long), Currency currency = default(Currency))
         {
@@ -56,9 +56,9 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Ammount in cents
+        /// Amount in cents
         /// </summary>
-        /// <value>Ammount in cents</value>
+        /// <value>Amount in cents</value>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public long Amount { get; set; }
 

@@ -28,53 +28,69 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ProjectResponse
+    /// UserResponse
     /// </summary>
-    [DataContract(Name = "ProjectResponse")]
-    public partial class ProjectResponse : IEquatable<ProjectResponse>, IValidatableObject
+    [DataContract(Name = "UserResponse")]
+    public partial class UserResponse : IEquatable<UserResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePROJECT Object { get; set; }
+        public EntityTypeUSER Object { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectResponse" /> class.
+        /// Gets or Sets Role
+        /// </summary>
+        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
+        public UserProjectRole Role { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProjectResponse() { }
+        protected UserResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="apikeys">apikeys.</param>
-        /// <param name="providers">providers.</param>
-        /// <param name="webhook">webhook.</param>
-        public ProjectResponse(string id = default(string), EntityTypePROJECT _object = default(EntityTypePROJECT), int createdAt = default(int), int updatedAt = default(int), string name = default(string), List<ApiKeyResponse> apikeys = default(List<ApiKeyResponse>), List<ProviderResponse> providers = default(List<ProviderResponse>), List<ProviderResponse> webhook = default(List<ProviderResponse>))
+        /// <param name="firstName">firstName (required).</param>
+        /// <param name="lastName">lastName (required).</param>
+        /// <param name="role">role (required).</param>
+        /// <param name="email">email (required).</param>
+        public UserResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), int createdAt = default(int), int updatedAt = default(int), string firstName = default(string), string lastName = default(string), UserProjectRole role = default(UserProjectRole), string email = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for ProjectResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for UserResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "firstName" is required (not null)
+            if (firstName == null)
             {
-                throw new ArgumentNullException("name is a required property for ProjectResponse and cannot be null");
+                throw new ArgumentNullException("firstName is a required property for UserResponse and cannot be null");
             }
-            this.Name = name;
-            this.Apikeys = apikeys;
-            this.Providers = providers;
-            this.Webhook = webhook;
+            this.FirstName = firstName;
+            // to ensure "lastName" is required (not null)
+            if (lastName == null)
+            {
+                throw new ArgumentNullException("lastName is a required property for UserResponse and cannot be null");
+            }
+            this.LastName = lastName;
+            this.Role = role;
+            // to ensure "email" is required (not null)
+            if (email == null)
+            {
+                throw new ArgumentNullException("email is a required property for UserResponse and cannot be null");
+            }
+            this.Email = email;
         }
 
         /// <summary>
@@ -96,28 +112,22 @@ namespace Openfort.SDK.Model
         public int UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets FirstName
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "first_name", IsRequired = true, EmitDefaultValue = true)]
+        public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Apikeys
+        /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name = "apikeys", EmitDefaultValue = false)]
-        public List<ApiKeyResponse> Apikeys { get; set; }
+        [DataMember(Name = "last_name", IsRequired = true, EmitDefaultValue = true)]
+        public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Providers
+        /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name = "providers", EmitDefaultValue = false)]
-        public List<ProviderResponse> Providers { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Webhook
-        /// </summary>
-        [DataMember(Name = "webhook", EmitDefaultValue = false)]
-        public List<ProviderResponse> Webhook { get; set; }
+        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -126,15 +136,15 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProjectResponse {\n");
+            sb.Append("class UserResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Apikeys: ").Append(Apikeys).Append("\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
-            sb.Append("  Webhook: ").Append(Webhook).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,15 +165,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProjectResponse);
+            return this.Equals(input as UserResponse);
         }
 
         /// <summary>
-        /// Returns true if ProjectResponse instances are equal
+        /// Returns true if UserResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProjectResponse to be compared</param>
+        /// <param name="input">Instance of UserResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProjectResponse input)
+        public bool Equals(UserResponse input)
         {
             if (input == null)
             {
@@ -188,27 +198,23 @@ namespace Openfort.SDK.Model
                     this.UpdatedAt.Equals(input.UpdatedAt)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.Apikeys == input.Apikeys ||
-                    this.Apikeys != null &&
-                    input.Apikeys != null &&
-                    this.Apikeys.SequenceEqual(input.Apikeys)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.Providers == input.Providers ||
-                    this.Providers != null &&
-                    input.Providers != null &&
-                    this.Providers.SequenceEqual(input.Providers)
+                    this.Role == input.Role ||
+                    this.Role.Equals(input.Role)
                 ) && 
                 (
-                    this.Webhook == input.Webhook ||
-                    this.Webhook != null &&
-                    input.Webhook != null &&
-                    this.Webhook.SequenceEqual(input.Webhook)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 );
         }
 
@@ -228,21 +234,18 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                if (this.Name != null)
+                if (this.FirstName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
                 }
-                if (this.Apikeys != null)
+                if (this.LastName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Apikeys.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
                 }
-                if (this.Providers != null)
+                hashCode = (hashCode * 59) + this.Role.GetHashCode();
+                if (this.Email != null)
                 {
-                    hashCode = (hashCode * 59) + this.Providers.GetHashCode();
-                }
-                if (this.Webhook != null)
-                {
-                    hashCode = (hashCode * 59) + this.Webhook.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
                 }
                 return hashCode;
             }

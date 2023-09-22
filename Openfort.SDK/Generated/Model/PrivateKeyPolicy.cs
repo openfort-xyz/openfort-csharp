@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Defines PK_Policy
+    /// Defines PrivateKeyPolicy
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum PKPolicy
+    public enum PrivateKeyPolicy
     {
         /// <summary>
         /// Enum INDIVIDUAL for value: INDIVIDUAL
