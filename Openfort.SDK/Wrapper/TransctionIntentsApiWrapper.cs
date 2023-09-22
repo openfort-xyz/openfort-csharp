@@ -12,6 +12,8 @@ namespace Openfort.SDK.Wrapper
             apiClient = new TransactionIntentsApi(Configuration);
         }
 
+        public async Task<EstimateTransactionIntentGasResult> EstimateCost(CreateTransactionIntentRequest request) => await apiClient.EstimateTransactionIntentCostAsync(request);
+
         public async Task<TransactionIntentResponse> Create(CreateTransactionIntentRequest request) => await apiClient.CreateTransactionIntentAsync(request);
 
         public async Task<TransactionIntentResponse> Get(TransactionIntentGetRequest request) => await apiClient.GetTransactionIntentAsync(request.Id, request.Expand);
