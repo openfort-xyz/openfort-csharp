@@ -3,13 +3,13 @@ using Openfort.SDK.Model;
 
 namespace Openfort.SDK.Wrapper
 {
-	public class InventoryApiWrapper : BaseApiWrapper
+	public class InventoriesApiWrapper : BaseApiWrapper
 	{
-        private readonly InventoryApi apiClient;
+        private readonly InventoriesApi apiClient;
 
-        public InventoryApiWrapper(string accessToken, string? basePath = null) : base(accessToken, basePath)
+        public InventoriesApiWrapper(string accessToken, string? basePath = null) : base(accessToken, basePath)
         {
-            apiClient = new InventoryApi(Configuration);
+            apiClient = new InventoriesApi(Configuration);
         }
 
         public async Task<InventoryListResponse> GetPlayerNftInventory(PlayerInventoryListRequest request) => await apiClient.GetPlayerNftInventoryAsync(request.PlayerId, request.ChainId, request.Limit, request.Skip, request.Order, request.ContractIds);

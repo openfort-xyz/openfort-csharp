@@ -28,38 +28,48 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PayForUserPolicyStrategy
+    /// AddDepositorAddressRequest
     /// </summary>
-    [DataContract(Name = "PayForUserPolicyStrategy")]
-    public partial class PayForUserPolicyStrategy : IEquatable<PayForUserPolicyStrategy>, IValidatableObject
+    [DataContract(Name = "AddDepositorAddressRequest")]
+    public partial class AddDepositorAddressRequest : IEquatable<AddDepositorAddressRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets SponsorSchema
-        /// </summary>
-        [DataMember(Name = "sponsorSchema", IsRequired = true, EmitDefaultValue = true)]
-        public SponsorSchemaPAYFORUSER SponsorSchema { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="AddDepositorAddressRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayForUserPolicyStrategy() { }
+        protected AddDepositorAddressRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="AddDepositorAddressRequest" /> class.
         /// </summary>
-        /// <param name="sponsorSchema">sponsorSchema (required).</param>
-        /// <param name="depositor">depositor.</param>
-        public PayForUserPolicyStrategy(SponsorSchemaPAYFORUSER sponsorSchema = default(SponsorSchemaPAYFORUSER), string depositor = default(string))
+        /// <param name="depositorAddress">depositorAddress (required).</param>
+        /// <param name="signature">signature (required).</param>
+        public AddDepositorAddressRequest(string depositorAddress = default(string), string signature = default(string))
         {
-            this.SponsorSchema = sponsorSchema;
-            this.Depositor = depositor;
+            // to ensure "depositorAddress" is required (not null)
+            if (depositorAddress == null)
+            {
+                throw new ArgumentNullException("depositorAddress is a required property for AddDepositorAddressRequest and cannot be null");
+            }
+            this.DepositorAddress = depositorAddress;
+            // to ensure "signature" is required (not null)
+            if (signature == null)
+            {
+                throw new ArgumentNullException("signature is a required property for AddDepositorAddressRequest and cannot be null");
+            }
+            this.Signature = signature;
         }
 
         /// <summary>
-        /// Gets or Sets Depositor
+        /// Gets or Sets DepositorAddress
         /// </summary>
-        [DataMember(Name = "depositor", EmitDefaultValue = true)]
-        public string Depositor { get; set; }
+        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
+        public string DepositorAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Signature
+        /// </summary>
+        [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = true)]
+        public string Signature { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +78,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PayForUserPolicyStrategy {\n");
-            sb.Append("  SponsorSchema: ").Append(SponsorSchema).Append("\n");
-            sb.Append("  Depositor: ").Append(Depositor).Append("\n");
+            sb.Append("class AddDepositorAddressRequest {\n");
+            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
+            sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayForUserPolicyStrategy);
+            return this.Equals(input as AddDepositorAddressRequest);
         }
 
         /// <summary>
-        /// Returns true if PayForUserPolicyStrategy instances are equal
+        /// Returns true if AddDepositorAddressRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayForUserPolicyStrategy to be compared</param>
+        /// <param name="input">Instance of AddDepositorAddressRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayForUserPolicyStrategy input)
+        public bool Equals(AddDepositorAddressRequest input)
         {
             if (input == null)
             {
@@ -107,13 +117,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.SponsorSchema == input.SponsorSchema ||
-                    this.SponsorSchema.Equals(input.SponsorSchema)
+                    this.DepositorAddress == input.DepositorAddress ||
+                    (this.DepositorAddress != null &&
+                    this.DepositorAddress.Equals(input.DepositorAddress))
                 ) && 
                 (
-                    this.Depositor == input.Depositor ||
-                    (this.Depositor != null &&
-                    this.Depositor.Equals(input.Depositor))
+                    this.Signature == input.Signature ||
+                    (this.Signature != null &&
+                    this.Signature.Equals(input.Signature))
                 );
         }
 
@@ -126,10 +137,13 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.SponsorSchema.GetHashCode();
-                if (this.Depositor != null)
+                if (this.DepositorAddress != null)
                 {
-                    hashCode = (hashCode * 59) + this.Depositor.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
+                }
+                if (this.Signature != null)
+                {
+                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
                 }
                 return hashCode;
             }

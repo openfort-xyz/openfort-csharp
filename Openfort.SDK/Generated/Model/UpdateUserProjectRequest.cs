@@ -28,33 +28,33 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// EditRoleRequest
+    /// UpdateUserProjectRequest
     /// </summary>
-    [DataContract(Name = "EditRoleRequest")]
-    public partial class EditRoleRequest : IEquatable<EditRoleRequest>, IValidatableObject
+    [DataContract(Name = "UpdateUserProjectRequest")]
+    public partial class UpdateUserProjectRequest : IEquatable<UpdateUserProjectRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditRoleRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserProjectRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected EditRoleRequest() { }
+        protected UpdateUserProjectRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditRoleRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserProjectRequest" /> class.
         /// </summary>
         /// <param name="userId">userId (required).</param>
         /// <param name="role">role (required).</param>
-        public EditRoleRequest(string userId = default(string), string role = default(string))
+        public UpdateUserProjectRequest(string userId = default(string), UpdateUserProjectRequestRole role = default(UpdateUserProjectRequestRole))
         {
             // to ensure "userId" is required (not null)
             if (userId == null)
             {
-                throw new ArgumentNullException("userId is a required property for EditRoleRequest and cannot be null");
+                throw new ArgumentNullException("userId is a required property for UpdateUserProjectRequest and cannot be null");
             }
             this.UserId = userId;
             // to ensure "role" is required (not null)
             if (role == null)
             {
-                throw new ArgumentNullException("role is a required property for EditRoleRequest and cannot be null");
+                throw new ArgumentNullException("role is a required property for UpdateUserProjectRequest and cannot be null");
             }
             this.Role = role;
         }
@@ -69,7 +69,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Role
         /// </summary>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public string Role { get; set; }
+        public UpdateUserProjectRequestRole Role { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,7 +78,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class EditRoleRequest {\n");
+            sb.Append("class UpdateUserProjectRequest {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("}\n");
@@ -101,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EditRoleRequest);
+            return this.Equals(input as UpdateUserProjectRequest);
         }
 
         /// <summary>
-        /// Returns true if EditRoleRequest instances are equal
+        /// Returns true if UpdateUserProjectRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of EditRoleRequest to be compared</param>
+        /// <param name="input">Instance of UpdateUserProjectRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EditRoleRequest input)
+        public bool Equals(UpdateUserProjectRequest input)
         {
             if (input == null)
             {

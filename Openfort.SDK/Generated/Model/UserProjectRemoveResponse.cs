@@ -28,38 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PayForUserPolicyStrategy
+    /// UserProjectRemoveResponse
     /// </summary>
-    [DataContract(Name = "PayForUserPolicyStrategy")]
-    public partial class PayForUserPolicyStrategy : IEquatable<PayForUserPolicyStrategy>, IValidatableObject
+    [DataContract(Name = "UserProjectRemoveResponse")]
+    public partial class UserProjectRemoveResponse : IEquatable<UserProjectRemoveResponse>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets SponsorSchema
+        /// Gets or Sets Object
         /// </summary>
-        [DataMember(Name = "sponsorSchema", IsRequired = true, EmitDefaultValue = true)]
-        public SponsorSchemaPAYFORUSER SponsorSchema { get; set; }
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeUSER Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectRemoveResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayForUserPolicyStrategy() { }
+        protected UserProjectRemoveResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectRemoveResponse" /> class.
         /// </summary>
-        /// <param name="sponsorSchema">sponsorSchema (required).</param>
-        /// <param name="depositor">depositor.</param>
-        public PayForUserPolicyStrategy(SponsorSchemaPAYFORUSER sponsorSchema = default(SponsorSchemaPAYFORUSER), string depositor = default(string))
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        public UserProjectRemoveResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), bool deleted = default(bool))
         {
-            this.SponsorSchema = sponsorSchema;
-            this.Depositor = depositor;
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for UserProjectRemoveResponse and cannot be null");
+            }
+            this.Id = id;
+            this.Object = _object;
+            this.Deleted = deleted;
         }
 
         /// <summary>
-        /// Gets or Sets Depositor
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "depositor", EmitDefaultValue = true)]
-        public string Depositor { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Deleted
+        /// </summary>
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PayForUserPolicyStrategy {\n");
-            sb.Append("  SponsorSchema: ").Append(SponsorSchema).Append("\n");
-            sb.Append("  Depositor: ").Append(Depositor).Append("\n");
+            sb.Append("class UserProjectRemoveResponse {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayForUserPolicyStrategy);
+            return this.Equals(input as UserProjectRemoveResponse);
         }
 
         /// <summary>
-        /// Returns true if PayForUserPolicyStrategy instances are equal
+        /// Returns true if UserProjectRemoveResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayForUserPolicyStrategy to be compared</param>
+        /// <param name="input">Instance of UserProjectRemoveResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayForUserPolicyStrategy input)
+        public bool Equals(UserProjectRemoveResponse input)
         {
             if (input == null)
             {
@@ -107,13 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.SponsorSchema == input.SponsorSchema ||
-                    this.SponsorSchema.Equals(input.SponsorSchema)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Depositor == input.Depositor ||
-                    (this.Depositor != null &&
-                    this.Depositor.Equals(input.Depositor))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -126,11 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.SponsorSchema.GetHashCode();
-                if (this.Depositor != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Depositor.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

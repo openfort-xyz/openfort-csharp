@@ -11,7 +11,7 @@
     <None Remove="Wrapper\" />
     <None Remove="Generated\" />
     <None Remove="Model\" />
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrapper\" />

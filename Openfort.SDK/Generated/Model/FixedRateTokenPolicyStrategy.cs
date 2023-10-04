@@ -28,30 +28,44 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PayForUserPolicyStrategy
+    /// FixedRateTokenPolicyStrategy
     /// </summary>
-    [DataContract(Name = "PayForUserPolicyStrategy")]
-    public partial class PayForUserPolicyStrategy : IEquatable<PayForUserPolicyStrategy>, IValidatableObject
+    [DataContract(Name = "FixedRateTokenPolicyStrategy")]
+    public partial class FixedRateTokenPolicyStrategy : IEquatable<FixedRateTokenPolicyStrategy>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets SponsorSchema
         /// </summary>
         [DataMember(Name = "sponsorSchema", IsRequired = true, EmitDefaultValue = true)]
-        public SponsorSchemaPAYFORUSER SponsorSchema { get; set; }
+        public SponsorSchemaFIXEDRATE SponsorSchema { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="FixedRateTokenPolicyStrategy" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayForUserPolicyStrategy() { }
+        protected FixedRateTokenPolicyStrategy() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="FixedRateTokenPolicyStrategy" /> class.
         /// </summary>
         /// <param name="sponsorSchema">sponsorSchema (required).</param>
         /// <param name="depositor">depositor.</param>
-        public PayForUserPolicyStrategy(SponsorSchemaPAYFORUSER sponsorSchema = default(SponsorSchemaPAYFORUSER), string depositor = default(string))
+        /// <param name="tokenContract">tokenContract (required).</param>
+        /// <param name="tokenContractAmount">tokenContractAmount (required).</param>
+        public FixedRateTokenPolicyStrategy(SponsorSchemaFIXEDRATE sponsorSchema = default(SponsorSchemaFIXEDRATE), string depositor = default(string), string tokenContract = default(string), string tokenContractAmount = default(string))
         {
             this.SponsorSchema = sponsorSchema;
+            // to ensure "tokenContract" is required (not null)
+            if (tokenContract == null)
+            {
+                throw new ArgumentNullException("tokenContract is a required property for FixedRateTokenPolicyStrategy and cannot be null");
+            }
+            this.TokenContract = tokenContract;
+            // to ensure "tokenContractAmount" is required (not null)
+            if (tokenContractAmount == null)
+            {
+                throw new ArgumentNullException("tokenContractAmount is a required property for FixedRateTokenPolicyStrategy and cannot be null");
+            }
+            this.TokenContractAmount = tokenContractAmount;
             this.Depositor = depositor;
         }
 
@@ -62,15 +76,29 @@ namespace Openfort.SDK.Model
         public string Depositor { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenContract
+        /// </summary>
+        [DataMember(Name = "tokenContract", IsRequired = true, EmitDefaultValue = true)]
+        public string TokenContract { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenContractAmount
+        /// </summary>
+        [DataMember(Name = "tokenContractAmount", IsRequired = true, EmitDefaultValue = true)]
+        public string TokenContractAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PayForUserPolicyStrategy {\n");
+            sb.Append("class FixedRateTokenPolicyStrategy {\n");
             sb.Append("  SponsorSchema: ").Append(SponsorSchema).Append("\n");
             sb.Append("  Depositor: ").Append(Depositor).Append("\n");
+            sb.Append("  TokenContract: ").Append(TokenContract).Append("\n");
+            sb.Append("  TokenContractAmount: ").Append(TokenContractAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +119,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayForUserPolicyStrategy);
+            return this.Equals(input as FixedRateTokenPolicyStrategy);
         }
 
         /// <summary>
-        /// Returns true if PayForUserPolicyStrategy instances are equal
+        /// Returns true if FixedRateTokenPolicyStrategy instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayForUserPolicyStrategy to be compared</param>
+        /// <param name="input">Instance of FixedRateTokenPolicyStrategy to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayForUserPolicyStrategy input)
+        public bool Equals(FixedRateTokenPolicyStrategy input)
         {
             if (input == null)
             {
@@ -114,6 +142,16 @@ namespace Openfort.SDK.Model
                     this.Depositor == input.Depositor ||
                     (this.Depositor != null &&
                     this.Depositor.Equals(input.Depositor))
+                ) && 
+                (
+                    this.TokenContract == input.TokenContract ||
+                    (this.TokenContract != null &&
+                    this.TokenContract.Equals(input.TokenContract))
+                ) && 
+                (
+                    this.TokenContractAmount == input.TokenContractAmount ||
+                    (this.TokenContractAmount != null &&
+                    this.TokenContractAmount.Equals(input.TokenContractAmount))
                 );
         }
 
@@ -130,6 +168,14 @@ namespace Openfort.SDK.Model
                 if (this.Depositor != null)
                 {
                     hashCode = (hashCode * 59) + this.Depositor.GetHashCode();
+                }
+                if (this.TokenContract != null)
+                {
+                    hashCode = (hashCode * 59) + this.TokenContract.GetHashCode();
+                }
+                if (this.TokenContractAmount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TokenContractAmount.GetHashCode();
                 }
                 return hashCode;
             }

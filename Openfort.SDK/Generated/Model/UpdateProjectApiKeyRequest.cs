@@ -28,38 +28,43 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PayForUserPolicyStrategy
+    /// UpdateProjectApiKeyRequest
     /// </summary>
-    [DataContract(Name = "PayForUserPolicyStrategy")]
-    public partial class PayForUserPolicyStrategy : IEquatable<PayForUserPolicyStrategy>, IValidatableObject
+    [DataContract(Name = "UpdateProjectApiKeyRequest")]
+    public partial class UpdateProjectApiKeyRequest : IEquatable<UpdateProjectApiKeyRequest>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets SponsorSchema
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "sponsorSchema", IsRequired = true, EmitDefaultValue = true)]
-        public SponsorSchemaPAYFORUSER SponsorSchema { get; set; }
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public ApiKeyType Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UpdateProjectApiKeyRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayForUserPolicyStrategy() { }
+        protected UpdateProjectApiKeyRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayForUserPolicyStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UpdateProjectApiKeyRequest" /> class.
         /// </summary>
-        /// <param name="sponsorSchema">sponsorSchema (required).</param>
-        /// <param name="depositor">depositor.</param>
-        public PayForUserPolicyStrategy(SponsorSchemaPAYFORUSER sponsorSchema = default(SponsorSchemaPAYFORUSER), string depositor = default(string))
+        /// <param name="type">type (required).</param>
+        /// <param name="uuid">uuid (required).</param>
+        public UpdateProjectApiKeyRequest(ApiKeyType type = default(ApiKeyType), string uuid = default(string))
         {
-            this.SponsorSchema = sponsorSchema;
-            this.Depositor = depositor;
+            this.Type = type;
+            // to ensure "uuid" is required (not null)
+            if (uuid == null)
+            {
+                throw new ArgumentNullException("uuid is a required property for UpdateProjectApiKeyRequest and cannot be null");
+            }
+            this.Uuid = uuid;
         }
 
         /// <summary>
-        /// Gets or Sets Depositor
+        /// Gets or Sets Uuid
         /// </summary>
-        [DataMember(Name = "depositor", EmitDefaultValue = true)]
-        public string Depositor { get; set; }
+        [DataMember(Name = "uuid", IsRequired = true, EmitDefaultValue = true)]
+        public string Uuid { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +73,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PayForUserPolicyStrategy {\n");
-            sb.Append("  SponsorSchema: ").Append(SponsorSchema).Append("\n");
-            sb.Append("  Depositor: ").Append(Depositor).Append("\n");
+            sb.Append("class UpdateProjectApiKeyRequest {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Uuid: ").Append(Uuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +96,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayForUserPolicyStrategy);
+            return this.Equals(input as UpdateProjectApiKeyRequest);
         }
 
         /// <summary>
-        /// Returns true if PayForUserPolicyStrategy instances are equal
+        /// Returns true if UpdateProjectApiKeyRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayForUserPolicyStrategy to be compared</param>
+        /// <param name="input">Instance of UpdateProjectApiKeyRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayForUserPolicyStrategy input)
+        public bool Equals(UpdateProjectApiKeyRequest input)
         {
             if (input == null)
             {
@@ -107,13 +112,13 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.SponsorSchema == input.SponsorSchema ||
-                    this.SponsorSchema.Equals(input.SponsorSchema)
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.Depositor == input.Depositor ||
-                    (this.Depositor != null &&
-                    this.Depositor.Equals(input.Depositor))
+                    this.Uuid == input.Uuid ||
+                    (this.Uuid != null &&
+                    this.Uuid.Equals(input.Uuid))
                 );
         }
 
@@ -126,10 +131,10 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.SponsorSchema.GetHashCode();
-                if (this.Depositor != null)
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Uuid != null)
                 {
-                    hashCode = (hashCode * 59) + this.Depositor.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Uuid.GetHashCode();
                 }
                 return hashCode;
             }

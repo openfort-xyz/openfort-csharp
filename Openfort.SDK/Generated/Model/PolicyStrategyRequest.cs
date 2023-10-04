@@ -50,11 +50,13 @@ namespace Openfort.SDK.Model
         /// <param name="sponsorSchema">sponsorSchema (required).</param>
         /// <param name="tokenContract">If the user pays in custom tokens, the contract ID of the token contract..</param>
         /// <param name="tokenContractAmount">If the user pays in custom tokens, the amount of tokens to pay in WEI per native token..</param>
-        public PolicyStrategyRequest(SponsorSchema sponsorSchema = default(SponsorSchema), string tokenContract = default(string), string tokenContractAmount = default(string))
+        /// <param name="depositor">If the game wants to use their deposited tokens instead of Openfort&#39;s..</param>
+        public PolicyStrategyRequest(SponsorSchema sponsorSchema = default(SponsorSchema), string tokenContract = default(string), string tokenContractAmount = default(string), string depositor = default(string))
         {
             this.SponsorSchema = sponsorSchema;
             this.TokenContract = tokenContract;
             this.TokenContractAmount = tokenContractAmount;
+            this.Depositor = depositor;
         }
 
         /// <summary>
@@ -72,6 +74,13 @@ namespace Openfort.SDK.Model
         public string TokenContractAmount { get; set; }
 
         /// <summary>
+        /// If the game wants to use their deposited tokens instead of Openfort&#39;s.
+        /// </summary>
+        /// <value>If the game wants to use their deposited tokens instead of Openfort&#39;s.</value>
+        [DataMember(Name = "depositor", EmitDefaultValue = false)]
+        public string Depositor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace Openfort.SDK.Model
             sb.Append("  SponsorSchema: ").Append(SponsorSchema).Append("\n");
             sb.Append("  TokenContract: ").Append(TokenContract).Append("\n");
             sb.Append("  TokenContractAmount: ").Append(TokenContractAmount).Append("\n");
+            sb.Append("  Depositor: ").Append(Depositor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +140,11 @@ namespace Openfort.SDK.Model
                     this.TokenContractAmount == input.TokenContractAmount ||
                     (this.TokenContractAmount != null &&
                     this.TokenContractAmount.Equals(input.TokenContractAmount))
+                ) && 
+                (
+                    this.Depositor == input.Depositor ||
+                    (this.Depositor != null &&
+                    this.Depositor.Equals(input.Depositor))
                 );
         }
 
@@ -150,6 +165,10 @@ namespace Openfort.SDK.Model
                 if (this.TokenContractAmount != null)
                 {
                     hashCode = (hashCode * 59) + this.TokenContractAmount.GetHashCode();
+                }
+                if (this.Depositor != null)
+                {
+                    hashCode = (hashCode * 59) + this.Depositor.GetHashCode();
                 }
                 return hashCode;
             }

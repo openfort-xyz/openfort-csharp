@@ -39,16 +39,16 @@ namespace Openfort.SDK
             }
         }
 
-        private InventoryApiWrapper? inventory;
-        public InventoryApiWrapper Inventory
+        private InventoriesApiWrapper? inventories;
+        public InventoriesApiWrapper Inventories
         {
             get
             {
-                if (inventory == null)
+                if (inventories == null)
                 {
-                    inventory = new InventoryApiWrapper(apiKey, basePath);
+                    inventories = new InventoriesApiWrapper(apiKey, basePath);
                 }
-                return inventory;
+                return inventories;
             }
         }
 

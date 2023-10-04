@@ -29,46 +29,34 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PolicyStrategy
+    /// UpdateUserProjectRequestRole
     /// </summary>
-    [JsonConverter(typeof(PolicyStrategyJsonConverter))]
-    [DataContract(Name = "PolicyStrategy")]
-    public partial class PolicyStrategy : AbstractOpenAPISchema, IEquatable<PolicyStrategy>, IValidatableObject
+    [JsonConverter(typeof(UpdateUserProjectRequestRoleJsonConverter))]
+    [DataContract(Name = "UpdateUserProjectRequest_role")]
+    public partial class UpdateUserProjectRequestRole : AbstractOpenAPISchema, IEquatable<UpdateUserProjectRequestRole>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyStrategy" /> class
-        /// with the <see cref="PayForUserPolicyStrategy" /> class
+        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
+        /// with the <see cref="UserProjectRoleMEMBER" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of PayForUserPolicyStrategy.</param>
-        public PolicyStrategy(PayForUserPolicyStrategy actualInstance)
+        /// <param name="actualInstance">An instance of UserProjectRoleMEMBER.</param>
+        public UpdateUserProjectRequestRole(UserProjectRoleMEMBER actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyStrategy" /> class
-        /// with the <see cref="ChargeCustomTokenPolicyStrategy" /> class
+        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
+        /// with the <see cref="UserProjectRoleADMIN" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of ChargeCustomTokenPolicyStrategy.</param>
-        public PolicyStrategy(ChargeCustomTokenPolicyStrategy actualInstance)
+        /// <param name="actualInstance">An instance of UserProjectRoleADMIN.</param>
+        public UpdateUserProjectRequestRole(UserProjectRoleADMIN actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyStrategy" /> class
-        /// with the <see cref="FixedRateTokenPolicyStrategy" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of FixedRateTokenPolicyStrategy.</param>
-        public PolicyStrategy(FixedRateTokenPolicyStrategy actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            this.ActualInstance = actualInstance;
         }
 
 
@@ -85,53 +73,39 @@ namespace Openfort.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(ChargeCustomTokenPolicyStrategy))
+                if (value.GetType() == typeof(UserProjectRoleADMIN))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(FixedRateTokenPolicyStrategy))
-                {
-                    this._actualInstance = value;
-                }
-                else if (value.GetType() == typeof(PayForUserPolicyStrategy))
+                else if (value.GetType() == typeof(UserProjectRoleMEMBER))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ChargeCustomTokenPolicyStrategy, FixedRateTokenPolicyStrategy, PayForUserPolicyStrategy");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: UserProjectRoleADMIN, UserProjectRoleMEMBER");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `PayForUserPolicyStrategy`. If the actual instance is not `PayForUserPolicyStrategy`,
+        /// Get the actual instance of `UserProjectRoleMEMBER`. If the actual instance is not `UserProjectRoleMEMBER`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of PayForUserPolicyStrategy</returns>
-        public PayForUserPolicyStrategy GetPayForUserPolicyStrategy()
+        /// <returns>An instance of UserProjectRoleMEMBER</returns>
+        public UserProjectRoleMEMBER GetUserProjectRoleMEMBER()
         {
-            return (PayForUserPolicyStrategy)this.ActualInstance;
+            return (UserProjectRoleMEMBER)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `ChargeCustomTokenPolicyStrategy`. If the actual instance is not `ChargeCustomTokenPolicyStrategy`,
+        /// Get the actual instance of `UserProjectRoleADMIN`. If the actual instance is not `UserProjectRoleADMIN`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of ChargeCustomTokenPolicyStrategy</returns>
-        public ChargeCustomTokenPolicyStrategy GetChargeCustomTokenPolicyStrategy()
+        /// <returns>An instance of UserProjectRoleADMIN</returns>
+        public UserProjectRoleADMIN GetUserProjectRoleADMIN()
         {
-            return (ChargeCustomTokenPolicyStrategy)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `FixedRateTokenPolicyStrategy`. If the actual instance is not `FixedRateTokenPolicyStrategy`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of FixedRateTokenPolicyStrategy</returns>
-        public FixedRateTokenPolicyStrategy GetFixedRateTokenPolicyStrategy()
-        {
-            return (FixedRateTokenPolicyStrategy)this.ActualInstance;
+            return (UserProjectRoleADMIN)this.ActualInstance;
         }
 
         /// <summary>
@@ -141,7 +115,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PolicyStrategy {\n");
+            sb.Append("class UpdateUserProjectRequestRole {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -153,57 +127,45 @@ namespace Openfort.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, PolicyStrategy.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, UpdateUserProjectRequestRole.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of PolicyStrategy
+        /// Converts the JSON string into an instance of UpdateUserProjectRequestRole
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of PolicyStrategy</returns>
-        public static PolicyStrategy FromJson(string jsonString)
+        /// <returns>An instance of UpdateUserProjectRequestRole</returns>
+        public static UpdateUserProjectRequestRole FromJson(string jsonString)
         {
-            PolicyStrategy newPolicyStrategy = null;
+            UpdateUserProjectRequestRole newUpdateUserProjectRequestRole = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newPolicyStrategy;
+                return newUpdateUserProjectRequestRole;
             }
 
             try
             {
-                newPolicyStrategy = new PolicyStrategy(JsonConvert.DeserializeObject<ChargeCustomTokenPolicyStrategy>(jsonString, PolicyStrategy.SerializerSettings));
+                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleADMIN>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newPolicyStrategy;
+                return newUpdateUserProjectRequestRole;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ChargeCustomTokenPolicyStrategy: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleADMIN: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                newPolicyStrategy = new PolicyStrategy(JsonConvert.DeserializeObject<FixedRateTokenPolicyStrategy>(jsonString, PolicyStrategy.SerializerSettings));
+                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleMEMBER>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newPolicyStrategy;
+                return newUpdateUserProjectRequestRole;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FixedRateTokenPolicyStrategy: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                newPolicyStrategy = new PolicyStrategy(JsonConvert.DeserializeObject<PayForUserPolicyStrategy>(jsonString, PolicyStrategy.SerializerSettings));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newPolicyStrategy;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PayForUserPolicyStrategy: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleMEMBER: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -217,15 +179,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PolicyStrategy);
+            return this.Equals(input as UpdateUserProjectRequestRole);
         }
 
         /// <summary>
-        /// Returns true if PolicyStrategy instances are equal
+        /// Returns true if UpdateUserProjectRequestRole instances are equal
         /// </summary>
-        /// <param name="input">Instance of PolicyStrategy to be compared</param>
+        /// <param name="input">Instance of UpdateUserProjectRequestRole to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PolicyStrategy input)
+        public bool Equals(UpdateUserProjectRequestRole input)
         {
             if (input == null)
                 return false;
@@ -260,9 +222,9 @@ namespace Openfort.SDK.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for PolicyStrategy
+    /// Custom JSON converter for UpdateUserProjectRequestRole
     /// </summary>
-    public class PolicyStrategyJsonConverter : JsonConverter
+    public class UpdateUserProjectRequestRoleJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -272,7 +234,7 @@ namespace Openfort.SDK.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(PolicyStrategy).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(UpdateUserProjectRequestRole).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -287,7 +249,7 @@ namespace Openfort.SDK.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return PolicyStrategy.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return UpdateUserProjectRequestRole.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

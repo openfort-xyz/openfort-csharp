@@ -59,6 +59,8 @@ namespace Openfort.SDK.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
+        /// <param name="firstName">firstName (required).</param>
+        /// <param name="lastName">lastName (required).</param>
         /// <param name="role">role (required).</param>
         /// <param name="email">email (required).</param>
         public UserResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), int createdAt = default(int), int updatedAt = default(int), string firstName = default(string), string lastName = default(string), UserProjectRole role = default(UserProjectRole), string email = default(string))
@@ -115,12 +117,14 @@ namespace Openfort.SDK.Model
         /// Gets or Sets FirstName
         /// </summary>
         [DataMember(Name = "first_name", IsRequired = true, EmitDefaultValue = true)]
+        [Obsolete]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
         [DataMember(Name = "last_name", IsRequired = true, EmitDefaultValue = true)]
+        [Obsolete]
         public string LastName { get; set; }
 
         /// <summary>
@@ -141,6 +145,8 @@ namespace Openfort.SDK.Model
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
@@ -208,6 +214,16 @@ namespace Openfort.SDK.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
+                ) && 
+                (
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
+                ) && 
+                (
                     this.Role == input.Role ||
                     this.Role.Equals(input.Role)
                 ) && 
@@ -234,6 +250,14 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                if (this.FirstName != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
+                }
+                if (this.LastName != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
+                }
                 if (this.FirstName != null)
                 {
                     hashCode = (hashCode * 59) + this.FirstName.GetHashCode();

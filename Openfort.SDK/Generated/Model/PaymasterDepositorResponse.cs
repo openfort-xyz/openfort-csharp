@@ -28,38 +28,35 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// MemberRemoveResponse
+    /// PaymasterDepositorResponse
     /// </summary>
-    [DataContract(Name = "MemberRemoveResponse")]
-    public partial class MemberRemoveResponse : IEquatable<MemberRemoveResponse>, IValidatableObject
+    [DataContract(Name = "PaymasterDepositorResponse")]
+    public partial class PaymasterDepositorResponse : IEquatable<PaymasterDepositorResponse>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Object
-        /// </summary>
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypeUSER Object { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MemberRemoveResponse" /> class.
+        /// Initializes a new instance of the <see cref="PaymasterDepositorResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MemberRemoveResponse() { }
+        protected PaymasterDepositorResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MemberRemoveResponse" /> class.
+        /// Initializes a new instance of the <see cref="PaymasterDepositorResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="_object">_object (required).</param>
-        /// <param name="deleted">deleted (required).</param>
-        public MemberRemoveResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), bool deleted = default(bool))
+        /// <param name="depositorAddress">depositorAddress (required).</param>
+        public PaymasterDepositorResponse(string id = default(string), string depositorAddress = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for MemberRemoveResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for PaymasterDepositorResponse and cannot be null");
             }
             this.Id = id;
-            this.Object = _object;
-            this.Deleted = deleted;
+            // to ensure "depositorAddress" is required (not null)
+            if (depositorAddress == null)
+            {
+                throw new ArgumentNullException("depositorAddress is a required property for PaymasterDepositorResponse and cannot be null");
+            }
+            this.DepositorAddress = depositorAddress;
         }
 
         /// <summary>
@@ -69,10 +66,10 @@ namespace Openfort.SDK.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Deleted
+        /// Gets or Sets DepositorAddress
         /// </summary>
-        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Deleted { get; set; }
+        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
+        public string DepositorAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +78,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MemberRemoveResponse {\n");
+            sb.Append("class PaymasterDepositorResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MemberRemoveResponse);
+            return this.Equals(input as PaymasterDepositorResponse);
         }
 
         /// <summary>
-        /// Returns true if MemberRemoveResponse instances are equal
+        /// Returns true if PaymasterDepositorResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MemberRemoveResponse to be compared</param>
+        /// <param name="input">Instance of PaymasterDepositorResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MemberRemoveResponse input)
+        public bool Equals(PaymasterDepositorResponse input)
         {
             if (input == null)
             {
@@ -126,12 +122,9 @@ namespace Openfort.SDK.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Object == input.Object ||
-                    this.Object.Equals(input.Object)
-                ) && 
-                (
-                    this.Deleted == input.Deleted ||
-                    this.Deleted.Equals(input.Deleted)
+                    this.DepositorAddress == input.DepositorAddress ||
+                    (this.DepositorAddress != null &&
+                    this.DepositorAddress.Equals(input.DepositorAddress))
                 );
         }
 
@@ -148,8 +141,10 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Object.GetHashCode();
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                if (this.DepositorAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
+                }
                 return hashCode;
             }
         }

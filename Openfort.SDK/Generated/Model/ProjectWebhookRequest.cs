@@ -36,30 +36,25 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectWebhookRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ProjectWebhookRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectWebhookRequest" /> class.
-        /// </summary>
-        /// <param name="livemode">livemode (required).</param>
         /// <param name="url">url.</param>
-        public ProjectWebhookRequest(bool livemode = default(bool), string url = default(string))
+        /// <param name="apiKey">apiKey.</param>
+        public ProjectWebhookRequest(string url = default(string), string apiKey = default(string))
         {
-            this.Livemode = livemode;
             this.Url = url;
+            this.ApiKey = apiKey;
         }
-
-        /// <summary>
-        /// Gets or Sets Livemode
-        /// </summary>
-        [DataMember(Name = "livemode", IsRequired = true, EmitDefaultValue = true)]
-        public bool Livemode { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
         [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApiKey
+        /// </summary>
+        [DataMember(Name = "apiKey", EmitDefaultValue = false)]
+        public string ApiKey { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,8 +64,8 @@ namespace Openfort.SDK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProjectWebhookRequest {\n");
-            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,13 +102,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Livemode == input.Livemode ||
-                    this.Livemode.Equals(input.Livemode)
-                ) && 
-                (
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.ApiKey == input.ApiKey ||
+                    (this.ApiKey != null &&
+                    this.ApiKey.Equals(input.ApiKey))
                 );
         }
 
@@ -126,10 +122,13 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Livemode.GetHashCode();
                 if (this.Url != null)
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
+                if (this.ApiKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApiKey.GetHashCode();
                 }
                 return hashCode;
             }
