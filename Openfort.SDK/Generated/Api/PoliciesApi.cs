@@ -85,6 +85,42 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of PolicyDeleteResponse</returns>
         ApiResponse<PolicyDeleteResponse> DeletePolicyWithHttpInfo(string id);
         /// <summary>
+        /// Disable a policy object.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>PolicyResponse</returns>
+        PolicyResponse DisablePolicy(string id);
+
+        /// <summary>
+        /// Disable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>ApiResponse of PolicyResponse</returns>
+        ApiResponse<PolicyResponse> DisablePolicyWithHttpInfo(string id);
+        /// <summary>
+        /// Enable a policy object.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>PolicyResponse</returns>
+        PolicyResponse EnablePolicy(string id);
+
+        /// <summary>
+        /// Enable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>ApiResponse of PolicyResponse</returns>
+        ApiResponse<PolicyResponse> EnablePolicyWithHttpInfo(string id);
+        /// <summary>
         /// List policies.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -95,8 +131,9 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <returns>PolicyListResponse</returns>
-        PolicyListResponse GetPolicies(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?));
+        PolicyListResponse GetPolicies(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?));
 
         /// <summary>
         /// List policies.
@@ -112,8 +149,9 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <returns>ApiResponse of PolicyListResponse</returns>
-        ApiResponse<PolicyListResponse> GetPoliciesWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?));
+        ApiResponse<PolicyListResponse> GetPoliciesWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?));
         /// <summary>
         /// Get a policy object.
         /// </summary>
@@ -295,6 +333,52 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (PolicyDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyDeleteResponse>> DeletePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Disable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PolicyResponse</returns>
+        System.Threading.Tasks.Task<PolicyResponse> DisablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Disable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PolicyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> DisablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Enable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PolicyResponse</returns>
+        System.Threading.Tasks.Task<PolicyResponse> EnablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Enable a policy object.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PolicyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> EnablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// List policies.
         /// </summary>
         /// <remarks>
@@ -308,9 +392,10 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyListResponse</returns>
-        System.Threading.Tasks.Task<PolicyListResponse> GetPoliciesAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PolicyListResponse> GetPoliciesAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List policies.
@@ -326,9 +411,10 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PolicyListResponse>> GetPoliciesWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PolicyListResponse>> GetPoliciesWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get a policy object.
         /// </summary>
@@ -1067,6 +1153,260 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
+        /// Disable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>PolicyResponse</returns>
+        public PolicyResponse DisablePolicy(string id)
+        {
+            Openfort.SDK.Client.ApiResponse<PolicyResponse> localVarResponse = DisablePolicyWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Disable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>ApiResponse of PolicyResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<PolicyResponse> DisablePolicyWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->DisablePolicy");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<PolicyResponse>("/v1/policies/{id}/disable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DisablePolicy", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Disable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PolicyResponse</returns>
+        public async System.Threading.Tasks.Task<PolicyResponse> DisablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<PolicyResponse> localVarResponse = await DisablePolicyWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Disable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PolicyResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyResponse>> DisablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->DisablePolicy");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PolicyResponse>("/v1/policies/{id}/disable", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DisablePolicy", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Enable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>PolicyResponse</returns>
+        public PolicyResponse EnablePolicy(string id)
+        {
+            Openfort.SDK.Client.ApiResponse<PolicyResponse> localVarResponse = EnablePolicyWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <returns>ApiResponse of PolicyResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<PolicyResponse> EnablePolicyWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->EnablePolicy");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<PolicyResponse>("/v1/policies/{id}/enable", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EnablePolicy", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Enable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PolicyResponse</returns>
+        public async System.Threading.Tasks.Task<PolicyResponse> EnablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<PolicyResponse> localVarResponse = await EnablePolicyWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Enable a policy object. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PolicyResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyResponse>> EnablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->EnablePolicy");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PolicyResponse>("/v1/policies/{id}/enable", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EnablePolicy", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List policies. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1077,10 +1417,11 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <returns>PolicyListResponse</returns>
-        public PolicyListResponse GetPolicies(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?))
+        public PolicyListResponse GetPolicies(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?))
         {
-            Openfort.SDK.Client.ApiResponse<PolicyListResponse> localVarResponse = GetPoliciesWithHttpInfo(limit, skip, order, expand, name, deleted, chainId);
+            Openfort.SDK.Client.ApiResponse<PolicyListResponse> localVarResponse = GetPoliciesWithHttpInfo(limit, skip, order, expand, name, deleted, chainId, enabled);
             return localVarResponse.Data;
         }
 
@@ -1095,8 +1436,9 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <returns>ApiResponse of PolicyListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<PolicyListResponse> GetPoliciesWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?))
+        public Openfort.SDK.Client.ApiResponse<PolicyListResponse> GetPoliciesWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1141,6 +1483,10 @@ namespace Openfort.SDK.Api
             if (chainId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "chainId", chainId));
+            }
+            if (enabled != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "enabled", enabled));
             }
 
             // authentication (sk) required
@@ -1173,11 +1519,12 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyListResponse</returns>
-        public async System.Threading.Tasks.Task<PolicyListResponse> GetPoliciesAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PolicyListResponse> GetPoliciesAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<PolicyListResponse> localVarResponse = await GetPoliciesWithHttpInfoAsync(limit, skip, order, expand, name, deleted, chainId, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<PolicyListResponse> localVarResponse = await GetPoliciesWithHttpInfoAsync(limit, skip, order, expand, name, deleted, chainId, enabled, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1192,9 +1539,10 @@ namespace Openfort.SDK.Api
         /// <param name="name">Specifies the name of the policy. (optional)</param>
         /// <param name="deleted">Specifies whether to include deleted contracts. (optional)</param>
         /// <param name="chainId">The chain ID of the policy. (optional)</param>
+        /// <param name="enabled">Specifies whether to include enabled contracts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyListResponse>> GetPoliciesWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyListResponse>> GetPoliciesWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), bool? enabled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -1241,6 +1589,10 @@ namespace Openfort.SDK.Api
             if (chainId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "chainId", chainId));
+            }
+            if (enabled != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "enabled", enabled));
             }
 
             // authentication (sk) required
