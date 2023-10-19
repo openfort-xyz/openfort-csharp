@@ -51,7 +51,7 @@ namespace Openfort.SDK.Model
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="expand">Specifies the fields to expand in the response..</param>
-        /// <param name="player">Specifies the unique player ID (required).</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (required).</param>
         public AccountListQueries(double limit = default(double), double skip = default(double), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), string player = default(string))
         {
             // to ensure "player" is required (not null)
@@ -88,9 +88,9 @@ namespace Openfort.SDK.Model
         public List<AccountResponseExpandable> Expand { get; set; }
 
         /// <summary>
-        /// Specifies the unique player ID
+        /// Specifies the unique player ID (starts with pla_)
         /// </summary>
-        /// <value>Specifies the unique player ID</value>
+        /// <value>Specifies the unique player ID (starts with pla_)</value>
         [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
         public string Player { get; set; }
 

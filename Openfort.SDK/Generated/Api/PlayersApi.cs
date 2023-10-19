@@ -76,7 +76,7 @@ namespace Openfort.SDK.Api
         /// Create account object for a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>AccountResponse</returns>
         AccountResponse CreatePlayerAccount(string id, CreatePlayerAccountRequest createPlayerAccountRequest);
@@ -88,7 +88,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
         ApiResponse<AccountResponse> CreatePlayerAccountWithHttpInfo(string id, CreatePlayerAccountRequest createPlayerAccountRequest);
@@ -96,7 +96,7 @@ namespace Openfort.SDK.Api
         /// Create session object for a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>SessionResponse</returns>
         SessionResponse CreatePlayerSession(string id, CreatePlayerSessionRequest createPlayerSessionRequest);
@@ -108,7 +108,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
         ApiResponse<SessionResponse> CreatePlayerSessionWithHttpInfo(string id, CreatePlayerSessionRequest createPlayerSessionRequest);
@@ -116,7 +116,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>PlayerResponse</returns>
         PlayerResponse GetPlayer(string id, List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>));
@@ -128,7 +128,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         ApiResponse<PlayerResponse> GetPlayerWithHttpInfo(string id, List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>));
@@ -136,7 +136,7 @@ namespace Openfort.SDK.Api
         /// List of accounts of a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>AccountListResponse</returns>
         AccountListResponse GetPlayerAccounts(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
@@ -148,7 +148,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
         ApiResponse<AccountListResponse> GetPlayerAccountsWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
@@ -213,7 +213,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         [Obsolete]
@@ -226,7 +226,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         [Obsolete]
@@ -238,7 +238,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         TransactionIntentResponse RequestTransferAccountOwnership(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest);
@@ -250,7 +250,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         ApiResponse<TransactionIntentResponse> RequestTransferAccountOwnershipWithHttpInfo(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest);
@@ -258,7 +258,7 @@ namespace Openfort.SDK.Api
         /// Revoke session object for a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>SessionResponse</returns>
         SessionResponse RevokePlayerSession(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest);
@@ -270,7 +270,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
         ApiResponse<SessionResponse> RevokePlayerSessionWithHttpInfo(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest);
@@ -278,7 +278,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <returns>PlayerResponse</returns>
         PlayerResponse UpdatePlayer(string id, PlayerRequest playerRequest);
@@ -290,7 +290,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         ApiResponse<PlayerResponse> UpdatePlayerWithHttpInfo(string id, PlayerRequest playerRequest);
@@ -358,7 +358,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -371,7 +371,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -383,7 +383,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
@@ -396,7 +396,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
@@ -408,7 +408,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
@@ -421,7 +421,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
@@ -433,7 +433,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
@@ -446,7 +446,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
@@ -516,7 +516,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -530,7 +530,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -543,7 +543,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -556,7 +556,7 @@ namespace Openfort.SDK.Api
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -568,7 +568,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
@@ -581,7 +581,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
@@ -593,7 +593,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
@@ -606,7 +606,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
@@ -1100,7 +1100,7 @@ namespace Openfort.SDK.Api
         /// Create account object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>AccountResponse</returns>
         public AccountResponse CreatePlayerAccount(string id, CreatePlayerAccountRequest createPlayerAccountRequest)
@@ -1113,7 +1113,7 @@ namespace Openfort.SDK.Api
         /// Create account object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
         public Openfort.SDK.Client.ApiResponse<AccountResponse> CreatePlayerAccountWithHttpInfo(string id, CreatePlayerAccountRequest createPlayerAccountRequest)
@@ -1169,7 +1169,7 @@ namespace Openfort.SDK.Api
         /// Create account object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -1183,7 +1183,7 @@ namespace Openfort.SDK.Api
         /// Create account object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -1243,7 +1243,7 @@ namespace Openfort.SDK.Api
         /// Create session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>SessionResponse</returns>
         public SessionResponse CreatePlayerSession(string id, CreatePlayerSessionRequest createPlayerSessionRequest)
@@ -1256,7 +1256,7 @@ namespace Openfort.SDK.Api
         /// Create session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
         public Openfort.SDK.Client.ApiResponse<SessionResponse> CreatePlayerSessionWithHttpInfo(string id, CreatePlayerSessionRequest createPlayerSessionRequest)
@@ -1312,7 +1312,7 @@ namespace Openfort.SDK.Api
         /// Create session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
@@ -1326,7 +1326,7 @@ namespace Openfort.SDK.Api
         /// Create session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
@@ -1386,7 +1386,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>PlayerResponse</returns>
         public PlayerResponse GetPlayer(string id, List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>))
@@ -1399,7 +1399,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PlayerResponse> GetPlayerWithHttpInfo(string id, List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>))
@@ -1453,7 +1453,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
@@ -1467,7 +1467,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
@@ -1525,7 +1525,7 @@ namespace Openfort.SDK.Api
         /// List of accounts of a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>AccountListResponse</returns>
         public AccountListResponse GetPlayerAccounts(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
@@ -1538,7 +1538,7 @@ namespace Openfort.SDK.Api
         /// List of accounts of a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
         public Openfort.SDK.Client.ApiResponse<AccountListResponse> GetPlayerAccountsWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
@@ -1592,7 +1592,7 @@ namespace Openfort.SDK.Api
         /// List of accounts of a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
@@ -1606,7 +1606,7 @@ namespace Openfort.SDK.Api
         /// List of accounts of a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
@@ -1984,7 +1984,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         [Obsolete]
@@ -1998,7 +1998,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         [Obsolete]
@@ -2055,7 +2055,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -2070,7 +2070,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -2131,7 +2131,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         public TransactionIntentResponse RequestTransferAccountOwnership(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest)
@@ -2144,7 +2144,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> RequestTransferAccountOwnershipWithHttpInfo(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest)
@@ -2200,7 +2200,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -2214,7 +2214,7 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -2274,7 +2274,7 @@ namespace Openfort.SDK.Api
         /// Revoke session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>SessionResponse</returns>
         public SessionResponse RevokePlayerSession(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest)
@@ -2287,7 +2287,7 @@ namespace Openfort.SDK.Api
         /// Revoke session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
         public Openfort.SDK.Client.ApiResponse<SessionResponse> RevokePlayerSessionWithHttpInfo(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest)
@@ -2343,7 +2343,7 @@ namespace Openfort.SDK.Api
         /// Revoke session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
@@ -2357,7 +2357,7 @@ namespace Openfort.SDK.Api
         /// Revoke session object for a player. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
@@ -2417,7 +2417,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <returns>PlayerResponse</returns>
         public PlayerResponse UpdatePlayer(string id, PlayerRequest playerRequest)
@@ -2430,7 +2430,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PlayerResponse> UpdatePlayerWithHttpInfo(string id, PlayerRequest playerRequest)
@@ -2486,7 +2486,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
@@ -2500,7 +2500,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID.</param>
+        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>

@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="RevokeSessionPlayerRequest" /> class.
         /// </summary>
         /// <param name="address">The address of the session key to revoke. (required).</param>
-        /// <param name="policy">The policy ID.</param>
+        /// <param name="policy">The policy ID (starts with pol_).</param>
         /// <param name="optimistic">Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not..</param>
         /// <param name="chainId">The chain ID. (required).</param>
         public RevokeSessionPlayerRequest(string address = default(string), string policy = default(string), bool optimistic = default(bool), int chainId = default(int))
@@ -66,9 +66,9 @@ namespace Openfort.SDK.Model
         public string Address { get; set; }
 
         /// <summary>
-        /// The policy ID
+        /// The policy ID (starts with pol_)
         /// </summary>
-        /// <value>The policy ID</value>
+        /// <value>The policy ID (starts with pol_)</value>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
 

@@ -50,7 +50,7 @@ namespace Openfort.SDK.Api
         /// Create a policy rule object for a policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
         PolicyRuleResponse CreatePolicyAllowFunction(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest);
@@ -62,7 +62,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
         ApiResponse<PolicyRuleResponse> CreatePolicyAllowFunctionWithHttpInfo(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest);
@@ -70,7 +70,7 @@ namespace Openfort.SDK.Api
         /// Delete a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyDeleteResponse</returns>
         PolicyDeleteResponse DeletePolicy(string id);
 
@@ -81,14 +81,14 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyDeleteResponse</returns>
         ApiResponse<PolicyDeleteResponse> DeletePolicyWithHttpInfo(string id);
         /// <summary>
         /// Disable a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyResponse</returns>
         PolicyResponse DisablePolicy(string id);
 
@@ -99,14 +99,14 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> DisablePolicyWithHttpInfo(string id);
         /// <summary>
         /// Enable a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyResponse</returns>
         PolicyResponse EnablePolicy(string id);
 
@@ -117,7 +117,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> EnablePolicyWithHttpInfo(string id);
         /// <summary>
@@ -156,7 +156,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyResponse</returns>
         PolicyResponse GetPolicy(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>));
@@ -168,7 +168,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> GetPolicyWithHttpInfo(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>));
@@ -176,7 +176,7 @@ namespace Openfort.SDK.Api
         /// List policy rules of a policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyRuleListResponse</returns>
         PolicyRuleListResponse GetPolicyAllowFunctions(string id, List<string> expand = default(List<string>));
@@ -188,7 +188,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyRuleListResponse</returns>
         ApiResponse<PolicyRuleListResponse> GetPolicyAllowFunctionsWithHttpInfo(string id, List<string> expand = default(List<string>));
@@ -196,7 +196,7 @@ namespace Openfort.SDK.Api
         /// List all gas reports of a policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>GasReport</returns>
         GasReport GetPolicyTotalGasUsage(string id);
 
@@ -207,14 +207,14 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of GasReport</returns>
         ApiResponse<GasReport> GetPolicyTotalGasUsageWithHttpInfo(string id);
         /// <summary>
         /// Update a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <returns>PolicyResponse</returns>
         PolicyResponse UpdatePolicy(string id, UpdatePolicyRequest updatePolicyRequest);
@@ -226,7 +226,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> UpdatePolicyWithHttpInfo(string id, UpdatePolicyRequest updatePolicyRequest);
@@ -291,7 +291,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
@@ -304,7 +304,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
@@ -316,7 +316,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyDeleteResponse</returns>
         System.Threading.Tasks.Task<PolicyDeleteResponse> DeletePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -328,7 +328,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyDeleteResponse>> DeletePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -339,7 +339,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
         System.Threading.Tasks.Task<PolicyResponse> DisablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -351,7 +351,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> DisablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -362,7 +362,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
         System.Threading.Tasks.Task<PolicyResponse> EnablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -374,7 +374,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> EnablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -422,7 +422,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
@@ -435,7 +435,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
@@ -447,7 +447,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleListResponse</returns>
@@ -460,7 +460,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleListResponse)</returns>
@@ -472,7 +472,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GasReport</returns>
         System.Threading.Tasks.Task<GasReport> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -484,7 +484,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GasReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<GasReport>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -495,7 +495,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
@@ -508,7 +508,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
@@ -886,7 +886,7 @@ namespace Openfort.SDK.Api
         /// Create a policy rule object for a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
         public PolicyRuleResponse CreatePolicyAllowFunction(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest)
@@ -899,7 +899,7 @@ namespace Openfort.SDK.Api
         /// Create a policy rule object for a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> CreatePolicyAllowFunctionWithHttpInfo(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest)
@@ -955,7 +955,7 @@ namespace Openfort.SDK.Api
         /// Create a policy rule object for a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
@@ -969,7 +969,7 @@ namespace Openfort.SDK.Api
         /// Create a policy rule object for a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
@@ -1029,7 +1029,7 @@ namespace Openfort.SDK.Api
         /// Delete a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyDeleteResponse</returns>
         public PolicyDeleteResponse DeletePolicy(string id)
         {
@@ -1041,7 +1041,7 @@ namespace Openfort.SDK.Api
         /// Delete a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyDeleteResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyDeleteResponse> DeletePolicyWithHttpInfo(string id)
         {
@@ -1090,7 +1090,7 @@ namespace Openfort.SDK.Api
         /// Delete a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyDeleteResponse</returns>
         public async System.Threading.Tasks.Task<PolicyDeleteResponse> DeletePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1103,7 +1103,7 @@ namespace Openfort.SDK.Api
         /// Delete a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyDeleteResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyDeleteResponse>> DeletePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1156,7 +1156,7 @@ namespace Openfort.SDK.Api
         /// Disable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyResponse</returns>
         public PolicyResponse DisablePolicy(string id)
         {
@@ -1168,7 +1168,7 @@ namespace Openfort.SDK.Api
         /// Disable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyResponse> DisablePolicyWithHttpInfo(string id)
         {
@@ -1217,7 +1217,7 @@ namespace Openfort.SDK.Api
         /// Disable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
         public async System.Threading.Tasks.Task<PolicyResponse> DisablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1230,7 +1230,7 @@ namespace Openfort.SDK.Api
         /// Disable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyResponse>> DisablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1283,7 +1283,7 @@ namespace Openfort.SDK.Api
         /// Enable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyResponse</returns>
         public PolicyResponse EnablePolicy(string id)
         {
@@ -1295,7 +1295,7 @@ namespace Openfort.SDK.Api
         /// Enable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyResponse> EnablePolicyWithHttpInfo(string id)
         {
@@ -1344,7 +1344,7 @@ namespace Openfort.SDK.Api
         /// Enable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
         public async System.Threading.Tasks.Task<PolicyResponse> EnablePolicyAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1357,7 +1357,7 @@ namespace Openfort.SDK.Api
         /// Enable a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyResponse>> EnablePolicyWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1619,7 +1619,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyResponse</returns>
         public PolicyResponse GetPolicy(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>))
@@ -1632,7 +1632,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyResponse> GetPolicyWithHttpInfo(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>))
@@ -1686,7 +1686,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
@@ -1700,7 +1700,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
@@ -1758,7 +1758,7 @@ namespace Openfort.SDK.Api
         /// List policy rules of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyRuleListResponse</returns>
         public PolicyRuleListResponse GetPolicyAllowFunctions(string id, List<string> expand = default(List<string>))
@@ -1771,7 +1771,7 @@ namespace Openfort.SDK.Api
         /// List policy rules of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyRuleListResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyRuleListResponse> GetPolicyAllowFunctionsWithHttpInfo(string id, List<string> expand = default(List<string>))
@@ -1825,7 +1825,7 @@ namespace Openfort.SDK.Api
         /// List policy rules of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleListResponse</returns>
@@ -1839,7 +1839,7 @@ namespace Openfort.SDK.Api
         /// List policy rules of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleListResponse)</returns>
@@ -1897,7 +1897,7 @@ namespace Openfort.SDK.Api
         /// List all gas reports of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>GasReport</returns>
         public GasReport GetPolicyTotalGasUsage(string id)
         {
@@ -1909,7 +1909,7 @@ namespace Openfort.SDK.Api
         /// List all gas reports of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>ApiResponse of GasReport</returns>
         public Openfort.SDK.Client.ApiResponse<GasReport> GetPolicyTotalGasUsageWithHttpInfo(string id)
         {
@@ -1958,7 +1958,7 @@ namespace Openfort.SDK.Api
         /// List all gas reports of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GasReport</returns>
         public async System.Threading.Tasks.Task<GasReport> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1971,7 +1971,7 @@ namespace Openfort.SDK.Api
         /// List all gas reports of a policy. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GasReport)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<GasReport>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -2024,7 +2024,7 @@ namespace Openfort.SDK.Api
         /// Update a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <returns>PolicyResponse</returns>
         public PolicyResponse UpdatePolicy(string id, UpdatePolicyRequest updatePolicyRequest)
@@ -2037,7 +2037,7 @@ namespace Openfort.SDK.Api
         /// Update a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <returns>ApiResponse of PolicyResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyResponse> UpdatePolicyWithHttpInfo(string id, UpdatePolicyRequest updatePolicyRequest)
@@ -2093,7 +2093,7 @@ namespace Openfort.SDK.Api
         /// Update a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyResponse</returns>
@@ -2107,7 +2107,7 @@ namespace Openfort.SDK.Api
         /// Update a policy object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy ID.</param>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="updatePolicyRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>

@@ -29,7 +29,7 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// The player ID.
+    /// The player ID (starts with pla_).
     /// </summary>
     [JsonConverter(typeof(TransactionIntentResponsePlayerJsonConverter))]
     [DataContract(Name = "TransactionIntentResponse_player")]

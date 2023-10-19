@@ -41,8 +41,8 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthResponse" /> class.
         /// </summary>
-        /// <param name="playerId">playerId (required).</param>
-        /// <param name="token">token (required).</param>
+        /// <param name="playerId">Player&#39;s identifier. (required).</param>
+        /// <param name="token">JWT token. (required).</param>
         public AuthResponse(string playerId = default(string), string token = default(string))
         {
             // to ensure "playerId" is required (not null)
@@ -60,14 +60,16 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets PlayerId
+        /// Player&#39;s identifier.
         /// </summary>
+        /// <value>Player&#39;s identifier.</value>
         [DataMember(Name = "playerId", IsRequired = true, EmitDefaultValue = true)]
         public string PlayerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Token
+        /// JWT token.
         /// </summary>
+        /// <value>JWT token.</value>
         [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
         public string Token { get; set; }
 

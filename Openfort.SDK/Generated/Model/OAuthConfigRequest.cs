@@ -28,50 +28,35 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// StartRecoveryRequest
+    /// Request for the configuration endpoints for the OAuth providers
     /// </summary>
-    [DataContract(Name = "StartRecoveryRequest")]
-    public partial class StartRecoveryRequest : IEquatable<StartRecoveryRequest>, IValidatableObject
+    [DataContract(Name = "OAuthConfigRequest")]
+    public partial class OAuthConfigRequest : IEquatable<OAuthConfigRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartRecoveryRequest" /> class.
+        /// Initializes a new instance of the <see cref="OAuthConfigRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StartRecoveryRequest() { }
+        protected OAuthConfigRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StartRecoveryRequest" /> class.
+        /// Initializes a new instance of the <see cref="OAuthConfigRequest" /> class.
         /// </summary>
-        /// <param name="newOwnerAddress">Address of the new owner (required).</param>
-        /// <param name="policy">The policy ID (starts with pol_) (required).</param>
-        public StartRecoveryRequest(string newOwnerAddress = default(string), string policy = default(string))
+        /// <param name="config">config (required).</param>
+        public OAuthConfigRequest(AccelbyteOauthConfig config = default(AccelbyteOauthConfig))
         {
-            // to ensure "newOwnerAddress" is required (not null)
-            if (newOwnerAddress == null)
+            // to ensure "config" is required (not null)
+            if (config == null)
             {
-                throw new ArgumentNullException("newOwnerAddress is a required property for StartRecoveryRequest and cannot be null");
+                throw new ArgumentNullException("config is a required property for OAuthConfigRequest and cannot be null");
             }
-            this.NewOwnerAddress = newOwnerAddress;
-            // to ensure "policy" is required (not null)
-            if (policy == null)
-            {
-                throw new ArgumentNullException("policy is a required property for StartRecoveryRequest and cannot be null");
-            }
-            this.Policy = policy;
+            this.Config = config;
         }
 
         /// <summary>
-        /// Address of the new owner
+        /// Gets or Sets Config
         /// </summary>
-        /// <value>Address of the new owner</value>
-        [DataMember(Name = "newOwnerAddress", IsRequired = true, EmitDefaultValue = true)]
-        public string NewOwnerAddress { get; set; }
-
-        /// <summary>
-        /// The policy ID (starts with pol_)
-        /// </summary>
-        /// <value>The policy ID (starts with pol_)</value>
-        [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
-        public string Policy { get; set; }
+        [DataMember(Name = "config", IsRequired = true, EmitDefaultValue = true)]
+        public AccelbyteOauthConfig Config { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -80,9 +65,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class StartRecoveryRequest {\n");
-            sb.Append("  NewOwnerAddress: ").Append(NewOwnerAddress).Append("\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("class OAuthConfigRequest {\n");
+            sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,15 +87,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StartRecoveryRequest);
+            return this.Equals(input as OAuthConfigRequest);
         }
 
         /// <summary>
-        /// Returns true if StartRecoveryRequest instances are equal
+        /// Returns true if OAuthConfigRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of StartRecoveryRequest to be compared</param>
+        /// <param name="input">Instance of OAuthConfigRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StartRecoveryRequest input)
+        public bool Equals(OAuthConfigRequest input)
         {
             if (input == null)
             {
@@ -119,14 +103,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.NewOwnerAddress == input.NewOwnerAddress ||
-                    (this.NewOwnerAddress != null &&
-                    this.NewOwnerAddress.Equals(input.NewOwnerAddress))
-                ) && 
-                (
-                    this.Policy == input.Policy ||
-                    (this.Policy != null &&
-                    this.Policy.Equals(input.Policy))
+                    this.Config == input.Config ||
+                    (this.Config != null &&
+                    this.Config.Equals(input.Config))
                 );
         }
 
@@ -139,13 +118,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NewOwnerAddress != null)
+                if (this.Config != null)
                 {
-                    hashCode = (hashCode * 59) + this.NewOwnerAddress.GetHashCode();
-                }
-                if (this.Policy != null)
-                {
-                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Config.GetHashCode();
                 }
                 return hashCode;
             }

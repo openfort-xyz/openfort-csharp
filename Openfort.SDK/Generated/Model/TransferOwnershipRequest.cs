@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="TransferOwnershipRequest" /> class.
         /// </summary>
         /// <param name="newOwnerAddress">The address of the new owner (required).</param>
-        /// <param name="policy">The policy ID (required).</param>
+        /// <param name="policy">The policy ID (starts with pol_) (required).</param>
         public TransferOwnershipRequest(string newOwnerAddress = default(string), string policy = default(string))
         {
             // to ensure "newOwnerAddress" is required (not null)
@@ -67,9 +67,9 @@ namespace Openfort.SDK.Model
         public string NewOwnerAddress { get; set; }
 
         /// <summary>
-        /// The policy ID
+        /// The policy ID (starts with pol_)
         /// </summary>
-        /// <value>The policy ID</value>
+        /// <value>The policy ID (starts with pol_)</value>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }
 
