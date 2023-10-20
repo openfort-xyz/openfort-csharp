@@ -1,4 +1,10 @@
 ﻿using Openfort.SDK.Wrapper;
+using Openfort.SDK.Model;
+using Openfort.SDK.Extensions;
+using System.Security.Cryptography;
+using Newtonsoft.Json;
+using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Openfort.SDK
 {
@@ -115,6 +121,41 @@ namespace Openfort.SDK
                 }
                 return transactionIntents;
             }
+        }
+
+        public WebHookEvent? ConstructWebhookEvent(string body, string signature) {
+            var signedPayload = Sign(body);
+            if (!string.Equals(signedPayload, signature, StringComparison.OrdinalIgnoreCase)) {
+                throw new Exception("Invalid signature");
+            }
+            return JsonConvert.DeserializeObject<WebHookEvent>(body);
+        }
+
+        private byte[] signingKey;
+        private byte[] SigningKey
+        {
+            get
+            {
+                if (signingKey == null)
+                {
+                    var splittedSecret = apiKey.Split("_");
+                    if (splittedSecret.Length != 3)
+                    {
+                        throw new Exception("Invalid secret key");
+                    }
+                    var bareKey = splittedSecret[2].Replace("-", String.Empty);
+                    signingKey = Encoding.UTF8.GetBytes(bareKey);
+                }
+                return signingKey;
+            }
+        }
+
+        private string Sign(string message)
+        {
+            var bytesArray = Encoding.UTF8.GetBytes(message);
+            var hmac = IncrementalHash.CreateHMAC(HashAlgorithmName.SHA256, SigningKey);
+            hmac.AppendData(bytesArray);
+            return hmac.GetCurrentHash().ToHex();
         }
     }
 }

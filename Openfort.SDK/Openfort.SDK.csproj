@@ -12,11 +12,13 @@
     <None Remove="Generated\" />
     <None Remove="Model\" />
     <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrapper\" />
     <Folder Include="Generated\" />
     <Folder Include="Model\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
