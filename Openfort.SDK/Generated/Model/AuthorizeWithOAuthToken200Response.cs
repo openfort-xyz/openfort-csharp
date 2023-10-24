@@ -29,18 +29,18 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UpdateUserProjectRequestRole
+    /// AuthorizeWithOAuthToken200Response
     /// </summary>
-    [JsonConverter(typeof(UpdateUserProjectRequestRoleJsonConverter))]
-    [DataContract(Name = "UpdateUserProjectRequest_role")]
-    public partial class UpdateUserProjectRequestRole : AbstractOpenAPISchema, IEquatable<UpdateUserProjectRequestRole>, IValidatableObject
+    [JsonConverter(typeof(AuthorizeWithOAuthToken200ResponseJsonConverter))]
+    [DataContract(Name = "AuthorizeWithOAuthToken_200_response")]
+    public partial class AuthorizeWithOAuthToken200Response : AbstractOpenAPISchema, IEquatable<AuthorizeWithOAuthToken200Response>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleMEMBER" /> class
+        /// Initializes a new instance of the <see cref="AuthorizeWithOAuthToken200Response" /> class
+        /// with the <see cref="AuthResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleMEMBER.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleMEMBER actualInstance)
+        /// <param name="actualInstance">An instance of AuthResponse.</param>
+        public AuthorizeWithOAuthToken200Response(AuthResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -48,11 +48,11 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleADMIN" /> class
+        /// Initializes a new instance of the <see cref="AuthorizeWithOAuthToken200Response" /> class
+        /// with the <see cref="AuthenticatedPlayerResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleADMIN.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleADMIN actualInstance)
+        /// <param name="actualInstance">An instance of AuthenticatedPlayerResponse.</param>
+        public AuthorizeWithOAuthToken200Response(AuthenticatedPlayerResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -73,39 +73,39 @@ namespace Openfort.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(UserProjectRoleADMIN))
+                if (value.GetType() == typeof(AuthResponse))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UserProjectRoleMEMBER))
+                else if (value.GetType() == typeof(AuthenticatedPlayerResponse))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: UserProjectRoleADMIN, UserProjectRoleMEMBER");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AuthResponse, AuthenticatedPlayerResponse");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleMEMBER`. If the actual instance is not `UserProjectRoleMEMBER`,
+        /// Get the actual instance of `AuthResponse`. If the actual instance is not `AuthResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleMEMBER</returns>
-        public UserProjectRoleMEMBER GetUserProjectRoleMEMBER()
+        /// <returns>An instance of AuthResponse</returns>
+        public AuthResponse GetAuthResponse()
         {
-            return (UserProjectRoleMEMBER)this.ActualInstance;
+            return (AuthResponse)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleADMIN`. If the actual instance is not `UserProjectRoleADMIN`,
+        /// Get the actual instance of `AuthenticatedPlayerResponse`. If the actual instance is not `AuthenticatedPlayerResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleADMIN</returns>
-        public UserProjectRoleADMIN GetUserProjectRoleADMIN()
+        /// <returns>An instance of AuthenticatedPlayerResponse</returns>
+        public AuthenticatedPlayerResponse GetAuthenticatedPlayerResponse()
         {
-            return (UserProjectRoleADMIN)this.ActualInstance;
+            return (AuthenticatedPlayerResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateUserProjectRequestRole {\n");
+            sb.Append("class AuthorizeWithOAuthToken200Response {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,45 +127,45 @@ namespace Openfort.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UpdateUserProjectRequestRole.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, AuthorizeWithOAuthToken200Response.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of UpdateUserProjectRequestRole
+        /// Converts the JSON string into an instance of AuthorizeWithOAuthToken200Response
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of UpdateUserProjectRequestRole</returns>
-        public static UpdateUserProjectRequestRole FromJson(string jsonString)
+        /// <returns>An instance of AuthorizeWithOAuthToken200Response</returns>
+        public static AuthorizeWithOAuthToken200Response FromJson(string jsonString)
         {
-            UpdateUserProjectRequestRole newUpdateUserProjectRequestRole = null;
+            AuthorizeWithOAuthToken200Response newAuthorizeWithOAuthToken200Response = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newUpdateUserProjectRequestRole;
+                return newAuthorizeWithOAuthToken200Response;
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleADMIN>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newAuthorizeWithOAuthToken200Response = new AuthorizeWithOAuthToken200Response(JsonConvert.DeserializeObject<AuthResponse>(jsonString, AuthorizeWithOAuthToken200Response.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newAuthorizeWithOAuthToken200Response;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleADMIN: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AuthResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleMEMBER>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newAuthorizeWithOAuthToken200Response = new AuthorizeWithOAuthToken200Response(JsonConvert.DeserializeObject<AuthenticatedPlayerResponse>(jsonString, AuthorizeWithOAuthToken200Response.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newAuthorizeWithOAuthToken200Response;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleMEMBER: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AuthenticatedPlayerResponse: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -179,15 +179,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateUserProjectRequestRole);
+            return this.Equals(input as AuthorizeWithOAuthToken200Response);
         }
 
         /// <summary>
-        /// Returns true if UpdateUserProjectRequestRole instances are equal
+        /// Returns true if AuthorizeWithOAuthToken200Response instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateUserProjectRequestRole to be compared</param>
+        /// <param name="input">Instance of AuthorizeWithOAuthToken200Response to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserProjectRequestRole input)
+        public bool Equals(AuthorizeWithOAuthToken200Response input)
         {
             if (input == null)
                 return false;
@@ -222,9 +222,9 @@ namespace Openfort.SDK.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for UpdateUserProjectRequestRole
+    /// Custom JSON converter for AuthorizeWithOAuthToken200Response
     /// </summary>
-    public class UpdateUserProjectRequestRoleJsonConverter : JsonConverter
+    public class AuthorizeWithOAuthToken200ResponseJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -234,7 +234,7 @@ namespace Openfort.SDK.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(UpdateUserProjectRequestRole).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(AuthorizeWithOAuthToken200Response).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Openfort.SDK.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return UpdateUserProjectRequestRole.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return AuthorizeWithOAuthToken200Response.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

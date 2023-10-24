@@ -28,35 +28,36 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// OAuth provider specific configuration.
+    /// AuthenticatedPlayerResponse
     /// </summary>
-    [DataContract(Name = "OAuthConfigResponse")]
-    public partial class OAuthConfigResponse : IEquatable<OAuthConfigResponse>, IValidatableObject
+    [DataContract(Name = "AuthenticatedPlayerResponse")]
+    public partial class AuthenticatedPlayerResponse : IEquatable<AuthenticatedPlayerResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OAuthConfigResponse" /> class.
+        /// Initializes a new instance of the <see cref="AuthenticatedPlayerResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OAuthConfigResponse() { }
+        protected AuthenticatedPlayerResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OAuthConfigResponse" /> class.
+        /// Initializes a new instance of the <see cref="AuthenticatedPlayerResponse" /> class.
         /// </summary>
-        /// <param name="config">config (required).</param>
-        public OAuthConfigResponse(OAuthConfig config = default(OAuthConfig))
+        /// <param name="playerId">Player&#39;s identifier. (required).</param>
+        public AuthenticatedPlayerResponse(string playerId = default(string))
         {
-            // to ensure "config" is required (not null)
-            if (config == null)
+            // to ensure "playerId" is required (not null)
+            if (playerId == null)
             {
-                throw new ArgumentNullException("config is a required property for OAuthConfigResponse and cannot be null");
+                throw new ArgumentNullException("playerId is a required property for AuthenticatedPlayerResponse and cannot be null");
             }
-            this.Config = config;
+            this.PlayerId = playerId;
         }
 
         /// <summary>
-        /// Gets or Sets Config
+        /// Player&#39;s identifier.
         /// </summary>
-        [DataMember(Name = "config", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthConfig Config { get; set; }
+        /// <value>Player&#39;s identifier.</value>
+        [DataMember(Name = "playerId", IsRequired = true, EmitDefaultValue = true)]
+        public string PlayerId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +66,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class OAuthConfigResponse {\n");
-            sb.Append("  Config: ").Append(Config).Append("\n");
+            sb.Append("class AuthenticatedPlayerResponse {\n");
+            sb.Append("  PlayerId: ").Append(PlayerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +88,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OAuthConfigResponse);
+            return this.Equals(input as AuthenticatedPlayerResponse);
         }
 
         /// <summary>
-        /// Returns true if OAuthConfigResponse instances are equal
+        /// Returns true if AuthenticatedPlayerResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of OAuthConfigResponse to be compared</param>
+        /// <param name="input">Instance of AuthenticatedPlayerResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OAuthConfigResponse input)
+        public bool Equals(AuthenticatedPlayerResponse input)
         {
             if (input == null)
             {
@@ -103,9 +104,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Config == input.Config ||
-                    (this.Config != null &&
-                    this.Config.Equals(input.Config))
+                    this.PlayerId == input.PlayerId ||
+                    (this.PlayerId != null &&
+                    this.PlayerId.Equals(input.PlayerId))
                 );
         }
 
@@ -118,9 +119,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Config != null)
+                if (this.PlayerId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Config.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PlayerId.GetHashCode();
                 }
                 return hashCode;
             }

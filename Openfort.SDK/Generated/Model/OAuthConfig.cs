@@ -29,18 +29,18 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UpdateUserProjectRequestRole
+    /// OAuthConfig
     /// </summary>
-    [JsonConverter(typeof(UpdateUserProjectRequestRoleJsonConverter))]
-    [DataContract(Name = "UpdateUserProjectRequest_role")]
-    public partial class UpdateUserProjectRequestRole : AbstractOpenAPISchema, IEquatable<UpdateUserProjectRequestRole>, IValidatableObject
+    [JsonConverter(typeof(OAuthConfigJsonConverter))]
+    [DataContract(Name = "OAuthConfig")]
+    public partial class OAuthConfig : AbstractOpenAPISchema, IEquatable<OAuthConfig>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleMEMBER" /> class
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="AccelbyteOAuthConfig" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleMEMBER.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleMEMBER actualInstance)
+        /// <param name="actualInstance">An instance of AccelbyteOAuthConfig.</param>
+        public OAuthConfig(AccelbyteOAuthConfig actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -48,11 +48,11 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleADMIN" /> class
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="PlayFabOAuthConfig" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleADMIN.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleADMIN actualInstance)
+        /// <param name="actualInstance">An instance of PlayFabOAuthConfig.</param>
+        public OAuthConfig(PlayFabOAuthConfig actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -73,39 +73,39 @@ namespace Openfort.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(UserProjectRoleADMIN))
+                if (value.GetType() == typeof(AccelbyteOAuthConfig))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UserProjectRoleMEMBER))
+                else if (value.GetType() == typeof(PlayFabOAuthConfig))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: UserProjectRoleADMIN, UserProjectRoleMEMBER");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, PlayFabOAuthConfig");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleMEMBER`. If the actual instance is not `UserProjectRoleMEMBER`,
+        /// Get the actual instance of `AccelbyteOAuthConfig`. If the actual instance is not `AccelbyteOAuthConfig`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleMEMBER</returns>
-        public UserProjectRoleMEMBER GetUserProjectRoleMEMBER()
+        /// <returns>An instance of AccelbyteOAuthConfig</returns>
+        public AccelbyteOAuthConfig GetAccelbyteOAuthConfig()
         {
-            return (UserProjectRoleMEMBER)this.ActualInstance;
+            return (AccelbyteOAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleADMIN`. If the actual instance is not `UserProjectRoleADMIN`,
+        /// Get the actual instance of `PlayFabOAuthConfig`. If the actual instance is not `PlayFabOAuthConfig`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleADMIN</returns>
-        public UserProjectRoleADMIN GetUserProjectRoleADMIN()
+        /// <returns>An instance of PlayFabOAuthConfig</returns>
+        public PlayFabOAuthConfig GetPlayFabOAuthConfig()
         {
-            return (UserProjectRoleADMIN)this.ActualInstance;
+            return (PlayFabOAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateUserProjectRequestRole {\n");
+            sb.Append("class OAuthConfig {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,45 +127,45 @@ namespace Openfort.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UpdateUserProjectRequestRole.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, OAuthConfig.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of UpdateUserProjectRequestRole
+        /// Converts the JSON string into an instance of OAuthConfig
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of UpdateUserProjectRequestRole</returns>
-        public static UpdateUserProjectRequestRole FromJson(string jsonString)
+        /// <returns>An instance of OAuthConfig</returns>
+        public static OAuthConfig FromJson(string jsonString)
         {
-            UpdateUserProjectRequestRole newUpdateUserProjectRequestRole = null;
+            OAuthConfig newOAuthConfig = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newUpdateUserProjectRequestRole;
+                return newOAuthConfig;
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleADMIN>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<AccelbyteOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newOAuthConfig;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleADMIN: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AccelbyteOAuthConfig: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleMEMBER>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<PlayFabOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newOAuthConfig;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleMEMBER: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PlayFabOAuthConfig: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -179,15 +179,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateUserProjectRequestRole);
+            return this.Equals(input as OAuthConfig);
         }
 
         /// <summary>
-        /// Returns true if UpdateUserProjectRequestRole instances are equal
+        /// Returns true if OAuthConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateUserProjectRequestRole to be compared</param>
+        /// <param name="input">Instance of OAuthConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserProjectRequestRole input)
+        public bool Equals(OAuthConfig input)
         {
             if (input == null)
                 return false;
@@ -222,9 +222,9 @@ namespace Openfort.SDK.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for UpdateUserProjectRequestRole
+    /// Custom JSON converter for OAuthConfig
     /// </summary>
-    public class UpdateUserProjectRequestRoleJsonConverter : JsonConverter
+    public class OAuthConfigJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -234,7 +234,7 @@ namespace Openfort.SDK.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(UpdateUserProjectRequestRole).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(OAuthConfig).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Openfort.SDK.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return UpdateUserProjectRequestRole.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return OAuthConfig.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

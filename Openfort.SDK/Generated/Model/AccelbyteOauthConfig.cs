@@ -30,8 +30,8 @@ namespace Openfort.SDK.Model
     /// <summary>
     /// Accelbyte oauth configuration
     /// </summary>
-    [DataContract(Name = "AccelbyteOauthConfig")]
-    public partial class AccelbyteOauthConfig : IEquatable<AccelbyteOauthConfig>, IValidatableObject
+    [DataContract(Name = "AccelbyteOAuthConfig")]
+    public partial class AccelbyteOAuthConfig : IEquatable<AccelbyteOAuthConfig>, IValidatableObject
     {
 
         /// <summary>
@@ -40,44 +40,37 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public OAuthProviderACCELBYTE Provider { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccelbyteOauthConfig" /> class.
+        /// Initializes a new instance of the <see cref="AccelbyteOAuthConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AccelbyteOauthConfig() { }
+        protected AccelbyteOAuthConfig() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccelbyteOauthConfig" /> class.
+        /// Initializes a new instance of the <see cref="AccelbyteOAuthConfig" /> class.
         /// </summary>
         /// <param name="baseUrl">Base URI of your accelbyte gaming service environment. E.g. https://mygame.dev.gamingservices.accelbyte.io/ (required).</param>
         /// <param name="clientId">Client ID of your accelbyte gaming service environment. (required).</param>
         /// <param name="clientSecret">Secret of your confidential IAM client. (required).</param>
-        /// <param name="_namespace">Namespace of the configuration in accelbyte gaming service (required).</param>
         /// <param name="provider">provider (required).</param>
-        public AccelbyteOauthConfig(string baseUrl = default(string), string clientId = default(string), string clientSecret = default(string), string _namespace = default(string), OAuthProviderACCELBYTE provider = default(OAuthProviderACCELBYTE))
+        public AccelbyteOAuthConfig(string baseUrl = default(string), string clientId = default(string), string clientSecret = default(string), OAuthProviderACCELBYTE provider = default(OAuthProviderACCELBYTE))
         {
             // to ensure "baseUrl" is required (not null)
             if (baseUrl == null)
             {
-                throw new ArgumentNullException("baseUrl is a required property for AccelbyteOauthConfig and cannot be null");
+                throw new ArgumentNullException("baseUrl is a required property for AccelbyteOAuthConfig and cannot be null");
             }
             this.BaseUrl = baseUrl;
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
-                throw new ArgumentNullException("clientId is a required property for AccelbyteOauthConfig and cannot be null");
+                throw new ArgumentNullException("clientId is a required property for AccelbyteOAuthConfig and cannot be null");
             }
             this.ClientId = clientId;
             // to ensure "clientSecret" is required (not null)
             if (clientSecret == null)
             {
-                throw new ArgumentNullException("clientSecret is a required property for AccelbyteOauthConfig and cannot be null");
+                throw new ArgumentNullException("clientSecret is a required property for AccelbyteOAuthConfig and cannot be null");
             }
             this.ClientSecret = clientSecret;
-            // to ensure "_namespace" is required (not null)
-            if (_namespace == null)
-            {
-                throw new ArgumentNullException("_namespace is a required property for AccelbyteOauthConfig and cannot be null");
-            }
-            this.Namespace = _namespace;
             this.Provider = provider;
         }
 
@@ -103,24 +96,16 @@ namespace Openfort.SDK.Model
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// Namespace of the configuration in accelbyte gaming service
-        /// </summary>
-        /// <value>Namespace of the configuration in accelbyte gaming service</value>
-        [DataMember(Name = "namespace", IsRequired = true, EmitDefaultValue = true)]
-        public string Namespace { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AccelbyteOauthConfig {\n");
+            sb.Append("class AccelbyteOAuthConfig {\n");
             sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
-            sb.Append("  Namespace: ").Append(Namespace).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,15 +127,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AccelbyteOauthConfig);
+            return this.Equals(input as AccelbyteOAuthConfig);
         }
 
         /// <summary>
-        /// Returns true if AccelbyteOauthConfig instances are equal
+        /// Returns true if AccelbyteOAuthConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of AccelbyteOauthConfig to be compared</param>
+        /// <param name="input">Instance of AccelbyteOAuthConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AccelbyteOauthConfig input)
+        public bool Equals(AccelbyteOAuthConfig input)
         {
             if (input == null)
             {
@@ -171,11 +156,6 @@ namespace Openfort.SDK.Model
                     this.ClientSecret == input.ClientSecret ||
                     (this.ClientSecret != null &&
                     this.ClientSecret.Equals(input.ClientSecret))
-                ) && 
-                (
-                    this.Namespace == input.Namespace ||
-                    (this.Namespace != null &&
-                    this.Namespace.Equals(input.Namespace))
                 ) && 
                 (
                     this.Provider == input.Provider ||
@@ -203,10 +183,6 @@ namespace Openfort.SDK.Model
                 if (this.ClientSecret != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
-                }
-                if (this.Namespace != null)
-                {
-                    hashCode = (hashCode * 59) + this.Namespace.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 return hashCode;

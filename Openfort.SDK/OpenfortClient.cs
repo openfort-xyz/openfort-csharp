@@ -4,7 +4,6 @@ using Openfort.SDK.Extensions;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Openfort.SDK
 {

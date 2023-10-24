@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="OAuthConfigRequest" /> class.
         /// </summary>
         /// <param name="config">config (required).</param>
-        public OAuthConfigRequest(AccelbyteOauthConfig config = default(AccelbyteOauthConfig))
+        public OAuthConfigRequest(OAuthConfig config = default(OAuthConfig))
         {
             // to ensure "config" is required (not null)
             if (config == null)
@@ -56,7 +56,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Config
         /// </summary>
         [DataMember(Name = "config", IsRequired = true, EmitDefaultValue = true)]
-        public AccelbyteOauthConfig Config { get; set; }
+        public OAuthConfig Config { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
