@@ -122,6 +122,19 @@ namespace Openfort.SDK
             }
         }
 
+        private OAuthApiWrapper? oauth;
+        public OAuthApiWrapper OAuth
+        {
+            get
+            {
+                if (oauth == null)
+                {
+                    oauth = new OAuthApiWrapper(apiKey, basePath);
+                }
+                return oauth;
+            }
+        }
+
         public WebHookEvent? ConstructWebhookEvent(string body, string signature) {
             var signedPayload = Sign(body);
             if (!string.Equals(signedPayload, signature, StringComparison.OrdinalIgnoreCase)) {
