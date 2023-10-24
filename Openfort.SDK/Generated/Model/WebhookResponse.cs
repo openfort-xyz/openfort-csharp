@@ -28,48 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ProviderResponse
+    /// WebhookResponse
     /// </summary>
-    [DataContract(Name = "ProviderResponse")]
-    public partial class ProviderResponse : IEquatable<ProviderResponse>, IValidatableObject
+    [DataContract(Name = "WebhookResponse")]
+    public partial class WebhookResponse : IEquatable<WebhookResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProviderResponse" /> class.
+        /// Initializes a new instance of the <see cref="WebhookResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ProviderResponse() { }
+        protected WebhookResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProviderResponse" /> class.
+        /// Initializes a new instance of the <see cref="WebhookResponse" /> class.
         /// </summary>
-        /// <param name="eXTERNALGOOGLEENABLED">eXTERNALGOOGLEENABLED.</param>
-        /// <param name="eXTERNALGOOGLECLIENTID">eXTERNALGOOGLECLIENTID.</param>
-        /// <param name="eXTERNALGOOGLESECRET">eXTERNALGOOGLESECRET.</param>
+        /// <param name="webhook">webhook (required).</param>
         /// <param name="livemode">livemode (required).</param>
-        public ProviderResponse(bool eXTERNALGOOGLEENABLED = default(bool), string eXTERNALGOOGLECLIENTID = default(string), string eXTERNALGOOGLESECRET = default(string), bool livemode = default(bool))
+        public WebhookResponse(string webhook = default(string), bool livemode = default(bool))
         {
+            // to ensure "webhook" is required (not null)
+            if (webhook == null)
+            {
+                throw new ArgumentNullException("webhook is a required property for WebhookResponse and cannot be null");
+            }
+            this.Webhook = webhook;
             this.Livemode = livemode;
-            this.EXTERNAL_GOOGLE_ENABLED = eXTERNALGOOGLEENABLED;
-            this.EXTERNAL_GOOGLE_CLIENT_ID = eXTERNALGOOGLECLIENTID;
-            this.EXTERNAL_GOOGLE_SECRET = eXTERNALGOOGLESECRET;
         }
 
         /// <summary>
-        /// Gets or Sets EXTERNAL_GOOGLE_ENABLED
+        /// Gets or Sets Webhook
         /// </summary>
-        [DataMember(Name = "EXTERNAL_GOOGLE_ENABLED", EmitDefaultValue = true)]
-        public bool EXTERNAL_GOOGLE_ENABLED { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EXTERNAL_GOOGLE_CLIENT_ID
-        /// </summary>
-        [DataMember(Name = "EXTERNAL_GOOGLE_CLIENT_ID", EmitDefaultValue = false)]
-        public string EXTERNAL_GOOGLE_CLIENT_ID { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EXTERNAL_GOOGLE_SECRET
-        /// </summary>
-        [DataMember(Name = "EXTERNAL_GOOGLE_SECRET", EmitDefaultValue = false)]
-        public string EXTERNAL_GOOGLE_SECRET { get; set; }
+        [DataMember(Name = "webhook", IsRequired = true, EmitDefaultValue = true)]
+        public string Webhook { get; set; }
 
         /// <summary>
         /// Gets or Sets Livemode
@@ -84,10 +73,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProviderResponse {\n");
-            sb.Append("  EXTERNAL_GOOGLE_ENABLED: ").Append(EXTERNAL_GOOGLE_ENABLED).Append("\n");
-            sb.Append("  EXTERNAL_GOOGLE_CLIENT_ID: ").Append(EXTERNAL_GOOGLE_CLIENT_ID).Append("\n");
-            sb.Append("  EXTERNAL_GOOGLE_SECRET: ").Append(EXTERNAL_GOOGLE_SECRET).Append("\n");
+            sb.Append("class WebhookResponse {\n");
+            sb.Append("  Webhook: ").Append(Webhook).Append("\n");
             sb.Append("  Livemode: ").Append(Livemode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,15 +96,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProviderResponse);
+            return this.Equals(input as WebhookResponse);
         }
 
         /// <summary>
-        /// Returns true if ProviderResponse instances are equal
+        /// Returns true if WebhookResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProviderResponse to be compared</param>
+        /// <param name="input">Instance of WebhookResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProviderResponse input)
+        public bool Equals(WebhookResponse input)
         {
             if (input == null)
             {
@@ -125,18 +112,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.EXTERNAL_GOOGLE_ENABLED == input.EXTERNAL_GOOGLE_ENABLED ||
-                    this.EXTERNAL_GOOGLE_ENABLED.Equals(input.EXTERNAL_GOOGLE_ENABLED)
-                ) && 
-                (
-                    this.EXTERNAL_GOOGLE_CLIENT_ID == input.EXTERNAL_GOOGLE_CLIENT_ID ||
-                    (this.EXTERNAL_GOOGLE_CLIENT_ID != null &&
-                    this.EXTERNAL_GOOGLE_CLIENT_ID.Equals(input.EXTERNAL_GOOGLE_CLIENT_ID))
-                ) && 
-                (
-                    this.EXTERNAL_GOOGLE_SECRET == input.EXTERNAL_GOOGLE_SECRET ||
-                    (this.EXTERNAL_GOOGLE_SECRET != null &&
-                    this.EXTERNAL_GOOGLE_SECRET.Equals(input.EXTERNAL_GOOGLE_SECRET))
+                    this.Webhook == input.Webhook ||
+                    (this.Webhook != null &&
+                    this.Webhook.Equals(input.Webhook))
                 ) && 
                 (
                     this.Livemode == input.Livemode ||
@@ -153,14 +131,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.EXTERNAL_GOOGLE_ENABLED.GetHashCode();
-                if (this.EXTERNAL_GOOGLE_CLIENT_ID != null)
+                if (this.Webhook != null)
                 {
-                    hashCode = (hashCode * 59) + this.EXTERNAL_GOOGLE_CLIENT_ID.GetHashCode();
-                }
-                if (this.EXTERNAL_GOOGLE_SECRET != null)
-                {
-                    hashCode = (hashCode * 59) + this.EXTERNAL_GOOGLE_SECRET.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Webhook.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Livemode.GetHashCode();
                 return hashCode;

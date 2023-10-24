@@ -53,9 +53,8 @@ namespace Openfort.SDK.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="apikeys">apikeys.</param>
-        /// <param name="providers">providers.</param>
         /// <param name="webhook">webhook.</param>
-        public ProjectResponse(string id = default(string), EntityTypePROJECT _object = default(EntityTypePROJECT), int createdAt = default(int), int updatedAt = default(int), string name = default(string), List<ApiKeyResponse> apikeys = default(List<ApiKeyResponse>), List<ProviderResponse> providers = default(List<ProviderResponse>), List<ProviderResponse> webhook = default(List<ProviderResponse>))
+        public ProjectResponse(string id = default(string), EntityTypePROJECT _object = default(EntityTypePROJECT), int createdAt = default(int), int updatedAt = default(int), string name = default(string), List<ApiKeyResponse> apikeys = default(List<ApiKeyResponse>), List<WebhookResponse> webhook = default(List<WebhookResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -73,7 +72,6 @@ namespace Openfort.SDK.Model
             }
             this.Name = name;
             this.Apikeys = apikeys;
-            this.Providers = providers;
             this.Webhook = webhook;
         }
 
@@ -108,16 +106,10 @@ namespace Openfort.SDK.Model
         public List<ApiKeyResponse> Apikeys { get; set; }
 
         /// <summary>
-        /// Gets or Sets Providers
-        /// </summary>
-        [DataMember(Name = "providers", EmitDefaultValue = false)]
-        public List<ProviderResponse> Providers { get; set; }
-
-        /// <summary>
         /// Gets or Sets Webhook
         /// </summary>
         [DataMember(Name = "webhook", EmitDefaultValue = false)]
-        public List<ProviderResponse> Webhook { get; set; }
+        public List<WebhookResponse> Webhook { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -133,7 +125,6 @@ namespace Openfort.SDK.Model
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Apikeys: ").Append(Apikeys).Append("\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
             sb.Append("  Webhook: ").Append(Webhook).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -199,12 +190,6 @@ namespace Openfort.SDK.Model
                     this.Apikeys.SequenceEqual(input.Apikeys)
                 ) && 
                 (
-                    this.Providers == input.Providers ||
-                    this.Providers != null &&
-                    input.Providers != null &&
-                    this.Providers.SequenceEqual(input.Providers)
-                ) && 
-                (
                     this.Webhook == input.Webhook ||
                     this.Webhook != null &&
                     input.Webhook != null &&
@@ -235,10 +220,6 @@ namespace Openfort.SDK.Model
                 if (this.Apikeys != null)
                 {
                     hashCode = (hashCode * 59) + this.Apikeys.GetHashCode();
-                }
-                if (this.Providers != null)
-                {
-                    hashCode = (hashCode * 59) + this.Providers.GetHashCode();
                 }
                 if (this.Webhook != null)
                 {
