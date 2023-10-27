@@ -52,7 +52,7 @@ namespace Openfort.SDK.Model
         /// <param name="order">order.</param>
         /// <param name="contractId">Filter by contract ID (starts with con_)..</param>
         /// <param name="chainId">Filter by chain id. (required).</param>
-        public PlayerInventoryListQueries(double limit = default(double), double skip = default(double), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), int chainId = default(int))
+        public PlayerInventoryListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), int chainId = default(int))
         {
             this.ChainId = chainId;
             this.Limit = limit;
@@ -66,14 +66,14 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Specifies the maximum number of records to return.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
-        public double Limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// Specifies the offset for the first records to return.
         /// </summary>
         /// <value>Specifies the offset for the first records to return.</value>
         [DataMember(Name = "skip", EmitDefaultValue = false)]
-        public double Skip { get; set; }
+        public int Skip { get; set; }
 
         /// <summary>
         /// Filter by contract ID (starts with con_).
@@ -189,6 +189,18 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Limit (int) minimum
+            if (this.Limit < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value greater than or equal to 1.", new [] { "Limit" });
+            }
+
+            // Skip (int) minimum
+            if (this.Skip < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Skip, must be a value greater than or equal to 0.", new [] { "Skip" });
+            }
+
             yield break;
         }
     }

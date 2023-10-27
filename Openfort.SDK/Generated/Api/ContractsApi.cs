@@ -106,7 +106,7 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID of the contract. (optional)</param>
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <returns>ContractListResponse</returns>
-        ContractListResponse GetContracts(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string));
+        ContractListResponse GetContracts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string));
 
         /// <summary>
         /// List contracts.
@@ -123,7 +123,7 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID of the contract. (optional)</param>
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <returns>ApiResponse of ContractListResponse</returns>
-        ApiResponse<ContractListResponse> GetContractsWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string));
+        ApiResponse<ContractListResponse> GetContractsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string));
         /// <summary>
         /// Updates a contract object.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Openfort.SDK.Api
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContractListResponse</returns>
-        System.Threading.Tasks.Task<ContractListResponse> GetContractsAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContractListResponse> GetContractsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List contracts.
@@ -256,7 +256,7 @@ namespace Openfort.SDK.Api
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContractListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContractListResponse>> GetContractsWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ContractListResponse>> GetContractsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Updates a contract object.
         /// </summary>
@@ -890,7 +890,7 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID of the contract. (optional)</param>
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <returns>ContractListResponse</returns>
-        public ContractListResponse GetContracts(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string))
+        public ContractListResponse GetContracts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string))
         {
             Openfort.SDK.Client.ApiResponse<ContractListResponse> localVarResponse = GetContractsWithHttpInfo(limit, skip, order, name, deleted, chainId, address);
             return localVarResponse.Data;
@@ -908,7 +908,7 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID of the contract. (optional)</param>
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <returns>ApiResponse of ContractListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<ContractListResponse> GetContractsWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string))
+        public Openfort.SDK.Client.ApiResponse<ContractListResponse> GetContractsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -987,7 +987,7 @@ namespace Openfort.SDK.Api
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ContractListResponse</returns>
-        public async System.Threading.Tasks.Task<ContractListResponse> GetContractsAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContractListResponse> GetContractsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<ContractListResponse> localVarResponse = await GetContractsWithHttpInfoAsync(limit, skip, order, name, deleted, chainId, address, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1006,7 +1006,7 @@ namespace Openfort.SDK.Api
         /// <param name="address">Specifies the address of the contract. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ContractListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<ContractListResponse>> GetContractsWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<ContractListResponse>> GetContractsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string name = default(string), bool? deleted = default(bool?), int? chainId = default(int?), string address = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();

@@ -47,12 +47,14 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
         /// </summary>
+        /// <param name="enabled">Enable Google OAuth. (required).</param>
         /// <param name="clientId">Google API client ID. (required).</param>
         /// <param name="clientSecret">Google API client secret. (required).</param>
         /// <param name="redirectUri">The URI to redirect to after completing the auth request. You can use Openfort redirect URL: https://openfort.xyz/auth/v1/google/callback (required).</param>
         /// <param name="provider">provider (required).</param>
-        public GoogleOAuthConfig(string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE))
+        public GoogleOAuthConfig(bool enabled = default(bool), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE))
         {
+            this.Enabled = enabled;
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -73,6 +75,13 @@ namespace Openfort.SDK.Model
             this.RedirectUri = redirectUri;
             this.Provider = provider;
         }
+
+        /// <summary>
+        /// Enable Google OAuth.
+        /// </summary>
+        /// <value>Enable Google OAuth.</value>
+        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Google API client ID.
@@ -103,6 +112,7 @@ namespace Openfort.SDK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GoogleOAuthConfig {\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("  RedirectUri: ").Append(RedirectUri).Append("\n");
@@ -143,6 +153,10 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
+                ) && 
+                (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
@@ -172,6 +186,7 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

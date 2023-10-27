@@ -128,7 +128,7 @@ namespace Openfort.SDK.Api
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>AccountListResponse</returns>
-        AccountListResponse GetAccounts(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
+        AccountListResponse GetAccounts(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
 
         /// <summary>
         /// List accounts of a player.
@@ -143,7 +143,7 @@ namespace Openfort.SDK.Api
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
-        ApiResponse<AccountListResponse> GetAccountsWithHttpInfo(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
+        ApiResponse<AccountListResponse> GetAccountsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
         /// <summary>
         /// Request ownership transfer of an account.
         /// </summary>
@@ -346,7 +346,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
-        System.Threading.Tasks.Task<AccountListResponse> GetAccountsAsync(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AccountListResponse> GetAccountsAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List accounts of a player.
@@ -362,7 +362,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountListResponse>> GetAccountsWithHttpInfoAsync(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AccountListResponse>> GetAccountsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Request ownership transfer of an account.
         /// </summary>
@@ -1238,7 +1238,7 @@ namespace Openfort.SDK.Api
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>AccountListResponse</returns>
-        public AccountListResponse GetAccounts(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
+        public AccountListResponse GetAccounts(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
         {
             Openfort.SDK.Client.ApiResponse<AccountListResponse> localVarResponse = GetAccountsWithHttpInfo(player, limit, skip, order, expand);
             return localVarResponse.Data;
@@ -1254,7 +1254,7 @@ namespace Openfort.SDK.Api
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<AccountListResponse> GetAccountsWithHttpInfo(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
+        public Openfort.SDK.Client.ApiResponse<AccountListResponse> GetAccountsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
         {
             // verify the required parameter 'player' is set
             if (player == null)
@@ -1324,7 +1324,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
-        public async System.Threading.Tasks.Task<AccountListResponse> GetAccountsAsync(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountListResponse> GetAccountsAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<AccountListResponse> localVarResponse = await GetAccountsWithHttpInfoAsync(player, limit, skip, order, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1341,7 +1341,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountListResponse>> GetAccountsWithHttpInfoAsync(string player, double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountListResponse>> GetAccountsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'player' is set
             if (player == null)

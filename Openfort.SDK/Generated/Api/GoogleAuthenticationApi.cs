@@ -371,7 +371,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetSigninUrlResponse>("/auth/v1/google/signin_url", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetSigninUrlResponse>("/iam/v1/oauth/google/signin_url", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -430,7 +430,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSigninUrlResponse>("/auth/v1/google/signin_url", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSigninUrlResponse>("/iam/v1/oauth/google/signin_url", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -491,7 +491,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AuthResponse>("/auth/v1/google/token", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<AuthResponse>("/iam/v1/oauth/google/token", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -557,7 +557,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<AuthResponse>("/auth/v1/google/token", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AuthResponse>("/iam/v1/oauth/google/token", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

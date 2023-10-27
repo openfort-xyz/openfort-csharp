@@ -165,7 +165,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="name">Filter by player name. (optional)</param>
         /// <returns>PlayerListResponse</returns>
-        PlayerListResponse GetPlayers(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string));
+        PlayerListResponse GetPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string));
 
         /// <summary>
         /// List players.
@@ -180,7 +180,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="name">Filter by player name. (optional)</param>
         /// <returns>ApiResponse of PlayerListResponse</returns>
-        ApiResponse<PlayerListResponse> GetPlayersWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string));
+        ApiResponse<PlayerListResponse> GetPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string));
         /// <summary>
         /// Cancel request to transfer ownership of an account.
         /// </summary>
@@ -465,7 +465,7 @@ namespace Openfort.SDK.Api
         /// <param name="name">Filter by player name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerListResponse</returns>
-        System.Threading.Tasks.Task<PlayerListResponse> GetPlayersAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PlayerListResponse> GetPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List players.
@@ -481,7 +481,7 @@ namespace Openfort.SDK.Api
         /// <param name="name">Filter by player name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PlayerListResponse>> GetPlayersWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerListResponse>> GetPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Cancel request to transfer ownership of an account.
         /// </summary>
@@ -1670,7 +1670,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="name">Filter by player name. (optional)</param>
         /// <returns>PlayerListResponse</returns>
-        public PlayerListResponse GetPlayers(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string))
+        public PlayerListResponse GetPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string))
         {
             Openfort.SDK.Client.ApiResponse<PlayerListResponse> localVarResponse = GetPlayersWithHttpInfo(limit, skip, order, expand, name);
             return localVarResponse.Data;
@@ -1686,7 +1686,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="name">Filter by player name. (optional)</param>
         /// <returns>ApiResponse of PlayerListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<PlayerListResponse> GetPlayersWithHttpInfo(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string))
+        public Openfort.SDK.Client.ApiResponse<PlayerListResponse> GetPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1755,7 +1755,7 @@ namespace Openfort.SDK.Api
         /// <param name="name">Filter by player name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerListResponse</returns>
-        public async System.Threading.Tasks.Task<PlayerListResponse> GetPlayersAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerListResponse> GetPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<PlayerListResponse> localVarResponse = await GetPlayersWithHttpInfoAsync(limit, skip, order, expand, name, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1772,7 +1772,7 @@ namespace Openfort.SDK.Api
         /// <param name="name">Filter by player name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerListResponse>> GetPlayersWithHttpInfoAsync(double? limit = default(double?), double? skip = default(double?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerListResponse>> GetPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();

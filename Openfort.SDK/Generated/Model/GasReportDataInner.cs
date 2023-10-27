@@ -47,7 +47,7 @@ namespace Openfort.SDK.Model
         /// <param name="averageTransactionFee">averageTransactionFee (required).</param>
         /// <param name="period">period (required).</param>
         /// <param name="periodNumber">periodNumber (required).</param>
-        public GasReportDataInner(List<GasReportDataInnerTransactionIntentsInner> transactionIntents = default(List<GasReportDataInnerTransactionIntentsInner>), string totalTransactionFeeInUSD = default(string), string totalTransactionFee = default(string), string averageTransactionFee = default(string), GasReportDataInnerPeriod period = default(GasReportDataInnerPeriod), double periodNumber = default(double))
+        public GasReportDataInner(List<GasReportDataInnerTransactionIntentsInner> transactionIntents = default(List<GasReportDataInnerTransactionIntentsInner>), string totalTransactionFeeInUSD = default(string), string totalTransactionFee = default(string), string averageTransactionFee = default(string), GasReportDataInnerPeriod period = default(GasReportDataInnerPeriod), int periodNumber = default(int))
         {
             // to ensure "transactionIntents" is required (not null)
             if (transactionIntents == null)
@@ -116,7 +116,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets PeriodNumber
         /// </summary>
         [DataMember(Name = "periodNumber", IsRequired = true, EmitDefaultValue = true)]
-        public double PeriodNumber { get; set; }
+        public int PeriodNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

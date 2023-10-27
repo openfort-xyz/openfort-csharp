@@ -58,10 +58,9 @@ namespace Openfort.SDK.Api
         /// The endpoint creates oauth configuration for the current project environment.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns></returns>
-        void CreateOAuthConfig(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest);
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
+        /// <returns>OAuthConfig</returns>
+        OAuthConfig CreateOAuthConfig(OAuthConfig body);
 
         /// <summary>
         /// Create oauth configuration.
@@ -70,10 +69,9 @@ namespace Openfort.SDK.Api
         /// The endpoint creates oauth configuration for the current project environment.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateOAuthConfigWithHttpInfo(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest);
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
+        /// <returns>ApiResponse of OAuthConfig</returns>
+        ApiResponse<OAuthConfig> CreateOAuthConfigWithHttpInfo(OAuthConfig body);
         /// <summary>
         /// Delete oauth configuration.
         /// </summary>
@@ -103,8 +101,8 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <returns>OAuthConfigResponse</returns>
-        OAuthConfigResponse GetOAuthConfig(OAuthProvider provider);
+        /// <returns>OAuthConfig</returns>
+        OAuthConfig GetOAuthConfig(OAuthProvider provider);
 
         /// <summary>
         /// Get oauth configuration.
@@ -114,8 +112,8 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <returns>ApiResponse of OAuthConfigResponse</returns>
-        ApiResponse<OAuthConfigResponse> GetOAuthConfigWithHttpInfo(OAuthProvider provider);
+        /// <returns>ApiResponse of OAuthConfig</returns>
+        ApiResponse<OAuthConfig> GetOAuthConfigWithHttpInfo(OAuthProvider provider);
         /// <summary>
         /// Retrieve player by external id.
         /// </summary>
@@ -158,29 +156,6 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OAuthConfigListResponse</returns>
         ApiResponse<OAuthConfigListResponse> ListOAuthConfigWithHttpInfo();
-        /// <summary>
-        /// Update oauth configuration.
-        /// </summary>
-        /// <remarks>
-        /// The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns></returns>
-        void UpdateOAuthConfig(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest);
-
-        /// <summary>
-        /// Update oauth configuration.
-        /// </summary>
-        /// <remarks>
-        /// The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateOAuthConfigWithHttpInfo(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest);
         /// <summary>
         /// Retrieve player by token.
         /// </summary>
@@ -245,11 +220,10 @@ namespace Openfort.SDK.Api
         /// The endpoint creates oauth configuration for the current project environment.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateOAuthConfigAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of OAuthConfig</returns>
+        System.Threading.Tasks.Task<OAuthConfig> CreateOAuthConfigAsync(OAuthConfig body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create oauth configuration.
@@ -258,11 +232,10 @@ namespace Openfort.SDK.Api
         /// The endpoint creates oauth configuration for the current project environment.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateOAuthConfigWithHttpInfoAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (OAuthConfig)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OAuthConfig>> CreateOAuthConfigWithHttpInfoAsync(OAuthConfig body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete oauth configuration.
         /// </summary>
@@ -295,8 +268,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of OAuthConfigResponse</returns>
-        System.Threading.Tasks.Task<OAuthConfigResponse> GetOAuthConfigAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of OAuthConfig</returns>
+        System.Threading.Tasks.Task<OAuthConfig> GetOAuthConfigAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get oauth configuration.
@@ -307,8 +280,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (OAuthConfigResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthConfigResponse>> GetOAuthConfigWithHttpInfoAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (OAuthConfig)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OAuthConfig>> GetOAuthConfigWithHttpInfoAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve player by external id.
         /// </summary>
@@ -355,31 +328,6 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthConfigListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuthConfigListResponse>> ListOAuthConfigWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Update oauth configuration.
-        /// </summary>
-        /// <remarks>
-        /// The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateOAuthConfigAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Update oauth configuration.
-        /// </summary>
-        /// <remarks>
-        /// The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOAuthConfigWithHttpInfoAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve player by token.
         /// </summary>
@@ -769,26 +717,25 @@ namespace Openfort.SDK.Api
         /// Create oauth configuration. The endpoint creates oauth configuration for the current project environment.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns></returns>
-        public void CreateOAuthConfig(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest)
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
+        /// <returns>OAuthConfig</returns>
+        public OAuthConfig CreateOAuthConfig(OAuthConfig body)
         {
-            CreateOAuthConfigWithHttpInfo(provider, oAuthConfigRequest);
+            Openfort.SDK.Client.ApiResponse<OAuthConfig> localVarResponse = CreateOAuthConfigWithHttpInfo(body);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Create oauth configuration. The endpoint creates oauth configuration for the current project environment.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Openfort.SDK.Client.ApiResponse<Object> CreateOAuthConfigWithHttpInfo(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest)
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
+        /// <returns>ApiResponse of OAuthConfig</returns>
+        public Openfort.SDK.Client.ApiResponse<OAuthConfig> CreateOAuthConfigWithHttpInfo(OAuthConfig body)
         {
-            // verify the required parameter 'oAuthConfigRequest' is set
-            if (oAuthConfigRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthConfigRequest' when calling OAuthApi->CreateOAuthConfig");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'body' when calling OAuthApi->CreateOAuthConfig");
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -798,6 +745,7 @@ namespace Openfort.SDK.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
+                "application/json"
             };
 
             var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -806,8 +754,7 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.Data = oAuthConfigRequest;
+            localVarRequestOptions.Data = body;
 
             // authentication (sk) required
             // bearer authentication required
@@ -817,7 +764,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<OAuthConfig>("/iam/v1/oauth", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -832,28 +779,27 @@ namespace Openfort.SDK.Api
         /// Create oauth configuration. The endpoint creates oauth configuration for the current project environment.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateOAuthConfigAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of OAuthConfig</returns>
+        public async System.Threading.Tasks.Task<OAuthConfig> CreateOAuthConfigAsync(OAuthConfig body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await CreateOAuthConfigWithHttpInfoAsync(provider, oAuthConfigRequest, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<OAuthConfig> localVarResponse = await CreateOAuthConfigWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Create oauth configuration. The endpoint creates oauth configuration for the current project environment.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
+        /// <param name="body">Specifies the oauth provider specific configuration.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> CreateOAuthConfigWithHttpInfoAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (OAuthConfig)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<OAuthConfig>> CreateOAuthConfigWithHttpInfoAsync(OAuthConfig body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'oAuthConfigRequest' is set
-            if (oAuthConfigRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthConfigRequest' when calling OAuthApi->CreateOAuthConfig");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'body' when calling OAuthApi->CreateOAuthConfig");
 
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -864,6 +810,7 @@ namespace Openfort.SDK.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
+                "application/json"
             };
 
 
@@ -873,8 +820,7 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.Data = oAuthConfigRequest;
+            localVarRequestOptions.Data = body;
 
             // authentication (sk) required
             // bearer authentication required
@@ -885,7 +831,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthConfig>("/iam/v1/oauth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1016,10 +962,10 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <returns>OAuthConfigResponse</returns>
-        public OAuthConfigResponse GetOAuthConfig(OAuthProvider provider)
+        /// <returns>OAuthConfig</returns>
+        public OAuthConfig GetOAuthConfig(OAuthProvider provider)
         {
-            Openfort.SDK.Client.ApiResponse<OAuthConfigResponse> localVarResponse = GetOAuthConfigWithHttpInfo(provider);
+            Openfort.SDK.Client.ApiResponse<OAuthConfig> localVarResponse = GetOAuthConfigWithHttpInfo(provider);
             return localVarResponse.Data;
         }
 
@@ -1028,8 +974,8 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <returns>ApiResponse of OAuthConfigResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<OAuthConfigResponse> GetOAuthConfigWithHttpInfo(OAuthProvider provider)
+        /// <returns>ApiResponse of OAuthConfig</returns>
+        public Openfort.SDK.Client.ApiResponse<OAuthConfig> GetOAuthConfigWithHttpInfo(OAuthProvider provider)
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1057,7 +1003,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<OAuthConfigResponse>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<OAuthConfig>("/iam/v1/oauth/{provider}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1074,10 +1020,10 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of OAuthConfigResponse</returns>
-        public async System.Threading.Tasks.Task<OAuthConfigResponse> GetOAuthConfigAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of OAuthConfig</returns>
+        public async System.Threading.Tasks.Task<OAuthConfig> GetOAuthConfigAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<OAuthConfigResponse> localVarResponse = await GetOAuthConfigWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<OAuthConfig> localVarResponse = await GetOAuthConfigWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1087,8 +1033,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">Specifies the oauth provider type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (OAuthConfigResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<OAuthConfigResponse>> GetOAuthConfigWithHttpInfoAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (OAuthConfig)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<OAuthConfig>> GetOAuthConfigWithHttpInfoAsync(OAuthProvider provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -1119,7 +1065,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthConfigResponse>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthConfig>("/iam/v1/oauth/{provider}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1173,7 +1119,7 @@ namespace Openfort.SDK.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.PathParameters.Add("externalUserId", Openfort.SDK.Client.ClientUtils.ParameterToString(externalUserId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("external_user_id", Openfort.SDK.Client.ClientUtils.ParameterToString(externalUserId)); // path parameter
 
             // authentication (sk) required
             // bearer authentication required
@@ -1183,7 +1129,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<PlayerResponse>("/iam/v1/oauth/{provider}/user/{externalUserId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PlayerResponse>("/iam/v1/oauth/{provider}/user/{external_user_id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1241,7 +1187,7 @@ namespace Openfort.SDK.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.PathParameters.Add("externalUserId", Openfort.SDK.Client.ClientUtils.ParameterToString(externalUserId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("external_user_id", Openfort.SDK.Client.ClientUtils.ParameterToString(externalUserId)); // path parameter
 
             // authentication (sk) required
             // bearer authentication required
@@ -1252,7 +1198,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PlayerResponse>("/iam/v1/oauth/{provider}/user/{externalUserId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PlayerResponse>("/iam/v1/oauth/{provider}/user/{external_user_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1306,7 +1252,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<OAuthConfigListResponse>("/iam/v1/oauth/config", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<OAuthConfigListResponse>("/iam/v1/oauth", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1365,142 +1311,11 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthConfigListResponse>("/iam/v1/oauth/config", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthConfigListResponse>("/iam/v1/oauth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListOAuthConfig", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update oauth configuration. The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns></returns>
-        public void UpdateOAuthConfig(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest)
-        {
-            UpdateOAuthConfigWithHttpInfo(provider, oAuthConfigRequest);
-        }
-
-        /// <summary>
-        /// Update oauth configuration. The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Openfort.SDK.Client.ApiResponse<Object> UpdateOAuthConfigWithHttpInfo(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest)
-        {
-            // verify the required parameter 'oAuthConfigRequest' is set
-            if (oAuthConfigRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthConfigRequest' when calling OAuthApi->UpdateOAuthConfig");
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.Data = oAuthConfigRequest;
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateOAuthConfig", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update oauth configuration. The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateOAuthConfigAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await UpdateOAuthConfigWithHttpInfoAsync(provider, oAuthConfigRequest, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Update oauth configuration. The endpoint updates oauth configuration for specified provider for the current project environment.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Specifies the oauth provider type.</param>
-        /// <param name="oAuthConfigRequest">Specifies the oauth provider specific configuration.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> UpdateOAuthConfigWithHttpInfoAsync(OAuthProvider provider, OAuthConfigRequest oAuthConfigRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'oAuthConfigRequest' is set
-            if (oAuthConfigRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthConfigRequest' when calling OAuthApi->UpdateOAuthConfig");
-
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("provider", Openfort.SDK.Client.ClientUtils.ParameterToString(provider)); // path parameter
-            localVarRequestOptions.Data = oAuthConfigRequest;
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/iam/v1/oauth/{provider}/config", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateOAuthConfig", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
