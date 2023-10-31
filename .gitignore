@@ -1,5 +1,5 @@
 .vs/
 */obj/
-*/bin/
+*/bin/*
 updateGeneratedCode.sh
-
+appsettings.json

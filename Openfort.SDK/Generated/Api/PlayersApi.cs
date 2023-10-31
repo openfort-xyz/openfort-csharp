@@ -117,9 +117,8 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <returns>PlayerDeleteResponse</returns>
-        PlayerDeleteResponse DeletePlayer(string id, PlayerRequest playerRequest);
+        PlayerDeleteResponse DeletePlayer(string id);
 
         /// <summary>
         /// Deletes a player object.
@@ -129,9 +128,8 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <returns>ApiResponse of PlayerDeleteResponse</returns>
-        ApiResponse<PlayerDeleteResponse> DeletePlayerWithHttpInfo(string id, PlayerRequest playerRequest);
+        ApiResponse<PlayerDeleteResponse> DeletePlayerWithHttpInfo(string id);
         /// <summary>
         /// Retrieves the details of an existing player.
         /// </summary>
@@ -429,10 +427,9 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerDeleteResponse</returns>
-        System.Threading.Tasks.Task<PlayerDeleteResponse> DeletePlayerAsync(string id, PlayerRequest playerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PlayerDeleteResponse> DeletePlayerAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Deletes a player object.
@@ -442,10 +439,9 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerDeleteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PlayerDeleteResponse>> DeletePlayerWithHttpInfoAsync(string id, PlayerRequest playerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerDeleteResponse>> DeletePlayerWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieves the details of an existing player.
         /// </summary>
@@ -1432,11 +1428,10 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <returns>PlayerDeleteResponse</returns>
-        public PlayerDeleteResponse DeletePlayer(string id, PlayerRequest playerRequest)
+        public PlayerDeleteResponse DeletePlayer(string id)
         {
-            Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> localVarResponse = DeletePlayerWithHttpInfo(id, playerRequest);
+            Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> localVarResponse = DeletePlayerWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1445,22 +1440,16 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <returns>ApiResponse of PlayerDeleteResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> DeletePlayerWithHttpInfo(string id, PlayerRequest playerRequest)
+        public Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> DeletePlayerWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PlayersApi->DeletePlayer");
 
-            // verify the required parameter 'playerRequest' is set
-            if (playerRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'playerRequest' when calling PlayersApi->DeletePlayer");
-
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1475,7 +1464,6 @@ namespace Openfort.SDK.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = playerRequest;
 
             // authentication (sk) required
             // bearer authentication required
@@ -1501,12 +1489,11 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerDeleteResponse</returns>
-        public async System.Threading.Tasks.Task<PlayerDeleteResponse> DeletePlayerAsync(string id, PlayerRequest playerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerDeleteResponse> DeletePlayerAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> localVarResponse = await DeletePlayerWithHttpInfoAsync(id, playerRequest, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse> localVarResponse = await DeletePlayerWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1515,24 +1502,18 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="playerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerDeleteResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse>> DeletePlayerWithHttpInfoAsync(string id, PlayerRequest playerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerDeleteResponse>> DeletePlayerWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PlayersApi->DeletePlayer");
 
-            // verify the required parameter 'playerRequest' is set
-            if (playerRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'playerRequest' when calling PlayersApi->DeletePlayer");
-
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -1548,7 +1529,6 @@ namespace Openfort.SDK.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = playerRequest;
 
             // authentication (sk) required
             // bearer authentication required

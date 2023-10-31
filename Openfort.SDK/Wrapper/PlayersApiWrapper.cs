@@ -20,6 +20,8 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<PlayerResponse> Update(PlayerUpdateRequest request) => await apiClient.UpdatePlayerAsync(request.Id, request);
 
+        public async Task<PlayerDeleteResponse> Delete(string id) => await apiClient.DeletePlayerAsync(id);
+
         public async Task<AccountResponse> CreateAccount(PlayerCreateAccountRequest request) => await apiClient.CreatePlayerAccountAsync(request.PlayerId, request);
 
         public async Task<AccountListResponse> ListAccounts(AccountGetRequest request) => await apiClient.GetPlayerAccountsAsync(request.Id, request.Expand);

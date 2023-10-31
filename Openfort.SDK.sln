@@ -5,7 +5,7 @@ VisualStudioVersion = 25.0.1706.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openfort.SDK", "Openfort.SDK\Openfort.SDK.csproj", "{88EF25E7-3E13-48E4-8C98-8C52C2D8CC9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openfort.SDK.Test", "Openfort.SDK.Test\Openfort.SDK.Test.csproj", "{B249AD87-8883-4A5E-A082-EEC118ABABAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openfort.SDK.Tests", "Openfort.SDK.Tests\Openfort.SDK.Tests.csproj", "{793AE181-02D7-4371-B70A-9855835C9C39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{88EF25E7-3E13-48E4-8C98-8C52C2D8CC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EF25E7-3E13-48E4-8C98-8C52C2D8CC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EF25E7-3E13-48E4-8C98-8C52C2D8CC9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B249AD87-8883-4A5E-A082-EEC118ABABAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B249AD87-8883-4A5E-A082-EEC118ABABAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B249AD87-8883-4A5E-A082-EEC118ABABAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B249AD87-8883-4A5E-A082-EEC118ABABAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793AE181-02D7-4371-B70A-9855835C9C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793AE181-02D7-4371-B70A-9855835C9C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793AE181-02D7-4371-B70A-9855835C9C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793AE181-02D7-4371-B70A-9855835C9C39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
