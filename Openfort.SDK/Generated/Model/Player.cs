@@ -51,11 +51,11 @@ namespace Openfort.SDK.Model
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="metadata">metadata (required).</param>
+        /// <param name="description">description.</param>
+        /// <param name="metadata">metadata.</param>
         /// <param name="transactionIntents">transactionIntents.</param>
         /// <param name="accounts">accounts.</param>
-        public Player(string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), string name = default(string), string description = default(string), string metadata = default(string), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> accounts = default(List<EntityIdResponse>))
+        public Player(string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), string name = default(string), string description = default(string), Dictionary<string, PlayerMetadataValue> metadata = default(Dictionary<string, PlayerMetadataValue>), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> accounts = default(List<EntityIdResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -71,17 +71,7 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("name is a required property for Player and cannot be null");
             }
             this.Name = name;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Player and cannot be null");
-            }
             this.Description = description;
-            // to ensure "metadata" is required (not null)
-            if (metadata == null)
-            {
-                throw new ArgumentNullException("metadata is a required property for Player and cannot be null");
-            }
             this.Metadata = metadata;
             this.TransactionIntents = transactionIntents;
             this.Accounts = accounts;
@@ -108,14 +98,14 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
-        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
-        public string Metadata { get; set; }
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, PlayerMetadataValue> Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionIntents
@@ -205,8 +195,9 @@ namespace Openfort.SDK.Model
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) && 
                 (
                     this.TransactionIntents == input.TransactionIntents ||

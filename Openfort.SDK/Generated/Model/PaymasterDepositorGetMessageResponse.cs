@@ -28,35 +28,48 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// MemberRequest
+    /// PaymasterDepositorGetMessageResponse
     /// </summary>
-    [DataContract(Name = "MemberRequest")]
-    public partial class MemberRequest : IEquatable<MemberRequest>, IValidatableObject
+    [DataContract(Name = "PaymasterDepositorGetMessageResponse")]
+    public partial class PaymasterDepositorGetMessageResponse : IEquatable<PaymasterDepositorGetMessageResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MemberRequest" /> class.
+        /// Initializes a new instance of the <see cref="PaymasterDepositorGetMessageResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MemberRequest() { }
+        protected PaymasterDepositorGetMessageResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MemberRequest" /> class.
+        /// Initializes a new instance of the <see cref="PaymasterDepositorGetMessageResponse" /> class.
         /// </summary>
-        /// <param name="email">email (required).</param>
-        public MemberRequest(string email = default(string))
+        /// <param name="message">message (required).</param>
+        /// <param name="depositorAddress">depositorAddress (required).</param>
+        public PaymasterDepositorGetMessageResponse(string message = default(string), string depositorAddress = default(string))
         {
-            // to ensure "email" is required (not null)
-            if (email == null)
+            // to ensure "message" is required (not null)
+            if (message == null)
             {
-                throw new ArgumentNullException("email is a required property for MemberRequest and cannot be null");
+                throw new ArgumentNullException("message is a required property for PaymasterDepositorGetMessageResponse and cannot be null");
             }
-            this.Email = email;
+            this.Message = message;
+            // to ensure "depositorAddress" is required (not null)
+            if (depositorAddress == null)
+            {
+                throw new ArgumentNullException("depositorAddress is a required property for PaymasterDepositorGetMessageResponse and cannot be null");
+            }
+            this.DepositorAddress = depositorAddress;
         }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
-        public string Email { get; set; }
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DepositorAddress
+        /// </summary>
+        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
+        public string DepositorAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +78,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class MemberRequest {\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("class PaymasterDepositorGetMessageResponse {\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MemberRequest);
+            return this.Equals(input as PaymasterDepositorGetMessageResponse);
         }
 
         /// <summary>
-        /// Returns true if MemberRequest instances are equal
+        /// Returns true if PaymasterDepositorGetMessageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MemberRequest to be compared</param>
+        /// <param name="input">Instance of PaymasterDepositorGetMessageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MemberRequest input)
+        public bool Equals(PaymasterDepositorGetMessageResponse input)
         {
             if (input == null)
             {
@@ -103,9 +117,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.DepositorAddress == input.DepositorAddress ||
+                    (this.DepositorAddress != null &&
+                    this.DepositorAddress.Equals(input.DepositorAddress))
                 );
         }
 
@@ -118,9 +137,13 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Email != null)
+                if (this.Message != null)
                 {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.DepositorAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
                 }
                 return hashCode;
             }

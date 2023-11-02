@@ -28,49 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// InvitedMemberResponse
+    /// UserProjectCreateRequest
     /// </summary>
-    [DataContract(Name = "InvitedMemberResponse")]
-    public partial class InvitedMemberResponse : IEquatable<InvitedMemberResponse>, IValidatableObject
+    [DataContract(Name = "UserProjectCreateRequest")]
+    public partial class UserProjectCreateRequest : IEquatable<UserProjectCreateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InvitedMemberResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectCreateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InvitedMemberResponse() { }
+        protected UserProjectCreateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InvitedMemberResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectCreateRequest" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
+        /// <param name="role">role.</param>
         /// <param name="email">email (required).</param>
-        /// <param name="role">role (required).</param>
-        public InvitedMemberResponse(string id = default(string), string email = default(string), string role = default(string))
+        public UserProjectCreateRequest(UserProjectCreateRequestRole role = default(UserProjectCreateRequestRole), string email = default(string))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InvitedMemberResponse and cannot be null");
-            }
-            this.Id = id;
             // to ensure "email" is required (not null)
             if (email == null)
             {
-                throw new ArgumentNullException("email is a required property for InvitedMemberResponse and cannot be null");
+                throw new ArgumentNullException("email is a required property for UserProjectCreateRequest and cannot be null");
             }
             this.Email = email;
-            // to ensure "role" is required (not null)
-            if (role == null)
-            {
-                throw new ArgumentNullException("role is a required property for InvitedMemberResponse and cannot be null");
-            }
             this.Role = role;
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets Role
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
+        [DataMember(Name = "role", EmitDefaultValue = false)]
+        public UserProjectCreateRequestRole Role { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -79,22 +67,15 @@ namespace Openfort.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets Role
-        /// </summary>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public string Role { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InvitedMemberResponse {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("class UserProjectCreateRequest {\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,15 +96,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InvitedMemberResponse);
+            return this.Equals(input as UserProjectCreateRequest);
         }
 
         /// <summary>
-        /// Returns true if InvitedMemberResponse instances are equal
+        /// Returns true if UserProjectCreateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of InvitedMemberResponse to be compared</param>
+        /// <param name="input">Instance of UserProjectCreateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InvitedMemberResponse input)
+        public bool Equals(UserProjectCreateRequest input)
         {
             if (input == null)
             {
@@ -131,19 +112,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Role == input.Role ||
+                    (this.Role != null &&
+                    this.Role.Equals(input.Role))
                 ) && 
                 (
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
                 );
         }
 
@@ -156,17 +132,13 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.Role != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 }
                 if (this.Email != null)
                 {
                     hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 }
                 return hashCode;
             }

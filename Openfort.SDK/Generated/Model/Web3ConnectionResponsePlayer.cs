@@ -29,34 +29,34 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UpdateUserProjectRequestRole
+    /// The player ID (starts with pla_).
     /// </summary>
-    [JsonConverter(typeof(UpdateUserProjectRequestRoleJsonConverter))]
-    [DataContract(Name = "UpdateUserProjectRequest_role")]
-    public partial class UpdateUserProjectRequestRole : AbstractOpenAPISchema, IEquatable<UpdateUserProjectRequestRole>, IValidatableObject
+    [JsonConverter(typeof(Web3ConnectionResponsePlayerJsonConverter))]
+    [DataContract(Name = "Web3ConnectionResponse_player")]
+    public partial class Web3ConnectionResponsePlayer : AbstractOpenAPISchema, IEquatable<Web3ConnectionResponsePlayer>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleMEMBER" /> class
+        /// Initializes a new instance of the <see cref="Web3ConnectionResponsePlayer" /> class
+        /// with the <see cref="Player" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleMEMBER.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleMEMBER actualInstance)
+        /// <param name="actualInstance">An instance of Player.</param>
+        public Web3ConnectionResponsePlayer(Player actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance;
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequestRole" /> class
-        /// with the <see cref="UserProjectRoleADMIN" /> class
+        /// Initializes a new instance of the <see cref="Web3ConnectionResponsePlayer" /> class
+        /// with the <see cref="string" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserProjectRoleADMIN.</param>
-        public UpdateUserProjectRequestRole(UserProjectRoleADMIN actualInstance)
+        /// <param name="actualInstance">An instance of string.</param>
+        public Web3ConnectionResponsePlayer(string actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance;
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -73,39 +73,39 @@ namespace Openfort.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(UserProjectRoleADMIN))
+                if (value.GetType() == typeof(Player))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UserProjectRoleMEMBER))
+                else if (value.GetType() == typeof(string))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: UserProjectRoleADMIN, UserProjectRoleMEMBER");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Player, string");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleMEMBER`. If the actual instance is not `UserProjectRoleMEMBER`,
+        /// Get the actual instance of `Player`. If the actual instance is not `Player`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleMEMBER</returns>
-        public UserProjectRoleMEMBER GetUserProjectRoleMEMBER()
+        /// <returns>An instance of Player</returns>
+        public Player GetPlayer()
         {
-            return (UserProjectRoleMEMBER)this.ActualInstance;
+            return (Player)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `UserProjectRoleADMIN`. If the actual instance is not `UserProjectRoleADMIN`,
+        /// Get the actual instance of `string`. If the actual instance is not `string`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of UserProjectRoleADMIN</returns>
-        public UserProjectRoleADMIN GetUserProjectRoleADMIN()
+        /// <returns>An instance of string</returns>
+        public string GetString()
         {
-            return (UserProjectRoleADMIN)this.ActualInstance;
+            return (string)this.ActualInstance;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateUserProjectRequestRole {\n");
+            sb.Append("class Web3ConnectionResponsePlayer {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,45 +127,45 @@ namespace Openfort.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UpdateUserProjectRequestRole.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, Web3ConnectionResponsePlayer.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of UpdateUserProjectRequestRole
+        /// Converts the JSON string into an instance of Web3ConnectionResponsePlayer
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of UpdateUserProjectRequestRole</returns>
-        public static UpdateUserProjectRequestRole FromJson(string jsonString)
+        /// <returns>An instance of Web3ConnectionResponsePlayer</returns>
+        public static Web3ConnectionResponsePlayer FromJson(string jsonString)
         {
-            UpdateUserProjectRequestRole newUpdateUserProjectRequestRole = null;
+            Web3ConnectionResponsePlayer newWeb3ConnectionResponsePlayer = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newUpdateUserProjectRequestRole;
+                return newWeb3ConnectionResponsePlayer;
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleADMIN>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newWeb3ConnectionResponsePlayer = new Web3ConnectionResponsePlayer(JsonConvert.DeserializeObject<Player>(jsonString, Web3ConnectionResponsePlayer.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newWeb3ConnectionResponsePlayer;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleADMIN: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Player: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                newUpdateUserProjectRequestRole = new UpdateUserProjectRequestRole(JsonConvert.DeserializeObject<UserProjectRoleMEMBER>(jsonString, UpdateUserProjectRequestRole.SerializerSettings));
+                newWeb3ConnectionResponsePlayer = new Web3ConnectionResponsePlayer(JsonConvert.DeserializeObject<string>(jsonString, Web3ConnectionResponsePlayer.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newUpdateUserProjectRequestRole;
+                return newWeb3ConnectionResponsePlayer;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserProjectRoleMEMBER: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -179,15 +179,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateUserProjectRequestRole);
+            return this.Equals(input as Web3ConnectionResponsePlayer);
         }
 
         /// <summary>
-        /// Returns true if UpdateUserProjectRequestRole instances are equal
+        /// Returns true if Web3ConnectionResponsePlayer instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateUserProjectRequestRole to be compared</param>
+        /// <param name="input">Instance of Web3ConnectionResponsePlayer to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserProjectRequestRole input)
+        public bool Equals(Web3ConnectionResponsePlayer input)
         {
             if (input == null)
                 return false;
@@ -222,9 +222,9 @@ namespace Openfort.SDK.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for UpdateUserProjectRequestRole
+    /// Custom JSON converter for Web3ConnectionResponsePlayer
     /// </summary>
-    public class UpdateUserProjectRequestRoleJsonConverter : JsonConverter
+    public class Web3ConnectionResponsePlayerJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -234,7 +234,7 @@ namespace Openfort.SDK.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(UpdateUserProjectRequestRole).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(Web3ConnectionResponsePlayer).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Openfort.SDK.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return UpdateUserProjectRequestRole.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return Web3ConnectionResponsePlayer.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

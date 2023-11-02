@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UserListResponse
+    /// Web3ConnectionListResponse
     /// </summary>
-    [DataContract(Name = "UserListResponse")]
-    public partial class UserListResponse : IEquatable<UserListResponse>, IValidatableObject
+    [DataContract(Name = "Web3ConnectionListResponse")]
+    public partial class Web3ConnectionListResponse : IEquatable<Web3ConnectionListResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
         public ResponseTypeLIST Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserListResponse" /> class.
+        /// Initializes a new instance of the <see cref="Web3ConnectionListResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UserListResponse() { }
+        protected Web3ConnectionListResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserListResponse" /> class.
+        /// Initializes a new instance of the <see cref="Web3ConnectionListResponse" /> class.
         /// </summary>
         /// <param name="_object">_object (required).</param>
         /// <param name="url">url (required).</param>
@@ -53,19 +53,19 @@ namespace Openfort.SDK.Model
         /// <param name="start">start (required).</param>
         /// <param name="end">end (required).</param>
         /// <param name="total">total (required).</param>
-        public UserListResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<UserResponse> data = default(List<UserResponse>), int start = default(int), int end = default(int), int total = default(int))
+        public Web3ConnectionListResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<Web3ConnectionResponse> data = default(List<Web3ConnectionResponse>), int start = default(int), int end = default(int), int total = default(int))
         {
             this.Object = _object;
             // to ensure "url" is required (not null)
             if (url == null)
             {
-                throw new ArgumentNullException("url is a required property for UserListResponse and cannot be null");
+                throw new ArgumentNullException("url is a required property for Web3ConnectionListResponse and cannot be null");
             }
             this.Url = url;
             // to ensure "data" is required (not null)
             if (data == null)
             {
-                throw new ArgumentNullException("data is a required property for UserListResponse and cannot be null");
+                throw new ArgumentNullException("data is a required property for Web3ConnectionListResponse and cannot be null");
             }
             this.Data = data;
             this.Start = start;
@@ -83,7 +83,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public List<UserResponse> Data { get; set; }
+        public List<Web3ConnectionResponse> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
@@ -110,7 +110,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UserListResponse {\n");
+            sb.Append("class Web3ConnectionListResponse {\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
@@ -137,15 +137,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserListResponse);
+            return this.Equals(input as Web3ConnectionListResponse);
         }
 
         /// <summary>
-        /// Returns true if UserListResponse instances are equal
+        /// Returns true if Web3ConnectionListResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserListResponse to be compared</param>
+        /// <param name="input">Instance of Web3ConnectionListResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserListResponse input)
+        public bool Equals(Web3ConnectionListResponse input)
         {
             if (input == null)
             {

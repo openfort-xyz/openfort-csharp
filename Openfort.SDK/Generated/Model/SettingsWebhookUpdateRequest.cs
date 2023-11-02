@@ -28,48 +28,36 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AddDepositorAddressRequest
+    /// SettingsWebhookUpdateRequest
     /// </summary>
-    [DataContract(Name = "AddDepositorAddressRequest")]
-    public partial class AddDepositorAddressRequest : IEquatable<AddDepositorAddressRequest>, IValidatableObject
+    [DataContract(Name = "SettingsWebhookUpdateRequest")]
+    public partial class SettingsWebhookUpdateRequest : IEquatable<SettingsWebhookUpdateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddDepositorAddressRequest" /> class.
+        /// Initializes a new instance of the <see cref="SettingsWebhookUpdateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AddDepositorAddressRequest() { }
+        protected SettingsWebhookUpdateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddDepositorAddressRequest" /> class.
+        /// Initializes a new instance of the <see cref="SettingsWebhookUpdateRequest" /> class.
         /// </summary>
-        /// <param name="depositorAddress">depositorAddress (required).</param>
-        /// <param name="signature">signature (required).</param>
-        public AddDepositorAddressRequest(string depositorAddress = default(string), string signature = default(string))
+        /// <param name="url">The webhook url. (required).</param>
+        public SettingsWebhookUpdateRequest(string url = default(string))
         {
-            // to ensure "depositorAddress" is required (not null)
-            if (depositorAddress == null)
+            // to ensure "url" is required (not null)
+            if (url == null)
             {
-                throw new ArgumentNullException("depositorAddress is a required property for AddDepositorAddressRequest and cannot be null");
+                throw new ArgumentNullException("url is a required property for SettingsWebhookUpdateRequest and cannot be null");
             }
-            this.DepositorAddress = depositorAddress;
-            // to ensure "signature" is required (not null)
-            if (signature == null)
-            {
-                throw new ArgumentNullException("signature is a required property for AddDepositorAddressRequest and cannot be null");
-            }
-            this.Signature = signature;
+            this.Url = url;
         }
 
         /// <summary>
-        /// Gets or Sets DepositorAddress
+        /// The webhook url.
         /// </summary>
-        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
-        public string DepositorAddress { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Signature
-        /// </summary>
-        [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = true)]
-        public string Signature { get; set; }
+        /// <value>The webhook url.</value>
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +66,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AddDepositorAddressRequest {\n");
-            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
-            sb.Append("  Signature: ").Append(Signature).Append("\n");
+            sb.Append("class SettingsWebhookUpdateRequest {\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +88,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AddDepositorAddressRequest);
+            return this.Equals(input as SettingsWebhookUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if AddDepositorAddressRequest instances are equal
+        /// Returns true if SettingsWebhookUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AddDepositorAddressRequest to be compared</param>
+        /// <param name="input">Instance of SettingsWebhookUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AddDepositorAddressRequest input)
+        public bool Equals(SettingsWebhookUpdateRequest input)
         {
             if (input == null)
             {
@@ -117,14 +104,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.DepositorAddress == input.DepositorAddress ||
-                    (this.DepositorAddress != null &&
-                    this.DepositorAddress.Equals(input.DepositorAddress))
-                ) && 
-                (
-                    this.Signature == input.Signature ||
-                    (this.Signature != null &&
-                    this.Signature.Equals(input.Signature))
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 );
         }
 
@@ -137,13 +119,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DepositorAddress != null)
+                if (this.Url != null)
                 {
-                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
-                }
-                if (this.Signature != null)
-                {
-                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
                 return hashCode;
             }
@@ -156,6 +134,18 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Url (string) maxLength
+            if (this.Url != null && this.Url.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be less than 255.", new [] { "Url" });
+            }
+
+            // Url (string) minLength
+            if (this.Url != null && this.Url.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
+            }
+
             yield break;
         }
     }

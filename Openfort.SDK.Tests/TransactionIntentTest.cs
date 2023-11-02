@@ -10,7 +10,7 @@ public class TransactionIntentTest
     [TestMethod]
     public async Task Update()
     {
-        var playerRequest = new CreatePlayerRequest("test");
+        var playerRequest = new PlayerCreateRequest("test");
         var playerResponse = await client.Players.Create(playerRequest);
         var chainId = 80001;
         await client.Players.CreateAccount(new PlayerCreateAccountRequest(playerResponse.Id, chainId, "0xDC91aDF855306A44F4041625328abEAB3887b3b8"));

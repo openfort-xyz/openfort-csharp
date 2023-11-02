@@ -28,30 +28,32 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreatePlayerRequest
+    /// PlayerCreateRequest
     /// </summary>
-    [DataContract(Name = "CreatePlayerRequest")]
-    public partial class CreatePlayerRequest : IEquatable<CreatePlayerRequest>, IValidatableObject
+    [DataContract(Name = "PlayerCreateRequest")]
+    public partial class PlayerCreateRequest : IEquatable<PlayerCreateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePlayerRequest" /> class.
+        /// Initializes a new instance of the <see cref="PlayerCreateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreatePlayerRequest() { }
+        protected PlayerCreateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreatePlayerRequest" /> class.
+        /// Initializes a new instance of the <see cref="PlayerCreateRequest" /> class.
         /// </summary>
         /// <param name="name">Specifies the player name. (required).</param>
         /// <param name="description">Specifies the player description..</param>
-        public CreatePlayerRequest(string name = default(string), string description = default(string))
+        /// <param name="metadata">metadata.</param>
+        public PlayerCreateRequest(string name = default(string), string description = default(string), Dictionary<string, PlayerMetadataValue> metadata = default(Dictionary<string, PlayerMetadataValue>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for CreatePlayerRequest and cannot be null");
+                throw new ArgumentNullException("name is a required property for PlayerCreateRequest and cannot be null");
             }
             this.Name = name;
             this.Description = description;
+            this.Metadata = metadata;
         }
 
         /// <summary>
@@ -69,15 +71,22 @@ namespace Openfort.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, PlayerMetadataValue> Metadata { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreatePlayerRequest {\n");
+            sb.Append("class PlayerCreateRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +107,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreatePlayerRequest);
+            return this.Equals(input as PlayerCreateRequest);
         }
 
         /// <summary>
-        /// Returns true if CreatePlayerRequest instances are equal
+        /// Returns true if PlayerCreateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreatePlayerRequest to be compared</param>
+        /// <param name="input">Instance of PlayerCreateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreatePlayerRequest input)
+        public bool Equals(PlayerCreateRequest input)
         {
             if (input == null)
             {
@@ -122,6 +131,12 @@ namespace Openfort.SDK.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -142,6 +157,10 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -153,6 +172,18 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
             yield break;
         }
     }

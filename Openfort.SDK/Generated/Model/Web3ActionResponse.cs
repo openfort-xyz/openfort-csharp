@@ -28,38 +28,53 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UserProjectRemoveResponse
+    /// Web3ActionResponse
     /// </summary>
-    [DataContract(Name = "UserProjectRemoveResponse")]
-    public partial class UserProjectRemoveResponse : IEquatable<UserProjectRemoveResponse>, IValidatableObject
+    [DataContract(Name = "Web3ActionResponse")]
+    public partial class Web3ActionResponse : IEquatable<Web3ActionResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypeUSER Object { get; set; }
+        public EntityTypeWEB3ACTION Object { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserProjectRemoveResponse" /> class.
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public Web3ActionStatusEnum Status { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Web3ActionResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UserProjectRemoveResponse() { }
+        protected Web3ActionResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserProjectRemoveResponse" /> class.
+        /// Initializes a new instance of the <see cref="Web3ActionResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
-        /// <param name="deleted">deleted (required).</param>
-        public UserProjectRemoveResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), bool deleted = default(bool))
+        /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="web3Connection">The web3_connection ID (starts with web3_). (required).</param>
+        /// <param name="status">status (required).</param>
+        public Web3ActionResponse(string id = default(string), EntityTypeWEB3ACTION _object = default(EntityTypeWEB3ACTION), int createdAt = default(int), string web3Connection = default(string), Web3ActionStatusEnum status = default(Web3ActionStatusEnum))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for UserProjectRemoveResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for Web3ActionResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
-            this.Deleted = deleted;
+            this.CreatedAt = createdAt;
+            // to ensure "web3Connection" is required (not null)
+            if (web3Connection == null)
+            {
+                throw new ArgumentNullException("web3Connection is a required property for Web3ActionResponse and cannot be null");
+            }
+            this.Web3Connection = web3Connection;
+            this.Status = status;
         }
 
         /// <summary>
@@ -69,10 +84,18 @@ namespace Openfort.SDK.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Deleted
+        /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Deleted { get; set; }
+        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        public int CreatedAt { get; set; }
+
+        /// <summary>
+        /// The web3_connection ID (starts with web3_).
+        /// </summary>
+        /// <value>The web3_connection ID (starts with web3_).</value>
+        /// <example>&quot;web3_...&quot;</example>
+        [DataMember(Name = "web3_connection", IsRequired = true, EmitDefaultValue = true)]
+        public string Web3Connection { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +104,12 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UserProjectRemoveResponse {\n");
+            sb.Append("class Web3ActionResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Web3Connection: ").Append(Web3Connection).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +130,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserProjectRemoveResponse);
+            return this.Equals(input as Web3ActionResponse);
         }
 
         /// <summary>
-        /// Returns true if UserProjectRemoveResponse instances are equal
+        /// Returns true if Web3ActionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserProjectRemoveResponse to be compared</param>
+        /// <param name="input">Instance of Web3ActionResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserProjectRemoveResponse input)
+        public bool Equals(Web3ActionResponse input)
         {
             if (input == null)
             {
@@ -130,8 +155,17 @@ namespace Openfort.SDK.Model
                     this.Object.Equals(input.Object)
                 ) && 
                 (
-                    this.Deleted == input.Deleted ||
-                    this.Deleted.Equals(input.Deleted)
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.Web3Connection == input.Web3Connection ||
+                    (this.Web3Connection != null &&
+                    this.Web3Connection.Equals(input.Web3Connection))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -149,7 +183,12 @@ namespace Openfort.SDK.Model
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.Web3Connection != null)
+                {
+                    hashCode = (hashCode * 59) + this.Web3Connection.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }

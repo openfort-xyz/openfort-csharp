@@ -28,35 +28,35 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayerRequest
+    /// UserProjectUpdateRequest
     /// </summary>
-    [DataContract(Name = "PlayerRequest")]
-    public partial class PlayerRequest : IEquatable<PlayerRequest>, IValidatableObject
+    [DataContract(Name = "UserProjectUpdateRequest")]
+    public partial class UserProjectUpdateRequest : IEquatable<UserProjectUpdateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerRequest" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectUpdateRequest" /> class.
         /// </summary>
-        /// <param name="name">Specifies the player name..</param>
-        /// <param name="description">Specifies the player description..</param>
-        public PlayerRequest(string name = default(string), string description = default(string))
+        [JsonConstructorAttribute]
+        protected UserProjectUpdateRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserProjectUpdateRequest" /> class.
+        /// </summary>
+        /// <param name="role">role (required).</param>
+        public UserProjectUpdateRequest(UserProjectCreateRequestRole role = default(UserProjectCreateRequestRole))
         {
-            this.Name = name;
-            this.Description = description;
+            // to ensure "role" is required (not null)
+            if (role == null)
+            {
+                throw new ArgumentNullException("role is a required property for UserProjectUpdateRequest and cannot be null");
+            }
+            this.Role = role;
         }
 
         /// <summary>
-        /// Specifies the player name.
+        /// Gets or Sets Role
         /// </summary>
-        /// <value>Specifies the player name.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Specifies the player description.
-        /// </summary>
-        /// <value>Specifies the player description.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
+        public UserProjectCreateRequestRole Role { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,9 +65,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayerRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("class UserProjectUpdateRequest {\n");
+            sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +87,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayerRequest);
+            return this.Equals(input as UserProjectUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if PlayerRequest instances are equal
+        /// Returns true if UserProjectUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayerRequest to be compared</param>
+        /// <param name="input">Instance of UserProjectUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayerRequest input)
+        public bool Equals(UserProjectUpdateRequest input)
         {
             if (input == null)
             {
@@ -104,14 +103,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Role == input.Role ||
+                    (this.Role != null &&
+                    this.Role.Equals(input.Role))
                 );
         }
 
@@ -124,13 +118,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.Role != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 }
                 return hashCode;
             }

@@ -28,48 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UpdateUserProjectRequest
+    /// UserProjectDeleteResponse
     /// </summary>
-    [DataContract(Name = "UpdateUserProjectRequest")]
-    public partial class UpdateUserProjectRequest : IEquatable<UpdateUserProjectRequest>, IValidatableObject
+    [DataContract(Name = "UserProjectDeleteResponse")]
+    public partial class UserProjectDeleteResponse : IEquatable<UserProjectDeleteResponse>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequest" /> class.
+        /// Gets or Sets Object
+        /// </summary>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeUSER Object { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserProjectDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UpdateUserProjectRequest() { }
+        protected UserProjectDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectDeleteResponse" /> class.
         /// </summary>
-        /// <param name="userId">userId (required).</param>
-        /// <param name="role">role (required).</param>
-        public UpdateUserProjectRequest(string userId = default(string), UpdateUserProjectRequestRole role = default(UpdateUserProjectRequestRole))
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        public UserProjectDeleteResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), bool deleted = default(bool))
         {
-            // to ensure "userId" is required (not null)
-            if (userId == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("userId is a required property for UpdateUserProjectRequest and cannot be null");
+                throw new ArgumentNullException("id is a required property for UserProjectDeleteResponse and cannot be null");
             }
-            this.UserId = userId;
-            // to ensure "role" is required (not null)
-            if (role == null)
-            {
-                throw new ArgumentNullException("role is a required property for UpdateUserProjectRequest and cannot be null");
-            }
-            this.Role = role;
+            this.Id = id;
+            this.Object = _object;
+            this.Deleted = deleted;
         }
 
         /// <summary>
-        /// Gets or Sets UserId
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
-        public string UserId { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Role
+        /// Gets or Sets Deleted
         /// </summary>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public UpdateUserProjectRequestRole Role { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpdateUserProjectRequest {\n");
-            sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("class UserProjectDeleteResponse {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateUserProjectRequest);
+            return this.Equals(input as UserProjectDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if UpdateUserProjectRequest instances are equal
+        /// Returns true if UserProjectDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateUserProjectRequest to be compared</param>
+        /// <param name="input">Instance of UserProjectDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserProjectRequest input)
+        public bool Equals(UserProjectDeleteResponse input)
         {
             if (input == null)
             {
@@ -117,14 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -137,14 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UserId != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Role != null)
-                {
-                    hashCode = (hashCode * 59) + this.Role.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

@@ -122,6 +122,32 @@ namespace Openfort.SDK
             }
         }
 
+        private SettingsApiWrapper? settings;
+        public SettingsApiWrapper Settings
+        {
+            get
+            {
+                if (settings == null)
+                {
+                    settings = new SettingsApiWrapper(apiKey, basePath);
+                }
+                return settings;
+            }
+        }
+
+        private IamApiWrapper? iam;
+        public IamApiWrapper Iam
+        {
+            get
+            {
+                if (iam == null)
+                {
+                    iam = new IamApiWrapper(apiKey, basePath);
+                }
+                return iam;
+            }
+        }
+
         private OAuthApiWrapper? oauth;
         public OAuthApiWrapper OAuth
         {

@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UserResponse
+    /// UserProjectResponse
     /// </summary>
-    [DataContract(Name = "UserResponse")]
-    public partial class UserResponse : IEquatable<UserResponse>, IValidatableObject
+    [DataContract(Name = "UserProjectResponse")]
+    public partial class UserProjectResponse : IEquatable<UserProjectResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -46,12 +46,12 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public UserProjectRole Role { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UserResponse() { }
+        protected UserProjectResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserResponse" /> class.
+        /// Initializes a new instance of the <see cref="UserProjectResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
@@ -59,16 +59,14 @@ namespace Openfort.SDK.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="firstName">firstName (required).</param>
-        /// <param name="lastName">lastName (required).</param>
         /// <param name="role">role (required).</param>
         /// <param name="email">email (required).</param>
-        public UserResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), int createdAt = default(int), int updatedAt = default(int), string firstName = default(string), string lastName = default(string), UserProjectRole role = default(UserProjectRole), string email = default(string))
+        public UserProjectResponse(string id = default(string), EntityTypeUSER _object = default(EntityTypeUSER), int createdAt = default(int), int updatedAt = default(int), string firstName = default(string), string lastName = default(string), UserProjectRole role = default(UserProjectRole), string email = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for UserResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for UserProjectResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
@@ -77,20 +75,20 @@ namespace Openfort.SDK.Model
             // to ensure "firstName" is required (not null)
             if (firstName == null)
             {
-                throw new ArgumentNullException("firstName is a required property for UserResponse and cannot be null");
+                throw new ArgumentNullException("firstName is a required property for UserProjectResponse and cannot be null");
             }
             this.FirstName = firstName;
             // to ensure "lastName" is required (not null)
             if (lastName == null)
             {
-                throw new ArgumentNullException("lastName is a required property for UserResponse and cannot be null");
+                throw new ArgumentNullException("lastName is a required property for UserProjectResponse and cannot be null");
             }
             this.LastName = lastName;
             this.Role = role;
             // to ensure "email" is required (not null)
             if (email == null)
             {
-                throw new ArgumentNullException("email is a required property for UserResponse and cannot be null");
+                throw new ArgumentNullException("email is a required property for UserProjectResponse and cannot be null");
             }
             this.Email = email;
         }
@@ -116,15 +114,13 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
-        [DataMember(Name = "first_name", IsRequired = true, EmitDefaultValue = true)]
-        [Obsolete]
+        [DataMember(Name = "firstName", IsRequired = true, EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name = "last_name", IsRequired = true, EmitDefaultValue = true)]
-        [Obsolete]
+        [DataMember(Name = "lastName", IsRequired = true, EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -140,13 +136,11 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UserResponse {\n");
+            sb.Append("class UserProjectResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
@@ -171,15 +165,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserResponse);
+            return this.Equals(input as UserProjectResponse);
         }
 
         /// <summary>
-        /// Returns true if UserResponse instances are equal
+        /// Returns true if UserProjectResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserResponse to be compared</param>
+        /// <param name="input">Instance of UserProjectResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserResponse input)
+        public bool Equals(UserProjectResponse input)
         {
             if (input == null)
             {
@@ -202,16 +196,6 @@ namespace Openfort.SDK.Model
                 (
                     this.UpdatedAt == input.UpdatedAt ||
                     this.UpdatedAt.Equals(input.UpdatedAt)
-                ) && 
-                (
-                    this.FirstName == input.FirstName ||
-                    (this.FirstName != null &&
-                    this.FirstName.Equals(input.FirstName))
-                ) && 
-                (
-                    this.LastName == input.LastName ||
-                    (this.LastName != null &&
-                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
                     this.FirstName == input.FirstName ||
@@ -250,14 +234,6 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                if (this.FirstName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
-                }
-                if (this.LastName != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
-                }
                 if (this.FirstName != null)
                 {
                     hashCode = (hashCode * 59) + this.FirstName.GetHashCode();

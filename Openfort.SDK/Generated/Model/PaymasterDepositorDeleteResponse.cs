@@ -28,36 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PaymasterDepositorResponseDeleted
+    /// PaymasterDepositorDeleteResponse
     /// </summary>
-    [DataContract(Name = "PaymasterDepositorResponseDeleted")]
-    public partial class PaymasterDepositorResponseDeleted : IEquatable<PaymasterDepositorResponseDeleted>, IValidatableObject
+    [DataContract(Name = "PaymasterDepositorDeleteResponse")]
+    public partial class PaymasterDepositorDeleteResponse : IEquatable<PaymasterDepositorDeleteResponse>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorResponseDeleted" /> class.
+        /// Gets or Sets Object
+        /// </summary>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypePAYMASTERDEPOSITOR Object { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaymasterDepositorDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PaymasterDepositorResponseDeleted() { }
+        protected PaymasterDepositorDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorResponseDeleted" /> class.
+        /// Initializes a new instance of the <see cref="PaymasterDepositorDeleteResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="depositorAddress">depositorAddress (required).</param>
+        /// <param name="_object">_object (required).</param>
         /// <param name="deleted">deleted (required).</param>
-        public PaymasterDepositorResponseDeleted(string id = default(string), string depositorAddress = default(string), bool deleted = default(bool))
+        public PaymasterDepositorDeleteResponse(string id = default(string), EntityTypePAYMASTERDEPOSITOR _object = default(EntityTypePAYMASTERDEPOSITOR), bool deleted = default(bool))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for PaymasterDepositorResponseDeleted and cannot be null");
+                throw new ArgumentNullException("id is a required property for PaymasterDepositorDeleteResponse and cannot be null");
             }
             this.Id = id;
-            // to ensure "depositorAddress" is required (not null)
-            if (depositorAddress == null)
-            {
-                throw new ArgumentNullException("depositorAddress is a required property for PaymasterDepositorResponseDeleted and cannot be null");
-            }
-            this.DepositorAddress = depositorAddress;
+            this.Object = _object;
             this.Deleted = deleted;
         }
 
@@ -66,12 +67,6 @@ namespace Openfort.SDK.Model
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DepositorAddress
-        /// </summary>
-        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
-        public string DepositorAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Deleted
@@ -86,9 +81,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaymasterDepositorResponseDeleted {\n");
+            sb.Append("class PaymasterDepositorDeleteResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -110,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymasterDepositorResponseDeleted);
+            return this.Equals(input as PaymasterDepositorDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if PaymasterDepositorResponseDeleted instances are equal
+        /// Returns true if PaymasterDepositorDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymasterDepositorResponseDeleted to be compared</param>
+        /// <param name="input">Instance of PaymasterDepositorDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymasterDepositorResponseDeleted input)
+        public bool Equals(PaymasterDepositorDeleteResponse input)
         {
             if (input == null)
             {
@@ -131,9 +126,8 @@ namespace Openfort.SDK.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.DepositorAddress == input.DepositorAddress ||
-                    (this.DepositorAddress != null &&
-                    this.DepositorAddress.Equals(input.DepositorAddress))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
                 ) && 
                 (
                     this.Deleted == input.Deleted ||
@@ -154,10 +148,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.DepositorAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
