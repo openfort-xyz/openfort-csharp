@@ -47,14 +47,15 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
         /// </summary>
-        /// <param name="enabled">Enable Google OAuth. (required).</param>
+        /// <param name="enabled">Enable OAuth provider. (required).</param>
+        /// <param name="provider">provider (required).</param>
         /// <param name="clientId">Google API client ID. (required).</param>
         /// <param name="clientSecret">Google API client secret. (required).</param>
         /// <param name="redirectUri">The URI to redirect to after completing the auth request. You can use Openfort redirect URL: https://openfort.xyz/auth/v1/google/callback (required).</param>
-        /// <param name="provider">provider (required).</param>
-        public GoogleOAuthConfig(bool enabled = default(bool), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE))
+        public GoogleOAuthConfig(bool enabled = default(bool), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string))
         {
             this.Enabled = enabled;
+            this.Provider = provider;
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -73,13 +74,12 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("redirectUri is a required property for GoogleOAuthConfig and cannot be null");
             }
             this.RedirectUri = redirectUri;
-            this.Provider = provider;
         }
 
         /// <summary>
-        /// Enable Google OAuth.
+        /// Enable OAuth provider.
         /// </summary>
-        /// <value>Enable Google OAuth.</value>
+        /// <value>Enable OAuth provider.</value>
         [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
@@ -113,10 +113,10 @@ namespace Openfort.SDK.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GoogleOAuthConfig {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("  RedirectUri: ").Append(RedirectUri).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +157,10 @@ namespace Openfort.SDK.Model
                     this.Enabled.Equals(input.Enabled)
                 ) && 
                 (
+                    this.Provider == input.Provider ||
+                    this.Provider.Equals(input.Provider)
+                ) && 
+                (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
@@ -170,10 +174,6 @@ namespace Openfort.SDK.Model
                     this.RedirectUri == input.RedirectUri ||
                     (this.RedirectUri != null &&
                     this.RedirectUri.Equals(input.RedirectUri))
-                ) && 
-                (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
                 );
         }
 
@@ -187,6 +187,7 @@ namespace Openfort.SDK.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
@@ -199,7 +200,6 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.RedirectUri.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 return hashCode;
             }
         }

@@ -28,53 +28,46 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayFab oauth configuration
+    /// ContractReadQueries
     /// </summary>
-    [DataContract(Name = "PlayFabOAuthConfig")]
-    public partial class PlayFabOAuthConfig : IEquatable<PlayFabOAuthConfig>, IValidatableObject
+    [DataContract(Name = "ContractReadQueries")]
+    public partial class ContractReadQueries : IEquatable<ContractReadQueries>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderPLAYFAB Provider { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="ContractReadQueries" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayFabOAuthConfig() { }
+        protected ContractReadQueries() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="ContractReadQueries" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        /// <param name="titleId">Title ID of your Play Fab gaming service environment. (required).</param>
-        public PlayFabOAuthConfig(bool enabled = default(bool), OAuthProviderPLAYFAB provider = default(OAuthProviderPLAYFAB), string titleId = default(string))
+        /// <param name="functionName">The function name of the contract. (required).</param>
+        /// <param name="functionArgs">The function arguments of the contract..</param>
+        public ContractReadQueries(string functionName = default(string), List<Object> functionArgs = default(List<Object>))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
-            // to ensure "titleId" is required (not null)
-            if (titleId == null)
+            // to ensure "functionName" is required (not null)
+            if (functionName == null)
             {
-                throw new ArgumentNullException("titleId is a required property for PlayFabOAuthConfig and cannot be null");
+                throw new ArgumentNullException("functionName is a required property for ContractReadQueries and cannot be null");
             }
-            this.TitleId = titleId;
+            this.FunctionName = functionName;
+            this.FunctionArgs = functionArgs;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// The function name of the contract.
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        /// <value>The function name of the contract.</value>
+        /// <example>&quot;mint&quot;</example>
+        [DataMember(Name = "functionName", IsRequired = true, EmitDefaultValue = true)]
+        public string FunctionName { get; set; }
 
         /// <summary>
-        /// Title ID of your Play Fab gaming service environment.
+        /// The function arguments of the contract.
         /// </summary>
-        /// <value>Title ID of your Play Fab gaming service environment.</value>
-        [DataMember(Name = "titleId", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleId { get; set; }
+        /// <value>The function arguments of the contract.</value>
+        [DataMember(Name = "functionArgs", EmitDefaultValue = false)]
+        public List<Object> FunctionArgs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +76,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayFabOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  TitleId: ").Append(TitleId).Append("\n");
+            sb.Append("class ContractReadQueries {\n");
+            sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
+            sb.Append("  FunctionArgs: ").Append(FunctionArgs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,15 +99,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayFabOAuthConfig);
+            return this.Equals(input as ContractReadQueries);
         }
 
         /// <summary>
-        /// Returns true if PlayFabOAuthConfig instances are equal
+        /// Returns true if ContractReadQueries instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayFabOAuthConfig to be compared</param>
+        /// <param name="input">Instance of ContractReadQueries to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayFabOAuthConfig input)
+        public bool Equals(ContractReadQueries input)
         {
             if (input == null)
             {
@@ -123,17 +115,15 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
+                    this.FunctionName == input.FunctionName ||
+                    (this.FunctionName != null &&
+                    this.FunctionName.Equals(input.FunctionName))
                 ) && 
                 (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
-                ) && 
-                (
-                    this.TitleId == input.TitleId ||
-                    (this.TitleId != null &&
-                    this.TitleId.Equals(input.TitleId))
+                    this.FunctionArgs == input.FunctionArgs ||
+                    this.FunctionArgs != null &&
+                    input.FunctionArgs != null &&
+                    this.FunctionArgs.SequenceEqual(input.FunctionArgs)
                 );
         }
 
@@ -146,11 +136,13 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.TitleId != null)
+                if (this.FunctionName != null)
                 {
-                    hashCode = (hashCode * 59) + this.TitleId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FunctionName.GetHashCode();
+                }
+                if (this.FunctionArgs != null)
+                {
+                    hashCode = (hashCode * 59) + this.FunctionArgs.GetHashCode();
                 }
                 return hashCode;
             }
