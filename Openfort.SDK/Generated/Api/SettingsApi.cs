@@ -798,7 +798,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaymasterDepositorGetMessageResponse>("/v1/settings/depositor_addresses/message_to_sigh", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PaymasterDepositorGetMessageResponse>("/v1/settings/depositor_addresses/message_to_sign", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -864,7 +864,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaymasterDepositorGetMessageResponse>("/v1/settings/depositor_addresses/message_to_sigh", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PaymasterDepositorGetMessageResponse>("/v1/settings/depositor_addresses/message_to_sign", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

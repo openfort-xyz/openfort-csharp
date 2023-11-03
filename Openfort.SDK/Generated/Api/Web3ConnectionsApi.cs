@@ -123,7 +123,7 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of Web3ConnectionListResponse</returns>
         ApiResponse<Web3ConnectionListResponse> GetWeb3ConnectionsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?));
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action.
+        /// Approve or Reject a web3 action
         /// </summary>
         /// <remarks>
         /// Approve or Reject a web3 action for the given web3 connection.
@@ -136,7 +136,7 @@ namespace Openfort.SDK.Api
         Web3ActionResponse SubmitWeb3Action(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest);
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action.
+        /// Approve or Reject a web3 action
         /// </summary>
         /// <remarks>
         /// Approve or Reject a web3 action for the given web3 connection.
@@ -259,7 +259,7 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (Web3ConnectionListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<Web3ConnectionListResponse>> GetWeb3ConnectionsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action.
+        /// Approve or Reject a web3 action
         /// </summary>
         /// <remarks>
         /// Approve or Reject a web3 action for the given web3 connection.
@@ -273,7 +273,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<Web3ActionResponse> SubmitWeb3ActionAsync(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action.
+        /// Approve or Reject a web3 action
         /// </summary>
         /// <remarks>
         /// Approve or Reject a web3 action for the given web3 connection.
@@ -1069,7 +1069,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action. Approve or Reject a web3 action for the given web3 connection.
+        /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -1083,7 +1083,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action. Approve or Reject a web3 action for the given web3 connection.
+        /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -1145,7 +1145,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action. Approve or Reject a web3 action for the given web3 connection.
+        /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -1160,7 +1160,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Approve or Reject a web3 action Submit an approval or rejection for a given web3 action. Approve or Reject a web3 action for the given web3 connection.
+        /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
