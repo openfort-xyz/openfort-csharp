@@ -122,6 +122,19 @@ namespace Openfort.SDK
             }
         }
 
+        private Web3ConnectionsApiWrapper? web3Connections;
+        public Web3ConnectionsApiWrapper Web3Connections
+        {
+            get
+            {
+                if (web3Connections == null)
+                {
+                    web3Connections = new Web3ConnectionsApiWrapper(apiKey, basePath);
+                }
+                return web3Connections;
+            }
+        }
+
         private SettingsApiWrapper? settings;
         public SettingsApiWrapper Settings
         {
