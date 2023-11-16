@@ -170,6 +170,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Sign a given payload
         /// </summary>
+        /// <remarks>
+        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
         /// <param name="signPayloadRequest"></param>
@@ -180,7 +183,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// 
+        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -392,7 +395,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// 
+        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -405,7 +408,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// 
+        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1547,7 +1550,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload 
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1560,7 +1563,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload 
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1616,7 +1619,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload 
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1630,7 +1633,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload 
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>

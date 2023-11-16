@@ -44,7 +44,7 @@ namespace Openfort.SDK.Model
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance;
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Openfort.SDK.Model
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance;
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 

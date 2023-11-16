@@ -18,7 +18,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<Web3ConnectionResponse> Get(Web3ConnectionGetRequest request) => await apiClient.GetWeb3ConnectionAsync(request.Id, request.Expand);
 
-        public async Task<Web3ConnectionListResponse> List(Web3ConnectionListQueries request) => await apiClient.GetWeb3ConnectionsAsync(request.Player, request.Limit, request.Skip, request.Order, request.Disconnected);
+        public async Task<Web3ConnectionListResponse> List(Web3ConnectionListQueries request) => await apiClient.GetWeb3ConnectionsAsync(request.Limit, request.Skip, request.Order, request.Player, request.Disconnected);
 
         public async Task<Web3ActionResponse> SubmitWeb3Action(Web3ActionSubmit request) => await apiClient.SubmitWeb3ActionAsync(request.Id, request.Web3Action, request.SubmitWeb3ActionRequest);
     }

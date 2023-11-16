@@ -43,10 +43,12 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="approve">True to approve the action, false to reject it. (required).</param>
         /// <param name="policy">The policy ID (starts with pol_).</param>
-        public SubmitWeb3ActionRequest(bool approve = default(bool), string policy = default(string))
+        /// <param name="signature">signed data by the owner.</param>
+        public SubmitWeb3ActionRequest(bool approve = default(bool), string policy = default(string), string signature = default(string))
         {
             this.Approve = approve;
             this.Policy = policy;
+            this.Signature = signature;
         }
 
         /// <summary>
@@ -64,6 +66,13 @@ namespace Openfort.SDK.Model
         public string Policy { get; set; }
 
         /// <summary>
+        /// signed data by the owner
+        /// </summary>
+        /// <value>signed data by the owner</value>
+        [DataMember(Name = "signature", EmitDefaultValue = false)]
+        public string Signature { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace Openfort.SDK.Model
             sb.Append("class SubmitWeb3ActionRequest {\n");
             sb.Append("  Approve: ").Append(Approve).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +126,11 @@ namespace Openfort.SDK.Model
                     this.Policy == input.Policy ||
                     (this.Policy != null &&
                     this.Policy.Equals(input.Policy))
+                ) && 
+                (
+                    this.Signature == input.Signature ||
+                    (this.Signature != null &&
+                    this.Signature.Equals(input.Signature))
                 );
         }
 
@@ -132,6 +147,10 @@ namespace Openfort.SDK.Model
                 if (this.Policy != null)
                 {
                     hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                }
+                if (this.Signature != null)
+                {
+                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
                 }
                 return hashCode;
             }

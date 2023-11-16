@@ -56,7 +56,7 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <returns>Web3ActionListResponse</returns>
         Web3ActionListResponse GetWeb3Actions(string id);
 
@@ -67,7 +67,7 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <returns>ApiResponse of Web3ActionListResponse</returns>
         ApiResponse<Web3ActionListResponse> GetWeb3ActionsWithHttpInfo(string id);
         /// <summary>
@@ -100,13 +100,13 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <returns>Web3ConnectionListResponse</returns>
-        Web3ConnectionListResponse GetWeb3Connections(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?));
+        Web3ConnectionListResponse GetWeb3Connections(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?));
 
         /// <summary>
         /// List Web3 connections.
@@ -115,13 +115,13 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <returns>ApiResponse of Web3ConnectionListResponse</returns>
-        ApiResponse<Web3ConnectionListResponse> GetWeb3ConnectionsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?));
+        ApiResponse<Web3ConnectionListResponse> GetWeb3ConnectionsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?));
         /// <summary>
         /// Approve or Reject a web3 action
         /// </summary>
@@ -129,8 +129,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action for the given web3 connection.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <returns>Web3ActionResponse</returns>
         Web3ActionResponse SubmitWeb3Action(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest);
@@ -142,8 +142,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action for the given web3 connection.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <returns>ApiResponse of Web3ActionResponse</returns>
         ApiResponse<Web3ActionResponse> SubmitWeb3ActionWithHttpInfo(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest);
@@ -186,7 +186,7 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ActionListResponse</returns>
         System.Threading.Tasks.Task<Web3ActionListResponse> GetWeb3ActionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -198,7 +198,7 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ActionListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<Web3ActionListResponse>> GetWeb3ActionsWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -234,14 +234,14 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ConnectionListResponse</returns>
-        System.Threading.Tasks.Task<Web3ConnectionListResponse> GetWeb3ConnectionsAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Web3ConnectionListResponse> GetWeb3ConnectionsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Web3 connections.
@@ -250,14 +250,14 @@ namespace Openfort.SDK.Api
         /// Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ConnectionListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Web3ConnectionListResponse>> GetWeb3ConnectionsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Web3ConnectionListResponse>> GetWeb3ConnectionsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Approve or Reject a web3 action
         /// </summary>
@@ -265,8 +265,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action for the given web3 connection.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ActionResponse</returns>
@@ -279,8 +279,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action for the given web3 connection.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ActionResponse)</returns>
@@ -631,7 +631,7 @@ namespace Openfort.SDK.Api
         /// List Web3 actions from a web3 connection. Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <returns>Web3ActionListResponse</returns>
         public Web3ActionListResponse GetWeb3Actions(string id)
         {
@@ -643,7 +643,7 @@ namespace Openfort.SDK.Api
         /// List Web3 actions from a web3 connection. Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <returns>ApiResponse of Web3ActionListResponse</returns>
         public Openfort.SDK.Client.ApiResponse<Web3ActionListResponse> GetWeb3ActionsWithHttpInfo(string id)
         {
@@ -692,7 +692,7 @@ namespace Openfort.SDK.Api
         /// List Web3 actions from a web3 connection. Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ActionListResponse</returns>
         public async System.Threading.Tasks.Task<Web3ActionListResponse> GetWeb3ActionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -705,7 +705,7 @@ namespace Openfort.SDK.Api
         /// List Web3 actions from a web3 connection. Returns a list of web3 actions for the given web3 connection. The actions are returned sorted by creation date, with the most recently received action appearing first. By default, a maximum of ten actions are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ActionListResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Web3ActionListResponse>> GetWeb3ActionsWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -897,15 +897,15 @@ namespace Openfort.SDK.Api
         /// List Web3 connections. Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <returns>Web3ConnectionListResponse</returns>
-        public Web3ConnectionListResponse GetWeb3Connections(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?))
+        public Web3ConnectionListResponse GetWeb3Connections(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?))
         {
-            Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> localVarResponse = GetWeb3ConnectionsWithHttpInfo(player, limit, skip, order, disconnected);
+            Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> localVarResponse = GetWeb3ConnectionsWithHttpInfo(limit, skip, order, player, disconnected);
             return localVarResponse.Data;
         }
 
@@ -913,18 +913,14 @@ namespace Openfort.SDK.Api
         /// List Web3 connections. Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <returns>ApiResponse of Web3ConnectionListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> GetWeb3ConnectionsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?))
+        public Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> GetWeb3ConnectionsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?))
         {
-            // verify the required parameter 'player' is set
-            if (player == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'player' when calling Web3ConnectionsApi->GetWeb3Connections");
-
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -953,7 +949,10 @@ namespace Openfort.SDK.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
-            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "player", player));
+            if (player != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "player", player));
+            }
             if (disconnected != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "disconnected", disconnected));
@@ -982,16 +981,16 @@ namespace Openfort.SDK.Api
         /// List Web3 connections. Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ConnectionListResponse</returns>
-        public async System.Threading.Tasks.Task<Web3ConnectionListResponse> GetWeb3ConnectionsAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Web3ConnectionListResponse> GetWeb3ConnectionsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> localVarResponse = await GetWeb3ConnectionsWithHttpInfoAsync(player, limit, skip, order, disconnected, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse> localVarResponse = await GetWeb3ConnectionsWithHttpInfoAsync(limit, skip, order, player, disconnected, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -999,19 +998,15 @@ namespace Openfort.SDK.Api
         /// List Web3 connections. Returns a list of web3 connections for the given player. The connections are returned sorted by creation date, with the most recently created connections appearing first. By default, a maximum of ten connections are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="player">Specifies the unique player ID (starts with pla_) (optional)</param>
         /// <param name="disconnected">Specifies connection status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ConnectionListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse>> GetWeb3ConnectionsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Web3ConnectionListResponse>> GetWeb3ConnectionsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string player = default(string), bool? disconnected = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'player' is set
-            if (player == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'player' when calling Web3ConnectionsApi->GetWeb3Connections");
-
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1042,7 +1037,10 @@ namespace Openfort.SDK.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "order", order));
             }
-            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "player", player));
+            if (player != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "player", player));
+            }
             if (disconnected != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "disconnected", disconnected));
@@ -1072,8 +1070,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <returns>Web3ActionResponse</returns>
         public Web3ActionResponse SubmitWeb3Action(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest)
@@ -1086,8 +1084,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <returns>ApiResponse of Web3ActionResponse</returns>
         public Openfort.SDK.Client.ApiResponse<Web3ActionResponse> SubmitWeb3ActionWithHttpInfo(string id, string web3Action, SubmitWeb3ActionRequest submitWeb3ActionRequest)
@@ -1148,8 +1146,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Web3ActionResponse</returns>
@@ -1163,8 +1161,8 @@ namespace Openfort.SDK.Api
         /// Approve or Reject a web3 action Approve or Reject a web3 action for the given web3 connection.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="web3Action"></param>
+        /// <param name="id">Specifies the web3Connection ID (starts with web3_).</param>
+        /// <param name="web3Action">Specifies web3_action (starts with act_).</param>
         /// <param name="submitWeb3ActionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Web3ActionResponse)</returns>

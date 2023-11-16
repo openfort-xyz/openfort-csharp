@@ -50,7 +50,7 @@ namespace Openfort.SDK.Api
         /// Deletes a policy rule object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <returns>PolicyRuleDeleteResponse</returns>
         PolicyRuleDeleteResponse DeletePolicyRules(string id);
 
@@ -61,7 +61,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <returns>ApiResponse of PolicyRuleDeleteResponse</returns>
         ApiResponse<PolicyRuleDeleteResponse> DeletePolicyRulesWithHttpInfo(string id);
         /// <summary>
@@ -94,7 +94,7 @@ namespace Openfort.SDK.Api
         /// Update a policy rule object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
         PolicyRuleResponse UpdatePolicyRules(string id, UpdatePolicyRuleRequest updatePolicyRuleRequest);
@@ -106,7 +106,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
         ApiResponse<PolicyRuleResponse> UpdatePolicyRulesWithHttpInfo(string id, UpdatePolicyRuleRequest updatePolicyRuleRequest);
@@ -149,7 +149,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleDeleteResponse</returns>
         System.Threading.Tasks.Task<PolicyRuleDeleteResponse> DeletePolicyRulesAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -161,7 +161,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyRuleDeleteResponse>> DeletePolicyRulesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -203,7 +203,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
@@ -216,7 +216,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
@@ -567,7 +567,7 @@ namespace Openfort.SDK.Api
         /// Deletes a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <returns>PolicyRuleDeleteResponse</returns>
         public PolicyRuleDeleteResponse DeletePolicyRules(string id)
         {
@@ -579,7 +579,7 @@ namespace Openfort.SDK.Api
         /// Deletes a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <returns>ApiResponse of PolicyRuleDeleteResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyRuleDeleteResponse> DeletePolicyRulesWithHttpInfo(string id)
         {
@@ -628,7 +628,7 @@ namespace Openfort.SDK.Api
         /// Deletes a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleDeleteResponse</returns>
         public async System.Threading.Tasks.Task<PolicyRuleDeleteResponse> DeletePolicyRulesAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -641,7 +641,7 @@ namespace Openfort.SDK.Api
         /// Deletes a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleDeleteResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyRuleDeleteResponse>> DeletePolicyRulesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -869,7 +869,7 @@ namespace Openfort.SDK.Api
         /// Update a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
         public PolicyRuleResponse UpdatePolicyRules(string id, UpdatePolicyRuleRequest updatePolicyRuleRequest)
@@ -882,7 +882,7 @@ namespace Openfort.SDK.Api
         /// Update a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> UpdatePolicyRulesWithHttpInfo(string id, UpdatePolicyRuleRequest updatePolicyRuleRequest)
@@ -938,7 +938,7 @@ namespace Openfort.SDK.Api
         /// Update a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
@@ -952,7 +952,7 @@ namespace Openfort.SDK.Api
         /// Update a policy rule object. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique policy rule ID.</param>
+        /// <param name="id">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
