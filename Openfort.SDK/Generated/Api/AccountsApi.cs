@@ -93,6 +93,29 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of AccountResponse</returns>
         ApiResponse<AccountResponse> CreateAccountWithHttpInfo(CreateAccountRequest createAccountRequest);
         /// <summary>
+        /// Deploy an account.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <returns>AccountResponse</returns>
+        AccountResponse DeployAccount(string id, DeployRequest deployRequest);
+
+        /// <summary>
+        /// Deploy an account.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <returns>ApiResponse of AccountResponse</returns>
+        ApiResponse<AccountResponse> DeployAccountWithHttpInfo(string id, DeployRequest deployRequest);
+        /// <summary>
         /// Get existing account.
         /// </summary>
         /// <remarks>
@@ -213,6 +236,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Sync account state with the blockchain
         /// </summary>
+        /// <remarks>
+        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
         /// <returns>AccountResponse</returns>
@@ -222,7 +248,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -310,6 +336,31 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountResponse>> CreateAccountWithHttpInfoAsync(CreateAccountRequest createAccountRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Deploy an account.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountResponse</returns>
+        System.Threading.Tasks.Task<AccountResponse> DeployAccountAsync(string id, DeployRequest deployRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Deploy an account.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AccountResponse>> DeployAccountWithHttpInfoAsync(string id, DeployRequest deployRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get existing account.
         /// </summary>
@@ -445,7 +496,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -457,7 +508,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// 
+        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1086,6 +1137,149 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <returns>AccountResponse</returns>
+        public AccountResponse DeployAccount(string id, DeployRequest deployRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<AccountResponse> localVarResponse = DeployAccountWithHttpInfo(id, deployRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <returns>ApiResponse of AccountResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AccountResponse> DeployAccountWithHttpInfo(string id, DeployRequest deployRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling AccountsApi->DeployAccount");
+
+            // verify the required parameter 'deployRequest' is set
+            if (deployRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'deployRequest' when calling AccountsApi->DeployAccount");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = deployRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AccountResponse>("/v1/accounts/{id}/deploy", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeployAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountResponse</returns>
+        public async System.Threading.Tasks.Task<AccountResponse> DeployAccountAsync(string id, DeployRequest deployRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AccountResponse> localVarResponse = await DeployAccountWithHttpInfoAsync(id, deployRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="deployRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountResponse>> DeployAccountWithHttpInfoAsync(string id, DeployRequest deployRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling AccountsApi->DeployAccount");
+
+            // verify the required parameter 'deployRequest' is set
+            if (deployRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'deployRequest' when calling AccountsApi->DeployAccount");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = deployRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AccountResponse>("/v1/accounts/{id}/deploy", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeployAccount", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1836,7 +2030,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain 
+        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1848,7 +2042,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain 
+        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1897,7 +2091,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain 
+        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1910,7 +2104,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain 
+        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>

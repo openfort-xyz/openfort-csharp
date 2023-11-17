@@ -25,6 +25,7 @@ namespace Openfort.SDK.Wrapper
         public async Task<SignPayloadResponse> SignPayload(AccountSignPayloadRequest request) => await apiClient.SignPayloadAsync(request.Id, request);
 
         public async Task<AccountResponse> Sync(string id) => await apiClient.SyncAccountAsync(id);
+        public async Task<AccountResponse> Deploy(AccountDeployRequest request) => await apiClient.DeployAccountAsync(request.Id, request);
 
         public async Task<TransactionIntentResponse> StartRecovery(AccountStartRecoveryRequest request) => await apiClient.StartRecoveryAsync(request.Id, request);
 
