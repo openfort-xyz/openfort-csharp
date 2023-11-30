@@ -43,7 +43,7 @@ namespace Openfort.SDK.Model
         public UserProjectCreateRequestRole(UserProjectRoleMEMBER actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType = "anyOf";
             if (actualInstance == null)
             {
                 throw new ArgumentException("Invalid instance found. Must not be null.");
@@ -59,7 +59,7 @@ namespace Openfort.SDK.Model
         public UserProjectCreateRequestRole(UserProjectRoleADMIN actualInstance)
         {
             this.IsNullable = false;
-            this.SchemaType= "anyOf";
+            this.SchemaType = "anyOf";
             if (actualInstance == null)
             {
                 throw new ArgumentException("Invalid instance found. Must not be null.");
@@ -255,7 +255,7 @@ namespace Openfort.SDK.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            if (reader.TokenType != JsonToken.Null)
             {
                 return UserProjectCreateRequestRole.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }

@@ -29,7 +29,7 @@ namespace Openfort.SDK.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Cancel request of ownership transfer of an account.
+        /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -41,7 +41,7 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse CancelTransferOwnership(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest);
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account.
+        /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -168,7 +168,7 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of AccountListResponse</returns>
         ApiResponse<AccountListResponse> GetAccountsWithHttpInfo(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
         /// <summary>
-        /// Request ownership transfer of an account.
+        /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -180,7 +180,7 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse RequestTransferOwnership(string id, TransferOwnershipRequest transferOwnershipRequest);
 
         /// <summary>
-        /// Request ownership transfer of an account.
+        /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -264,7 +264,7 @@ namespace Openfort.SDK.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Cancel request of ownership transfer of an account.
+        /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -277,7 +277,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> CancelTransferOwnershipAsync(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account.
+        /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -418,7 +418,7 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountListResponse>> GetAccountsWithHttpInfoAsync(string player, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Request ownership transfer of an account.
+        /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -431,7 +431,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> RequestTransferOwnershipAsync(string id, TransferOwnershipRequest transferOwnershipRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Request ownership transfer of an account.
+        /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -729,7 +729,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -742,7 +742,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -798,7 +798,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -812,7 +812,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request of ownership transfer of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1601,7 +1601,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request ownership transfer of an account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1614,7 +1614,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request ownership transfer of an account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1670,7 +1670,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request ownership transfer of an account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1684,7 +1684,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request ownership transfer of an account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>

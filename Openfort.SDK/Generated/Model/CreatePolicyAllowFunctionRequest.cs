@@ -54,7 +54,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="CreatePolicyAllowFunctionRequest" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        /// <param name="functionName">Name of the function in the contract to allow..</param>
+        /// <param name="functionName">Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;..</param>
         /// <param name="contract">Contract ID to allow..</param>
         /// <param name="gasLimit">Gas limit in WEI..</param>
         /// <param name="countLimit">Number of times the function will be sponsored..</param>
@@ -72,9 +72,9 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Name of the function in the contract to allow.
+        /// Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;.
         /// </summary>
-        /// <value>Name of the function in the contract to allow.</value>
+        /// <value>Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;.</value>
         [DataMember(Name = "functionName", EmitDefaultValue = true)]
         public string FunctionName { get; set; }
 

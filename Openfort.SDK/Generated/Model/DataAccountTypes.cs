@@ -55,7 +55,13 @@ namespace Openfort.SDK.Model
         /// Enum Recoverable for value: Recoverable
         /// </summary>
         [EnumMember(Value = "Recoverable")]
-        Recoverable = 4
+        Recoverable = 4,
+
+        /// <summary>
+        /// Enum ManagedRecoverableV5 for value: ManagedRecoverableV5
+        /// </summary>
+        [EnumMember(Value = "ManagedRecoverableV5")]
+        ManagedRecoverableV5 = 5
 
     }
 
