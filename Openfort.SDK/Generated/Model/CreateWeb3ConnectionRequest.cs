@@ -43,7 +43,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="player">The player ID (starts with pla_). (required).</param>
         /// <param name="chainId">The chain ID. (required).</param>
-        /// <param name="uri">Specifies the URI of the web3Connection. (required).</param>
+        /// <param name="uri">Specifies the URI of WalletConnect. (required).</param>
         public CreateWeb3ConnectionRequest(string player = default(string), int chainId = default(int), string uri = default(string))
         {
             // to ensure "player" is required (not null)
@@ -65,6 +65,7 @@ namespace Openfort.SDK.Model
         /// The player ID (starts with pla_).
         /// </summary>
         /// <value>The player ID (starts with pla_).</value>
+        /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
         public string Player { get; set; }
 
@@ -72,14 +73,15 @@ namespace Openfort.SDK.Model
         /// The chain ID.
         /// </summary>
         /// <value>The chain ID.</value>
-        /// <example>5</example>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
         /// <summary>
-        /// Specifies the URI of the web3Connection.
+        /// Specifies the URI of WalletConnect.
         /// </summary>
-        /// <value>Specifies the URI of the web3Connection.</value>
+        /// <value>Specifies the URI of WalletConnect.</value>
+        /// <example>&quot;wc:f6b98f7d78c5233413aacc7cbe9ff6035eec3611d36eb311051429a83af419a1@2?relay-protocol&#x3D;irn&amp;symKey&#x3D;e8b33b4b969dc952ba6d28bd58f0ddb7ec1106a3c9610961218061a7813f11a6&quot;</example>
         [DataMember(Name = "uri", IsRequired = true, EmitDefaultValue = true)]
         public string Uri { get; set; }
 

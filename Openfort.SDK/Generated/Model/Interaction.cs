@@ -36,42 +36,41 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Interaction" /> class.
         /// </summary>
-        /// <param name="to">The address of the contract..</param>
-        /// <param name="contract">The contract interacting with.</param>
+        /// <param name="to">The address of the recipient..</param>
         /// <param name="value">The value of the transaction..</param>
+        /// <param name="contract">The contract interacting with.</param>
         /// <param name="functionName">The function name of the contract..</param>
-        /// <param name="functionArgs">The function arguments of the contract..</param>
-        public Interaction(string to = default(string), string contract = default(string), string value = default(string), string functionName = default(string), List<Object> functionArgs = default(List<Object>))
+        /// <param name="functionArgs">The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs..</param>
+        public Interaction(string to = default(string), string value = default(string), string contract = default(string), string functionName = default(string), List<Object> functionArgs = default(List<Object>))
         {
             this.To = to;
-            this.Contract = contract;
             this.Value = value;
+            this.Contract = contract;
             this.FunctionName = functionName;
             this.FunctionArgs = functionArgs;
         }
 
         /// <summary>
-        /// The address of the contract.
+        /// The address of the recipient.
         /// </summary>
-        /// <value>The address of the contract.</value>
+        /// <value>The address of the recipient.</value>
         [DataMember(Name = "to", EmitDefaultValue = false)]
         public string To { get; set; }
-
-        /// <summary>
-        /// The contract interacting with
-        /// </summary>
-        /// <value>The contract interacting with</value>
-        /// <example>&quot;con_...&quot;</example>
-        [DataMember(Name = "contract", EmitDefaultValue = false)]
-        public string Contract { get; set; }
 
         /// <summary>
         /// The value of the transaction.
         /// </summary>
         /// <value>The value of the transaction.</value>
-        /// <example>&quot;100000000000000&quot;</example>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
+
+        /// <summary>
+        /// The contract interacting with
+        /// </summary>
+        /// <value>The contract interacting with</value>
+        /// <example>&quot;con_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
+        [DataMember(Name = "contract", EmitDefaultValue = false)]
+        public string Contract { get; set; }
 
         /// <summary>
         /// The function name of the contract.
@@ -82,9 +81,9 @@ namespace Openfort.SDK.Model
         public string FunctionName { get; set; }
 
         /// <summary>
-        /// The function arguments of the contract.
+        /// The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs.
         /// </summary>
-        /// <value>The function arguments of the contract.</value>
+        /// <value>The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs.</value>
         [DataMember(Name = "functionArgs", EmitDefaultValue = false)]
         public List<Object> FunctionArgs { get; set; }
 
@@ -97,8 +96,8 @@ namespace Openfort.SDK.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Interaction {\n");
             sb.Append("  To: ").Append(To).Append("\n");
-            sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
             sb.Append("  FunctionArgs: ").Append(FunctionArgs).Append("\n");
             sb.Append("}\n");
@@ -142,14 +141,14 @@ namespace Openfort.SDK.Model
                     this.To.Equals(input.To))
                 ) && 
                 (
-                    this.Contract == input.Contract ||
-                    (this.Contract != null &&
-                    this.Contract.Equals(input.Contract))
-                ) && 
-                (
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.Contract == input.Contract ||
+                    (this.Contract != null &&
+                    this.Contract.Equals(input.Contract))
                 ) && 
                 (
                     this.FunctionName == input.FunctionName ||
@@ -177,13 +176,13 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.To.GetHashCode();
                 }
-                if (this.Contract != null)
-                {
-                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
-                }
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
+                if (this.Contract != null)
+                {
+                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
                 }
                 if (this.FunctionName != null)
                 {

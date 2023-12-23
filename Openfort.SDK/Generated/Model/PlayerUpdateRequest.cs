@@ -50,6 +50,7 @@ namespace Openfort.SDK.Model
         /// Specifies the player name.
         /// </summary>
         /// <value>Specifies the player name.</value>
+        /// <example>&quot;John&quot;</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -57,6 +58,7 @@ namespace Openfort.SDK.Model
         /// Specifies the player description.
         /// </summary>
         /// <value>Specifies the player description.</value>
+        /// <example>&quot;a useful description&quot;</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 

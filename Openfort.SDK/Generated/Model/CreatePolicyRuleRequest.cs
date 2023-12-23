@@ -55,12 +55,12 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="type">type (required).</param>
         /// <param name="functionName">Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;..</param>
-        /// <param name="contract">Contract ID to allow..</param>
+        /// <param name="contract">The contract ID (starts with con_)..</param>
         /// <param name="gasLimit">Gas limit in WEI..</param>
         /// <param name="countLimit">Number of times the function will be sponsored..</param>
         /// <param name="timeIntervalType">timeIntervalType.</param>
         /// <param name="timeIntervalValue">Time interval value..</param>
-        /// <param name="policy">The unique Policy ID to add the rule to. (required).</param>
+        /// <param name="policy">The unique Policy ID to add the rule to (starts with pol_). (required).</param>
         public CreatePolicyRuleRequest(PolicyRuleType type = default(PolicyRuleType), string functionName = default(string), string contract = default(string), string gasLimit = default(string), int countLimit = default(int), TimeIntervalType? timeIntervalType = default(TimeIntervalType?), int timeIntervalValue = default(int), string policy = default(string))
         {
             this.Type = type;
@@ -82,13 +82,15 @@ namespace Openfort.SDK.Model
         /// Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;.
         /// </summary>
         /// <value>Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;.</value>
+        /// <example>&quot;All functions&quot;</example>
         [DataMember(Name = "functionName", EmitDefaultValue = true)]
         public string FunctionName { get; set; }
 
         /// <summary>
-        /// Contract ID to allow.
+        /// The contract ID (starts with con_).
         /// </summary>
-        /// <value>Contract ID to allow.</value>
+        /// <value>The contract ID (starts with con_).</value>
+        /// <example>&quot;con_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
         [DataMember(Name = "contract", EmitDefaultValue = true)]
         public string Contract { get; set; }
 
@@ -96,6 +98,7 @@ namespace Openfort.SDK.Model
         /// Gas limit in WEI.
         /// </summary>
         /// <value>Gas limit in WEI.</value>
+        /// <example>&quot;1000000000000000000&quot;</example>
         [DataMember(Name = "gasLimit", EmitDefaultValue = false)]
         public string GasLimit { get; set; }
 
@@ -103,6 +106,7 @@ namespace Openfort.SDK.Model
         /// Number of times the function will be sponsored.
         /// </summary>
         /// <value>Number of times the function will be sponsored.</value>
+        /// <example>1</example>
         [DataMember(Name = "countLimit", EmitDefaultValue = false)]
         public int CountLimit { get; set; }
 
@@ -110,13 +114,15 @@ namespace Openfort.SDK.Model
         /// Time interval value.
         /// </summary>
         /// <value>Time interval value.</value>
+        /// <example>1</example>
         [DataMember(Name = "timeIntervalValue", EmitDefaultValue = false)]
         public int TimeIntervalValue { get; set; }
 
         /// <summary>
-        /// The unique Policy ID to add the rule to.
+        /// The unique Policy ID to add the rule to (starts with pol_).
         /// </summary>
-        /// <value>The unique Policy ID to add the rule to.</value>
+        /// <value>The unique Policy ID to add the rule to (starts with pol_).</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }
 

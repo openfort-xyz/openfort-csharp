@@ -79,6 +79,7 @@ namespace Openfort.SDK.Model
         /// The address of the session key.
         /// </summary>
         /// <value>The address of the session key.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
@@ -86,7 +87,7 @@ namespace Openfort.SDK.Model
         /// The chain ID.
         /// </summary>
         /// <value>The chain ID.</value>
-        /// <example>5</example>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
@@ -94,6 +95,7 @@ namespace Openfort.SDK.Model
         /// If no account exists for a given player, create one with this address.
         /// </summary>
         /// <value>If no account exists for a given player, create one with this address.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "externalOwnerAddress", EmitDefaultValue = false)]
         public string ExternalOwnerAddress { get; set; }
 
@@ -101,6 +103,7 @@ namespace Openfort.SDK.Model
         /// Maximum number of times the session key can be used.
         /// </summary>
         /// <value>Maximum number of times the session key can be used.</value>
+        /// <example>1000</example>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
 
@@ -116,6 +119,7 @@ namespace Openfort.SDK.Model
         /// The policy ID (starts with pol_).
         /// </summary>
         /// <value>The policy ID (starts with pol_).</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
 
@@ -123,6 +127,7 @@ namespace Openfort.SDK.Model
         /// The unix timestamp in seconds when the session key becomes valid.
         /// </summary>
         /// <value>The unix timestamp in seconds when the session key becomes valid.</value>
+        /// <example>10</example>
         [DataMember(Name = "validAfter", IsRequired = true, EmitDefaultValue = true)]
         public int ValidAfter { get; set; }
 
@@ -130,6 +135,7 @@ namespace Openfort.SDK.Model
         /// The unix timestamp in seconds when the session key expires.
         /// </summary>
         /// <value>The unix timestamp in seconds when the session key expires.</value>
+        /// <example>12351235123</example>
         [DataMember(Name = "validUntil", IsRequired = true, EmitDefaultValue = true)]
         public int ValidUntil { get; set; }
 
@@ -144,6 +150,7 @@ namespace Openfort.SDK.Model
         /// The player ID (starts with pla_).
         /// </summary>
         /// <value>The player ID (starts with pla_).</value>
+        /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
         public string Player { get; set; }
 

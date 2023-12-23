@@ -28,45 +28,62 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreateProjectRequest
+    /// ProjectStatsRequest
     /// </summary>
-    [DataContract(Name = "CreateProjectRequest")]
-    public partial class CreateProjectRequest : IEquatable<CreateProjectRequest>, IValidatableObject
+    [DataContract(Name = "ProjectStatsRequest")]
+    public partial class ProjectStatsRequest : IEquatable<ProjectStatsRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets PkPolicy
+        /// Defines TimeFrame
         /// </summary>
-        [DataMember(Name = "pkPolicy", EmitDefaultValue = false)]
-        public PrivateKeyPolicy? PkPolicy { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateProjectRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
-        /// </summary>
-        /// <param name="name">Name of the project. (required).</param>
-        /// <param name="pkPolicy">pkPolicy.</param>
-        public CreateProjectRequest(string name = default(string), PrivateKeyPolicy? pkPolicy = default(PrivateKeyPolicy?))
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TimeFrameEnum
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateProjectRequest and cannot be null");
-            }
-            this.Name = name;
-            this.PkPolicy = pkPolicy;
+            /// <summary>
+            /// Enum Day for value: day
+            /// </summary>
+            [EnumMember(Value = "day")]
+            Day = 1,
+
+            /// <summary>
+            /// Enum Week for value: week
+            /// </summary>
+            [EnumMember(Value = "week")]
+            Week = 2,
+
+            /// <summary>
+            /// Enum Month for value: month
+            /// </summary>
+            [EnumMember(Value = "month")]
+            Month = 3,
+
+            /// <summary>
+            /// Enum All for value: all
+            /// </summary>
+            [EnumMember(Value = "all")]
+            All = 4
+
         }
 
+
         /// <summary>
-        /// Name of the project.
+        /// Gets or Sets TimeFrame
         /// </summary>
-        /// <value>Name of the project.</value>
-        /// <example>&quot;My Project&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "timeFrame", IsRequired = true, EmitDefaultValue = true)]
+        public TimeFrameEnum TimeFrame { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectStatsRequest" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected ProjectStatsRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectStatsRequest" /> class.
+        /// </summary>
+        /// <param name="timeFrame">timeFrame (required).</param>
+        public ProjectStatsRequest(TimeFrameEnum timeFrame = default(TimeFrameEnum))
+        {
+            this.TimeFrame = timeFrame;
+        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +92,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateProjectRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PkPolicy: ").Append(PkPolicy).Append("\n");
+            sb.Append("class ProjectStatsRequest {\n");
+            sb.Append("  TimeFrame: ").Append(TimeFrame).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +114,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateProjectRequest);
+            return this.Equals(input as ProjectStatsRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateProjectRequest instances are equal
+        /// Returns true if ProjectStatsRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateProjectRequest to be compared</param>
+        /// <param name="input">Instance of ProjectStatsRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateProjectRequest input)
+        public bool Equals(ProjectStatsRequest input)
         {
             if (input == null)
             {
@@ -114,13 +130,8 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.PkPolicy == input.PkPolicy ||
-                    this.PkPolicy.Equals(input.PkPolicy)
+                    this.TimeFrame == input.TimeFrame ||
+                    this.TimeFrame.Equals(input.TimeFrame)
                 );
         }
 
@@ -133,11 +144,7 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.PkPolicy.GetHashCode();
+                hashCode = (hashCode * 59) + this.TimeFrame.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,18 +156,6 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
-            }
-
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

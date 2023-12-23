@@ -123,10 +123,10 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of TransactionIntentListResponse</returns>
         ApiResponse<TransactionIntentListResponse> GetTransactionIntentsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> accountId = default(List<string>), List<string> playerId = default(List<string>), List<string> policyId = default(List<string>));
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner.
+        /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -135,10 +135,10 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse Signature(string id, SignatureRequest signatureRequest);
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner.
+        /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -263,10 +263,10 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (TransactionIntentListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionIntentListResponse>> GetTransactionIntentsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> accountId = default(List<string>), List<string> playerId = default(List<string>), List<string> policyId = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner.
+        /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -276,10 +276,10 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> SignatureAsync(string id, SignatureRequest signatureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner.
+        /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1107,7 +1107,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner. This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1120,7 +1120,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner. This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1182,7 +1182,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner. This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1196,7 +1196,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a transaction intent with an external owner. This endpoint is used to send the signed userOperationHash.  For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>

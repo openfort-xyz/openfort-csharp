@@ -41,7 +41,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProjectRequest" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
+        /// <param name="name">Name of the project. (required).</param>
         public UpdateProjectRequest(string name = default(string))
         {
             // to ensure "name" is required (not null)
@@ -53,8 +53,10 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the project.
         /// </summary>
+        /// <value>Name of the project.</value>
+        /// <example>&quot;My Project&quot;</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -133,6 +135,18 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
             yield break;
         }
     }

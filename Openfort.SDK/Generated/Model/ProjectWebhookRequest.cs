@@ -36,7 +36,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectWebhookRequest" /> class.
         /// </summary>
-        /// <param name="url">url.</param>
+        /// <param name="url">The webhook url..</param>
         /// <param name="apiKey">apiKey.</param>
         public ProjectWebhookRequest(string url = default(string), string apiKey = default(string))
         {
@@ -45,8 +45,10 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// The webhook url.
         /// </summary>
+        /// <value>The webhook url.</value>
+        /// <example>&quot;https://example.com&quot;</example>
         [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
@@ -141,6 +143,18 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Url (string) maxLength
+            if (this.Url != null && this.Url.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be less than 255.", new [] { "Url" });
+            }
+
+            // Url (string) minLength
+            if (this.Url != null && this.Url.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
+            }
+
             yield break;
         }
     }

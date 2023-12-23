@@ -72,6 +72,7 @@ namespace Openfort.SDK.Model
         /// The chain id
         /// </summary>
         /// <value>The chain id</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
@@ -79,6 +80,7 @@ namespace Openfort.SDK.Model
         /// The address of the external owner
         /// </summary>
         /// <value>The address of the external owner</value>
+        /// <example>&quot;0x662D24Bf7Ea2dD6a7D0935F680a6056b94fE934d&quot;</example>
         [DataMember(Name = "externalOwnerAddress", EmitDefaultValue = false)]
         public string ExternalOwnerAddress { get; set; }
 
@@ -86,6 +88,7 @@ namespace Openfort.SDK.Model
         /// If ERC6551, the NFT contract to use
         /// </summary>
         /// <value>If ERC6551, the NFT contract to use</value>
+        /// <example>&quot;0x662D24Bf7Ea2dD6a7D0135F680a6056b94fE934d&quot;</example>
         [DataMember(Name = "tokenContract", EmitDefaultValue = false)]
         public string TokenContract { get; set; }
 
@@ -93,6 +96,7 @@ namespace Openfort.SDK.Model
         /// If ERC6551, the tokenID to serve as owner
         /// </summary>
         /// <value>If ERC6551, the tokenID to serve as owner</value>
+        /// <example>1</example>
         [DataMember(Name = "tokenId", EmitDefaultValue = false)]
         public long TokenId { get; set; }
 
@@ -100,6 +104,7 @@ namespace Openfort.SDK.Model
         /// The player ID (starts with pla_)
         /// </summary>
         /// <value>The player ID (starts with pla_)</value>
+        /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
         public string Player { get; set; }
 

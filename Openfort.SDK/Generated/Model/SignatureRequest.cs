@@ -58,6 +58,7 @@ namespace Openfort.SDK.Model
         /// signed userOperationHash by the owner or valid session key
         /// </summary>
         /// <value>signed userOperationHash by the owner or valid session key</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;</example>
         [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = true)]
         public string Signature { get; set; }
 

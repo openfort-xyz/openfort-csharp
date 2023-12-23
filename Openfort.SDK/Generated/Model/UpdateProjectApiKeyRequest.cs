@@ -48,7 +48,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="UpdateProjectApiKeyRequest" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        /// <param name="uuid">uuid (required).</param>
+        /// <param name="uuid">The API key to update. (required).</param>
         public UpdateProjectApiKeyRequest(ApiKeyType type = default(ApiKeyType), string uuid = default(string))
         {
             this.Type = type;
@@ -61,8 +61,10 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Uuid
+        /// The API key to update.
         /// </summary>
+        /// <value>The API key to update.</value>
+        /// <example>&quot;1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;</example>
         [DataMember(Name = "uuid", IsRequired = true, EmitDefaultValue = true)]
         public string Uuid { get; set; }
 

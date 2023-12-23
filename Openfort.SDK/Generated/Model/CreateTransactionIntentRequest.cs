@@ -41,21 +41,16 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTransactionIntentRequest" /> class.
         /// </summary>
-        /// <param name="player">The player ID (starts with pla_). (required).</param>
         /// <param name="chainId">The chain ID. (required).</param>
+        /// <param name="player">The player ID (starts with pla_)..</param>
+        /// <param name="account">The account ID (starts with acc_ or dac_)..</param>
         /// <param name="policy">The policy ID (starts with pol_)..</param>
         /// <param name="externalOwnerAddress">If no account exists for a given player, create one with this address..</param>
         /// <param name="optimistic">Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not. (required).</param>
         /// <param name="confirmationBlocks">Specify the number of blocks after the block with transaction to be assured that transaction is in block.</param>
         /// <param name="interactions">interactions (required).</param>
-        public CreateTransactionIntentRequest(string player = default(string), int chainId = default(int), string policy = default(string), string externalOwnerAddress = default(string), bool optimistic = default(bool), int confirmationBlocks = default(int), List<Interaction> interactions = default(List<Interaction>))
+        public CreateTransactionIntentRequest(int chainId = default(int), string player = default(string), string account = default(string), string policy = default(string), string externalOwnerAddress = default(string), bool optimistic = default(bool), int confirmationBlocks = default(int), List<Interaction> interactions = default(List<Interaction>))
         {
-            // to ensure "player" is required (not null)
-            if (player == null)
-            {
-                throw new ArgumentNullException("player is a required property for CreateTransactionIntentRequest and cannot be null");
-            }
-            this.Player = player;
             this.ChainId = chainId;
             this.Optimistic = optimistic;
             // to ensure "interactions" is required (not null)
@@ -64,30 +59,42 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("interactions is a required property for CreateTransactionIntentRequest and cannot be null");
             }
             this.Interactions = interactions;
+            this.Player = player;
+            this.Account = account;
             this.Policy = policy;
             this.ExternalOwnerAddress = externalOwnerAddress;
             this.ConfirmationBlocks = confirmationBlocks;
         }
 
         /// <summary>
-        /// The player ID (starts with pla_).
-        /// </summary>
-        /// <value>The player ID (starts with pla_).</value>
-        [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
-        public string Player { get; set; }
-
-        /// <summary>
         /// The chain ID.
         /// </summary>
         /// <value>The chain ID.</value>
-        /// <example>5</example>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
+
+        /// <summary>
+        /// The player ID (starts with pla_).
+        /// </summary>
+        /// <value>The player ID (starts with pla_).</value>
+        /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
+        [DataMember(Name = "player", EmitDefaultValue = false)]
+        public string Player { get; set; }
+
+        /// <summary>
+        /// The account ID (starts with acc_ or dac_).
+        /// </summary>
+        /// <value>The account ID (starts with acc_ or dac_).</value>
+        /// <example>&quot;acc_e1b24353-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
+        [DataMember(Name = "account", EmitDefaultValue = false)]
+        public string Account { get; set; }
 
         /// <summary>
         /// The policy ID (starts with pol_).
         /// </summary>
         /// <value>The policy ID (starts with pol_).</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
 
@@ -95,6 +102,7 @@ namespace Openfort.SDK.Model
         /// If no account exists for a given player, create one with this address.
         /// </summary>
         /// <value>If no account exists for a given player, create one with this address.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "externalOwnerAddress", EmitDefaultValue = false)]
         public string ExternalOwnerAddress { get; set; }
 
@@ -128,8 +136,9 @@ namespace Openfort.SDK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateTransactionIntentRequest {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
+            sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  ExternalOwnerAddress: ").Append(ExternalOwnerAddress).Append("\n");
             sb.Append("  Optimistic: ").Append(Optimistic).Append("\n");
@@ -171,13 +180,18 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
+                    this.ChainId == input.ChainId ||
+                    this.ChainId.Equals(input.ChainId)
+                ) && 
+                (
                     this.Player == input.Player ||
                     (this.Player != null &&
                     this.Player.Equals(input.Player))
                 ) && 
                 (
-                    this.ChainId == input.ChainId ||
-                    this.ChainId.Equals(input.ChainId)
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 ) && 
                 (
                     this.Policy == input.Policy ||
@@ -214,11 +228,15 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
                 if (this.Player != null)
                 {
                     hashCode = (hashCode * 59) + this.Player.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
+                if (this.Account != null)
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Policy != null)
                 {
                     hashCode = (hashCode * 59) + this.Policy.GetHashCode();

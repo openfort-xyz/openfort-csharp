@@ -65,6 +65,7 @@ namespace Openfort.SDK.Model
         /// Specifies the name of the policy.
         /// </summary>
         /// <value>Specifies the name of the policy.</value>
+        /// <example>&quot;My Policy&quot;</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -72,6 +73,7 @@ namespace Openfort.SDK.Model
         /// The chain ID of the policy.
         /// </summary>
         /// <value>The chain ID of the policy.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 

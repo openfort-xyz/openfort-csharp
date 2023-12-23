@@ -87,6 +87,7 @@ namespace Openfort.SDK.Model
         /// Specifies the name of the policy.
         /// </summary>
         /// <value>Specifies the name of the policy.</value>
+        /// <example>&quot;MyPolicy&quot;</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -94,6 +95,7 @@ namespace Openfort.SDK.Model
         /// Specifies whether to include deleted contracts.
         /// </summary>
         /// <value>Specifies whether to include deleted contracts.</value>
+        /// <example>true</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 
@@ -101,6 +103,7 @@ namespace Openfort.SDK.Model
         /// The chain ID of the policy.
         /// </summary>
         /// <value>The chain ID of the policy.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 
@@ -108,6 +111,7 @@ namespace Openfort.SDK.Model
         /// Specifies whether to include enabled contracts.
         /// </summary>
         /// <value>Specifies whether to include enabled contracts.</value>
+        /// <example>true</example>
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 

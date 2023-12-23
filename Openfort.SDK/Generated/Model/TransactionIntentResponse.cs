@@ -58,7 +58,7 @@ namespace Openfort.SDK.Model
         /// <param name="interactions">interactions.</param>
         /// <param name="nextAction">nextAction.</param>
         /// <param name="policy">policy.</param>
-        /// <param name="player">player (required).</param>
+        /// <param name="player">player.</param>
         /// <param name="account">account (required).</param>
         public TransactionIntentResponse(string id = default(string), EntityTypeTRANSACTIONINTENT _object = default(EntityTypeTRANSACTIONINTENT), int createdAt = default(int), int updatedAt = default(int), int chainId = default(int), string userOperationHash = default(string), Object userOperation = default(Object), ResponseResponse response = default(ResponseResponse), List<Interaction> interactions = default(List<Interaction>), NextActionResponse nextAction = default(NextActionResponse), TransactionIntentResponsePolicy policy = default(TransactionIntentResponsePolicy), TransactionIntentResponsePlayer player = default(TransactionIntentResponsePlayer), TransactionIntentResponseAccount account = default(TransactionIntentResponseAccount))
         {
@@ -72,12 +72,6 @@ namespace Openfort.SDK.Model
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.ChainId = chainId;
-            // to ensure "player" is required (not null)
-            if (player == null)
-            {
-                throw new ArgumentNullException("player is a required property for TransactionIntentResponse and cannot be null");
-            }
-            this.Player = player;
             // to ensure "account" is required (not null)
             if (account == null)
             {
@@ -90,6 +84,7 @@ namespace Openfort.SDK.Model
             this.Interactions = interactions;
             this.NextAction = nextAction;
             this.Policy = policy;
+            this.Player = player;
         }
 
         /// <summary>
@@ -159,7 +154,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Gets or Sets Player
         /// </summary>
-        [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player", EmitDefaultValue = false)]
         public TransactionIntentResponsePlayer Player { get; set; }
 
         /// <summary>

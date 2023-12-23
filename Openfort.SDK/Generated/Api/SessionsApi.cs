@@ -111,7 +111,7 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of SessionResponse</returns>
         ApiResponse<SessionResponse> RevokeSessionWithHttpInfo(RevokeSessionRequest revokeSessionRequest);
         /// <summary>
-        /// Confirms the creation of a session with an external owner.
+        /// Send signed userOpHash to create session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -120,7 +120,7 @@ namespace Openfort.SDK.Api
         SessionResponse SignatureSession(string id, SignatureRequest signatureRequest);
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner.
+        /// Send signed userOpHash to create session.
         /// </summary>
         /// <remarks>
         /// 
@@ -242,7 +242,7 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SessionResponse>> RevokeSessionWithHttpInfoAsync(RevokeSessionRequest revokeSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Confirms the creation of a session with an external owner.
+        /// Send signed userOpHash to create session.
         /// </summary>
         /// <remarks>
         /// 
@@ -255,7 +255,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<SessionResponse> SignatureSessionAsync(string id, SignatureRequest signatureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner.
+        /// Send signed userOpHash to create session.
         /// </summary>
         /// <remarks>
         /// 
@@ -1052,7 +1052,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner. 
+        /// Send signed userOpHash to create session. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -1065,7 +1065,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner. 
+        /// Send signed userOpHash to create session. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -1127,7 +1127,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner. 
+        /// Send signed userOpHash to create session. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -1141,7 +1141,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Confirms the creation of a session with an external owner. 
+        /// Send signed userOpHash to create session. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>

@@ -29,7 +29,7 @@ namespace Openfort.SDK.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Cancel request to transfer ownership of an account.
+        /// Cancel request to transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -41,7 +41,7 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse CancelTransferAccountOwnership(string id, PlayerCancelTransferOwnershipRequest playerCancelTransferOwnershipRequest);
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account.
+        /// Cancel request to transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -79,6 +79,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>AccountResponse</returns>
+        [Obsolete]
         AccountResponse CreatePlayerAccount(string id, CreatePlayerAccountRequest createPlayerAccountRequest);
 
         /// <summary>
@@ -91,6 +92,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
+        [Obsolete]
         ApiResponse<AccountResponse> CreatePlayerAccountWithHttpInfo(string id, CreatePlayerAccountRequest createPlayerAccountRequest);
         /// <summary>
         /// Create session object for a player.
@@ -99,6 +101,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>SessionResponse</returns>
+        [Obsolete]
         SessionResponse CreatePlayerSession(string id, CreatePlayerSessionRequest createPlayerSessionRequest);
 
         /// <summary>
@@ -111,6 +114,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
+        [Obsolete]
         ApiResponse<SessionResponse> CreatePlayerSessionWithHttpInfo(string id, CreatePlayerSessionRequest createPlayerSessionRequest);
         /// <summary>
         /// Deletes a player object.
@@ -157,6 +161,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>AccountListResponse</returns>
+        [Obsolete]
         AccountListResponse GetPlayerAccounts(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
 
         /// <summary>
@@ -169,6 +174,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
+        [Obsolete]
         ApiResponse<AccountListResponse> GetPlayerAccountsWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
         /// <summary>
         /// List players.
@@ -200,7 +206,7 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of PlayerListResponse</returns>
         ApiResponse<PlayerListResponse> GetPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string));
         /// <summary>
-        /// Request transfer ownership of account.
+        /// Request transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -212,7 +218,7 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse RequestTransferAccountOwnership(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest);
 
         /// <summary>
-        /// Request transfer ownership of account.
+        /// Request transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -229,6 +235,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>SessionResponse</returns>
+        [Obsolete]
         SessionResponse RevokePlayerSession(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest);
 
         /// <summary>
@@ -241,6 +248,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
+        [Obsolete]
         ApiResponse<SessionResponse> RevokePlayerSessionWithHttpInfo(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest);
         /// <summary>
         /// Updates a player object.
@@ -272,7 +280,7 @@ namespace Openfort.SDK.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Cancel request to transfer ownership of an account.
+        /// Cancel request to transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -285,7 +293,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> CancelTransferAccountOwnershipAsync(string id, PlayerCancelTransferOwnershipRequest playerCancelTransferOwnershipRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account.
+        /// Cancel request to transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to cancel a pending transfer of ownership.
@@ -330,6 +338,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<AccountResponse> CreatePlayerAccountAsync(string id, CreatePlayerAccountRequest createPlayerAccountRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -343,6 +352,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<AccountResponse>> CreatePlayerAccountWithHttpInfoAsync(string id, CreatePlayerAccountRequest createPlayerAccountRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create session object for a player.
@@ -355,6 +365,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<SessionResponse> CreatePlayerSessionAsync(string id, CreatePlayerSessionRequest createPlayerSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -368,6 +379,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<SessionResponse>> CreatePlayerSessionWithHttpInfoAsync(string id, CreatePlayerSessionRequest createPlayerSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Deletes a player object.
@@ -428,6 +440,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<AccountListResponse> GetPlayerAccountsAsync(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -441,6 +454,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<AccountListResponse>> GetPlayerAccountsWithHttpInfoAsync(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List players.
@@ -474,7 +488,7 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (PlayerListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PlayerListResponse>> GetPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>), string name = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Request transfer ownership of account.
+        /// Request transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -487,7 +501,7 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> RequestTransferAccountOwnershipAsync(string id, PlayerTransferOwnershipRequest playerTransferOwnershipRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Request transfer ownership of account.
+        /// Request transfer ownership of a player.
         /// </summary>
         /// <remarks>
         /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
@@ -509,6 +523,7 @@ namespace Openfort.SDK.Api
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<SessionResponse> RevokePlayerSessionAsync(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -522,6 +537,7 @@ namespace Openfort.SDK.Api
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<SessionResponse>> RevokePlayerSessionWithHttpInfoAsync(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Updates a player object.
@@ -762,7 +778,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of a player. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -775,7 +791,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of a player. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -831,7 +847,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of a player. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -845,7 +861,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of a player. This endpoint allows you to cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -1040,6 +1056,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>AccountResponse</returns>
+        [Obsolete]
         public AccountResponse CreatePlayerAccount(string id, CreatePlayerAccountRequest createPlayerAccountRequest)
         {
             Openfort.SDK.Client.ApiResponse<AccountResponse> localVarResponse = CreatePlayerAccountWithHttpInfo(id, createPlayerAccountRequest);
@@ -1053,6 +1070,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerAccountRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<AccountResponse> CreatePlayerAccountWithHttpInfo(string id, CreatePlayerAccountRequest createPlayerAccountRequest)
         {
             // verify the required parameter 'id' is set
@@ -1110,6 +1128,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<AccountResponse> CreatePlayerAccountAsync(string id, CreatePlayerAccountRequest createPlayerAccountRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<AccountResponse> localVarResponse = await CreatePlayerAccountWithHttpInfoAsync(id, createPlayerAccountRequest, cancellationToken).ConfigureAwait(false);
@@ -1124,6 +1143,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountResponse>> CreatePlayerAccountWithHttpInfoAsync(string id, CreatePlayerAccountRequest createPlayerAccountRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1183,6 +1203,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>SessionResponse</returns>
+        [Obsolete]
         public SessionResponse CreatePlayerSession(string id, CreatePlayerSessionRequest createPlayerSessionRequest)
         {
             Openfort.SDK.Client.ApiResponse<SessionResponse> localVarResponse = CreatePlayerSessionWithHttpInfo(id, createPlayerSessionRequest);
@@ -1196,6 +1217,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="createPlayerSessionRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<SessionResponse> CreatePlayerSessionWithHttpInfo(string id, CreatePlayerSessionRequest createPlayerSessionRequest)
         {
             // verify the required parameter 'id' is set
@@ -1253,6 +1275,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<SessionResponse> CreatePlayerSessionAsync(string id, CreatePlayerSessionRequest createPlayerSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<SessionResponse> localVarResponse = await CreatePlayerSessionWithHttpInfoAsync(id, createPlayerSessionRequest, cancellationToken).ConfigureAwait(false);
@@ -1267,6 +1290,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPlayerSessionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<SessionResponse>> CreatePlayerSessionWithHttpInfoAsync(string id, CreatePlayerSessionRequest createPlayerSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1592,6 +1616,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>AccountListResponse</returns>
+        [Obsolete]
         public AccountListResponse GetPlayerAccounts(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
         {
             Openfort.SDK.Client.ApiResponse<AccountListResponse> localVarResponse = GetPlayerAccountsWithHttpInfo(id, expand);
@@ -1605,6 +1630,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <returns>ApiResponse of AccountListResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<AccountListResponse> GetPlayerAccountsWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
         {
             // verify the required parameter 'id' is set
@@ -1660,6 +1686,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountListResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<AccountListResponse> GetPlayerAccountsAsync(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<AccountListResponse> localVarResponse = await GetPlayerAccountsWithHttpInfoAsync(id, expand, cancellationToken).ConfigureAwait(false);
@@ -1674,6 +1701,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountListResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountListResponse>> GetPlayerAccountsWithHttpInfoAsync(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1898,7 +1926,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of a player. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1911,7 +1939,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of a player. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1967,7 +1995,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of a player. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1981,7 +2009,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of a player. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -2047,6 +2075,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>SessionResponse</returns>
+        [Obsolete]
         public SessionResponse RevokePlayerSession(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest)
         {
             Openfort.SDK.Client.ApiResponse<SessionResponse> localVarResponse = RevokePlayerSessionWithHttpInfo(id, revokeSessionPlayerRequest);
@@ -2060,6 +2089,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <returns>ApiResponse of SessionResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<SessionResponse> RevokePlayerSessionWithHttpInfo(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest)
         {
             // verify the required parameter 'id' is set
@@ -2117,6 +2147,7 @@ namespace Openfort.SDK.Api
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SessionResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<SessionResponse> RevokePlayerSessionAsync(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<SessionResponse> localVarResponse = await RevokePlayerSessionWithHttpInfoAsync(id, revokeSessionPlayerRequest, cancellationToken).ConfigureAwait(false);
@@ -2131,6 +2162,7 @@ namespace Openfort.SDK.Api
         /// <param name="revokeSessionPlayerRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SessionResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<SessionResponse>> RevokePlayerSessionWithHttpInfoAsync(string id, RevokeSessionPlayerRequest revokeSessionPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set

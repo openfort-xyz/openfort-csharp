@@ -28,45 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreateProjectRequest
+    /// DeveloperAccountDeleteResponse
     /// </summary>
-    [DataContract(Name = "CreateProjectRequest")]
-    public partial class CreateProjectRequest : IEquatable<CreateProjectRequest>, IValidatableObject
+    [DataContract(Name = "DeveloperAccountDeleteResponse")]
+    public partial class DeveloperAccountDeleteResponse : IEquatable<DeveloperAccountDeleteResponse>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets PkPolicy
+        /// Gets or Sets Object
         /// </summary>
-        [DataMember(Name = "pkPolicy", EmitDefaultValue = false)]
-        public PrivateKeyPolicy? PkPolicy { get; set; }
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeDEVELOPERACCOUNT Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccountDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateProjectRequest() { }
+        protected DeveloperAccountDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccountDeleteResponse" /> class.
         /// </summary>
-        /// <param name="name">Name of the project. (required).</param>
-        /// <param name="pkPolicy">pkPolicy.</param>
-        public CreateProjectRequest(string name = default(string), PrivateKeyPolicy? pkPolicy = default(PrivateKeyPolicy?))
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        public DeveloperAccountDeleteResponse(string id = default(string), EntityTypeDEVELOPERACCOUNT _object = default(EntityTypeDEVELOPERACCOUNT), bool deleted = default(bool))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("name is a required property for CreateProjectRequest and cannot be null");
+                throw new ArgumentNullException("id is a required property for DeveloperAccountDeleteResponse and cannot be null");
             }
-            this.Name = name;
-            this.PkPolicy = pkPolicy;
+            this.Id = id;
+            this.Object = _object;
+            this.Deleted = deleted;
         }
 
         /// <summary>
-        /// Name of the project.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>Name of the project.</value>
-        /// <example>&quot;My Project&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Deleted
+        /// </summary>
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateProjectRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PkPolicy: ").Append(PkPolicy).Append("\n");
+            sb.Append("class DeveloperAccountDeleteResponse {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateProjectRequest);
+            return this.Equals(input as DeveloperAccountDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if CreateProjectRequest instances are equal
+        /// Returns true if DeveloperAccountDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateProjectRequest to be compared</param>
+        /// <param name="input">Instance of DeveloperAccountDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateProjectRequest input)
+        public bool Equals(DeveloperAccountDeleteResponse input)
         {
             if (input == null)
             {
@@ -114,13 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.PkPolicy == input.PkPolicy ||
-                    this.PkPolicy.Equals(input.PkPolicy)
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -133,11 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PkPolicy.GetHashCode();
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,18 +161,6 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
-            }
-
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

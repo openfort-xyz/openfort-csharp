@@ -55,6 +55,7 @@ namespace Openfort.SDK.Model
         /// True to approve the action, false to reject it.
         /// </summary>
         /// <value>True to approve the action, false to reject it.</value>
+        /// <example>true</example>
         [DataMember(Name = "approve", IsRequired = true, EmitDefaultValue = true)]
         public bool Approve { get; set; }
 
@@ -62,6 +63,7 @@ namespace Openfort.SDK.Model
         /// The policy ID (starts with pol_)
         /// </summary>
         /// <value>The policy ID (starts with pol_)</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
 
@@ -69,6 +71,7 @@ namespace Openfort.SDK.Model
         /// signed data by the owner
         /// </summary>
         /// <value>signed data by the owner</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;</example>
         [DataMember(Name = "signature", EmitDefaultValue = false)]
         public string Signature { get; set; }
 

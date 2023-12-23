@@ -28,44 +28,46 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreateProjectRequest
+    /// DeveloperAccountCreateRequest
     /// </summary>
-    [DataContract(Name = "CreateProjectRequest")]
-    public partial class CreateProjectRequest : IEquatable<CreateProjectRequest>, IValidatableObject
+    [DataContract(Name = "DeveloperAccountCreateRequest")]
+    public partial class DeveloperAccountCreateRequest : IEquatable<DeveloperAccountCreateRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets PkPolicy
+        /// Initializes a new instance of the <see cref="DeveloperAccountCreateRequest" /> class.
         /// </summary>
-        [DataMember(Name = "pkPolicy", EmitDefaultValue = false)]
-        public PrivateKeyPolicy? PkPolicy { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateProjectRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
-        /// </summary>
-        /// <param name="name">Name of the project. (required).</param>
-        /// <param name="pkPolicy">pkPolicy.</param>
-        public CreateProjectRequest(string name = default(string), PrivateKeyPolicy? pkPolicy = default(PrivateKeyPolicy?))
+        /// <param name="address">The address of the wallet that has deposited funds in the paymaster..</param>
+        /// <param name="signature">Signature to verify the account ownership..</param>
+        /// <param name="name">The name of the account..</param>
+        public DeveloperAccountCreateRequest(string address = default(string), string signature = default(string), string name = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateProjectRequest and cannot be null");
-            }
+            this.Address = address;
+            this.Signature = signature;
             this.Name = name;
-            this.PkPolicy = pkPolicy;
         }
 
         /// <summary>
-        /// Name of the project.
+        /// The address of the wallet that has deposited funds in the paymaster.
         /// </summary>
-        /// <value>Name of the project.</value>
-        /// <example>&quot;My Project&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>The address of the wallet that has deposited funds in the paymaster.</value>
+        /// <example>&quot;0x662D24Bf7Ea2dD6a7D0935F680a6056b94fE934d&quot;</example>
+        [DataMember(Name = "address", EmitDefaultValue = false)]
+        public string Address { get; set; }
+
+        /// <summary>
+        /// Signature to verify the account ownership.
+        /// </summary>
+        /// <value>Signature to verify the account ownership.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;</example>
+        [DataMember(Name = "signature", EmitDefaultValue = false)]
+        public string Signature { get; set; }
+
+        /// <summary>
+        /// The name of the account.
+        /// </summary>
+        /// <value>The name of the account.</value>
+        /// <example>&quot;Escrow account&quot;</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -75,9 +77,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateProjectRequest {\n");
+            sb.Append("class DeveloperAccountCreateRequest {\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
+            sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PkPolicy: ").Append(PkPolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateProjectRequest);
+            return this.Equals(input as DeveloperAccountCreateRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateProjectRequest instances are equal
+        /// Returns true if DeveloperAccountCreateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateProjectRequest to be compared</param>
+        /// <param name="input">Instance of DeveloperAccountCreateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateProjectRequest input)
+        public bool Equals(DeveloperAccountCreateRequest input)
         {
             if (input == null)
             {
@@ -114,13 +117,19 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
+                    this.Address == input.Address ||
+                    (this.Address != null &&
+                    this.Address.Equals(input.Address))
+                ) && 
+                (
+                    this.Signature == input.Signature ||
+                    (this.Signature != null &&
+                    this.Signature.Equals(input.Signature))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.PkPolicy == input.PkPolicy ||
-                    this.PkPolicy.Equals(input.PkPolicy)
                 );
         }
 
@@ -133,11 +142,18 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Address != null)
+                {
+                    hashCode = (hashCode * 59) + this.Address.GetHashCode();
+                }
+                if (this.Signature != null)
+                {
+                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PkPolicy.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,18 +165,6 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
-            }
-
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

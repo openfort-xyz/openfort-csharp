@@ -28,45 +28,48 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreateProjectRequest
+    /// DeveloperAccountGetMessageResponse
     /// </summary>
-    [DataContract(Name = "CreateProjectRequest")]
-    public partial class CreateProjectRequest : IEquatable<CreateProjectRequest>, IValidatableObject
+    [DataContract(Name = "DeveloperAccountGetMessageResponse")]
+    public partial class DeveloperAccountGetMessageResponse : IEquatable<DeveloperAccountGetMessageResponse>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets PkPolicy
-        /// </summary>
-        [DataMember(Name = "pkPolicy", EmitDefaultValue = false)]
-        public PrivateKeyPolicy? PkPolicy { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccountGetMessageResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateProjectRequest() { }
+        protected DeveloperAccountGetMessageResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateProjectRequest" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccountGetMessageResponse" /> class.
         /// </summary>
-        /// <param name="name">Name of the project. (required).</param>
-        /// <param name="pkPolicy">pkPolicy.</param>
-        public CreateProjectRequest(string name = default(string), PrivateKeyPolicy? pkPolicy = default(PrivateKeyPolicy?))
+        /// <param name="message">message (required).</param>
+        /// <param name="address">address (required).</param>
+        public DeveloperAccountGetMessageResponse(string message = default(string), string address = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "message" is required (not null)
+            if (message == null)
             {
-                throw new ArgumentNullException("name is a required property for CreateProjectRequest and cannot be null");
+                throw new ArgumentNullException("message is a required property for DeveloperAccountGetMessageResponse and cannot be null");
             }
-            this.Name = name;
-            this.PkPolicy = pkPolicy;
+            this.Message = message;
+            // to ensure "address" is required (not null)
+            if (address == null)
+            {
+                throw new ArgumentNullException("address is a required property for DeveloperAccountGetMessageResponse and cannot be null");
+            }
+            this.Address = address;
         }
 
         /// <summary>
-        /// Name of the project.
+        /// Gets or Sets Message
         /// </summary>
-        /// <value>Name of the project.</value>
-        /// <example>&quot;My Project&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Address
+        /// </summary>
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
+        public string Address { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +78,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateProjectRequest {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PkPolicy: ").Append(PkPolicy).Append("\n");
+            sb.Append("class DeveloperAccountGetMessageResponse {\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +101,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateProjectRequest);
+            return this.Equals(input as DeveloperAccountGetMessageResponse);
         }
 
         /// <summary>
-        /// Returns true if CreateProjectRequest instances are equal
+        /// Returns true if DeveloperAccountGetMessageResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateProjectRequest to be compared</param>
+        /// <param name="input">Instance of DeveloperAccountGetMessageResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateProjectRequest input)
+        public bool Equals(DeveloperAccountGetMessageResponse input)
         {
             if (input == null)
             {
@@ -114,13 +117,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.PkPolicy == input.PkPolicy ||
-                    this.PkPolicy.Equals(input.PkPolicy)
+                    this.Address == input.Address ||
+                    (this.Address != null &&
+                    this.Address.Equals(input.Address))
                 );
         }
 
@@ -133,11 +137,14 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.Message != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PkPolicy.GetHashCode();
+                if (this.Address != null)
+                {
+                    hashCode = (hashCode * 59) + this.Address.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,18 +156,6 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
-            }
-
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

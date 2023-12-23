@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="UserProjectCreateRequest" /> class.
         /// </summary>
         /// <param name="role">role.</param>
-        /// <param name="email">email (required).</param>
+        /// <param name="email">The email of the user to add. (required).</param>
         public UserProjectCreateRequest(UserProjectCreateRequestRole role = default(UserProjectCreateRequestRole), string email = default(string))
         {
             // to ensure "email" is required (not null)
@@ -61,8 +61,10 @@ namespace Openfort.SDK.Model
         public UserProjectCreateRequestRole Role { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// The email of the user to add.
         /// </summary>
+        /// <value>The email of the user to add.</value>
+        /// <example>&quot;name@company.com&quot;</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 

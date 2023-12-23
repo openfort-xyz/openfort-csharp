@@ -86,6 +86,7 @@ namespace Openfort.SDK.Model
         /// Filter by chain id.
         /// </summary>
         /// <value>Filter by chain id.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 

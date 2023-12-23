@@ -63,6 +63,7 @@ namespace Openfort.SDK.Model
         /// The email address of the user.
         /// </summary>
         /// <value>The email address of the user.</value>
+        /// <example>&quot;user@email.com&quot;</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
@@ -70,6 +71,7 @@ namespace Openfort.SDK.Model
         /// The password of the user.
         /// </summary>
         /// <value>The password of the user.</value>
+        /// <example>&quot;password&quot;</example>
         [DataMember(Name = "password", IsRequired = true, EmitDefaultValue = true)]
         public string Password { get; set; }
 

@@ -55,7 +55,7 @@ namespace Openfort.SDK.Api
         /// Complete a recovery process of a recoverable account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         TransactionIntentResponse CompleteRecovery(string id, CompleteRecoveryRequest completeRecoveryRequest);
@@ -67,7 +67,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         ApiResponse<TransactionIntentResponse> CompleteRecoveryWithHttpInfo(string id, CompleteRecoveryRequest completeRecoveryRequest);
@@ -99,7 +99,7 @@ namespace Openfort.SDK.Api
         /// This endpoint can be used to deploy an account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <returns>AccountResponse</returns>
         AccountResponse DeployAccount(string id, DeployRequest deployRequest);
@@ -111,7 +111,7 @@ namespace Openfort.SDK.Api
         /// This endpoint can be used to deploy an account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
         ApiResponse<AccountResponse> DeployAccountWithHttpInfo(string id, DeployRequest deployRequest);
@@ -122,7 +122,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>AccountResponse</returns>
         AccountResponse GetAccount(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
@@ -134,7 +134,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
         ApiResponse<AccountResponse> GetAccountWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>));
@@ -194,7 +194,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -206,7 +206,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -217,7 +217,7 @@ namespace Openfort.SDK.Api
         /// Start a recovery process of a recoverable account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         TransactionIntentResponse StartRecovery(string id, StartRecoveryRequest startRecoveryRequest);
@@ -229,7 +229,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         ApiResponse<TransactionIntentResponse> StartRecoveryWithHttpInfo(string id, StartRecoveryRequest startRecoveryRequest);
@@ -240,7 +240,7 @@ namespace Openfort.SDK.Api
         /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>AccountResponse</returns>
         AccountResponse SyncAccount(string id);
 
@@ -251,7 +251,7 @@ namespace Openfort.SDK.Api
         /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ApiResponse of AccountResponse</returns>
         ApiResponse<AccountResponse> SyncAccountWithHttpInfo(string id);
         #endregion Synchronous Operations
@@ -295,7 +295,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -308,7 +308,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -343,7 +343,7 @@ namespace Openfort.SDK.Api
         /// This endpoint can be used to deploy an account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -356,7 +356,7 @@ namespace Openfort.SDK.Api
         /// This endpoint can be used to deploy an account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -368,7 +368,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -381,7 +381,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -446,7 +446,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -459,7 +459,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload
         /// </summary>
         /// <remarks>
-        /// Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -474,7 +474,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -487,7 +487,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -499,7 +499,7 @@ namespace Openfort.SDK.Api
         /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
         System.Threading.Tasks.Task<AccountResponse> SyncAccountAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -511,7 +511,7 @@ namespace Openfort.SDK.Api
         /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountResponse>> SyncAccountWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -875,7 +875,7 @@ namespace Openfort.SDK.Api
         /// Complete a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         public TransactionIntentResponse CompleteRecovery(string id, CompleteRecoveryRequest completeRecoveryRequest)
@@ -888,7 +888,7 @@ namespace Openfort.SDK.Api
         /// Complete a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> CompleteRecoveryWithHttpInfo(string id, CompleteRecoveryRequest completeRecoveryRequest)
@@ -944,7 +944,7 @@ namespace Openfort.SDK.Api
         /// Complete a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -958,7 +958,7 @@ namespace Openfort.SDK.Api
         /// Complete a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="completeRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -1147,7 +1147,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <returns>AccountResponse</returns>
         public AccountResponse DeployAccount(string id, DeployRequest deployRequest)
@@ -1160,7 +1160,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <returns>ApiResponse of AccountResponse</returns>
         public Openfort.SDK.Client.ApiResponse<AccountResponse> DeployAccountWithHttpInfo(string id, DeployRequest deployRequest)
@@ -1216,7 +1216,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -1230,7 +1230,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="deployRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -1290,7 +1290,7 @@ namespace Openfort.SDK.Api
         /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>AccountResponse</returns>
         public AccountResponse GetAccount(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
@@ -1303,7 +1303,7 @@ namespace Openfort.SDK.Api
         /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of AccountResponse</returns>
         public Openfort.SDK.Client.ApiResponse<AccountResponse> GetAccountWithHttpInfo(string id, List<AccountResponseExpandable> expand = default(List<AccountResponseExpandable>))
@@ -1357,7 +1357,7 @@ namespace Openfort.SDK.Api
         /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
@@ -1371,7 +1371,7 @@ namespace Openfort.SDK.Api
         /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
@@ -1744,7 +1744,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1757,7 +1757,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1813,7 +1813,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1827,7 +1827,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sign a given payload Signs the typed data value with types data structure for domain using the EIP-712 (https://eips.ethereum.org/EIPS/eip-712) specification.
+        /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1890,7 +1890,7 @@ namespace Openfort.SDK.Api
         /// Start a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         public TransactionIntentResponse StartRecovery(string id, StartRecoveryRequest startRecoveryRequest)
@@ -1903,7 +1903,7 @@ namespace Openfort.SDK.Api
         /// Start a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> StartRecoveryWithHttpInfo(string id, StartRecoveryRequest startRecoveryRequest)
@@ -1959,7 +1959,7 @@ namespace Openfort.SDK.Api
         /// Start a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -1973,7 +1973,7 @@ namespace Openfort.SDK.Api
         /// Start a recovery process of a recoverable account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="startRecoveryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -2033,7 +2033,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>AccountResponse</returns>
         public AccountResponse SyncAccount(string id)
         {
@@ -2045,7 +2045,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ApiResponse of AccountResponse</returns>
         public Openfort.SDK.Client.ApiResponse<AccountResponse> SyncAccountWithHttpInfo(string id)
         {
@@ -2094,7 +2094,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountResponse</returns>
         public async System.Threading.Tasks.Task<AccountResponse> SyncAccountAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -2107,7 +2107,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AccountResponse>> SyncAccountWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

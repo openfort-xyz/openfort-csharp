@@ -52,6 +52,7 @@ namespace Openfort.SDK.Model
         /// Specifies the name of the policy.
         /// </summary>
         /// <value>Specifies the name of the policy.</value>
+        /// <example>&quot;My Policy&quot;</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -59,6 +60,7 @@ namespace Openfort.SDK.Model
         /// The chain ID of the policy.
         /// </summary>
         /// <value>The chain ID of the policy.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 
@@ -72,6 +74,7 @@ namespace Openfort.SDK.Model
         /// Specifies whether to delete the policy.
         /// </summary>
         /// <value>Specifies whether to delete the policy.</value>
+        /// <example>false</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 

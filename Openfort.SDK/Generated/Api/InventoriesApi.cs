@@ -58,7 +58,7 @@ namespace Openfort.SDK.Api
         /// Get inventory of account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ObsoleteInventoryResponse</returns>
         [Obsolete]
         ObsoleteInventoryResponse GetAccountInventory(string id);
@@ -70,7 +70,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
         [Obsolete]
         ApiResponse<ObsoleteInventoryResponse> GetAccountInventoryWithHttpInfo(string id);
@@ -263,7 +263,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObsoleteInventoryResponse</returns>
         [Obsolete]
@@ -276,7 +276,7 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
         [Obsolete]
@@ -845,7 +845,7 @@ namespace Openfort.SDK.Api
         /// Get inventory of account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ObsoleteInventoryResponse</returns>
         [Obsolete]
         public ObsoleteInventoryResponse GetAccountInventory(string id)
@@ -858,7 +858,7 @@ namespace Openfort.SDK.Api
         /// Get inventory of account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
         [Obsolete]
         public Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> GetAccountInventoryWithHttpInfo(string id)
@@ -908,7 +908,7 @@ namespace Openfort.SDK.Api
         /// Get inventory of account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObsoleteInventoryResponse</returns>
         [Obsolete]
@@ -922,7 +922,7 @@ namespace Openfort.SDK.Api
         /// Get inventory of account. 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
         [Obsolete]

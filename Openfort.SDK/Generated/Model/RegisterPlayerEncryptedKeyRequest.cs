@@ -70,6 +70,7 @@ namespace Openfort.SDK.Model
         /// The cipher text of the key to register.
         /// </summary>
         /// <value>The cipher text of the key to register.</value>
+        /// <example>&quot;0xe12fa94af9dac83ab16fa151043c9aa6084929898b27752e56a03173292a6e5d194455ee2e5dfa443c67d02b323a29f6b5aa0a7b538982da4b649bf7759e5c7c1c&quot;</example>
         [DataMember(Name = "pk_ciphertext", IsRequired = true, EmitDefaultValue = true)]
         public string PkCiphertext { get; set; }
 
@@ -77,6 +78,7 @@ namespace Openfort.SDK.Model
         /// The salt used expand the password of the user.
         /// </summary>
         /// <value>The salt used expand the password of the user.</value>
+        /// <example>&quot;0xe12fa94af9dac83ab16fa151043c9aa6084929898b27752e56a03173292a6e5d194455ee2e5dfa443c67d02b323a29f6b5aa0a7b538982da4b649bf7759e5c7c1c&quot;</example>
         [DataMember(Name = "salt", IsRequired = true, EmitDefaultValue = true)]
         public string Salt { get; set; }
 
@@ -84,6 +86,7 @@ namespace Openfort.SDK.Model
         /// The address of the owner.
         /// </summary>
         /// <value>The address of the owner.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "owner_address", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerAddress { get; set; }
 

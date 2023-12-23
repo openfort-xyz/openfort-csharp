@@ -41,7 +41,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymasterDepositorCreateRequest" /> class.
         /// </summary>
-        /// <param name="depositorAddress">Paymaster depositor address. (required).</param>
+        /// <param name="depositorAddress">The address of the wallet that has deposited in the paymaster. (required).</param>
         /// <param name="signature">Signature to verify the account ownership. (required).</param>
         public PaymasterDepositorCreateRequest(string depositorAddress = default(string), string signature = default(string))
         {
@@ -60,9 +60,10 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Paymaster depositor address.
+        /// The address of the wallet that has deposited in the paymaster.
         /// </summary>
-        /// <value>Paymaster depositor address.</value>
+        /// <value>The address of the wallet that has deposited in the paymaster.</value>
+        /// <example>&quot;0x662D24Bf7Ea2dD6a7D0935F680a6056b94fE934d&quot;</example>
         [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
         public string DepositorAddress { get; set; }
 
@@ -70,6 +71,7 @@ namespace Openfort.SDK.Model
         /// Signature to verify the account ownership.
         /// </summary>
         /// <value>Signature to verify the account ownership.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;</example>
         [DataMember(Name = "signature", IsRequired = true, EmitDefaultValue = true)]
         public string Signature { get; set; }
 

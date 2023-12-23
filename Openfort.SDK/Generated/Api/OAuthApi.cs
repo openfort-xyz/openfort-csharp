@@ -36,7 +36,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>AuthorizeWithOAuthToken200Response</returns>
         AuthorizeWithOAuthToken200Response AuthorizeWithOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest);
 
@@ -48,7 +48,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of AuthorizeWithOAuthToken200Response</returns>
         ApiResponse<AuthorizeWithOAuthToken200Response> AuthorizeWithOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest);
         /// <summary>
@@ -164,7 +164,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>PlayerResponse</returns>
         PlayerResponse VerifyOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest);
 
@@ -176,7 +176,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         ApiResponse<PlayerResponse> VerifyOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest);
         #endregion Synchronous Operations
@@ -196,7 +196,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthorizeWithOAuthToken200Response</returns>
         System.Threading.Tasks.Task<AuthorizeWithOAuthToken200Response> AuthorizeWithOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -209,7 +209,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthorizeWithOAuthToken200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizeWithOAuthToken200Response>> AuthorizeWithOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -336,7 +336,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
         System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -349,7 +349,7 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PlayerResponse>> VerifyOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -571,7 +571,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>AuthorizeWithOAuthToken200Response</returns>
         public AuthorizeWithOAuthToken200Response AuthorizeWithOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest)
         {
@@ -584,7 +584,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of AuthorizeWithOAuthToken200Response</returns>
         public Openfort.SDK.Client.ApiResponse<AuthorizeWithOAuthToken200Response> AuthorizeWithOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest)
         {
@@ -642,7 +642,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthorizeWithOAuthToken200Response</returns>
         public async System.Threading.Tasks.Task<AuthorizeWithOAuthToken200Response> AuthorizeWithOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -656,7 +656,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthorizeWithOAuthToken200Response)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthorizeWithOAuthToken200Response>> AuthorizeWithOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1327,7 +1327,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>PlayerResponse</returns>
         public PlayerResponse VerifyOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest)
         {
@@ -1340,7 +1340,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         public Openfort.SDK.Client.ApiResponse<PlayerResponse> VerifyOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest)
         {
@@ -1398,7 +1398,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
         public async System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1412,7 +1412,7 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
-        /// <param name="oAuthRequest">Request body</param>
+        /// <param name="oAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerResponse>> VerifyOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

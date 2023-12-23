@@ -67,6 +67,7 @@ namespace Openfort.SDK.Model
         /// The policy ID (starts with pol_)
         /// </summary>
         /// <value>The policy ID (starts with pol_)</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }
 
@@ -74,6 +75,7 @@ namespace Openfort.SDK.Model
         /// The chain id where the account is.
         /// </summary>
         /// <value>The chain id where the account is.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
@@ -81,6 +83,7 @@ namespace Openfort.SDK.Model
         /// The address of the new owner
         /// </summary>
         /// <value>The address of the new owner</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "newOwnerAddress", IsRequired = true, EmitDefaultValue = true)]
         public string NewOwnerAddress { get; set; }
 
@@ -88,6 +91,7 @@ namespace Openfort.SDK.Model
         /// The player ID (starts with pla_)
         /// </summary>
         /// <value>The player ID (starts with pla_)</value>
+        /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", EmitDefaultValue = false)]
         public string Player { get; set; }
 

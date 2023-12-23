@@ -53,6 +53,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
+        [Obsolete]
         PolicyRuleResponse CreatePolicyAllowFunction(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest);
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
+        [Obsolete]
         ApiResponse<PolicyRuleResponse> CreatePolicyAllowFunctionWithHttpInfo(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest);
         /// <summary>
         /// Delete a policy object.
@@ -179,6 +181,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyRuleListResponse</returns>
+        [Obsolete]
         PolicyRuleListResponse GetPolicyAllowFunctions(string id, List<string> expand = default(List<string>));
 
         /// <summary>
@@ -191,6 +194,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyRuleListResponse</returns>
+        [Obsolete]
         ApiResponse<PolicyRuleListResponse> GetPolicyAllowFunctionsWithHttpInfo(string id, List<string> expand = default(List<string>));
         /// <summary>
         /// List all gas reports of a policy.
@@ -238,6 +242,7 @@ namespace Openfort.SDK.Api
         /// <param name="policyRule">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
+        [Obsolete]
         PolicyRuleResponse UpdatePolicyAllowFunction(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest);
 
         /// <summary>
@@ -251,6 +256,7 @@ namespace Openfort.SDK.Api
         /// <param name="policyRule">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
+        [Obsolete]
         ApiResponse<PolicyRuleResponse> UpdatePolicyAllowFunctionWithHttpInfo(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest);
         #endregion Synchronous Operations
     }
@@ -295,6 +301,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<PolicyRuleResponse> CreatePolicyAllowFunctionAsync(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -308,6 +315,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PolicyRuleResponse>> CreatePolicyAllowFunctionWithHttpInfoAsync(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a policy object.
@@ -451,6 +459,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleListResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<PolicyRuleListResponse> GetPolicyAllowFunctionsAsync(string id, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -464,6 +473,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleListResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PolicyRuleListResponse>> GetPolicyAllowFunctionsWithHttpInfoAsync(string id, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all gas reports of a policy.
@@ -525,6 +535,7 @@ namespace Openfort.SDK.Api
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<PolicyRuleResponse> UpdatePolicyAllowFunctionAsync(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -539,6 +550,7 @@ namespace Openfort.SDK.Api
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PolicyRuleResponse>> UpdatePolicyAllowFunctionWithHttpInfoAsync(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -889,6 +901,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
+        [Obsolete]
         public PolicyRuleResponse CreatePolicyAllowFunction(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest)
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> localVarResponse = CreatePolicyAllowFunctionWithHttpInfo(id, createPolicyAllowFunctionRequest);
@@ -902,6 +915,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> CreatePolicyAllowFunctionWithHttpInfo(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest)
         {
             // verify the required parameter 'id' is set
@@ -959,6 +973,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<PolicyRuleResponse> CreatePolicyAllowFunctionAsync(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> localVarResponse = await CreatePolicyAllowFunctionWithHttpInfoAsync(id, createPolicyAllowFunctionRequest, cancellationToken).ConfigureAwait(false);
@@ -973,6 +988,7 @@ namespace Openfort.SDK.Api
         /// <param name="createPolicyAllowFunctionRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyRuleResponse>> CreatePolicyAllowFunctionWithHttpInfoAsync(string id, CreatePolicyAllowFunctionRequest createPolicyAllowFunctionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1761,6 +1777,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>PolicyRuleListResponse</returns>
+        [Obsolete]
         public PolicyRuleListResponse GetPolicyAllowFunctions(string id, List<string> expand = default(List<string>))
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleListResponse> localVarResponse = GetPolicyAllowFunctionsWithHttpInfo(id, expand);
@@ -1774,6 +1791,7 @@ namespace Openfort.SDK.Api
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <returns>ApiResponse of PolicyRuleListResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<PolicyRuleListResponse> GetPolicyAllowFunctionsWithHttpInfo(string id, List<string> expand = default(List<string>))
         {
             // verify the required parameter 'id' is set
@@ -1829,6 +1847,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleListResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<PolicyRuleListResponse> GetPolicyAllowFunctionsAsync(string id, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleListResponse> localVarResponse = await GetPolicyAllowFunctionsWithHttpInfoAsync(id, expand, cancellationToken).ConfigureAwait(false);
@@ -1843,6 +1862,7 @@ namespace Openfort.SDK.Api
         /// <param name="expand">Specifies the fields to expand. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleListResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyRuleListResponse>> GetPolicyAllowFunctionsWithHttpInfoAsync(string id, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -2171,6 +2191,7 @@ namespace Openfort.SDK.Api
         /// <param name="policyRule">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>PolicyRuleResponse</returns>
+        [Obsolete]
         public PolicyRuleResponse UpdatePolicyAllowFunction(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest)
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> localVarResponse = UpdatePolicyAllowFunctionWithHttpInfo(policy, policyRule, updatePolicyRuleRequest);
@@ -2185,6 +2206,7 @@ namespace Openfort.SDK.Api
         /// <param name="policyRule">Specifies the unique policy rule ID (starts with afu_).</param>
         /// <param name="updatePolicyRuleRequest"></param>
         /// <returns>ApiResponse of PolicyRuleResponse</returns>
+        [Obsolete]
         public Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> UpdatePolicyAllowFunctionWithHttpInfo(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest)
         {
             // verify the required parameter 'policy' is set
@@ -2248,6 +2270,7 @@ namespace Openfort.SDK.Api
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PolicyRuleResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<PolicyRuleResponse> UpdatePolicyAllowFunctionAsync(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<PolicyRuleResponse> localVarResponse = await UpdatePolicyAllowFunctionWithHttpInfoAsync(policy, policyRule, updatePolicyRuleRequest, cancellationToken).ConfigureAwait(false);
@@ -2263,6 +2286,7 @@ namespace Openfort.SDK.Api
         /// <param name="updatePolicyRuleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyRuleResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyRuleResponse>> UpdatePolicyAllowFunctionWithHttpInfoAsync(string policy, string policyRule, UpdatePolicyRuleRequest updatePolicyRuleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policy' is set

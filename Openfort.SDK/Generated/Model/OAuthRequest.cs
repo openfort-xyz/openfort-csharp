@@ -56,6 +56,7 @@ namespace Openfort.SDK.Model
         /// Access token to be verified
         /// </summary>
         /// <value>Access token to be verified</value>
+        /// <example>&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</example>
         [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
         public string Token { get; set; }
 

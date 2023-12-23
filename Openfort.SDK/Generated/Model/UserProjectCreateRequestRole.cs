@@ -29,7 +29,7 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// UserProjectCreateRequestRole
+    /// The role of the user.
     /// </summary>
     [JsonConverter(typeof(UserProjectCreateRequestRoleJsonConverter))]
     [DataContract(Name = "UserProjectCreateRequest_role")]

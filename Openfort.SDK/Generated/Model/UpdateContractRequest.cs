@@ -56,6 +56,7 @@ namespace Openfort.SDK.Model
         /// Specifies the name of the contract (Only for display purposes).
         /// </summary>
         /// <value>Specifies the name of the contract (Only for display purposes).</value>
+        /// <example>&quot;NFT Contract&quot;</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -63,6 +64,7 @@ namespace Openfort.SDK.Model
         /// Specifies the chain ID of the contract.
         /// </summary>
         /// <value>Specifies the chain ID of the contract.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 
@@ -70,6 +72,7 @@ namespace Openfort.SDK.Model
         /// Specifies whether to delete the contract.
         /// </summary>
         /// <value>Specifies whether to delete the contract.</value>
+        /// <example>false</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 
@@ -77,6 +80,7 @@ namespace Openfort.SDK.Model
         /// Specifies the address of the contract.
         /// </summary>
         /// <value>Specifies the address of the contract.</value>
+        /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "address", EmitDefaultValue = false)]
         public string Address { get; set; }
 

@@ -58,6 +58,7 @@ namespace Openfort.SDK.Model
         /// The policy ID (starts with pol_)
         /// </summary>
         /// <value>The policy ID (starts with pol_)</value>
+        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }
 
@@ -65,6 +66,7 @@ namespace Openfort.SDK.Model
         /// The chain id where the account is.
         /// </summary>
         /// <value>The chain id where the account is.</value>
+        /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 

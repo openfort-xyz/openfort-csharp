@@ -81,6 +81,7 @@ namespace Openfort.SDK.Model
         /// Filter by player name.
         /// </summary>
         /// <value>Filter by player name.</value>
+        /// <example>&quot;John&quot;</example>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
