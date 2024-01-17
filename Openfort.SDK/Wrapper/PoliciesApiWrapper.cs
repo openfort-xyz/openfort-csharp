@@ -27,13 +27,13 @@ namespace Openfort.SDK.Wrapper
         public async Task<PolicyListResponse> List(PolicyListRequest? request = null) => await apiClient.GetPoliciesAsync(request?.Limit, request?.Skip, request?.Order, request?.Expand, request?.Name, request?.Deleted, request?.ChainId);
 
         [Obsolete]
-        public async Task<PolicyRuleResponse> CreateRule(PolicyCreateRuleRequest request) => await apiClient.CreatePolicyAllowFunctionAsync(request.Policy, request);
+        public async Task<PolicyRuleResponse> CreateAllowFunction(PolicyCreateRuleRequest request) => await apiClient.CreatePolicyAllowFunctionAsync(request.Policy, request);
 
         [Obsolete]
-        public async Task<PolicyRuleListResponse> GetRule(PolicyGetRulesRequest request) => await apiClient.GetPolicyAllowFunctionsAsync(request.Id, request.Expand);
+        public async Task<PolicyRuleListResponse> GetAllowFunctions(PolicyGetRulesRequest request) => await apiClient.GetPolicyAllowFunctionsAsync(request.Id, request.Expand);
 
         [Obsolete]
-        public async Task<PolicyRuleResponse> UpdateRule(PolicyUpdateRuleRequest request) => await apiClient.UpdatePolicyAllowFunctionAsync(request.Policy, request.PolicyRule, request);
+        public async Task<PolicyRuleResponse> UpdateAllowFunction(PolicyUpdateRuleRequest request) => await apiClient.UpdatePolicyAllowFunctionAsync(request.Policy, request.PolicyRule, request);
     }
 }
 
