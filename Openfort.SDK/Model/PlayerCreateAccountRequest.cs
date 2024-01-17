@@ -1,13 +1,13 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class PlayerCreateAccountRequest: CreatePlayerAccountRequest
-    {
-		public PlayerCreateAccountRequest(string playerId, int chainId = default(int), string externalOwnerAddress = null, DataAccountTypes? accountType = null, string tokenContract = null, long tokenId = default(long)): base(chainId, externalOwnerAddress, accountType, tokenContract, tokenId)
+	public class PlayerCreateAccountRequest : CreatePlayerAccountRequest
+	{
+		public PlayerCreateAccountRequest(string id, int chainId = default(int), string? externalOwnerAddress = null, DataAccountTypes? accountType = null, string tokenContract = null, long tokenId = default(long)) : base(chainId, externalOwnerAddress, accountType, tokenContract, tokenId)
 		{
-			PlayerId = playerId;
+			Id = id;
 		}
 
-		public string PlayerId { get; set; }
+		public string Id { get; set; }
 	}
 }
 

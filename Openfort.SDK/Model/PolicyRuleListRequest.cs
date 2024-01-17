@@ -1,12 +1,12 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class PolicyRuleListRequest: BaseExpandableListRequest<string>
+	public class PolicyRuleListRequest : BaseExpandableListRequest<string>
 	{
-		public PolicyRuleListRequest(string policyId, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? expand = null): base(limit, skip, order, expand)
+		public PolicyRuleListRequest(string id, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? expand = null) : base(limit, skip, order, expand)
 		{
-			PolicyId = policyId;
+			Id = id;
 		}
 
-		public string PolicyId { get; set; }
+		public string Id { get; set; }
 	}
 }

@@ -2,13 +2,13 @@
 {
 	public class PlayerInventoryRequest
 	{
-		public PlayerInventoryRequest(string playerId, int chainId)
+		public PlayerInventoryRequest(string id, int chainId)
 		{
-            PlayerId = playerId;
+			Id = id;
 			ChainId = chainId;
 		}
 
-		public string PlayerId { get; set; }
+		public string Id { get; set; }
 
 		public int ChainId { get; set; }
 	}

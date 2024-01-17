@@ -2,11 +2,11 @@
 {
     public class AccountInventoryRequest
     {
-        public AccountInventoryRequest(string accountId)
+        public AccountInventoryRequest(string id)
         {
-            AccountId = accountId;
+            Id = id;
         }
 
-        public string AccountId { get; set; }
+        public string Id { get; set; }
     }
 }

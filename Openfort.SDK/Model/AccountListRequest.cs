@@ -1,14 +1,14 @@
 ﻿using System;
 namespace Openfort.SDK.Model
 {
-	public class AccountListRequest: BaseExpandableListRequest<AccountResponseExpandable>
+	public class AccountListRequest : BaseExpandableListRequest<AccountResponseExpandable>
 	{
-		public AccountListRequest(string playerId, int? limit = null, int? skip = null, SortOrder? order = null, List<AccountResponseExpandable>? expand = null): base(limit, skip, order, expand)
+		public AccountListRequest(string player, int? limit = null, int? skip = null, SortOrder? order = null, List<AccountResponseExpandable>? expand = null) : base(limit, skip, order, expand)
 		{
-			PlayerId = playerId;
+			Player = player;
 		}
 
-        public string PlayerId { get; set; }
+		public string Player { get; set; }
 	}
 }
 

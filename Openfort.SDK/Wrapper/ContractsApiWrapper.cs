@@ -3,8 +3,8 @@ using Openfort.SDK.Model;
 
 namespace Openfort.SDK.Wrapper
 {
-	public class ContractsApiWrapper : BaseApiWrapper
-	{
+    public class ContractsApiWrapper : BaseApiWrapper
+    {
         private readonly ContractsApi apiClient;
 
         public ContractsApiWrapper(string accessToken, string? basePath = null) : base(accessToken, basePath)
@@ -20,8 +20,10 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<ContractResponse> Get(string id) => await apiClient.GetContractAsync(id);
 
-        public async Task<ContractListResponse> List(ContractListRequest request) => await apiClient.GetContractsAsync(request.Limit, request.Skip, request.Order, request.Name, request.Deleted, request.ChainId, request.Address);
-
+        public async Task<ContractListResponse> List(ContractListRequest request)
+        {
+            return await apiClient.GetContractsAsync(request.Limit, request.Skip, request.Order, request.Name, request.Deleted, request.ChainId, request.Address);
+        }
     }
 }
 

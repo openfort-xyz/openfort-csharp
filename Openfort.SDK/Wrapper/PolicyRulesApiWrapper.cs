@@ -13,7 +13,7 @@ public class PolicyRulesApiWrapper : BaseApiWrapper
 
     public async Task<PolicyRuleResponse> Create(CreatePolicyRuleRequest request) => await apiClient.CreatePolicyRulesAsync(request);
 
-    public async Task<PolicyRuleListResponse> List(PolicyRuleListRequest request) => await apiClient.GetPolicyRulesAsync(request.PolicyId, request.Limit, request.Skip, request.Order, request.Expand);
+    public async Task<PolicyRuleListResponse> List(PolicyRuleListRequest request) => await apiClient.GetPolicyRulesAsync(request.Id, request.Limit, request.Skip, request.Order, request.Expand);
 
     public async Task<PolicyRuleResponse> Update(PolicyRuleUpdateRequest request) => await apiClient.UpdatePolicyRulesAsync(request.Id, request);
 

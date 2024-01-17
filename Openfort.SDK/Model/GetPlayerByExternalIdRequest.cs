@@ -2,15 +2,15 @@
 {
 	public class GetPlayerByExternalIdRequest
 	{
-		public GetPlayerByExternalIdRequest(OAuthProvider provider, string externalId)
+		public GetPlayerByExternalIdRequest(OAuthProvider provider, string externalUserId)
 		{
 			Provider = provider;
-			ExternalId = externalId;
+			ExternalUserId = externalUserId;
 		}
 
-        public OAuthProvider Provider { get; set; }
+		public OAuthProvider Provider { get; set; }
 
-        public string ExternalId { get; set; }
-    }
+		public string ExternalUserId { get; set; }
+	}
 }
 

@@ -1,12 +1,12 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class SessionListRequest: BaseExpandableListRequest<SessionResponseExpandable>
+	public class SessionListRequest : BaseExpandableListRequest<SessionResponseExpandable>
 	{
-		public SessionListRequest(string playerId, int? limit = null, int? skip = null, SortOrder? order = null, List<SessionResponseExpandable>? expand = null): base(limit, skip, order, expand)
+		public SessionListRequest(string player, int? limit = null, int? skip = null, SortOrder? order = null, List<SessionResponseExpandable>? expand = null) : base(limit, skip, order, expand)
 		{
-			PlayerId = playerId;
+			Player = player;
 		}
 
-		public string PlayerId { get; set; }
+		public string Player { get; set; }
 	}
 }

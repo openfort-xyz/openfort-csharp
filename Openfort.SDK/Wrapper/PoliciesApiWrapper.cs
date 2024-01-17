@@ -3,8 +3,8 @@ using Openfort.SDK.Model;
 
 namespace Openfort.SDK.Wrapper
 {
-	public class PoliciesApiWrapper : BaseApiWrapper
-	{
+    public class PoliciesApiWrapper : BaseApiWrapper
+    {
         private readonly PoliciesApi apiClient;
 
         public PoliciesApiWrapper(string accessToken, string? basePath = null) : base(accessToken, basePath)
@@ -26,11 +26,14 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<PolicyListResponse> List(PolicyListRequest? request = null) => await apiClient.GetPoliciesAsync(request?.Limit, request?.Skip, request?.Order, request?.Expand, request?.Name, request?.Deleted, request?.ChainId);
 
-        public async Task<PolicyRuleResponse> CreateRule(PolicyCreateRuleRequest request) => await apiClient.CreatePolicyAllowFunctionAsync(request.PolicyId, request);
+        [Obsolete]
+        public async Task<PolicyRuleResponse> CreateRule(PolicyCreateRuleRequest request) => await apiClient.CreatePolicyAllowFunctionAsync(request.Policy, request);
 
+        [Obsolete]
         public async Task<PolicyRuleListResponse> GetRule(PolicyGetRulesRequest request) => await apiClient.GetPolicyAllowFunctionsAsync(request.Id, request.Expand);
 
-        public async Task<PolicyRuleResponse> UpdateRule(PolicyUpdateRuleRequest request) => await apiClient.UpdatePolicyAllowFunctionAsync(request.PolicyId, request.RuleId, request);
+        [Obsolete]
+        public async Task<PolicyRuleResponse> UpdateRule(PolicyUpdateRuleRequest request) => await apiClient.UpdatePolicyAllowFunctionAsync(request.Policy, request.PolicyRule, request);
     }
 }
 

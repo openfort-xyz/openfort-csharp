@@ -1,15 +1,15 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class PlayerInventoryListRequest: BaseListRequest
+	public class PlayerInventoryListRequest : BaseListRequest
 	{
-		public PlayerInventoryListRequest(string playerId, int chainId, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? contractIds = null): base(limit, skip, order)
+		public PlayerInventoryListRequest(string id, int chainId, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? contractIds = null) : base(limit, skip, order)
 		{
-            PlayerId = playerId;
+			Id = id;
 			ChainId = chainId;
 			ContractIds = contractIds ?? new List<string>();
 		}
 
-		public string PlayerId { get; set; }
+		public string Id { get; set; }
 
 		public int ChainId { get; set; }
 

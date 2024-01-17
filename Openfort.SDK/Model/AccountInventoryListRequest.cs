@@ -2,13 +2,13 @@
 {
     public class AccountInventoryListRequest : BaseListRequest
     {
-        public AccountInventoryListRequest(string accountId, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? contractIds = null) : base(limit, skip, order)
+        public AccountInventoryListRequest(string id, int? limit = null, int? skip = null, SortOrder? order = null, List<string>? contractIds = null) : base(limit, skip, order)
         {
-            AccountId = accountId;
+            Id = id;
             ContractIds = contractIds ?? new List<string>();
         }
 
-        public string AccountId { get; set; }
+        public string Id { get; set; }
 
         public List<string> ContractIds { get; set; }
     }

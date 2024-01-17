@@ -1,13 +1,13 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class PlayerTransferAccountOwnershipRequest: PlayerTransferOwnershipRequest
-    {
-		public PlayerTransferAccountOwnershipRequest(string playerId, int chainId, string policy, string newOwnerAddress): base(policy, chainId, newOwnerAddress)
+	public class PlayerTransferAccountOwnershipRequest : PlayerTransferOwnershipRequest
+	{
+		public PlayerTransferAccountOwnershipRequest(string id, int chainId, string policy, string newOwnerAddress) : base(policy, chainId, newOwnerAddress)
 		{
-			PlayerId = playerId;
+			Id = id;
 		}
 
-		public string PlayerId { get; set; }
+		public string Id { get; set; }
 	}
 }
 
