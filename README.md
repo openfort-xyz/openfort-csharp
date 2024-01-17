@@ -20,7 +20,7 @@
   </h4>
 </div>
 
-[banner-image]: https://blog-cms.openfort.xyz/uploads/nodejs_d651988940.png
+[banner-image]: https://blog-cms.openfort.xyz/uploads/C_c9491093da.png
 
 # Openfort C# Library
 
