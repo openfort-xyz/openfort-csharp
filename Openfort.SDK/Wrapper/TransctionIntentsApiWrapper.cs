@@ -3,8 +3,8 @@ using Openfort.SDK.Model;
 
 namespace Openfort.SDK.Wrapper
 {
-	public class TransactionIntentsApiWrapper: BaseApiWrapper
-	{
+    public class TransactionIntentsApiWrapper : BaseApiWrapper
+    {
         private readonly TransactionIntentsApi apiClient;
 
         public TransactionIntentsApiWrapper(string accessToken, string? basePath = null) : base(accessToken, basePath)
@@ -20,7 +20,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<TransactionIntentListResponse> List(TransactionIntentListRequest request) => await apiClient.GetTransactionIntentsAsync(request.Limit, request.Skip, request.Order, request.Expand, request.ChainId, request.AccountIds, request.PlayerIds, request.PolicyIds);
 
-        public async Task<TransactionIntentResponse> Signature(SessionSignatureRequest request) => await apiClient.SignatureAsync(request.Id, request);
+        public async Task<TransactionIntentResponse> Signature(TransactionIntentSignatureRequest request) => await apiClient.SignatureAsync(request.Id, request);
     }
 }
 
