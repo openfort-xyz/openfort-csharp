@@ -12,7 +12,7 @@ namespace Openfort.SDK.Wrapper
             apiClient = new PlayersApi(Configuration);
         }
 
-        public async Task<PlayerResponse> Get(PlayerGetRequest request) => await apiClient.GetPlayerAsync(request.Id, request.Expand);
+        public async Task<PlayerResponse> Get(PlayerRequest request) => await apiClient.GetPlayerAsync(request.Id, request.Expand);
 
         public async Task<PlayerListResponse> List(PlayerListRequest? request = null)
         {

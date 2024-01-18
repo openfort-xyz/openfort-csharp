@@ -16,7 +16,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<TransactionIntentResponse> Create(CreateTransactionIntentRequest request) => await apiClient.CreateTransactionIntentAsync(request);
 
-        public async Task<TransactionIntentResponse> Get(TransactionIntentGetRequest request) => await apiClient.GetTransactionIntentAsync(request.Id, request.Expand);
+        public async Task<TransactionIntentResponse> Get(TransactionIntentRequest request) => await apiClient.GetTransactionIntentAsync(request.Id, request.Expand);
 
         public async Task<TransactionIntentListResponse> List(TransactionIntentListRequest request) => await apiClient.GetTransactionIntentsAsync(request.Limit, request.Skip, request.Order, request.Expand, request.ChainId, request.AccountIds, request.PlayerIds, request.PolicyIds);
 

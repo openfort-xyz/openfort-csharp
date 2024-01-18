@@ -14,7 +14,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<PolicyResponse> Create(CreatePolicyRequest request) => await apiClient.CreatePolicyAsync(request);
 
-        public async Task<PolicyResponse> Get(PolicyGetRequest request) => await apiClient.GetPolicyAsync(request.Id, request.Expand);
+        public async Task<PolicyResponse> Get(PolicyRequest request) => await apiClient.GetPolicyAsync(request.Id, request.Expand);
 
         public async Task<PolicyResponse> Update(PolicyUpdateRequest request) => await apiClient.UpdatePolicyAsync(request.Id, request);
 

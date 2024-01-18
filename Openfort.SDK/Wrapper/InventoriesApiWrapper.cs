@@ -12,17 +12,17 @@ namespace Openfort.SDK.Wrapper
             apiClient = new InventoriesApi(Configuration);
         }
 
-        public async Task<InventoryListResponse> GetPlayerNftInventory(PlayerInventoryListRequest request) => await apiClient.GetPlayerNftInventoryAsync(request.Id, request.ChainId, request.Limit, request.Skip, request.Order, request.ContractIds);
+        public async Task<InventoryListResponse> GetPlayerNft(PlayerInventoryListRequest request) => await apiClient.GetPlayerNftInventoryAsync(request.Id, request.ChainId, request.Limit, request.Skip, request.Order, request.ContractIds);
 
-        public async Task<InventoryListResponse> GetAccountNftInventory(AccountInventoryListRequest request) => await apiClient.GetAccountNftInventoryAsync(request.Id, request.Limit, request.Skip, request.Order, request.ContractIds);
+        public async Task<InventoryListResponse> GetAccountNft(AccountInventoryListRequest request) => await apiClient.GetAccountNftInventoryAsync(request.Id, request.Limit, request.Skip, request.Order, request.ContractIds);
 
-        public async Task<InventoryListResponse> GetPlayerCryptoCurrencyInventory(PlayerInventoryListRequest request) => await apiClient.GetPlayerCryptoCurrencyInventoryAsync(request.Id, request.ChainId, request.Limit, request.Skip, request.Order, request.ContractIds);
+        public async Task<InventoryListResponse> GetPlayerCryptoCurrency(PlayerInventoryListRequest request) => await apiClient.GetPlayerCryptoCurrencyInventoryAsync(request.Id, request.ChainId, request.Limit, request.Skip, request.Order, request.ContractIds);
 
-        public async Task<InventoryListResponse> GetAccountCryptoCurrencyInventory(AccountInventoryListRequest request) => await apiClient.GetAccountCryptoCurrencyInventoryAsync(request.Id, request.Limit, request.Skip, request.Order, request.ContractIds);
+        public async Task<InventoryListResponse> GetAccountCryptoCurrency(AccountInventoryListRequest request) => await apiClient.GetAccountCryptoCurrencyInventoryAsync(request.Id, request.Limit, request.Skip, request.Order, request.ContractIds);
 
-        public async Task<InventoryResponse> GetPlayerNativeInventory(PlayerInventoryRequest request) => await apiClient.GetPlayerNativeInventoryAsync(request.Id, request.ChainId);
+        public async Task<InventoryResponse> GetPlayerNative(PlayerInventoryRequest request) => await apiClient.GetPlayerNativeInventoryAsync(request.Id, request.ChainId);
 
-        public async Task<InventoryResponse> GetAccountNativeInventory(AccountInventoryRequest request) => await apiClient.GetAccountNativeInventoryAsync(request.Id);
+        public async Task<InventoryResponse> GetAccountNative(AccountInventoryRequest request) => await apiClient.GetAccountNativeInventoryAsync(request.Id);
     }
 }
 

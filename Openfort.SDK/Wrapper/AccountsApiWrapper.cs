@@ -14,7 +14,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<AccountResponse> Create(CreateAccountRequest request) => await apiClient.CreateAccountAsync(request);
 
-        public async Task<AccountResponse> Get(AccountGetRequest request) => await apiClient.GetAccountAsync(request.Id, request.Expand);
+        public async Task<AccountResponse> Get(AccountRequest request) => await apiClient.GetAccountAsync(request.Id, request.Expand);
 
         public async Task<AccountListResponse> List(AccountListRequest request) => await apiClient.GetAccountsAsync(request.Player, request.Limit, request.Skip, request.Order, request.Expand);
 
