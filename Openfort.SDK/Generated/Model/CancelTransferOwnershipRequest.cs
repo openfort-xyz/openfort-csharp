@@ -41,7 +41,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelTransferOwnershipRequest" /> class.
         /// </summary>
-        /// <param name="policy">The policy ID (starts with pol_) (required).</param>
+        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas. (required).</param>
         public CancelTransferOwnershipRequest(string policy = default(string))
         {
             // to ensure "policy" is required (not null)
@@ -53,9 +53,9 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// The policy ID (starts with pol_)
+        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.
         /// </summary>
-        /// <value>The policy ID (starts with pol_)</value>
+        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.</value>
         /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }

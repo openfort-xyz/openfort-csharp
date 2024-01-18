@@ -34,28 +34,22 @@ namespace Openfort.SDK.Model
     public enum TransactionIntentResponseExpandable
     {
         /// <summary>
-        /// Enum NextAction for value: nextAction
-        /// </summary>
-        [EnumMember(Value = "nextAction")]
-        NextAction = 1,
-
-        /// <summary>
         /// Enum Policy for value: policy
         /// </summary>
         [EnumMember(Value = "policy")]
-        Policy = 2,
+        Policy = 1,
 
         /// <summary>
         /// Enum Player for value: player
         /// </summary>
         [EnumMember(Value = "player")]
-        Player = 3,
+        Player = 2,
 
         /// <summary>
         /// Enum Account for value: account
         /// </summary>
         [EnumMember(Value = "account")]
-        Account = 4
+        Account = 3
 
     }
 

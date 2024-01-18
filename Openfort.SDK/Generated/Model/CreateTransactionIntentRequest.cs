@@ -41,18 +41,17 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTransactionIntentRequest" /> class.
         /// </summary>
-        /// <param name="chainId">The chain ID. (required).</param>
-        /// <param name="player">The player ID (starts with pla_)..</param>
-        /// <param name="account">The account ID (starts with acc_ or dac_)..</param>
-        /// <param name="policy">The policy ID (starts with pol_)..</param>
-        /// <param name="externalOwnerAddress">If no account exists for a given player, create one with this address..</param>
-        /// <param name="optimistic">Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not. (required).</param>
-        /// <param name="confirmationBlocks">Specify the number of blocks after the block with transaction to be assured that transaction is in block.</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
+        /// <param name="player">ID of the Player this TransactionIntent belongs to, if one exists (starts with &#x60;pla_&#x60;).  If you omit this parameter a new Player will be created..</param>
+        /// <param name="account">ID of the Account this TransactionIntent is executed with, if one exists (starts with &#x60;acc_&#x60; or &#x60;dac_&#x60;).  When providing a Player and ChainID, you can omit this parameter..</param>
+        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas..</param>
+        /// <param name="externalOwnerAddress">Use this parameter to create a new Account for Player with the provided owner address.  If you omit this parameter and no Account exists for the Player, a custodial Account will be created..</param>
+        /// <param name="optimistic">Set to &#x60;true&#x60; to indicate that the transactionIntent request should be resolved as soon as possible, after the transactionIntent is created and simulated and before it arrives on chain..</param>
+        /// <param name="confirmationBlocks">Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5..</param>
         /// <param name="interactions">interactions (required).</param>
         public CreateTransactionIntentRequest(int chainId = default(int), string player = default(string), string account = default(string), string policy = default(string), string externalOwnerAddress = default(string), bool optimistic = default(bool), int confirmationBlocks = default(int), List<Interaction> interactions = default(List<Interaction>))
         {
             this.ChainId = chainId;
-            this.Optimistic = optimistic;
             // to ensure "interactions" is required (not null)
             if (interactions == null)
             {
@@ -63,61 +62,62 @@ namespace Openfort.SDK.Model
             this.Account = account;
             this.Policy = policy;
             this.ExternalOwnerAddress = externalOwnerAddress;
+            this.Optimistic = optimistic;
             this.ConfirmationBlocks = confirmationBlocks;
         }
 
         /// <summary>
-        /// The chain ID.
+        /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>The chain ID.</value>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
         /// <summary>
-        /// The player ID (starts with pla_).
+        /// ID of the Player this TransactionIntent belongs to, if one exists (starts with &#x60;pla_&#x60;).  If you omit this parameter a new Player will be created.
         /// </summary>
-        /// <value>The player ID (starts with pla_).</value>
+        /// <value>ID of the Player this TransactionIntent belongs to, if one exists (starts with &#x60;pla_&#x60;).  If you omit this parameter a new Player will be created.</value>
         /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", EmitDefaultValue = false)]
         public string Player { get; set; }
 
         /// <summary>
-        /// The account ID (starts with acc_ or dac_).
+        /// ID of the Account this TransactionIntent is executed with, if one exists (starts with &#x60;acc_&#x60; or &#x60;dac_&#x60;).  When providing a Player and ChainID, you can omit this parameter.
         /// </summary>
-        /// <value>The account ID (starts with acc_ or dac_).</value>
+        /// <value>ID of the Account this TransactionIntent is executed with, if one exists (starts with &#x60;acc_&#x60; or &#x60;dac_&#x60;).  When providing a Player and ChainID, you can omit this parameter.</value>
         /// <example>&quot;acc_e1b24353-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "account", EmitDefaultValue = false)]
         public string Account { get; set; }
 
         /// <summary>
-        /// The policy ID (starts with pol_).
+        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.
         /// </summary>
-        /// <value>The policy ID (starts with pol_).</value>
+        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.</value>
         /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
 
         /// <summary>
-        /// If no account exists for a given player, create one with this address.
+        /// Use this parameter to create a new Account for Player with the provided owner address.  If you omit this parameter and no Account exists for the Player, a custodial Account will be created.
         /// </summary>
-        /// <value>If no account exists for a given player, create one with this address.</value>
+        /// <value>Use this parameter to create a new Account for Player with the provided owner address.  If you omit this parameter and no Account exists for the Player, a custodial Account will be created.</value>
         /// <example>&quot;0x1234567890abcdef1234567890abcdef12345678&quot;</example>
         [DataMember(Name = "externalOwnerAddress", EmitDefaultValue = false)]
         public string ExternalOwnerAddress { get; set; }
 
         /// <summary>
-        /// Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not.
+        /// Set to &#x60;true&#x60; to indicate that the transactionIntent request should be resolved as soon as possible, after the transactionIntent is created and simulated and before it arrives on chain.
         /// </summary>
-        /// <value>Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not.</value>
+        /// <value>Set to &#x60;true&#x60; to indicate that the transactionIntent request should be resolved as soon as possible, after the transactionIntent is created and simulated and before it arrives on chain.</value>
         /// <example>true</example>
-        [DataMember(Name = "optimistic", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "optimistic", EmitDefaultValue = true)]
         public bool Optimistic { get; set; }
 
         /// <summary>
-        /// Specify the number of blocks after the block with transaction to be assured that transaction is in block
+        /// Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5.
         /// </summary>
-        /// <value>Specify the number of blocks after the block with transaction to be assured that transaction is in block</value>
+        /// <value>Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5.</value>
         /// <example>5</example>
         [DataMember(Name = "confirmationBlocks", EmitDefaultValue = false)]
         public int ConfirmationBlocks { get; set; }

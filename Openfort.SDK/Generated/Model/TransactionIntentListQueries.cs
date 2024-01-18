@@ -46,7 +46,7 @@ namespace Openfort.SDK.Model
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="expand">Specifies the fields to expand in the response..</param>
-        /// <param name="chainId">The chain ID..</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
         /// <param name="accountId">Filter by account ID..</param>
         /// <param name="playerId">Filter by player ID (starts with pla_)..</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_)..</param>
@@ -84,9 +84,9 @@ namespace Openfort.SDK.Model
         public List<TransactionIntentResponseExpandable> Expand { get; set; }
 
         /// <summary>
-        /// The chain ID.
+        /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>The chain ID.</value>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }

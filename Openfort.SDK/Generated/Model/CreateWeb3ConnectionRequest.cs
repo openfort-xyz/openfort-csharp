@@ -41,8 +41,8 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateWeb3ConnectionRequest" /> class.
         /// </summary>
-        /// <param name="player">The player ID (starts with pla_). (required).</param>
-        /// <param name="chainId">The chain ID. (required).</param>
+        /// <param name="player">ID of the Player this Web3Connection belongs to (starts with &#x60;pla_&#x60;). (required).</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
         /// <param name="uri">Specifies the URI of WalletConnect. (required).</param>
         public CreateWeb3ConnectionRequest(string player = default(string), int chainId = default(int), string uri = default(string))
         {
@@ -62,17 +62,17 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// The player ID (starts with pla_).
+        /// ID of the Player this Web3Connection belongs to (starts with &#x60;pla_&#x60;).
         /// </summary>
-        /// <value>The player ID (starts with pla_).</value>
+        /// <value>ID of the Player this Web3Connection belongs to (starts with &#x60;pla_&#x60;).</value>
         /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
         public string Player { get; set; }
 
         /// <summary>
-        /// The chain ID.
+        /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>The chain ID.</value>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }

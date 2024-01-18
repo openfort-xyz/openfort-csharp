@@ -36,11 +36,11 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Interaction" /> class.
         /// </summary>
-        /// <param name="to">The address of the recipient..</param>
-        /// <param name="value">The value of the transaction..</param>
-        /// <param name="contract">The contract interacting with.</param>
-        /// <param name="functionName">The function name of the contract..</param>
-        /// <param name="functionArgs">The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs..</param>
+        /// <param name="to">The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
+        /// <param name="value">The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18)..</param>
+        /// <param name="contract">The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;..</param>
+        /// <param name="functionName">The function name of the contract. Accepts a a function signature as well (e.g. mint(address))..</param>
+        /// <param name="functionArgs">The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
         public Interaction(string to = default(string), string value = default(string), string contract = default(string), string functionName = default(string), List<Object> functionArgs = default(List<Object>))
         {
             this.To = to;
@@ -51,39 +51,39 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// The address of the recipient.
+        /// The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address.
         /// </summary>
-        /// <value>The address of the recipient.</value>
+        /// <value>The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address.</value>
         [DataMember(Name = "to", EmitDefaultValue = false)]
         public string To { get; set; }
 
         /// <summary>
-        /// The value of the transaction.
+        /// The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18).
         /// </summary>
-        /// <value>The value of the transaction.</value>
+        /// <value>The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18).</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
         /// <summary>
-        /// The contract interacting with
+        /// The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;.
         /// </summary>
-        /// <value>The contract interacting with</value>
+        /// <value>The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;.</value>
         /// <example>&quot;con_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
         [DataMember(Name = "contract", EmitDefaultValue = false)]
         public string Contract { get; set; }
 
         /// <summary>
-        /// The function name of the contract.
+        /// The function name of the contract. Accepts a a function signature as well (e.g. mint(address)).
         /// </summary>
-        /// <value>The function name of the contract.</value>
+        /// <value>The function name of the contract. Accepts a a function signature as well (e.g. mint(address)).</value>
         /// <example>&quot;mint&quot;</example>
         [DataMember(Name = "functionName", EmitDefaultValue = false)]
         public string FunctionName { get; set; }
 
         /// <summary>
-        /// The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs.
+        /// The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address.
         /// </summary>
-        /// <value>The function arguments of the contract, in string format. Accepts pla_, con_ and acc_ IDs.</value>
+        /// <value>The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address.</value>
         [DataMember(Name = "functionArgs", EmitDefaultValue = false)]
         public List<Object> FunctionArgs { get; set; }
 

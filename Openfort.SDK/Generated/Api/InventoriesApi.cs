@@ -55,26 +55,6 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of InventoryListResponse</returns>
         ApiResponse<InventoryListResponse> GetAccountCryptoCurrencyInventoryWithHttpInfo(string id, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>));
         /// <summary>
-        /// Get inventory of account.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <returns>ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        ObsoleteInventoryResponse GetAccountInventory(string id);
-
-        /// <summary>
-        /// Get inventory of account.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        ApiResponse<ObsoleteInventoryResponse> GetAccountInventoryWithHttpInfo(string id);
-        /// <summary>
         /// Retrieves the native asset of an existing account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -146,28 +126,6 @@ namespace Openfort.SDK.Api
         /// <param name="contractId">Filter by contract ID (starts with con_). (optional)</param>
         /// <returns>ApiResponse of InventoryListResponse</returns>
         ApiResponse<InventoryListResponse> GetPlayerCryptoCurrencyInventoryWithHttpInfo(string id, int chainId, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>));
-        /// <summary>
-        /// Get inventory of player.
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <returns>ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        ObsoleteInventoryResponse GetPlayerInventory(string id, int chainId);
-
-        /// <summary>
-        /// Get inventory of player.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        ApiResponse<ObsoleteInventoryResponse> GetPlayerInventoryWithHttpInfo(string id, int chainId);
         /// <summary>
         /// Get native token list of player.
         /// </summary>
@@ -257,31 +215,6 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (InventoryListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InventoryListResponse>> GetAccountCryptoCurrencyInventoryWithHttpInfoAsync(string id, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get inventory of account.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ObsoleteInventoryResponse> GetAccountInventoryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get inventory of account.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ObsoleteInventoryResponse>> GetAccountInventoryWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Retrieves the native asset of an existing account.
         /// </summary>
         /// <remarks>
@@ -368,33 +301,6 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InventoryListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InventoryListResponse>> GetPlayerCryptoCurrencyInventoryWithHttpInfoAsync(string id, int chainId, int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Get inventory of player.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ObsoleteInventoryResponse> GetPlayerInventoryAsync(string id, int chainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get inventory of player.
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ObsoleteInventoryResponse>> GetPlayerInventoryWithHttpInfoAsync(string id, int chainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get native token list of player.
         /// </summary>
@@ -835,137 +741,6 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountCryptoCurrencyInventory", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get inventory of account. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <returns>ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public ObsoleteInventoryResponse GetAccountInventory(string id)
-        {
-            Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> localVarResponse = GetAccountInventoryWithHttpInfo(id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get inventory of account. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> GetAccountInventoryWithHttpInfo(string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling InventoriesApi->GetAccountInventory");
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObsoleteInventoryResponse>("/v1/accounts/{id}/inventory", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAccountInventory", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get inventory of account. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ObsoleteInventoryResponse> GetAccountInventoryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> localVarResponse = await GetAccountInventoryWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get inventory of account. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse>> GetAccountInventoryWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling InventoriesApi->GetAccountInventory");
-
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObsoleteInventoryResponse>("/v1/accounts/{id}/inventory", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAccountInventory", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1449,143 +1224,6 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPlayerCryptoCurrencyInventory", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get inventory of player. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <returns>ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public ObsoleteInventoryResponse GetPlayerInventory(string id, int chainId)
-        {
-            Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> localVarResponse = GetPlayerInventoryWithHttpInfo(id, chainId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get inventory of player. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <returns>ApiResponse of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> GetPlayerInventoryWithHttpInfo(string id, int chainId)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling InventoriesApi->GetPlayerInventory");
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "chainId", chainId));
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObsoleteInventoryResponse>("/v1/players/{id}/inventory", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPlayerInventory", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get inventory of player. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObsoleteInventoryResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ObsoleteInventoryResponse> GetPlayerInventoryAsync(string id, int chainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse> localVarResponse = await GetPlayerInventoryWithHttpInfoAsync(id, chainId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get inventory of player. 
-        /// </summary>
-        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
-        /// <param name="chainId">Filter by chain id.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObsoleteInventoryResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<ObsoleteInventoryResponse>> GetPlayerInventoryWithHttpInfoAsync(string id, int chainId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling InventoriesApi->GetPlayerInventory");
-
-
-            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "chainId", chainId));
-
-            // authentication (sk) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObsoleteInventoryResponse>("/v1/players/{id}/inventory", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPlayerInventory", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

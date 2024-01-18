@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="CreateContractRequest" /> class.
         /// </summary>
         /// <param name="name">Specifies the name of the contract (Only for display purposes). (required).</param>
-        /// <param name="chainId">Specifies the chain ID of the contract. (required).</param>
+        /// <param name="chainId">Specifies the chain ID of the contract. Must be a [supported chain](/chains). (required).</param>
         /// <param name="address">Specifies the address of the contract. (required).</param>
         /// <param name="abi">Specifies the ABI of the contract..</param>
         /// <param name="publicVerification">Specifies whether to verify the contract publicly..</param>
@@ -74,9 +74,9 @@ namespace Openfort.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Specifies the chain ID of the contract.
+        /// Specifies the chain ID of the contract. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>Specifies the chain ID of the contract.</value>
+        /// <value>Specifies the chain ID of the contract. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }

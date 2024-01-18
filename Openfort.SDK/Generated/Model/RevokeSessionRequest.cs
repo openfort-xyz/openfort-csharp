@@ -42,9 +42,9 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="RevokeSessionRequest" /> class.
         /// </summary>
         /// <param name="address">The address of the session key to revoke. (required).</param>
-        /// <param name="policy">The policy ID (starts with pol_).</param>
+        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas..</param>
         /// <param name="optimistic">Whether the transactionIntent is optimistic (resolve before it arrives on chain) or not..</param>
-        /// <param name="chainId">The chain ID. (required).</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
         /// <param name="player">The player ID (starts with pla_). (required).</param>
         public RevokeSessionRequest(string address = default(string), string policy = default(string), bool optimistic = default(bool), int chainId = default(int), string player = default(string))
         {
@@ -74,9 +74,9 @@ namespace Openfort.SDK.Model
         public string Address { get; set; }
 
         /// <summary>
-        /// The policy ID (starts with pol_)
+        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.
         /// </summary>
-        /// <value>The policy ID (starts with pol_)</value>
+        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.</value>
         /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", EmitDefaultValue = false)]
         public string Policy { get; set; }
@@ -90,9 +90,9 @@ namespace Openfort.SDK.Model
         public bool Optimistic { get; set; }
 
         /// <summary>
-        /// The chain ID.
+        /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>The chain ID.</value>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }

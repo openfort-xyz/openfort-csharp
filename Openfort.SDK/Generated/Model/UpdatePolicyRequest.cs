@@ -37,7 +37,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="UpdatePolicyRequest" /> class.
         /// </summary>
         /// <param name="name">Specifies the name of the policy..</param>
-        /// <param name="chainId">The chain ID of the policy..</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
         /// <param name="strategy">strategy.</param>
         /// <param name="deleted">Specifies whether to delete the policy..</param>
         public UpdatePolicyRequest(string name = default(string), int chainId = default(int), PolicyStrategyRequest strategy = default(PolicyStrategyRequest), bool deleted = default(bool))
@@ -57,9 +57,9 @@ namespace Openfort.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The chain ID of the policy.
+        /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
-        /// <value>The chain ID of the policy.</value>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
         /// <example>80001</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }

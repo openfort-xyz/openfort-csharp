@@ -29,7 +29,7 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// The account ID.
+    /// The account ID (starts with acc_).
     /// </summary>
     [JsonConverter(typeof(TransactionIntentResponseAccountJsonConverter))]
     [DataContract(Name = "TransactionIntentResponse_account")]

@@ -33,12 +33,6 @@ namespace Openfort.SDK.Model
     [DataContract(Name = "CreatePlayerAccountRequest")]
     public partial class CreatePlayerAccountRequest : IEquatable<CreatePlayerAccountRequest>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets AccountType
-        /// </summary>
-        [DataMember(Name = "accountType", EmitDefaultValue = false)]
-        public DataAccountTypes? AccountType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePlayerAccountRequest" /> class.
         /// </summary>
@@ -49,10 +43,10 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="chainId">The chain id (required).</param>
         /// <param name="externalOwnerAddress">The address of the external owner.</param>
-        /// <param name="accountType">accountType.</param>
+        /// <param name="accountType">The type of smart account that will be created (e.g. ERC6551V1, ManagedV5, UpgradeableV5). Defaults to UpgradeableV5..</param>
         /// <param name="tokenContract">If ERC6551, the NFT contract to use.</param>
         /// <param name="tokenId">If ERC6551, the tokenID to serve as owner.</param>
-        public CreatePlayerAccountRequest(int chainId = default(int), string externalOwnerAddress = default(string), DataAccountTypes? accountType = default(DataAccountTypes?), string tokenContract = default(string), long tokenId = default(long))
+        public CreatePlayerAccountRequest(int chainId = default(int), string externalOwnerAddress = default(string), string accountType = default(string), string tokenContract = default(string), long tokenId = default(long))
         {
             this.ChainId = chainId;
             this.ExternalOwnerAddress = externalOwnerAddress;
@@ -76,6 +70,14 @@ namespace Openfort.SDK.Model
         /// <example>&quot;0x662D24Bf7Ea2dD6a7D0935F680a6056b94fE934d&quot;</example>
         [DataMember(Name = "externalOwnerAddress", EmitDefaultValue = false)]
         public string ExternalOwnerAddress { get; set; }
+
+        /// <summary>
+        /// The type of smart account that will be created (e.g. ERC6551V1, ManagedV5, UpgradeableV5). Defaults to UpgradeableV5.
+        /// </summary>
+        /// <value>The type of smart account that will be created (e.g. ERC6551V1, ManagedV5, UpgradeableV5). Defaults to UpgradeableV5.</value>
+        /// <example>&quot;UpgradeableV5&quot;</example>
+        [DataMember(Name = "accountType", EmitDefaultValue = false)]
+        public string AccountType { get; set; }
 
         /// <summary>
         /// If ERC6551, the NFT contract to use
@@ -152,7 +154,8 @@ namespace Openfort.SDK.Model
                 ) && 
                 (
                     this.AccountType == input.AccountType ||
-                    this.AccountType.Equals(input.AccountType)
+                    (this.AccountType != null &&
+                    this.AccountType.Equals(input.AccountType))
                 ) && 
                 (
                     this.TokenContract == input.TokenContract ||
@@ -179,7 +182,10 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.ExternalOwnerAddress.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AccountType.GetHashCode();
+                if (this.AccountType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountType.GetHashCode();
+                }
                 if (this.TokenContract != null)
                 {
                     hashCode = (hashCode * 59) + this.TokenContract.GetHashCode();

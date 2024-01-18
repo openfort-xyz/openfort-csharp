@@ -32,10 +32,10 @@ namespace Openfort.SDK.Api
         /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel a pending transfer of ownership.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         TransactionIntentResponse CancelTransferOwnership(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest);
@@ -44,10 +44,10 @@ namespace Openfort.SDK.Api
         /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel a pending transfer of ownership.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         ApiResponse<TransactionIntentResponse> CancelTransferOwnershipWithHttpInfo(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest);
@@ -75,7 +75,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -86,7 +86,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -119,7 +119,7 @@ namespace Openfort.SDK.Api
         /// Get existing account.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -131,7 +131,7 @@ namespace Openfort.SDK.Api
         /// Get existing account.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -142,7 +142,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -157,7 +157,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -171,10 +171,10 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         TransactionIntentResponse RequestTransferOwnership(string id, TransferOwnershipRequest transferOwnershipRequest);
@@ -183,10 +183,10 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         ApiResponse<TransactionIntentResponse> RequestTransferOwnershipWithHttpInfo(string id, TransferOwnershipRequest transferOwnershipRequest);
@@ -197,7 +197,7 @@ namespace Openfort.SDK.Api
         /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <returns>SignPayloadResponse</returns>
         SignPayloadResponse SignPayload(string id, SignPayloadRequest signPayloadRequest);
@@ -209,7 +209,7 @@ namespace Openfort.SDK.Api
         /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <returns>ApiResponse of SignPayloadResponse</returns>
         ApiResponse<SignPayloadResponse> SignPayloadWithHttpInfo(string id, SignPayloadRequest signPayloadRequest);
@@ -237,7 +237,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -248,7 +248,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -267,10 +267,10 @@ namespace Openfort.SDK.Api
         /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel a pending transfer of ownership.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -280,10 +280,10 @@ namespace Openfort.SDK.Api
         /// Cancel request to transfer ownership of an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel a pending transfer of ownership.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -317,7 +317,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -329,7 +329,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -365,7 +365,7 @@ namespace Openfort.SDK.Api
         /// Get existing account.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -378,7 +378,7 @@ namespace Openfort.SDK.Api
         /// Get existing account.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -390,7 +390,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -406,7 +406,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -421,10 +421,10 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -434,10 +434,10 @@ namespace Openfort.SDK.Api
         /// Request transfer ownership of account.
         /// </summary>
         /// <remarks>
-        /// This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -449,7 +449,7 @@ namespace Openfort.SDK.Api
         /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignPayloadResponse</returns>
@@ -462,7 +462,7 @@ namespace Openfort.SDK.Api
         /// Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignPayloadResponse)</returns>
@@ -496,7 +496,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -508,7 +508,7 @@ namespace Openfort.SDK.Api
         /// Sync account state with the blockchain
         /// </summary>
         /// <remarks>
-        /// This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -729,10 +729,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. Cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         public TransactionIntentResponse CancelTransferOwnership(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest)
@@ -742,10 +742,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. Cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> CancelTransferOwnershipWithHttpInfo(string id, CancelTransferOwnershipRequest cancelTransferOwnershipRequest)
@@ -798,10 +798,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. Cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -812,10 +812,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Cancel request to transfer ownership of an account. This endpoint allows you to cancel a pending transfer of ownership.
+        /// Cancel request to transfer ownership of an account. Cancel a pending transfer of ownership.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="cancelTransferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -1015,7 +1015,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1027,7 +1027,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1077,7 +1077,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1090,7 +1090,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. This endpoint allows you to add a new account to your Openfort player. Only one account can be active per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1287,7 +1287,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Get existing account. Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1300,7 +1300,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Get existing account. Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1354,7 +1354,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Get existing account. Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1368,7 +1368,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing account. Retrieves the details of an existing account. Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
+        /// Get existing account. Retrieves the details of an existing account.  Supply the unique account ID from either a account creation request or the account list, and Openfort will return the corresponding account information.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1426,7 +1426,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1442,7 +1442,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1511,7 +1511,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1528,7 +1528,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player. The accounts are returned sorted by creation date, with the most recently created accounts appearing first. By default, a maximum of ten accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1601,10 +1601,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <returns>TransactionIntentResponse</returns>
         public TransactionIntentResponse RequestTransferOwnership(string id, TransferOwnershipRequest transferOwnershipRequest)
@@ -1614,10 +1614,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <returns>ApiResponse of TransactionIntentResponse</returns>
         public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> RequestTransferOwnershipWithHttpInfo(string id, TransferOwnershipRequest transferOwnershipRequest)
@@ -1670,10 +1670,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentResponse</returns>
@@ -1684,10 +1684,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Request transfer ownership of account. This endpoint allows you to perform a request to change the owner of an account. To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
+        /// Request transfer ownership of account. Perform a request to change the owner of an account.  To perform an update on the owner of an account, first you must provide a new owner address. Once requested, the owner must accept to take ownership by calling &#x60;acceptOwnership()&#x60; in the smart contract account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="transferOwnershipRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
@@ -1747,7 +1747,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <returns>SignPayloadResponse</returns>
         public SignPayloadResponse SignPayload(string id, SignPayloadRequest signPayloadRequest)
@@ -1760,7 +1760,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <returns>ApiResponse of SignPayloadResponse</returns>
         public Openfort.SDK.Client.ApiResponse<SignPayloadResponse> SignPayloadWithHttpInfo(string id, SignPayloadRequest signPayloadRequest)
@@ -1816,7 +1816,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignPayloadResponse</returns>
@@ -1830,7 +1830,7 @@ namespace Openfort.SDK.Api
         /// Sign a given payload Signs the typed data value with types data structure for domain using the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) specification.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies the unique account ID.</param>
+        /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
         /// <param name="signPayloadRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignPayloadResponse)</returns>
@@ -2030,7 +2030,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Sync account state with the blockchain Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -2042,7 +2042,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Sync account state with the blockchain Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -2091,7 +2091,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Sync account state with the blockchain Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -2104,7 +2104,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Sync account state with the blockchain This endpoint updates the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
+        /// Sync account state with the blockchain Synchronize the account state with the blockchain. Specifically, it updates the account owner and whether its deployed or not.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>

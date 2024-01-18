@@ -32,7 +32,7 @@ namespace Openfort.SDK.Api
         /// Create a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -43,7 +43,7 @@ namespace Openfort.SDK.Api
         /// Create a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -53,7 +53,7 @@ namespace Openfort.SDK.Api
         /// Estimate gas cost of creating a transaction
         /// </summary>
         /// <remarks>
-        /// Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -64,7 +64,7 @@ namespace Openfort.SDK.Api
         /// Estimate gas cost of creating a transaction
         /// </summary>
         /// <remarks>
-        /// Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -73,6 +73,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Get a transaction intent object.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the details of a TransactionIntent that has previously been created.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
@@ -83,7 +86,7 @@ namespace Openfort.SDK.Api
         /// Get a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a TransactionIntent that has previously been created.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -93,12 +96,15 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// List transaction intents.
         /// </summary>
+        /// <remarks>
+        /// Returns a list of TransactionIntents.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -109,14 +115,14 @@ namespace Openfort.SDK.Api
         /// List transaction intents.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of TransactionIntents.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -126,7 +132,7 @@ namespace Openfort.SDK.Api
         /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -138,7 +144,7 @@ namespace Openfort.SDK.Api
         /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -158,7 +164,7 @@ namespace Openfort.SDK.Api
         /// Create a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -170,7 +176,7 @@ namespace Openfort.SDK.Api
         /// Create a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -181,7 +187,7 @@ namespace Openfort.SDK.Api
         /// Estimate gas cost of creating a transaction
         /// </summary>
         /// <remarks>
-        /// Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -193,7 +199,7 @@ namespace Openfort.SDK.Api
         /// Estimate gas cost of creating a transaction
         /// </summary>
         /// <remarks>
-        /// Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -204,7 +210,7 @@ namespace Openfort.SDK.Api
         /// Get a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a TransactionIntent that has previously been created.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -217,7 +223,7 @@ namespace Openfort.SDK.Api
         /// Get a transaction intent object.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a TransactionIntent that has previously been created.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -229,14 +235,14 @@ namespace Openfort.SDK.Api
         /// List transaction intents.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of TransactionIntents.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -248,14 +254,14 @@ namespace Openfort.SDK.Api
         /// List transaction intents.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of TransactionIntents.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -266,7 +272,7 @@ namespace Openfort.SDK.Api
         /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -279,7 +285,7 @@ namespace Openfort.SDK.Api
         /// Send a signed transaction userOperationHash.
         /// </summary>
         /// <remarks>
-        /// For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -501,7 +507,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a transaction intent object. Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Create a transaction intent object. Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -513,7 +519,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a transaction intent object. Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Create a transaction intent object. Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -563,7 +569,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a transaction intent object. Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Create a transaction intent object. Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -576,7 +582,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a transaction intent object. Retrieve a transaction intent by providing their id on Openfort. Transaction intents that have not been processed yet, have the &#x60;response&#x60; attribute as undefined.
+        /// Create a transaction intent object. Creates a TransactionIntent.  A pending TransactionIntent has the &#x60;response&#x60; attribute as undefined.  After the TransactionIntent is created and broadcasted to the blockchain, &#x60;response&#x60; will be populated with the transaction hash and a status (1 success, 0 fail).  When using a non-custodial account, a &#x60;nextAction&#x60; attribute is returned with the &#x60;userOperationHash&#x60; that must be signed by the owner of the account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -630,7 +636,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Estimate gas cost of creating a transaction Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate gas cost of creating a transaction Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -642,7 +648,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Estimate gas cost of creating a transaction Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate gas cost of creating a transaction Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -692,7 +698,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Estimate gas cost of creating a transaction Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate gas cost of creating a transaction Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -705,7 +711,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Estimate gas cost of creating a transaction Estimate the gas cost of creating a transaction intent and putting it on chain. If a policy that includes payment of gas in ERC-20 tokens is provided, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens.
+        /// Estimate gas cost of creating a transaction Estimate the gas cost of broadcasting a TransactionIntent.  This is a simulation, it does not send the transaction on-chain.  If a Policy ID is used that includes payment of gas in ERC-20 tokens, an extra field &#x60;estimatedTXGasFeeToken&#x60; is returned with the estimated amount of tokens that will be used.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTransactionIntentRequest"></param>
@@ -759,7 +765,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a transaction intent object. 
+        /// Get a transaction intent object. Retrieves the details of a TransactionIntent that has previously been created.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -772,7 +778,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a transaction intent object. 
+        /// Get a transaction intent object. Retrieves the details of a TransactionIntent that has previously been created.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -826,7 +832,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a transaction intent object. 
+        /// Get a transaction intent object. Retrieves the details of a TransactionIntent that has previously been created.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -840,7 +846,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a transaction intent object. 
+        /// Get a transaction intent object. Retrieves the details of a TransactionIntent that has previously been created.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -898,14 +904,14 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List transaction intents. 
+        /// List transaction intents. Returns a list of TransactionIntents.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -917,14 +923,14 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List transaction intents. 
+        /// List transaction intents. Returns a list of TransactionIntents.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -1000,14 +1006,14 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List transaction intents. 
+        /// List transaction intents. Returns a list of TransactionIntents.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -1020,14 +1026,14 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List transaction intents. 
+        /// List transaction intents. Returns a list of TransactionIntents.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
-        /// <param name="chainId">The chain ID. (optional)</param>
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="accountId">Filter by account ID. (optional)</param>
         /// <param name="playerId">Filter by player ID (starts with pla_). (optional)</param>
         /// <param name="policyId">Filter by policy ID (starts with pol_). (optional)</param>
@@ -1107,7 +1113,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1120,7 +1126,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1182,7 +1188,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
@@ -1196,7 +1202,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Send a signed transaction userOperationHash. For non-custodial smart accounts, each on chain action using their wallet, they must sign the userOperationHash received from the &#x60;POST&#x60; API endpoint that creates a transactionIntent.
+        /// Send a signed transaction userOperationHash. Broadcasts a signed TransactionIntent to the blockchain.  Use this endpoint to send the signed &#x60;userOperationHash&#x60;. Openfort will then put it on-chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique transaction intent ID (starts with tin_).</param>
