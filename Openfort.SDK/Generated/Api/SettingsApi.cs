@@ -71,24 +71,55 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of DeveloperAccountDeleteResponse</returns>
         ApiResponse<DeveloperAccountDeleteResponse> DeleteDeveloperAccountWithHttpInfo(string id);
         /// <summary>
-        /// List of developer accounts.
+        /// Get existing developer account.
         /// </summary>
         /// <remarks>
         /// Retrieve the list of the developer accounts for the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <returns>DeveloperAccountResponse</returns>
+        DeveloperAccountResponse GetDeveloperAccount(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
+
+        /// <summary>
+        /// Get existing developer account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of the developer accounts for the current project.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <returns>ApiResponse of DeveloperAccountResponse</returns>
+        ApiResponse<DeveloperAccountResponse> GetDeveloperAccountWithHttpInfo(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
+        /// <summary>
+        /// List of developer accounts.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>DeveloperAccountListResponse</returns>
-        DeveloperAccountListResponse GetDeveloperAccounts();
+        DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
 
         /// <summary>
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountListResponse</returns>
-        ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo();
+        ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
         /// <summary>
         /// Generate message to sign
         /// </summary>
@@ -206,26 +237,59 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (DeveloperAccountDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeveloperAccountDeleteResponse>> DeleteDeveloperAccountWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of developer accounts.
+        /// Get existing developer account.
         /// </summary>
         /// <remarks>
         /// Retrieve the list of the developer accounts for the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeveloperAccountResponse</returns>
+        System.Threading.Tasks.Task<DeveloperAccountResponse> GetDeveloperAccountAsync(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get existing developer account.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of the developer accounts for the current project.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeveloperAccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeveloperAccountResponse>> GetDeveloperAccountWithHttpInfoAsync(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of developer accounts.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountListResponse</returns>
-        System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate message to sign
         /// </summary>
@@ -763,22 +827,169 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>DeveloperAccountListResponse</returns>
-        public DeveloperAccountListResponse GetDeveloperAccounts()
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <returns>DeveloperAccountResponse</returns>
+        public DeveloperAccountResponse GetDeveloperAccount(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
         {
-            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = GetDeveloperAccountsWithHttpInfo();
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountResponse> localVarResponse = GetDeveloperAccountWithHttpInfo(id, expand);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <returns>ApiResponse of DeveloperAccountResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<DeveloperAccountResponse> GetDeveloperAccountWithHttpInfo(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling SettingsApi->GetDeveloperAccount");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<DeveloperAccountResponse>("/v1/settings/developer_accounts/{id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDeveloperAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeveloperAccountResponse</returns>
+        public async System.Threading.Tasks.Task<DeveloperAccountResponse> GetDeveloperAccountAsync(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountResponse> localVarResponse = await GetDeveloperAccountWithHttpInfoAsync(id, expand, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="expand"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeveloperAccountResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountResponse>> GetDeveloperAccountWithHttpInfoAsync(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling SettingsApi->GetDeveloperAccount");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DeveloperAccountResponse>("/v1/settings/developer_accounts/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDeveloperAccount", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <returns>DeveloperAccountListResponse</returns>
+        public DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
+        {
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = GetDeveloperAccountsWithHttpInfo(limit, skip, order, expand);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo()
+        public Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -796,6 +1007,22 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
 
             // authentication (sk) required
             // bearer authentication required
@@ -817,24 +1044,32 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountListResponse</returns>
-        public async System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = await GetDeveloperAccountsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = await GetDeveloperAccountsWithHttpInfoAsync(limit, skip, order, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
+        /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
+        /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
+        /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -854,6 +1089,22 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
 
             // authentication (sk) required
             // bearer authentication required

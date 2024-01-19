@@ -59,6 +59,18 @@ namespace Openfort.SDK.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionIntentResponseAccount" /> class
+        /// with the <see cref="DeveloperAccount" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of DeveloperAccount.</param>
+        public TransactionIntentResponseAccount(DeveloperAccount actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -77,13 +89,17 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(DeveloperAccount))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(EntityIdResponse))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Account, EntityIdResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Account, DeveloperAccount, EntityIdResponse");
                 }
             }
         }
@@ -106,6 +122,16 @@ namespace Openfort.SDK.Model
         public EntityIdResponse GetEntityIdResponse()
         {
             return (EntityIdResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `DeveloperAccount`. If the actual instance is not `DeveloperAccount`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of DeveloperAccount</returns>
+        public DeveloperAccount GetDeveloperAccount()
+        {
+            return (DeveloperAccount)this.ActualInstance;
         }
 
         /// <summary>
@@ -154,6 +180,18 @@ namespace Openfort.SDK.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Account: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newTransactionIntentResponseAccount = new TransactionIntentResponseAccount(JsonConvert.DeserializeObject<DeveloperAccount>(jsonString, TransactionIntentResponseAccount.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newTransactionIntentResponseAccount;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into DeveloperAccount: {1}", jsonString, exception.ToString()));
             }
 
             try

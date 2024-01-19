@@ -16,7 +16,7 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<SessionListResponse> List(SessionListRequest request) => await apiClient.GetPlayerSessionsAsync(request.Player, request.Limit, request.Skip, request.Order, request.Expand);
 
-        public async Task<SessionResponse> Get(SessionGetRequest request) => await apiClient.GetSessionAsync(request.Id, request.Expand);
+        public async Task<SessionResponse> Get(SessionRequest request) => await apiClient.GetSessionAsync(request.Id, request.Expand);
 
         public async Task<SessionResponse> Revoke(RevokeSessionRequest request) => await apiClient.RevokeSessionAsync(request);
 

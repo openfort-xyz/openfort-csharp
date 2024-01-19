@@ -12,13 +12,15 @@ namespace Openfort.SDK.Wrapper
             apiClient = new SettingsApi(Configuration);
         }
 
+        public async Task<DeveloperAccountResponse> GetDeveloperAccount(DeveloperAccountRequest request) => await apiClient.GetDeveloperAccountAsync(request.Id, request.Expand);
+
         public async Task<DeveloperAccountListResponse> GetDeveloperAccounts() => await apiClient.GetDeveloperAccountsAsync();
 
-        public async Task<DeveloperAccountResponse> CreateDepositorAddress(DeveloperAccountCreateRequest request) => await apiClient.CreateDeveloperAccountAsync(request);
+        public async Task<DeveloperAccountResponse> CreateDeveloperAccount(DeveloperAccountCreateRequest request) => await apiClient.CreateDeveloperAccountAsync(request);
 
         public async Task<DeveloperAccountGetMessageResponse> GetVerificationPayload(string address) => await apiClient.GetVerificationPayloadAsync(address);
 
-        public async Task<DeveloperAccountDeleteResponse> DeleteDepositorAddress(string id) => await apiClient.DeleteDeveloperAccountAsync(id);
+        public async Task<DeveloperAccountDeleteResponse> DeleteDeveloperAccount(string id) => await apiClient.DeleteDeveloperAccountAsync(id);
 
         public async Task UpdateWebhook(string url) => await apiClient.UpdateWebhookAsync(new SettingsWebhookUpdateRequest(url));
 

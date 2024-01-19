@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// DeveloperAccountResponse
+    /// DeveloperAccount
     /// </summary>
-    [DataContract(Name = "DeveloperAccountResponse")]
-    public partial class DeveloperAccountResponse : IEquatable<DeveloperAccountResponse>, IValidatableObject
+    [DataContract(Name = "DeveloperAccount")]
+    public partial class DeveloperAccount : IEquatable<DeveloperAccount>, IValidatableObject
     {
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
         public EntityTypeDEVELOPERACCOUNT Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeveloperAccountResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DeveloperAccountResponse() { }
+        protected DeveloperAccount() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeveloperAccountResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccount" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
@@ -54,12 +54,12 @@ namespace Openfort.SDK.Model
         /// <param name="custodial">custodial (required).</param>
         /// <param name="name">name.</param>
         /// <param name="transactionIntents">transactionIntents.</param>
-        public DeveloperAccountResponse(string id = default(string), EntityTypeDEVELOPERACCOUNT _object = default(EntityTypeDEVELOPERACCOUNT), double createdAt = default(double), string address = default(string), bool custodial = default(bool), string name = default(string), List<PlayerResponseTransactionIntentsInner> transactionIntents = default(List<PlayerResponseTransactionIntentsInner>))
+        public DeveloperAccount(string id = default(string), EntityTypeDEVELOPERACCOUNT _object = default(EntityTypeDEVELOPERACCOUNT), double createdAt = default(double), string address = default(string), bool custodial = default(bool), string name = default(string), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for DeveloperAccountResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for DeveloperAccount and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
@@ -67,7 +67,7 @@ namespace Openfort.SDK.Model
             // to ensure "address" is required (not null)
             if (address == null)
             {
-                throw new ArgumentNullException("address is a required property for DeveloperAccountResponse and cannot be null");
+                throw new ArgumentNullException("address is a required property for DeveloperAccount and cannot be null");
             }
             this.Address = address;
             this.Custodial = custodial;
@@ -109,7 +109,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets TransactionIntents
         /// </summary>
         [DataMember(Name = "transactionIntents", EmitDefaultValue = false)]
-        public List<PlayerResponseTransactionIntentsInner> TransactionIntents { get; set; }
+        public List<EntityIdResponse> TransactionIntents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,7 +118,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DeveloperAccountResponse {\n");
+            sb.Append("class DeveloperAccount {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
@@ -146,15 +146,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DeveloperAccountResponse);
+            return this.Equals(input as DeveloperAccount);
         }
 
         /// <summary>
-        /// Returns true if DeveloperAccountResponse instances are equal
+        /// Returns true if DeveloperAccount instances are equal
         /// </summary>
-        /// <param name="input">Instance of DeveloperAccountResponse to be compared</param>
+        /// <param name="input">Instance of DeveloperAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DeveloperAccountResponse input)
+        public bool Equals(DeveloperAccount input)
         {
             if (input == null)
             {

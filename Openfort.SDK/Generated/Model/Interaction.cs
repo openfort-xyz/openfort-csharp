@@ -37,7 +37,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="Interaction" /> class.
         /// </summary>
         /// <param name="to">The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
-        /// <param name="value">The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18)..</param>
+        /// <param name="value">The value intended to be sent with the transaction. Should be a stringified number in WEI (i.e. factor 10^18)..</param>
         /// <param name="contract">The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;..</param>
         /// <param name="functionName">The function name of the contract. Accepts a a function signature as well (e.g. mint(address))..</param>
         /// <param name="functionArgs">The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
@@ -58,9 +58,9 @@ namespace Openfort.SDK.Model
         public string To { get; set; }
 
         /// <summary>
-        /// The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18).
+        /// The value intended to be sent with the transaction. Should be a stringified number in WEI (i.e. factor 10^18).
         /// </summary>
-        /// <value>The value intended to be sent with the transaction. Use only to transfer native tokens. Should be a stringified number in WEI (i.e. factor 10^18).</value>
+        /// <value>The value intended to be sent with the transaction. Should be a stringified number in WEI (i.e. factor 10^18).</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 

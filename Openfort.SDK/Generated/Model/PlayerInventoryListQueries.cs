@@ -50,15 +50,15 @@ namespace Openfort.SDK.Model
         /// <param name="limit">Specifies the maximum number of records to return..</param>
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
-        /// <param name="contractId">Filter by contract ID (starts with con_)..</param>
+        /// <param name="contract">Filter by contract ID (starts with con_)..</param>
         /// <param name="chainId">Filter by chain id. (required).</param>
-        public PlayerInventoryListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<string> contractId = default(List<string>), int chainId = default(int))
+        public PlayerInventoryListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<string> contract = default(List<string>), int chainId = default(int))
         {
             this.ChainId = chainId;
             this.Limit = limit;
             this.Skip = skip;
             this.Order = order;
-            this.ContractId = contractId;
+            this.Contract = contract;
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Openfort.SDK.Model
         /// Filter by contract ID (starts with con_).
         /// </summary>
         /// <value>Filter by contract ID (starts with con_).</value>
-        [DataMember(Name = "contractId", EmitDefaultValue = false)]
-        public List<string> ContractId { get; set; }
+        [DataMember(Name = "contract", EmitDefaultValue = false)]
+        public List<string> Contract { get; set; }
 
         /// <summary>
         /// Filter by chain id.
@@ -101,7 +101,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Skip: ").Append(Skip).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
-            sb.Append("  ContractId: ").Append(ContractId).Append("\n");
+            sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -151,10 +151,10 @@ namespace Openfort.SDK.Model
                     this.Order.Equals(input.Order)
                 ) && 
                 (
-                    this.ContractId == input.ContractId ||
-                    this.ContractId != null &&
-                    input.ContractId != null &&
-                    this.ContractId.SequenceEqual(input.ContractId)
+                    this.Contract == input.Contract ||
+                    this.Contract != null &&
+                    input.Contract != null &&
+                    this.Contract.SequenceEqual(input.Contract)
                 ) && 
                 (
                     this.ChainId == input.ChainId ||
@@ -174,9 +174,9 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Limit.GetHashCode();
                 hashCode = (hashCode * 59) + this.Skip.GetHashCode();
                 hashCode = (hashCode * 59) + this.Order.GetHashCode();
-                if (this.ContractId != null)
+                if (this.Contract != null)
                 {
-                    hashCode = (hashCode * 59) + this.ContractId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
                 return hashCode;

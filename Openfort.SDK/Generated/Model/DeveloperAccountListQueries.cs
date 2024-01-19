@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// TransactionIntentListQueries
+    /// DeveloperAccountListQueries
     /// </summary>
-    [DataContract(Name = "TransactionIntentListQueries")]
-    public partial class TransactionIntentListQueries : IEquatable<TransactionIntentListQueries>, IValidatableObject
+    [DataContract(Name = "DeveloperAccountListQueries")]
+    public partial class DeveloperAccountListQueries : IEquatable<DeveloperAccountListQueries>, IValidatableObject
     {
 
         /// <summary>
@@ -40,26 +40,18 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "order", EmitDefaultValue = false)]
         public SortOrder? Order { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionIntentListQueries" /> class.
+        /// Initializes a new instance of the <see cref="DeveloperAccountListQueries" /> class.
         /// </summary>
         /// <param name="limit">Specifies the maximum number of records to return..</param>
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="expand">Specifies the fields to expand in the response..</param>
-        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
-        /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively)..</param>
-        /// <param name="player">Filter by player ID (starts with pla_)..</param>
-        /// <param name="policy">Filter by policy ID (starts with pol_)..</param>
-        public TransactionIntentListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int chainId = default(int), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>))
+        public DeveloperAccountListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
         {
             this.Limit = limit;
             this.Skip = skip;
             this.Order = order;
             this.Expand = expand;
-            this.ChainId = chainId;
-            this.Account = account;
-            this.Player = player;
-            this.Policy = policy;
         }
 
         /// <summary>
@@ -81,36 +73,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Specifies the fields to expand in the response.</value>
         [DataMember(Name = "expand", EmitDefaultValue = false)]
-        public List<TransactionIntentResponseExpandable> Expand { get; set; }
-
-        /// <summary>
-        /// The chain ID. Must be a [supported chain](/chains).
-        /// </summary>
-        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
-        [DataMember(Name = "chainId", EmitDefaultValue = false)]
-        public int ChainId { get; set; }
-
-        /// <summary>
-        /// Filter by account ID or developer account (starts with acc_ or dac_ respectively).
-        /// </summary>
-        /// <value>Filter by account ID or developer account (starts with acc_ or dac_ respectively).</value>
-        [DataMember(Name = "account", EmitDefaultValue = false)]
-        public List<string> Account { get; set; }
-
-        /// <summary>
-        /// Filter by player ID (starts with pla_).
-        /// </summary>
-        /// <value>Filter by player ID (starts with pla_).</value>
-        [DataMember(Name = "player", EmitDefaultValue = false)]
-        public List<string> Player { get; set; }
-
-        /// <summary>
-        /// Filter by policy ID (starts with pol_).
-        /// </summary>
-        /// <value>Filter by policy ID (starts with pol_).</value>
-        [DataMember(Name = "policy", EmitDefaultValue = false)]
-        public List<string> Policy { get; set; }
+        public List<DeveloperAccountResponseExpandable> Expand { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,15 +82,11 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TransactionIntentListQueries {\n");
+            sb.Append("class DeveloperAccountListQueries {\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Skip: ").Append(Skip).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Expand: ").Append(Expand).Append("\n");
-            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,15 +107,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TransactionIntentListQueries);
+            return this.Equals(input as DeveloperAccountListQueries);
         }
 
         /// <summary>
-        /// Returns true if TransactionIntentListQueries instances are equal
+        /// Returns true if DeveloperAccountListQueries instances are equal
         /// </summary>
-        /// <param name="input">Instance of TransactionIntentListQueries to be compared</param>
+        /// <param name="input">Instance of DeveloperAccountListQueries to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransactionIntentListQueries input)
+        public bool Equals(DeveloperAccountListQueries input)
         {
             if (input == null)
             {
@@ -180,28 +139,6 @@ namespace Openfort.SDK.Model
                     this.Expand != null &&
                     input.Expand != null &&
                     this.Expand.SequenceEqual(input.Expand)
-                ) && 
-                (
-                    this.ChainId == input.ChainId ||
-                    this.ChainId.Equals(input.ChainId)
-                ) && 
-                (
-                    this.Account == input.Account ||
-                    this.Account != null &&
-                    input.Account != null &&
-                    this.Account.SequenceEqual(input.Account)
-                ) && 
-                (
-                    this.Player == input.Player ||
-                    this.Player != null &&
-                    input.Player != null &&
-                    this.Player.SequenceEqual(input.Player)
-                ) && 
-                (
-                    this.Policy == input.Policy ||
-                    this.Policy != null &&
-                    input.Policy != null &&
-                    this.Policy.SequenceEqual(input.Policy)
                 );
         }
 
@@ -220,19 +157,6 @@ namespace Openfort.SDK.Model
                 if (this.Expand != null)
                 {
                     hashCode = (hashCode * 59) + this.Expand.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
-                if (this.Account != null)
-                {
-                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
-                }
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
-                if (this.Policy != null)
-                {
-                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
                 }
                 return hashCode;
             }
