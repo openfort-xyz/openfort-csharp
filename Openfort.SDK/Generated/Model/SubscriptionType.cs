@@ -34,16 +34,16 @@ namespace Openfort.SDK.Model
     public enum SubscriptionType
     {
         /// <summary>
-        /// Enum EMAIL for value: EMAIL
+        /// Enum Email for value: Email
         /// </summary>
-        [EnumMember(Value = "EMAIL")]
-        EMAIL = 1,
+        [EnumMember(Value = "Email")]
+        Email = 1,
 
         /// <summary>
-        /// Enum WEBHOOK for value: WEBHOOK
+        /// Enum Webhook for value: Webhook
         /// </summary>
-        [EnumMember(Value = "WEBHOOK")]
-        WEBHOOK = 2
+        [EnumMember(Value = "Webhook")]
+        Webhook = 2
 
     }
 
