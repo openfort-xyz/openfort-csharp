@@ -76,7 +76,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Name of the function in the contract to allow. If you want to allow all functions, use the wildcard &#39;All functions&#39;.</value>
         /// <example>&quot;All functions&quot;</example>
-        [DataMember(Name = "functionName", EmitDefaultValue = true)]
+        [DataMember(Name = "functionName", EmitDefaultValue = false)]
         public string FunctionName { get; set; }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;.</value>
         /// <example>&quot;con_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
-        [DataMember(Name = "contract", EmitDefaultValue = true)]
+        [DataMember(Name = "contract", EmitDefaultValue = false)]
         public string Contract { get; set; }
 
         /// <summary>

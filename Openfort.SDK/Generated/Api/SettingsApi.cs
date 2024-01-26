@@ -56,7 +56,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account from the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <returns>DeveloperAccountDeleteResponse</returns>
         DeveloperAccountDeleteResponse DeleteDeveloperAccount(string id);
 
@@ -67,17 +67,17 @@ namespace Openfort.SDK.Api
         /// Delete a developer account from the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <returns>ApiResponse of DeveloperAccountDeleteResponse</returns>
         ApiResponse<DeveloperAccountDeleteResponse> DeleteDeveloperAccountWithHttpInfo(string id);
         /// <summary>
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve a developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>DeveloperAccountResponse</returns>
         DeveloperAccountResponse GetDeveloperAccount(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
@@ -86,10 +86,10 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve a developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountResponse</returns>
         ApiResponse<DeveloperAccountResponse> GetDeveloperAccountWithHttpInfo(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
@@ -220,7 +220,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account from the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountDeleteResponse</returns>
         System.Threading.Tasks.Task<DeveloperAccountDeleteResponse> DeleteDeveloperAccountAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -232,7 +232,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account from the current project.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DeveloperAccountDeleteResponse>> DeleteDeveloperAccountWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -240,10 +240,10 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve a developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountResponse</returns>
@@ -253,10 +253,10 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.
+        /// Retrieve a developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountResponse)</returns>
@@ -703,7 +703,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account. Delete a developer account from the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <returns>DeveloperAccountDeleteResponse</returns>
         public DeveloperAccountDeleteResponse DeleteDeveloperAccount(string id)
         {
@@ -715,7 +715,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account. Delete a developer account from the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <returns>ApiResponse of DeveloperAccountDeleteResponse</returns>
         public Openfort.SDK.Client.ApiResponse<DeveloperAccountDeleteResponse> DeleteDeveloperAccountWithHttpInfo(string id)
         {
@@ -764,7 +764,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account. Delete a developer account from the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountDeleteResponse</returns>
         public async System.Threading.Tasks.Task<DeveloperAccountDeleteResponse> DeleteDeveloperAccountAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -777,7 +777,7 @@ namespace Openfort.SDK.Api
         /// Delete a developer account. Delete a developer account from the current project.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Specifies a unique developer account.</param>
+        /// <param name="id">Specifies a unique developer account (starts with dac_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountDeleteResponse)</returns>
         public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountDeleteResponse>> DeleteDeveloperAccountWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -827,10 +827,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve a developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>DeveloperAccountResponse</returns>
         public DeveloperAccountResponse GetDeveloperAccount(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
@@ -840,10 +840,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve a developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountResponse</returns>
         public Openfort.SDK.Client.ApiResponse<DeveloperAccountResponse> GetDeveloperAccountWithHttpInfo(string id, List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
@@ -894,10 +894,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve a developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountResponse</returns>
@@ -908,10 +908,10 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve the list of the developer accounts for the current project.
+        /// Get existing developer account. Retrieve a developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountResponse)</returns>

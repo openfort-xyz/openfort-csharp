@@ -28,60 +28,53 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ContractPolicyRuleResponse
+    /// NotificationResponse
     /// </summary>
-    [DataContract(Name = "ContractPolicyRuleResponse")]
-    public partial class ContractPolicyRuleResponse : IEquatable<ContractPolicyRuleResponse>, IValidatableObject
+    [DataContract(Name = "NotificationResponse")]
+    public partial class NotificationResponse : IEquatable<NotificationResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePOLICYRULE Object { get; set; }
-
+        public EntityTypeNOTIFICATION Object { get; set; }
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public PolicyRuleTypeCONTRACT Type { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContractPolicyRuleResponse() { }
+        protected NotificationResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="contract">contract (required).</param>
-        /// <param name="functionName">functionName (required).</param>
-        public ContractPolicyRuleResponse(string id = default(string), EntityTypePOLICYRULE _object = default(EntityTypePOLICYRULE), int createdAt = default(int), PolicyRuleTypeCONTRACT type = default(PolicyRuleTypeCONTRACT), ContractNotificationTriggerResponseContract contract = default(ContractNotificationTriggerResponseContract), string functionName = default(string))
+        /// <param name="name">name (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="subscriptions">subscriptions.</param>
+        /// <param name="triggers">triggers.</param>
+        public NotificationResponse(string id = default(string), EntityTypeNOTIFICATION _object = default(EntityTypeNOTIFICATION), double createdAt = default(double), string name = default(string), bool deleted = default(bool), double updatedAt = default(double), List<NotificationResponseSubscriptionsInner> subscriptions = default(List<NotificationResponseSubscriptionsInner>), List<NotificationResponseTriggersInner> triggers = default(List<NotificationResponseTriggersInner>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for NotificationResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
-            this.Type = type;
-            // to ensure "contract" is required (not null)
-            if (contract == null)
+            // to ensure "name" is required (not null)
+            if (name == null)
             {
-                throw new ArgumentNullException("contract is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("name is a required property for NotificationResponse and cannot be null");
             }
-            this.Contract = contract;
-            // to ensure "functionName" is required (not null)
-            if (functionName == null)
-            {
-                throw new ArgumentNullException("functionName is a required property for ContractPolicyRuleResponse and cannot be null");
-            }
-            this.FunctionName = functionName;
+            this.Name = name;
+            this.Deleted = deleted;
+            this.UpdatedAt = updatedAt;
+            this.Subscriptions = subscriptions;
+            this.Triggers = triggers;
         }
 
         /// <summary>
@@ -94,19 +87,37 @@ namespace Openfort.SDK.Model
         /// Gets or Sets CreatedAt
         /// </summary>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
-        public int CreatedAt { get; set; }
+        public double CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Contract
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "contract", IsRequired = true, EmitDefaultValue = true)]
-        public ContractNotificationTriggerResponseContract Contract { get; set; }
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets FunctionName
+        /// Gets or Sets Deleted
         /// </summary>
-        [DataMember(Name = "functionName", IsRequired = true, EmitDefaultValue = true)]
-        public string FunctionName { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UpdatedAt
+        /// </summary>
+        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        public double UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Subscriptions
+        /// </summary>
+        [DataMember(Name = "subscriptions", EmitDefaultValue = false)]
+        public List<NotificationResponseSubscriptionsInner> Subscriptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Triggers
+        /// </summary>
+        [DataMember(Name = "triggers", EmitDefaultValue = false)]
+        public List<NotificationResponseTriggersInner> Triggers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,13 +126,15 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ContractPolicyRuleResponse {\n");
+            sb.Append("class NotificationResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Contract: ").Append(Contract).Append("\n");
-            sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
+            sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,15 +155,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContractPolicyRuleResponse);
+            return this.Equals(input as NotificationResponse);
         }
 
         /// <summary>
-        /// Returns true if ContractPolicyRuleResponse instances are equal
+        /// Returns true if NotificationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContractPolicyRuleResponse to be compared</param>
+        /// <param name="input">Instance of NotificationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContractPolicyRuleResponse input)
+        public bool Equals(NotificationResponse input)
         {
             if (input == null)
             {
@@ -171,18 +184,29 @@ namespace Openfort.SDK.Model
                     this.CreatedAt.Equals(input.CreatedAt)
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Contract == input.Contract ||
-                    (this.Contract != null &&
-                    this.Contract.Equals(input.Contract))
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 ) && 
                 (
-                    this.FunctionName == input.FunctionName ||
-                    (this.FunctionName != null &&
-                    this.FunctionName.Equals(input.FunctionName))
+                    this.UpdatedAt == input.UpdatedAt ||
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) && 
+                (
+                    this.Subscriptions == input.Subscriptions ||
+                    this.Subscriptions != null &&
+                    input.Subscriptions != null &&
+                    this.Subscriptions.SequenceEqual(input.Subscriptions)
+                ) && 
+                (
+                    this.Triggers == input.Triggers ||
+                    this.Triggers != null &&
+                    input.Triggers != null &&
+                    this.Triggers.SequenceEqual(input.Triggers)
                 );
         }
 
@@ -201,14 +225,19 @@ namespace Openfort.SDK.Model
                 }
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this.Contract != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                if (this.FunctionName != null)
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                if (this.Subscriptions != null)
                 {
-                    hashCode = (hashCode * 59) + this.FunctionName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Subscriptions.GetHashCode();
+                }
+                if (this.Triggers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Triggers.GetHashCode();
                 }
                 return hashCode;
             }

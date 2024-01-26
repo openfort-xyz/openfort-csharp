@@ -42,7 +42,7 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="TransferOwnershipRequest" /> class.
         /// </summary>
         /// <param name="newOwnerAddress">The address of the new owner (required).</param>
-        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas. (required).</param>
+        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided. (required).</param>
         public TransferOwnershipRequest(string newOwnerAddress = default(string), string policy = default(string))
         {
             // to ensure "newOwnerAddress" is required (not null)
@@ -68,9 +68,9 @@ namespace Openfort.SDK.Model
         public string NewOwnerAddress { get; set; }
 
         /// <summary>
-        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.
+        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.
         /// </summary>
-        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas.</value>
+        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.</value>
         /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
         [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
         public string Policy { get; set; }

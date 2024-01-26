@@ -28,47 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayerCancelTransferOwnershipRequest
+    /// NotificationSubscriptionDeleteResponse
     /// </summary>
-    [DataContract(Name = "PlayerCancelTransferOwnershipRequest")]
-    public partial class PlayerCancelTransferOwnershipRequest : IEquatable<PlayerCancelTransferOwnershipRequest>, IValidatableObject
+    [DataContract(Name = "NotificationSubscriptionDeleteResponse")]
+    public partial class NotificationSubscriptionDeleteResponse : IEquatable<NotificationSubscriptionDeleteResponse>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerCancelTransferOwnershipRequest" /> class.
+        /// Gets or Sets Object
+        /// </summary>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeNOTIFICATIONSUBSCRIPTION Object { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationSubscriptionDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayerCancelTransferOwnershipRequest() { }
+        protected NotificationSubscriptionDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerCancelTransferOwnershipRequest" /> class.
+        /// Initializes a new instance of the <see cref="NotificationSubscriptionDeleteResponse" /> class.
         /// </summary>
-        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided. (required).</param>
-        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
-        public PlayerCancelTransferOwnershipRequest(string policy = default(string), int chainId = default(int))
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        public NotificationSubscriptionDeleteResponse(string id = default(string), EntityTypeNOTIFICATIONSUBSCRIPTION _object = default(EntityTypeNOTIFICATIONSUBSCRIPTION), bool deleted = default(bool))
         {
-            // to ensure "policy" is required (not null)
-            if (policy == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("policy is a required property for PlayerCancelTransferOwnershipRequest and cannot be null");
+                throw new ArgumentNullException("id is a required property for NotificationSubscriptionDeleteResponse and cannot be null");
             }
-            this.Policy = policy;
-            this.ChainId = chainId;
+            this.Id = id;
+            this.Object = _object;
+            this.Deleted = deleted;
         }
 
         /// <summary>
-        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.</value>
-        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
-        [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
-        public string Policy { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// The chain ID. Must be a [supported chain](/chains).
+        /// Gets or Sets Deleted
         /// </summary>
-        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
-        [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
-        public int ChainId { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,9 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayerCancelTransferOwnershipRequest {\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
-            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
+            sb.Append("class NotificationSubscriptionDeleteResponse {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayerCancelTransferOwnershipRequest);
+            return this.Equals(input as NotificationSubscriptionDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if PlayerCancelTransferOwnershipRequest instances are equal
+        /// Returns true if NotificationSubscriptionDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayerCancelTransferOwnershipRequest to be compared</param>
+        /// <param name="input">Instance of NotificationSubscriptionDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayerCancelTransferOwnershipRequest input)
+        public bool Equals(NotificationSubscriptionDeleteResponse input)
         {
             if (input == null)
             {
@@ -116,13 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Policy == input.Policy ||
-                    (this.Policy != null &&
-                    this.Policy.Equals(input.Policy))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.ChainId == input.ChainId ||
-                    this.ChainId.Equals(input.ChainId)
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -135,11 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Policy != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

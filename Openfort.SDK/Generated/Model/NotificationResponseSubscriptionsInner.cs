@@ -29,18 +29,18 @@ using System.Reflection;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ContractPolicyRuleResponseContract
+    /// NotificationResponseSubscriptionsInner
     /// </summary>
-    [JsonConverter(typeof(ContractPolicyRuleResponseContractJsonConverter))]
-    [DataContract(Name = "ContractPolicyRuleResponse_contract")]
-    public partial class ContractPolicyRuleResponseContract : AbstractOpenAPISchema, IEquatable<ContractPolicyRuleResponseContract>, IValidatableObject
+    [JsonConverter(typeof(NotificationResponseSubscriptionsInnerJsonConverter))]
+    [DataContract(Name = "NotificationResponse_subscriptions_inner")]
+    public partial class NotificationResponseSubscriptionsInner : AbstractOpenAPISchema, IEquatable<NotificationResponseSubscriptionsInner>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponseContract" /> class
-        /// with the <see cref="ContractResponse" /> class
+        /// Initializes a new instance of the <see cref="NotificationResponseSubscriptionsInner" /> class
+        /// with the <see cref="NotificationSubscription" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of ContractResponse.</param>
-        public ContractPolicyRuleResponseContract(ContractResponse actualInstance)
+        /// <param name="actualInstance">An instance of NotificationSubscription.</param>
+        public NotificationResponseSubscriptionsInner(NotificationSubscription actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -48,11 +48,11 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponseContract" /> class
-        /// with the <see cref="PickContractResponseId" /> class
+        /// Initializes a new instance of the <see cref="NotificationResponseSubscriptionsInner" /> class
+        /// with the <see cref="EntityIdResponse" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of PickContractResponseId.</param>
-        public ContractPolicyRuleResponseContract(PickContractResponseId actualInstance)
+        /// <param name="actualInstance">An instance of EntityIdResponse.</param>
+        public NotificationResponseSubscriptionsInner(EntityIdResponse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "anyOf";
@@ -73,39 +73,39 @@ namespace Openfort.SDK.Model
             }
             set
             {
-                if (value.GetType() == typeof(ContractResponse))
+                if (value.GetType() == typeof(EntityIdResponse))
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(PickContractResponseId))
+                else if (value.GetType() == typeof(NotificationSubscription))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ContractResponse, PickContractResponseId");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: EntityIdResponse, NotificationSubscription");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `ContractResponse`. If the actual instance is not `ContractResponse`,
+        /// Get the actual instance of `NotificationSubscription`. If the actual instance is not `NotificationSubscription`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of ContractResponse</returns>
-        public ContractResponse GetContractResponse()
+        /// <returns>An instance of NotificationSubscription</returns>
+        public NotificationSubscription GetNotificationSubscription()
         {
-            return (ContractResponse)this.ActualInstance;
+            return (NotificationSubscription)this.ActualInstance;
         }
 
         /// <summary>
-        /// Get the actual instance of `PickContractResponseId`. If the actual instance is not `PickContractResponseId`,
+        /// Get the actual instance of `EntityIdResponse`. If the actual instance is not `EntityIdResponse`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of PickContractResponseId</returns>
-        public PickContractResponseId GetPickContractResponseId()
+        /// <returns>An instance of EntityIdResponse</returns>
+        public EntityIdResponse GetEntityIdResponse()
         {
-            return (PickContractResponseId)this.ActualInstance;
+            return (EntityIdResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContractPolicyRuleResponseContract {\n");
+            sb.Append("class NotificationResponseSubscriptionsInner {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,45 +127,45 @@ namespace Openfort.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, ContractPolicyRuleResponseContract.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, NotificationResponseSubscriptionsInner.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of ContractPolicyRuleResponseContract
+        /// Converts the JSON string into an instance of NotificationResponseSubscriptionsInner
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of ContractPolicyRuleResponseContract</returns>
-        public static ContractPolicyRuleResponseContract FromJson(string jsonString)
+        /// <returns>An instance of NotificationResponseSubscriptionsInner</returns>
+        public static NotificationResponseSubscriptionsInner FromJson(string jsonString)
         {
-            ContractPolicyRuleResponseContract newContractPolicyRuleResponseContract = null;
+            NotificationResponseSubscriptionsInner newNotificationResponseSubscriptionsInner = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newContractPolicyRuleResponseContract;
+                return newNotificationResponseSubscriptionsInner;
             }
 
             try
             {
-                newContractPolicyRuleResponseContract = new ContractPolicyRuleResponseContract(JsonConvert.DeserializeObject<ContractResponse>(jsonString, ContractPolicyRuleResponseContract.SerializerSettings));
+                newNotificationResponseSubscriptionsInner = new NotificationResponseSubscriptionsInner(JsonConvert.DeserializeObject<EntityIdResponse>(jsonString, NotificationResponseSubscriptionsInner.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newContractPolicyRuleResponseContract;
+                return newNotificationResponseSubscriptionsInner;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ContractResponse: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into EntityIdResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                newContractPolicyRuleResponseContract = new ContractPolicyRuleResponseContract(JsonConvert.DeserializeObject<PickContractResponseId>(jsonString, ContractPolicyRuleResponseContract.SerializerSettings));
+                newNotificationResponseSubscriptionsInner = new NotificationResponseSubscriptionsInner(JsonConvert.DeserializeObject<NotificationSubscription>(jsonString, NotificationResponseSubscriptionsInner.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
-                return newContractPolicyRuleResponseContract;
+                return newNotificationResponseSubscriptionsInner;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PickContractResponseId: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationSubscription: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -179,15 +179,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContractPolicyRuleResponseContract);
+            return this.Equals(input as NotificationResponseSubscriptionsInner);
         }
 
         /// <summary>
-        /// Returns true if ContractPolicyRuleResponseContract instances are equal
+        /// Returns true if NotificationResponseSubscriptionsInner instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContractPolicyRuleResponseContract to be compared</param>
+        /// <param name="input">Instance of NotificationResponseSubscriptionsInner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContractPolicyRuleResponseContract input)
+        public bool Equals(NotificationResponseSubscriptionsInner input)
         {
             if (input == null)
                 return false;
@@ -222,9 +222,9 @@ namespace Openfort.SDK.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for ContractPolicyRuleResponseContract
+    /// Custom JSON converter for NotificationResponseSubscriptionsInner
     /// </summary>
-    public class ContractPolicyRuleResponseContractJsonConverter : JsonConverter
+    public class NotificationResponseSubscriptionsInnerJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -234,7 +234,7 @@ namespace Openfort.SDK.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(ContractPolicyRuleResponseContract).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(NotificationResponseSubscriptionsInner).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Openfort.SDK.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return ContractPolicyRuleResponseContract.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return NotificationResponseSubscriptionsInner.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

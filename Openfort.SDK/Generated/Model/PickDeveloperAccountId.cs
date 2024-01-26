@@ -28,37 +28,35 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CancelTransferOwnershipRequest
+    /// From T, pick a set of properties whose keys are in the union K
     /// </summary>
-    [DataContract(Name = "CancelTransferOwnershipRequest")]
-    public partial class CancelTransferOwnershipRequest : IEquatable<CancelTransferOwnershipRequest>, IValidatableObject
+    [DataContract(Name = "Pick_DeveloperAccount.id_")]
+    public partial class PickDeveloperAccountId : IEquatable<PickDeveloperAccountId>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CancelTransferOwnershipRequest" /> class.
+        /// Initializes a new instance of the <see cref="PickDeveloperAccountId" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CancelTransferOwnershipRequest() { }
+        protected PickDeveloperAccountId() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CancelTransferOwnershipRequest" /> class.
+        /// Initializes a new instance of the <see cref="PickDeveloperAccountId" /> class.
         /// </summary>
-        /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided. (required).</param>
-        public CancelTransferOwnershipRequest(string policy = default(string))
+        /// <param name="id">id (required).</param>
+        public PickDeveloperAccountId(string id = default(string))
         {
-            // to ensure "policy" is required (not null)
-            if (policy == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("policy is a required property for CancelTransferOwnershipRequest and cannot be null");
+                throw new ArgumentNullException("id is a required property for PickDeveloperAccountId and cannot be null");
             }
-            this.Policy = policy;
+            this.Id = id;
         }
 
         /// <summary>
-        /// ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). A policy must be provided.</value>
-        /// <example>&quot;pol_7e07ae30-2a4d-48fa-803f-361da94905dd&quot;</example>
-        [DataMember(Name = "policy", IsRequired = true, EmitDefaultValue = true)]
-        public string Policy { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,8 +65,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CancelTransferOwnershipRequest {\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("class PickDeveloperAccountId {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,15 +87,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CancelTransferOwnershipRequest);
+            return this.Equals(input as PickDeveloperAccountId);
         }
 
         /// <summary>
-        /// Returns true if CancelTransferOwnershipRequest instances are equal
+        /// Returns true if PickDeveloperAccountId instances are equal
         /// </summary>
-        /// <param name="input">Instance of CancelTransferOwnershipRequest to be compared</param>
+        /// <param name="input">Instance of PickDeveloperAccountId to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CancelTransferOwnershipRequest input)
+        public bool Equals(PickDeveloperAccountId input)
         {
             if (input == null)
             {
@@ -105,9 +103,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Policy == input.Policy ||
-                    (this.Policy != null &&
-                    this.Policy.Equals(input.Policy))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -120,9 +118,9 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Policy != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 return hashCode;
             }

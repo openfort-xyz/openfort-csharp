@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PaymasterDepositorListResponse
+    /// NotificationSubscriptionListResponse
     /// </summary>
-    [DataContract(Name = "PaymasterDepositorListResponse")]
-    public partial class PaymasterDepositorListResponse : IEquatable<PaymasterDepositorListResponse>, IValidatableObject
+    [DataContract(Name = "NotificationSubscriptionListResponse")]
+    public partial class NotificationSubscriptionListResponse : IEquatable<NotificationSubscriptionListResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
         public ResponseTypeLIST Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorListResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationSubscriptionListResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PaymasterDepositorListResponse() { }
+        protected NotificationSubscriptionListResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorListResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationSubscriptionListResponse" /> class.
         /// </summary>
         /// <param name="_object">_object (required).</param>
         /// <param name="url">url (required).</param>
@@ -53,19 +53,19 @@ namespace Openfort.SDK.Model
         /// <param name="start">start (required).</param>
         /// <param name="end">end (required).</param>
         /// <param name="total">total (required).</param>
-        public PaymasterDepositorListResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<PaymasterDepositorResponse> data = default(List<PaymasterDepositorResponse>), int start = default(int), int end = default(int), int total = default(int))
+        public NotificationSubscriptionListResponse(ResponseTypeLIST _object = default(ResponseTypeLIST), string url = default(string), List<NotificationSubscription> data = default(List<NotificationSubscription>), int start = default(int), int end = default(int), int total = default(int))
         {
             this.Object = _object;
             // to ensure "url" is required (not null)
             if (url == null)
             {
-                throw new ArgumentNullException("url is a required property for PaymasterDepositorListResponse and cannot be null");
+                throw new ArgumentNullException("url is a required property for NotificationSubscriptionListResponse and cannot be null");
             }
             this.Url = url;
             // to ensure "data" is required (not null)
             if (data == null)
             {
-                throw new ArgumentNullException("data is a required property for PaymasterDepositorListResponse and cannot be null");
+                throw new ArgumentNullException("data is a required property for NotificationSubscriptionListResponse and cannot be null");
             }
             this.Data = data;
             this.Start = start;
@@ -83,7 +83,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public List<PaymasterDepositorResponse> Data { get; set; }
+        public List<NotificationSubscription> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
@@ -110,7 +110,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaymasterDepositorListResponse {\n");
+            sb.Append("class NotificationSubscriptionListResponse {\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
@@ -137,15 +137,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymasterDepositorListResponse);
+            return this.Equals(input as NotificationSubscriptionListResponse);
         }
 
         /// <summary>
-        /// Returns true if PaymasterDepositorListResponse instances are equal
+        /// Returns true if NotificationSubscriptionListResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymasterDepositorListResponse to be compared</param>
+        /// <param name="input">Instance of NotificationSubscriptionListResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymasterDepositorListResponse input)
+        public bool Equals(NotificationSubscriptionListResponse input)
         {
             if (input == null)
             {

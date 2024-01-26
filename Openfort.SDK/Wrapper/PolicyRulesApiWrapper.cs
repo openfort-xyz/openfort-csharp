@@ -11,11 +11,11 @@ public class PolicyRulesApiWrapper : BaseApiWrapper
         apiClient = new PolicyRulesApi(Configuration);
     }
 
-    public async Task<PolicyRuleResponse> Create(CreatePolicyRuleRequest request) => await apiClient.CreatePolicyRulesAsync(request);
+    public async Task<PolicyRuleResponse> Create(CreatePolicyRuleRequest request) => await apiClient.CreatePolicyRuleAsync(request);
 
     public async Task<PolicyRuleListResponse> List(PolicyRuleListRequest request) => await apiClient.GetPolicyRulesAsync(request.Id, request.Limit, request.Skip, request.Order, request.Expand);
 
-    public async Task<PolicyRuleResponse> Update(PolicyRuleUpdateRequest request) => await apiClient.UpdatePolicyRulesAsync(request.Id, request);
+    public async Task<PolicyRuleResponse> Update(PolicyRuleUpdateRequest request) => await apiClient.UpdatePolicyRuleAsync(request.Id, request);
 
-    public async Task<PolicyRuleDeleteResponse> Delete(string id) => await apiClient.DeletePolicyRulesAsync(id);
+    public async Task<PolicyRuleDeleteResponse> Delete(string id) => await apiClient.DeletePolicyRuleAsync(id);
 }

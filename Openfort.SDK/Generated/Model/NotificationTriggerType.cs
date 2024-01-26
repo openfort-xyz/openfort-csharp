@@ -28,16 +28,28 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Defines EntityType.PAYMASTER_DEPOSITOR
+    /// Defines NotificationTriggerType
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EntityTypePAYMASTERDEPOSITOR
+    public enum NotificationTriggerType
     {
         /// <summary>
-        /// Enum PaymasterDepositor for value: paymasterDepositor
+        /// Enum ContractTrigger for value: contract_trigger
         /// </summary>
-        [EnumMember(Value = "paymasterDepositor")]
-        PaymasterDepositor = 1
+        [EnumMember(Value = "contract_trigger")]
+        ContractTrigger = 1,
+
+        /// <summary>
+        /// Enum DeveloperAccountTrigger for value: developer_account_trigger
+        /// </summary>
+        [EnumMember(Value = "developer_account_trigger")]
+        DeveloperAccountTrigger = 2,
+
+        /// <summary>
+        /// Enum ProjectBalanceTrigger for value: project_balance_trigger
+        /// </summary>
+        [EnumMember(Value = "project_balance_trigger")]
+        ProjectBalanceTrigger = 3
 
     }
 

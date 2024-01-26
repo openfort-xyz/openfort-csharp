@@ -28,10 +28,10 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PolicyListQueries
+    /// NotificationListQueries
     /// </summary>
-    [DataContract(Name = "PolicyListQueries")]
-    public partial class PolicyListQueries : IEquatable<PolicyListQueries>, IValidatableObject
+    [DataContract(Name = "NotificationListQueries")]
+    public partial class NotificationListQueries : IEquatable<NotificationListQueries>, IValidatableObject
     {
 
         /// <summary>
@@ -40,26 +40,22 @@ namespace Openfort.SDK.Model
         [DataMember(Name = "order", EmitDefaultValue = false)]
         public SortOrder? Order { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolicyListQueries" /> class.
+        /// Initializes a new instance of the <see cref="NotificationListQueries" /> class.
         /// </summary>
         /// <param name="limit">Specifies the maximum number of records to return..</param>
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="expand">Specifies the fields to expand in the response..</param>
-        /// <param name="name">Specifies the name of the policy..</param>
-        /// <param name="deleted">Specifies whether to include deleted policies..</param>
-        /// <param name="chainId">The chain ID of the policy..</param>
-        /// <param name="enabled">Specifies whether to include enabled policies..</param>
-        public PolicyListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), string name = default(string), bool deleted = default(bool), int chainId = default(int), bool enabled = default(bool))
+        /// <param name="deleted">Specifies whether to include deleted notifications..</param>
+        /// <param name="name">Specifies the name of the notifications..</param>
+        public NotificationListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<NotificationResponseExpandable> expand = default(List<NotificationResponseExpandable>), bool deleted = default(bool), string name = default(string))
         {
             this.Limit = limit;
             this.Skip = skip;
             this.Order = order;
             this.Expand = expand;
-            this.Name = name;
             this.Deleted = deleted;
-            this.ChainId = chainId;
-            this.Enabled = enabled;
+            this.Name = name;
         }
 
         /// <summary>
@@ -81,39 +77,23 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Specifies the fields to expand in the response.</value>
         [DataMember(Name = "expand", EmitDefaultValue = false)]
-        public List<PolicyResponseExpandable> Expand { get; set; }
+        public List<NotificationResponseExpandable> Expand { get; set; }
 
         /// <summary>
-        /// Specifies the name of the policy.
+        /// Specifies whether to include deleted notifications.
         /// </summary>
-        /// <value>Specifies the name of the policy.</value>
-        /// <example>&quot;MyPolicy&quot;</example>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Specifies whether to include deleted policies.
-        /// </summary>
-        /// <value>Specifies whether to include deleted policies.</value>
+        /// <value>Specifies whether to include deleted notifications.</value>
         /// <example>true</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 
         /// <summary>
-        /// The chain ID of the policy.
+        /// Specifies the name of the notifications.
         /// </summary>
-        /// <value>The chain ID of the policy.</value>
-        /// <example>80001</example>
-        [DataMember(Name = "chainId", EmitDefaultValue = false)]
-        public int ChainId { get; set; }
-
-        /// <summary>
-        /// Specifies whether to include enabled policies.
-        /// </summary>
-        /// <value>Specifies whether to include enabled policies.</value>
-        /// <example>true</example>
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        /// <value>Specifies the name of the notifications.</value>
+        /// <example>&quot;My notification&quot;</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,15 +102,13 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PolicyListQueries {\n");
+            sb.Append("class NotificationListQueries {\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Skip: ").Append(Skip).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Expand: ").Append(Expand).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
-            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,15 +129,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PolicyListQueries);
+            return this.Equals(input as NotificationListQueries);
         }
 
         /// <summary>
-        /// Returns true if PolicyListQueries instances are equal
+        /// Returns true if NotificationListQueries instances are equal
         /// </summary>
-        /// <param name="input">Instance of PolicyListQueries to be compared</param>
+        /// <param name="input">Instance of NotificationListQueries to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PolicyListQueries input)
+        public bool Equals(NotificationListQueries input)
         {
             if (input == null)
             {
@@ -185,21 +163,13 @@ namespace Openfort.SDK.Model
                     this.Expand.SequenceEqual(input.Expand)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
                     this.Deleted == input.Deleted ||
                     this.Deleted.Equals(input.Deleted)
                 ) && 
                 (
-                    this.ChainId == input.ChainId ||
-                    this.ChainId.Equals(input.ChainId)
-                ) && 
-                (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -219,13 +189,11 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Expand.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
-                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 return hashCode;
             }
         }

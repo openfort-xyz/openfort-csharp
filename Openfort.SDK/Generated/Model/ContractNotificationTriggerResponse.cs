@@ -28,60 +28,74 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ContractPolicyRuleResponse
+    /// ContractNotificationTriggerResponse
     /// </summary>
-    [DataContract(Name = "ContractPolicyRuleResponse")]
-    public partial class ContractPolicyRuleResponse : IEquatable<ContractPolicyRuleResponse>, IValidatableObject
+    [DataContract(Name = "ContractNotificationTriggerResponse")]
+    public partial class ContractNotificationTriggerResponse : IEquatable<ContractNotificationTriggerResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePOLICYRULE Object { get; set; }
+        public EntityTypeNOTIFICATIONTRIGGER Object { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public PolicyRuleTypeCONTRACT Type { get; set; }
+        public NotificationTriggerTypeCONTRACTTRIGGER Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="ContractNotificationTriggerResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContractPolicyRuleResponse() { }
+        protected ContractNotificationTriggerResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="ContractNotificationTriggerResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="type">type (required).</param>
+        /// <param name="threshold">threshold (required).</param>
         /// <param name="contract">contract (required).</param>
         /// <param name="functionName">functionName (required).</param>
-        public ContractPolicyRuleResponse(string id = default(string), EntityTypePOLICYRULE _object = default(EntityTypePOLICYRULE), int createdAt = default(int), PolicyRuleTypeCONTRACT type = default(PolicyRuleTypeCONTRACT), ContractNotificationTriggerResponseContract contract = default(ContractNotificationTriggerResponseContract), string functionName = default(string))
+        /// <param name="functionArgs">functionArgs (required).</param>
+        public ContractNotificationTriggerResponse(string id = default(string), EntityTypeNOTIFICATIONTRIGGER _object = default(EntityTypeNOTIFICATIONTRIGGER), int createdAt = default(int), NotificationTriggerTypeCONTRACTTRIGGER type = default(NotificationTriggerTypeCONTRACTTRIGGER), string threshold = default(string), ContractNotificationTriggerResponseContract contract = default(ContractNotificationTriggerResponseContract), string functionName = default(string), List<string> functionArgs = default(List<string>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for ContractNotificationTriggerResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
             this.Type = type;
+            // to ensure "threshold" is required (not null)
+            if (threshold == null)
+            {
+                throw new ArgumentNullException("threshold is a required property for ContractNotificationTriggerResponse and cannot be null");
+            }
+            this.Threshold = threshold;
             // to ensure "contract" is required (not null)
             if (contract == null)
             {
-                throw new ArgumentNullException("contract is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("contract is a required property for ContractNotificationTriggerResponse and cannot be null");
             }
             this.Contract = contract;
             // to ensure "functionName" is required (not null)
             if (functionName == null)
             {
-                throw new ArgumentNullException("functionName is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("functionName is a required property for ContractNotificationTriggerResponse and cannot be null");
             }
             this.FunctionName = functionName;
+            // to ensure "functionArgs" is required (not null)
+            if (functionArgs == null)
+            {
+                throw new ArgumentNullException("functionArgs is a required property for ContractNotificationTriggerResponse and cannot be null");
+            }
+            this.FunctionArgs = functionArgs;
         }
 
         /// <summary>
@@ -97,6 +111,12 @@ namespace Openfort.SDK.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets Threshold
+        /// </summary>
+        [DataMember(Name = "threshold", IsRequired = true, EmitDefaultValue = true)]
+        public string Threshold { get; set; }
+
+        /// <summary>
         /// Gets or Sets Contract
         /// </summary>
         [DataMember(Name = "contract", IsRequired = true, EmitDefaultValue = true)]
@@ -109,19 +129,27 @@ namespace Openfort.SDK.Model
         public string FunctionName { get; set; }
 
         /// <summary>
+        /// Gets or Sets FunctionArgs
+        /// </summary>
+        [DataMember(Name = "functionArgs", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> FunctionArgs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ContractPolicyRuleResponse {\n");
+            sb.Append("class ContractNotificationTriggerResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
+            sb.Append("  FunctionArgs: ").Append(FunctionArgs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,15 +170,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContractPolicyRuleResponse);
+            return this.Equals(input as ContractNotificationTriggerResponse);
         }
 
         /// <summary>
-        /// Returns true if ContractPolicyRuleResponse instances are equal
+        /// Returns true if ContractNotificationTriggerResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContractPolicyRuleResponse to be compared</param>
+        /// <param name="input">Instance of ContractNotificationTriggerResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContractPolicyRuleResponse input)
+        public bool Equals(ContractNotificationTriggerResponse input)
         {
             if (input == null)
             {
@@ -175,6 +203,11 @@ namespace Openfort.SDK.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
+                    this.Threshold == input.Threshold ||
+                    (this.Threshold != null &&
+                    this.Threshold.Equals(input.Threshold))
+                ) && 
+                (
                     this.Contract == input.Contract ||
                     (this.Contract != null &&
                     this.Contract.Equals(input.Contract))
@@ -183,6 +216,12 @@ namespace Openfort.SDK.Model
                     this.FunctionName == input.FunctionName ||
                     (this.FunctionName != null &&
                     this.FunctionName.Equals(input.FunctionName))
+                ) && 
+                (
+                    this.FunctionArgs == input.FunctionArgs ||
+                    this.FunctionArgs != null &&
+                    input.FunctionArgs != null &&
+                    this.FunctionArgs.SequenceEqual(input.FunctionArgs)
                 );
         }
 
@@ -202,6 +241,10 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Threshold != null)
+                {
+                    hashCode = (hashCode * 59) + this.Threshold.GetHashCode();
+                }
                 if (this.Contract != null)
                 {
                     hashCode = (hashCode * 59) + this.Contract.GetHashCode();
@@ -209,6 +252,10 @@ namespace Openfort.SDK.Model
                 if (this.FunctionName != null)
                 {
                     hashCode = (hashCode * 59) + this.FunctionName.GetHashCode();
+                }
+                if (this.FunctionArgs != null)
+                {
+                    hashCode = (hashCode * 59) + this.FunctionArgs.GetHashCode();
                 }
                 return hashCode;
             }

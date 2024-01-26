@@ -28,48 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PaymasterDepositorGetMessageResponse
+    /// NotificationTriggerDeleteResponse
     /// </summary>
-    [DataContract(Name = "PaymasterDepositorGetMessageResponse")]
-    public partial class PaymasterDepositorGetMessageResponse : IEquatable<PaymasterDepositorGetMessageResponse>, IValidatableObject
+    [DataContract(Name = "NotificationTriggerDeleteResponse")]
+    public partial class NotificationTriggerDeleteResponse : IEquatable<NotificationTriggerDeleteResponse>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorGetMessageResponse" /> class.
+        /// Gets or Sets Object
+        /// </summary>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeNOTIFICATIONTRIGGER Object { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationTriggerDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PaymasterDepositorGetMessageResponse() { }
+        protected NotificationTriggerDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorGetMessageResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationTriggerDeleteResponse" /> class.
         /// </summary>
-        /// <param name="message">message (required).</param>
-        /// <param name="depositorAddress">depositorAddress (required).</param>
-        public PaymasterDepositorGetMessageResponse(string message = default(string), string depositorAddress = default(string))
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        /// <param name="deleted">deleted (required).</param>
+        public NotificationTriggerDeleteResponse(string id = default(string), EntityTypeNOTIFICATIONTRIGGER _object = default(EntityTypeNOTIFICATIONTRIGGER), bool deleted = default(bool))
         {
-            // to ensure "message" is required (not null)
-            if (message == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("message is a required property for PaymasterDepositorGetMessageResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for NotificationTriggerDeleteResponse and cannot be null");
             }
-            this.Message = message;
-            // to ensure "depositorAddress" is required (not null)
-            if (depositorAddress == null)
-            {
-                throw new ArgumentNullException("depositorAddress is a required property for PaymasterDepositorGetMessageResponse and cannot be null");
-            }
-            this.DepositorAddress = depositorAddress;
+            this.Id = id;
+            this.Object = _object;
+            this.Deleted = deleted;
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
-        public string Message { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets DepositorAddress
+        /// Gets or Sets Deleted
         /// </summary>
-        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
-        public string DepositorAddress { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaymasterDepositorGetMessageResponse {\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
+            sb.Append("class NotificationTriggerDeleteResponse {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymasterDepositorGetMessageResponse);
+            return this.Equals(input as NotificationTriggerDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if PaymasterDepositorGetMessageResponse instances are equal
+        /// Returns true if NotificationTriggerDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymasterDepositorGetMessageResponse to be compared</param>
+        /// <param name="input">Instance of NotificationTriggerDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymasterDepositorGetMessageResponse input)
+        public bool Equals(NotificationTriggerDeleteResponse input)
         {
             if (input == null)
             {
@@ -117,14 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.DepositorAddress == input.DepositorAddress ||
-                    (this.DepositorAddress != null &&
-                    this.DepositorAddress.Equals(input.DepositorAddress))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -137,14 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Message != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.DepositorAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

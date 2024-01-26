@@ -28,40 +28,16 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Defines DataAccountTypes
+    /// Defines EntityType.NOTIFICATION_TRIGGER
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum DataAccountTypes
+    public enum EntityTypeNOTIFICATIONTRIGGER
     {
         /// <summary>
-        /// Enum Upgradeable for value: Upgradeable
+        /// Enum NotificationTrigger for value: notificationTrigger
         /// </summary>
-        [EnumMember(Value = "Upgradeable")]
-        Upgradeable = 1,
-
-        /// <summary>
-        /// Enum Managed for value: Managed
-        /// </summary>
-        [EnumMember(Value = "Managed")]
-        Managed = 2,
-
-        /// <summary>
-        /// Enum ERC6551 for value: ERC6551
-        /// </summary>
-        [EnumMember(Value = "ERC6551")]
-        ERC6551 = 3,
-
-        /// <summary>
-        /// Enum Recoverable for value: Recoverable
-        /// </summary>
-        [EnumMember(Value = "Recoverable")]
-        Recoverable = 4,
-
-        /// <summary>
-        /// Enum ManagedRecoverableV5 for value: ManagedRecoverableV5
-        /// </summary>
-        [EnumMember(Value = "ManagedRecoverableV5")]
-        ManagedRecoverableV5 = 5
+        [EnumMember(Value = "notificationTrigger")]
+        NotificationTrigger = 1
 
     }
 

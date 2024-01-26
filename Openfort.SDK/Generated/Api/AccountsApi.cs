@@ -75,7 +75,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -86,7 +86,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -317,7 +317,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -329,7 +329,7 @@ namespace Openfort.SDK.Api
         /// Create an account object.
         /// </summary>
         /// <remarks>
-        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1015,7 +1015,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1027,7 +1027,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1077,7 +1077,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>
@@ -1090,7 +1090,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Only one account can per chain per player.
+        /// Create an account object. Creates a new blockchain account for the provided player.  Account creation does not consume any gas. All accounts of a player will use the same address across blockchains.  Each player can only have one account per chain.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAccountRequest"></param>

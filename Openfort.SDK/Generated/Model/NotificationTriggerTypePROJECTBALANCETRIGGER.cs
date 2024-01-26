@@ -28,34 +28,16 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Defines ObsoleteAssetType
+    /// Defines NotificationTriggerType.PROJECT_BALANCE_TRIGGER
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum ObsoleteAssetType
+    public enum NotificationTriggerTypePROJECTBALANCETRIGGER
     {
         /// <summary>
-        /// Enum _1 for value: 1
+        /// Enum ProjectBalanceTrigger for value: project_balance_trigger
         /// </summary>
-        [EnumMember(Value = "1")]
-        _1 = 1,
-
-        /// <summary>
-        /// Enum _2 for value: 2
-        /// </summary>
-        [EnumMember(Value = "2")]
-        _2 = 2,
-
-        /// <summary>
-        /// Enum _3 for value: 3
-        /// </summary>
-        [EnumMember(Value = "3")]
-        _3 = 3,
-
-        /// <summary>
-        /// Enum _4 for value: 4
-        /// </summary>
-        [EnumMember(Value = "4")]
-        _4 = 4
+        [EnumMember(Value = "project_balance_trigger")]
+        ProjectBalanceTrigger = 1
 
     }
 

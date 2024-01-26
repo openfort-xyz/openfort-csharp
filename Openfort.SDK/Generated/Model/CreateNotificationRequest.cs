@@ -28,51 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PaymasterDepositorDeleteResponse
+    /// CreateNotificationRequest
     /// </summary>
-    [DataContract(Name = "PaymasterDepositorDeleteResponse")]
-    public partial class PaymasterDepositorDeleteResponse : IEquatable<PaymasterDepositorDeleteResponse>, IValidatableObject
+    [DataContract(Name = "CreateNotificationRequest")]
+    public partial class CreateNotificationRequest : IEquatable<CreateNotificationRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Object
-        /// </summary>
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePAYMASTERDEPOSITOR Object { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorDeleteResponse" /> class.
+        /// Initializes a new instance of the <see cref="CreateNotificationRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PaymasterDepositorDeleteResponse() { }
+        protected CreateNotificationRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorDeleteResponse" /> class.
+        /// Initializes a new instance of the <see cref="CreateNotificationRequest" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="_object">_object (required).</param>
-        /// <param name="deleted">deleted (required).</param>
-        public PaymasterDepositorDeleteResponse(string id = default(string), EntityTypePAYMASTERDEPOSITOR _object = default(EntityTypePAYMASTERDEPOSITOR), bool deleted = default(bool))
+        /// <param name="name">The name of the notification. (required).</param>
+        public CreateNotificationRequest(string name = default(string))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
+            // to ensure "name" is required (not null)
+            if (name == null)
             {
-                throw new ArgumentNullException("id is a required property for PaymasterDepositorDeleteResponse and cannot be null");
+                throw new ArgumentNullException("name is a required property for CreateNotificationRequest and cannot be null");
             }
-            this.Id = id;
-            this.Object = _object;
-            this.Deleted = deleted;
+            this.Name = name;
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The name of the notification.
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Deleted
-        /// </summary>
-        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Deleted { get; set; }
+        /// <value>The name of the notification.</value>
+        /// <example>&quot;Low balance&quot;</example>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +67,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaymasterDepositorDeleteResponse {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("class CreateNotificationRequest {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +89,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymasterDepositorDeleteResponse);
+            return this.Equals(input as CreateNotificationRequest);
         }
 
         /// <summary>
-        /// Returns true if PaymasterDepositorDeleteResponse instances are equal
+        /// Returns true if CreateNotificationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymasterDepositorDeleteResponse to be compared</param>
+        /// <param name="input">Instance of CreateNotificationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymasterDepositorDeleteResponse input)
+        public bool Equals(CreateNotificationRequest input)
         {
             if (input == null)
             {
@@ -121,17 +105,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Object == input.Object ||
-                    this.Object.Equals(input.Object)
-                ) && 
-                (
-                    this.Deleted == input.Deleted ||
-                    this.Deleted.Equals(input.Deleted)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -144,12 +120,10 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Object.GetHashCode();
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

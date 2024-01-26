@@ -28,60 +28,62 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// ContractPolicyRuleResponse
+    /// AccountNotificationTriggerResponse
     /// </summary>
-    [DataContract(Name = "ContractPolicyRuleResponse")]
-    public partial class ContractPolicyRuleResponse : IEquatable<ContractPolicyRuleResponse>, IValidatableObject
+    [DataContract(Name = "AccountNotificationTriggerResponse")]
+    public partial class AccountNotificationTriggerResponse : IEquatable<AccountNotificationTriggerResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePOLICYRULE Object { get; set; }
+        public EntityTypeNOTIFICATIONTRIGGER Object { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public PolicyRuleTypeCONTRACT Type { get; set; }
+        public NotificationTriggerTypeDEVELOPERACCOUNTTRIGGER Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="AccountNotificationTriggerResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContractPolicyRuleResponse() { }
+        protected AccountNotificationTriggerResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContractPolicyRuleResponse" /> class.
+        /// Initializes a new instance of the <see cref="AccountNotificationTriggerResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="type">type (required).</param>
-        /// <param name="contract">contract (required).</param>
-        /// <param name="functionName">functionName (required).</param>
-        public ContractPolicyRuleResponse(string id = default(string), EntityTypePOLICYRULE _object = default(EntityTypePOLICYRULE), int createdAt = default(int), PolicyRuleTypeCONTRACT type = default(PolicyRuleTypeCONTRACT), ContractNotificationTriggerResponseContract contract = default(ContractNotificationTriggerResponseContract), string functionName = default(string))
+        /// <param name="threshold">threshold (required).</param>
+        /// <param name="account">account (required).</param>
+        /// <param name="chainId">chainId (required).</param>
+        public AccountNotificationTriggerResponse(string id = default(string), EntityTypeNOTIFICATIONTRIGGER _object = default(EntityTypeNOTIFICATIONTRIGGER), int createdAt = default(int), NotificationTriggerTypeDEVELOPERACCOUNTTRIGGER type = default(NotificationTriggerTypeDEVELOPERACCOUNTTRIGGER), string threshold = default(string), AccountNotificationTriggerResponseAccount account = default(AccountNotificationTriggerResponseAccount), double chainId = default(double))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for AccountNotificationTriggerResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
             this.Type = type;
-            // to ensure "contract" is required (not null)
-            if (contract == null)
+            // to ensure "threshold" is required (not null)
+            if (threshold == null)
             {
-                throw new ArgumentNullException("contract is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("threshold is a required property for AccountNotificationTriggerResponse and cannot be null");
             }
-            this.Contract = contract;
-            // to ensure "functionName" is required (not null)
-            if (functionName == null)
+            this.Threshold = threshold;
+            // to ensure "account" is required (not null)
+            if (account == null)
             {
-                throw new ArgumentNullException("functionName is a required property for ContractPolicyRuleResponse and cannot be null");
+                throw new ArgumentNullException("account is a required property for AccountNotificationTriggerResponse and cannot be null");
             }
-            this.FunctionName = functionName;
+            this.Account = account;
+            this.ChainId = chainId;
         }
 
         /// <summary>
@@ -97,16 +99,22 @@ namespace Openfort.SDK.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Contract
+        /// Gets or Sets Threshold
         /// </summary>
-        [DataMember(Name = "contract", IsRequired = true, EmitDefaultValue = true)]
-        public ContractNotificationTriggerResponseContract Contract { get; set; }
+        [DataMember(Name = "threshold", IsRequired = true, EmitDefaultValue = true)]
+        public string Threshold { get; set; }
 
         /// <summary>
-        /// Gets or Sets FunctionName
+        /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name = "functionName", IsRequired = true, EmitDefaultValue = true)]
-        public string FunctionName { get; set; }
+        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
+        public AccountNotificationTriggerResponseAccount Account { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ChainId
+        /// </summary>
+        [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
+        public double ChainId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,13 +123,14 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ContractPolicyRuleResponse {\n");
+            sb.Append("class AccountNotificationTriggerResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Contract: ").Append(Contract).Append("\n");
-            sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
+            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,15 +151,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContractPolicyRuleResponse);
+            return this.Equals(input as AccountNotificationTriggerResponse);
         }
 
         /// <summary>
-        /// Returns true if ContractPolicyRuleResponse instances are equal
+        /// Returns true if AccountNotificationTriggerResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContractPolicyRuleResponse to be compared</param>
+        /// <param name="input">Instance of AccountNotificationTriggerResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContractPolicyRuleResponse input)
+        public bool Equals(AccountNotificationTriggerResponse input)
         {
             if (input == null)
             {
@@ -175,14 +184,18 @@ namespace Openfort.SDK.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.Contract == input.Contract ||
-                    (this.Contract != null &&
-                    this.Contract.Equals(input.Contract))
+                    this.Threshold == input.Threshold ||
+                    (this.Threshold != null &&
+                    this.Threshold.Equals(input.Threshold))
                 ) && 
                 (
-                    this.FunctionName == input.FunctionName ||
-                    (this.FunctionName != null &&
-                    this.FunctionName.Equals(input.FunctionName))
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
+                ) && 
+                (
+                    this.ChainId == input.ChainId ||
+                    this.ChainId.Equals(input.ChainId)
                 );
         }
 
@@ -202,14 +215,15 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this.Contract != null)
+                if (this.Threshold != null)
                 {
-                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Threshold.GetHashCode();
                 }
-                if (this.FunctionName != null)
+                if (this.Account != null)
                 {
-                    hashCode = (hashCode * 59) + this.FunctionName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
                 return hashCode;
             }
         }

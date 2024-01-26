@@ -28,35 +28,53 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PaymasterDepositorResponse
+    /// NotificationSubscription
     /// </summary>
-    [DataContract(Name = "PaymasterDepositorResponse")]
-    public partial class PaymasterDepositorResponse : IEquatable<PaymasterDepositorResponse>, IValidatableObject
+    [DataContract(Name = "NotificationSubscription")]
+    public partial class NotificationSubscription : IEquatable<NotificationSubscription>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorResponse" /> class.
+        /// Gets or Sets Object
+        /// </summary>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeNOTIFICATIONSUBSCRIPTION Object { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Method
+        /// </summary>
+        [DataMember(Name = "method", IsRequired = true, EmitDefaultValue = true)]
+        public SubscriptionType Method { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationSubscription" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PaymasterDepositorResponse() { }
+        protected NotificationSubscription() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymasterDepositorResponse" /> class.
+        /// Initializes a new instance of the <see cref="NotificationSubscription" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="depositorAddress">depositorAddress (required).</param>
-        public PaymasterDepositorResponse(string id = default(string), string depositorAddress = default(string))
+        /// <param name="_object">_object (required).</param>
+        /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="target">target (required).</param>
+        /// <param name="method">method (required).</param>
+        public NotificationSubscription(string id = default(string), EntityTypeNOTIFICATIONSUBSCRIPTION _object = default(EntityTypeNOTIFICATIONSUBSCRIPTION), int createdAt = default(int), string target = default(string), SubscriptionType method = default(SubscriptionType))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for PaymasterDepositorResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for NotificationSubscription and cannot be null");
             }
             this.Id = id;
-            // to ensure "depositorAddress" is required (not null)
-            if (depositorAddress == null)
+            this.Object = _object;
+            this.CreatedAt = createdAt;
+            // to ensure "target" is required (not null)
+            if (target == null)
             {
-                throw new ArgumentNullException("depositorAddress is a required property for PaymasterDepositorResponse and cannot be null");
+                throw new ArgumentNullException("target is a required property for NotificationSubscription and cannot be null");
             }
-            this.DepositorAddress = depositorAddress;
+            this.Target = target;
+            this.Method = method;
         }
 
         /// <summary>
@@ -66,10 +84,16 @@ namespace Openfort.SDK.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets DepositorAddress
+        /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "depositorAddress", IsRequired = true, EmitDefaultValue = true)]
-        public string DepositorAddress { get; set; }
+        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        public int CreatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Target
+        /// </summary>
+        [DataMember(Name = "target", IsRequired = true, EmitDefaultValue = true)]
+        public string Target { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +102,12 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaymasterDepositorResponse {\n");
+            sb.Append("class NotificationSubscription {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DepositorAddress: ").Append(DepositorAddress).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Target: ").Append(Target).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +128,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymasterDepositorResponse);
+            return this.Equals(input as NotificationSubscription);
         }
 
         /// <summary>
-        /// Returns true if PaymasterDepositorResponse instances are equal
+        /// Returns true if NotificationSubscription instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymasterDepositorResponse to be compared</param>
+        /// <param name="input">Instance of NotificationSubscription to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymasterDepositorResponse input)
+        public bool Equals(NotificationSubscription input)
         {
             if (input == null)
             {
@@ -122,9 +149,21 @@ namespace Openfort.SDK.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.DepositorAddress == input.DepositorAddress ||
-                    (this.DepositorAddress != null &&
-                    this.DepositorAddress.Equals(input.DepositorAddress))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.Target == input.Target ||
+                    (this.Target != null &&
+                    this.Target.Equals(input.Target))
+                ) && 
+                (
+                    this.Method == input.Method ||
+                    this.Method.Equals(input.Method)
                 );
         }
 
@@ -141,10 +180,13 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.DepositorAddress != null)
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.Target != null)
                 {
-                    hashCode = (hashCode * 59) + this.DepositorAddress.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Target.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Method.GetHashCode();
                 return hashCode;
             }
         }
