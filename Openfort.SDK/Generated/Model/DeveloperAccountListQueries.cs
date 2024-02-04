@@ -46,12 +46,14 @@ namespace Openfort.SDK.Model
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="expand">Specifies the fields to expand in the response..</param>
-        public DeveloperAccountListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
+        /// <param name="deleted">Specifies whether to include deleted dev accounts..</param>
+        public DeveloperAccountListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool deleted = default(bool))
         {
             this.Limit = limit;
             this.Skip = skip;
             this.Order = order;
             this.Expand = expand;
+            this.Deleted = deleted;
         }
 
         /// <summary>
@@ -76,6 +78,14 @@ namespace Openfort.SDK.Model
         public List<DeveloperAccountResponseExpandable> Expand { get; set; }
 
         /// <summary>
+        /// Specifies whether to include deleted dev accounts.
+        /// </summary>
+        /// <value>Specifies whether to include deleted dev accounts.</value>
+        /// <example>false</example>
+        [DataMember(Name = "deleted", EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +97,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Skip: ").Append(Skip).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Expand: ").Append(Expand).Append("\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +150,10 @@ namespace Openfort.SDK.Model
                     this.Expand != null &&
                     input.Expand != null &&
                     this.Expand.SequenceEqual(input.Expand)
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 );
         }
 
@@ -158,6 +173,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Expand.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;
             }
         }

@@ -107,9 +107,10 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <returns>TransactionIntentListResponse</returns>
-        TransactionIntentListResponse GetTransactionIntents(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>));
+        TransactionIntentListResponse GetTransactionIntents(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>));
 
         /// <summary>
         /// List transaction intents.
@@ -125,9 +126,10 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <returns>ApiResponse of TransactionIntentListResponse</returns>
-        ApiResponse<TransactionIntentListResponse> GetTransactionIntentsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>));
+        ApiResponse<TransactionIntentListResponse> GetTransactionIntentsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>));
         /// <summary>
         /// Send a signed transaction userOperationHash.
         /// </summary>
@@ -245,10 +247,11 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentListResponse</returns>
-        System.Threading.Tasks.Task<TransactionIntentListResponse> GetTransactionIntentsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TransactionIntentListResponse> GetTransactionIntentsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List transaction intents.
@@ -264,10 +267,11 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionIntentListResponse>> GetTransactionIntentsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TransactionIntentListResponse>> GetTransactionIntentsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send a signed transaction userOperationHash.
         /// </summary>
@@ -914,11 +918,12 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <returns>TransactionIntentListResponse</returns>
-        public TransactionIntentListResponse GetTransactionIntents(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>))
+        public TransactionIntentListResponse GetTransactionIntents(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>))
         {
-            Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> localVarResponse = GetTransactionIntentsWithHttpInfo(limit, skip, order, expand, chainId, account, player, policy);
+            Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> localVarResponse = GetTransactionIntentsWithHttpInfo(limit, skip, order, expand, chainId, account, player, status, policy);
             return localVarResponse.Data;
         }
 
@@ -933,9 +938,10 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <returns>ApiResponse of TransactionIntentListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> GetTransactionIntentsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>))
+        public Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> GetTransactionIntentsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -980,6 +986,10 @@ namespace Openfort.SDK.Api
             if (player != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "player", player));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (policy != null)
             {
@@ -1016,12 +1026,13 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TransactionIntentListResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionIntentListResponse> GetTransactionIntentsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransactionIntentListResponse> GetTransactionIntentsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> localVarResponse = await GetTransactionIntentsWithHttpInfoAsync(limit, skip, order, expand, chainId, account, player, policy, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse> localVarResponse = await GetTransactionIntentsWithHttpInfoAsync(limit, skip, order, expand, chainId, account, player, status, policy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1036,10 +1047,11 @@ namespace Openfort.SDK.Api
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (optional)</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively). (optional)</param>
         /// <param name="player">Filter by player ID (starts with pla_). (optional)</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents. (optional)</param>
         /// <param name="policy">Filter by policy ID (starts with pol_). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TransactionIntentListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse>> GetTransactionIntentsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<TransactionIntentListResponse>> GetTransactionIntentsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int? chainId = default(int?), List<string> account = default(List<string>), List<string> player = default(List<string>), double? status = default(double?), List<string> policy = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -1086,6 +1098,10 @@ namespace Openfort.SDK.Api
             if (player != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "player", player));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "status", status));
             }
             if (policy != null)
             {

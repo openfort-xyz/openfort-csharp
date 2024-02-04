@@ -31,6 +31,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Retrieves the cryptocurrency assets of an existing account.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -44,7 +47,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the cryptocurrency assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -57,6 +60,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Retrieves the native asset of an existing account.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
         /// <returns>InventoryResponse</returns>
@@ -66,7 +72,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the native asset of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -75,6 +81,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Retrieves the NFT assets of an existing account.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -88,7 +97,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the NFT assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -101,6 +110,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Get cryptocurrency list of player.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="chainId">Filter by chain id.</param>
@@ -115,7 +127,7 @@ namespace Openfort.SDK.Api
         /// Get cryptocurrency list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -129,6 +141,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Get native token list of player.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="chainId">Filter by chain id.</param>
@@ -139,7 +154,7 @@ namespace Openfort.SDK.Api
         /// Get native token list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -149,6 +164,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Get NFTs list of player.
         /// </summary>
+        /// <remarks>
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="chainId">Filter by chain id.</param>
@@ -163,7 +181,7 @@ namespace Openfort.SDK.Api
         /// Get NFTs list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -187,7 +205,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the cryptocurrency assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -203,7 +221,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the cryptocurrency assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -218,7 +236,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the native asset of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -230,7 +248,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the native asset of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -241,7 +259,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the NFT assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -257,7 +275,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the NFT assets of an existing account.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -272,7 +290,7 @@ namespace Openfort.SDK.Api
         /// Get cryptocurrency list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -289,7 +307,7 @@ namespace Openfort.SDK.Api
         /// Get cryptocurrency list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -305,7 +323,7 @@ namespace Openfort.SDK.Api
         /// Get native token list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -318,7 +336,7 @@ namespace Openfort.SDK.Api
         /// Get native token list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -330,7 +348,7 @@ namespace Openfort.SDK.Api
         /// Get NFTs list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -347,7 +365,7 @@ namespace Openfort.SDK.Api
         /// Get NFTs list of player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -573,7 +591,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the cryptocurrency assets of an existing account. 
+        /// Retrieves the cryptocurrency assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -589,7 +607,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the cryptocurrency assets of an existing account. 
+        /// Retrieves the cryptocurrency assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -658,7 +676,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the cryptocurrency assets of an existing account. 
+        /// Retrieves the cryptocurrency assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -675,7 +693,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the cryptocurrency assets of an existing account. 
+        /// Retrieves the cryptocurrency assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -748,7 +766,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the native asset of an existing account. 
+        /// Retrieves the native asset of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -760,7 +778,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the native asset of an existing account. 
+        /// Retrieves the native asset of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -809,7 +827,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the native asset of an existing account. 
+        /// Retrieves the native asset of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -822,7 +840,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the native asset of an existing account. 
+        /// Retrieves the native asset of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -875,7 +893,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the NFT assets of an existing account. 
+        /// Retrieves the NFT assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -891,7 +909,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the NFT assets of an existing account. 
+        /// Retrieves the NFT assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -960,7 +978,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the NFT assets of an existing account. 
+        /// Retrieves the NFT assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -977,7 +995,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the NFT assets of an existing account. 
+        /// Retrieves the NFT assets of an existing account. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID.</param>
@@ -1050,7 +1068,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get cryptocurrency list of player. 
+        /// Get cryptocurrency list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1067,7 +1085,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get cryptocurrency list of player. 
+        /// Get cryptocurrency list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1138,7 +1156,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get cryptocurrency list of player. 
+        /// Get cryptocurrency list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1156,7 +1174,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get cryptocurrency list of player. 
+        /// Get cryptocurrency list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1231,7 +1249,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get native token list of player. 
+        /// Get native token list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1244,7 +1262,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get native token list of player. 
+        /// Get native token list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1295,7 +1313,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get native token list of player. 
+        /// Get native token list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1309,7 +1327,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get native token list of player. 
+        /// Get native token list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1364,7 +1382,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get NFTs list of player. 
+        /// Get NFTs list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1381,7 +1399,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get NFTs list of player. 
+        /// Get NFTs list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1452,7 +1470,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get NFTs list of player. 
+        /// Get NFTs list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1470,7 +1488,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get NFTs list of player. 
+        /// Get NFTs list of player. For development purposes only.  Under higher load scenarios, this endpoint may be rate limited.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>

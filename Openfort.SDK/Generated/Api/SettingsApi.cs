@@ -104,8 +104,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <returns>DeveloperAccountListResponse</returns>
-        DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
+        DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?));
 
         /// <summary>
         /// List of developer accounts.
@@ -118,8 +119,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountListResponse</returns>
-        ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>));
+        ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?));
         /// <summary>
         /// Generate message to sign
         /// </summary>
@@ -272,9 +274,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountListResponse</returns>
-        System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of developer accounts.
@@ -287,9 +290,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Generate message to sign
         /// </summary>
@@ -973,10 +977,11 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <returns>DeveloperAccountListResponse</returns>
-        public DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
+        public DeveloperAccountListResponse GetDeveloperAccounts(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?))
         {
-            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = GetDeveloperAccountsWithHttpInfo(limit, skip, order, expand);
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = GetDeveloperAccountsWithHttpInfo(limit, skip, order, expand, deleted);
             return localVarResponse.Data;
         }
 
@@ -988,8 +993,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <returns>ApiResponse of DeveloperAccountListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>))
+        public Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> GetDeveloperAccountsWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1022,6 +1028,10 @@ namespace Openfort.SDK.Api
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
+            if (deleted != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "deleted", deleted));
             }
 
             // authentication (sk) required
@@ -1051,11 +1061,12 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeveloperAccountListResponse</returns>
-        public async System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeveloperAccountListResponse> GetDeveloperAccountsAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = await GetDeveloperAccountsWithHttpInfoAsync(limit, skip, order, expand, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse> localVarResponse = await GetDeveloperAccountsWithHttpInfoAsync(limit, skip, order, expand, deleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1067,9 +1078,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="expand">Specifies the fields to expand in the response. (optional)</param>
+        /// <param name="deleted">Specifies whether to include deleted dev accounts. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeveloperAccountListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeveloperAccountListResponse>> GetDeveloperAccountsWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), List<DeveloperAccountResponseExpandable> expand = default(List<DeveloperAccountResponseExpandable>), bool? deleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -1104,6 +1116,10 @@ namespace Openfort.SDK.Api
             if (expand != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("multi", "expand", expand));
+            }
+            if (deleted != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "deleted", deleted));
             }
 
             // authentication (sk) required

@@ -49,8 +49,9 @@ namespace Openfort.SDK.Model
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
         /// <param name="account">Filter by account ID or developer account (starts with acc_ or dac_ respectively)..</param>
         /// <param name="player">Filter by player ID (starts with pla_)..</param>
+        /// <param name="status">Filter by successful (1) or failed (0) transaction intents..</param>
         /// <param name="policy">Filter by policy ID (starts with pol_)..</param>
-        public TransactionIntentListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int chainId = default(int), List<string> account = default(List<string>), List<string> player = default(List<string>), List<string> policy = default(List<string>))
+        public TransactionIntentListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), List<TransactionIntentResponseExpandable> expand = default(List<TransactionIntentResponseExpandable>), int chainId = default(int), List<string> account = default(List<string>), List<string> player = default(List<string>), double status = default(double), List<string> policy = default(List<string>))
         {
             this.Limit = limit;
             this.Skip = skip;
@@ -59,6 +60,7 @@ namespace Openfort.SDK.Model
             this.ChainId = chainId;
             this.Account = account;
             this.Player = player;
+            this.Status = status;
             this.Policy = policy;
         }
 
@@ -106,6 +108,14 @@ namespace Openfort.SDK.Model
         public List<string> Player { get; set; }
 
         /// <summary>
+        /// Filter by successful (1) or failed (0) transaction intents.
+        /// </summary>
+        /// <value>Filter by successful (1) or failed (0) transaction intents.</value>
+        /// <example>1</example>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public double Status { get; set; }
+
+        /// <summary>
         /// Filter by policy ID (starts with pol_).
         /// </summary>
         /// <value>Filter by policy ID (starts with pol_).</value>
@@ -127,6 +137,7 @@ namespace Openfort.SDK.Model
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -198,6 +209,10 @@ namespace Openfort.SDK.Model
                     this.Player.SequenceEqual(input.Player)
                 ) && 
                 (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
                     this.Policy == input.Policy ||
                     this.Policy != null &&
                     input.Policy != null &&
@@ -230,6 +245,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Player.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Policy != null)
                 {
                     hashCode = (hashCode * 59) + this.Policy.GetHashCode();

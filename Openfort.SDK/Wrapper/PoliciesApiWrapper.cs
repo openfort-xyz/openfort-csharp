@@ -11,6 +11,7 @@ namespace Openfort.SDK.Wrapper
         {
             apiClient = new PoliciesApi(Configuration);
         }
+        public async Task<GasReportListResponse> GetTotalGasUsage(string id) => await apiClient.GetPolicyTotalGasUsageAsync(id);
 
         public async Task<PolicyResponse> Create(CreatePolicyRequest request) => await apiClient.CreatePolicyAsync(request);
 

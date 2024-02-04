@@ -47,6 +47,26 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> CreatePolicyWithHttpInfo(CreatePolicyRequest createPolicyRequest);
         /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <returns>TransactionIntentResponse</returns>
+        TransactionIntentResponse CreatePolicyWithdrawal(string id, WithdrawalPolicyRequest withdrawalPolicyRequest);
+
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <returns>ApiResponse of TransactionIntentResponse</returns>
+        ApiResponse<TransactionIntentResponse> CreatePolicyWithdrawalWithHttpInfo(string id, WithdrawalPolicyRequest withdrawalPolicyRequest);
+        /// <summary>
         /// Delete a policy object.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -163,8 +183,8 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
-        /// <returns>GasReport</returns>
-        GasReport GetPolicyTotalGasUsage(string id);
+        /// <returns>PolicyBalanceWithdrawResponse</returns>
+        PolicyBalanceWithdrawResponse GetPolicyBalance(string id);
 
         /// <summary>
         /// List all gas reports of a policy.
@@ -174,8 +194,26 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
-        /// <returns>ApiResponse of GasReport</returns>
-        ApiResponse<GasReport> GetPolicyTotalGasUsageWithHttpInfo(string id);
+        /// <returns>ApiResponse of PolicyBalanceWithdrawResponse</returns>
+        ApiResponse<PolicyBalanceWithdrawResponse> GetPolicyBalanceWithHttpInfo(string id);
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <returns>GasReportListResponse</returns>
+        GasReportListResponse GetPolicyTotalGasUsage(string id);
+
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <returns>ApiResponse of GasReportListResponse</returns>
+        ApiResponse<GasReportListResponse> GetPolicyTotalGasUsageWithHttpInfo(string id);
         /// <summary>
         /// Update a policy object.
         /// </summary>
@@ -228,6 +266,31 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> CreatePolicyWithHttpInfoAsync(CreatePolicyRequest createPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionIntentResponse</returns>
+        System.Threading.Tasks.Task<TransactionIntentResponse> CreatePolicyWithdrawalAsync(string id, WithdrawalPolicyRequest withdrawalPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionIntentResponse>> CreatePolicyWithdrawalWithHttpInfoAsync(string id, WithdrawalPolicyRequest withdrawalPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a policy object.
         /// </summary>
@@ -368,8 +431,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GasReport</returns>
-        System.Threading.Tasks.Task<GasReport> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of PolicyBalanceWithdrawResponse</returns>
+        System.Threading.Tasks.Task<PolicyBalanceWithdrawResponse> GetPolicyBalanceAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List all gas reports of a policy.
@@ -380,8 +443,31 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GasReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GasReport>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PolicyBalanceWithdrawResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PolicyBalanceWithdrawResponse>> GetPolicyBalanceWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GasReportListResponse</returns>
+        System.Threading.Tasks.Task<GasReportListResponse> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List all gas reports of a policy.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GasReportListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GasReportListResponse>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a policy object.
         /// </summary>
@@ -743,6 +829,149 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreatePolicy", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <returns>TransactionIntentResponse</returns>
+        public TransactionIntentResponse CreatePolicyWithdrawal(string id, WithdrawalPolicyRequest withdrawalPolicyRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> localVarResponse = CreatePolicyWithdrawalWithHttpInfo(id, withdrawalPolicyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <returns>ApiResponse of TransactionIntentResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> CreatePolicyWithdrawalWithHttpInfo(string id, WithdrawalPolicyRequest withdrawalPolicyRequest)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->CreatePolicyWithdrawal");
+
+            // verify the required parameter 'withdrawalPolicyRequest' is set
+            if (withdrawalPolicyRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'withdrawalPolicyRequest' when calling PoliciesApi->CreatePolicyWithdrawal");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = withdrawalPolicyRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TransactionIntentResponse>("/v1/policies/{id}/withdraw", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreatePolicyWithdrawal", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TransactionIntentResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionIntentResponse> CreatePolicyWithdrawalAsync(string id, WithdrawalPolicyRequest withdrawalPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<TransactionIntentResponse> localVarResponse = await CreatePolicyWithdrawalWithHttpInfoAsync(id, withdrawalPolicyRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="withdrawalPolicyRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TransactionIntentResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<TransactionIntentResponse>> CreatePolicyWithdrawalWithHttpInfoAsync(string id, WithdrawalPolicyRequest withdrawalPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->CreatePolicyWithdrawal");
+
+            // verify the required parameter 'withdrawalPolicyRequest' is set
+            if (withdrawalPolicyRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'withdrawalPolicyRequest' when calling PoliciesApi->CreatePolicyWithdrawal");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.Data = withdrawalPolicyRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TransactionIntentResponse>("/v1/policies/{id}/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreatePolicyWithdrawal", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1483,10 +1712,10 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
-        /// <returns>GasReport</returns>
-        public GasReport GetPolicyTotalGasUsage(string id)
+        /// <returns>PolicyBalanceWithdrawResponse</returns>
+        public PolicyBalanceWithdrawResponse GetPolicyBalance(string id)
         {
-            Openfort.SDK.Client.ApiResponse<GasReport> localVarResponse = GetPolicyTotalGasUsageWithHttpInfo(id);
+            Openfort.SDK.Client.ApiResponse<PolicyBalanceWithdrawResponse> localVarResponse = GetPolicyBalanceWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1495,8 +1724,135 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
-        /// <returns>ApiResponse of GasReport</returns>
-        public Openfort.SDK.Client.ApiResponse<GasReport> GetPolicyTotalGasUsageWithHttpInfo(string id)
+        /// <returns>ApiResponse of PolicyBalanceWithdrawResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<PolicyBalanceWithdrawResponse> GetPolicyBalanceWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->GetPolicyBalance");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PolicyBalanceWithdrawResponse>("/v1/policies/{id}/withdraw", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPolicyBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PolicyBalanceWithdrawResponse</returns>
+        public async System.Threading.Tasks.Task<PolicyBalanceWithdrawResponse> GetPolicyBalanceAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<PolicyBalanceWithdrawResponse> localVarResponse = await GetPolicyBalanceWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PolicyBalanceWithdrawResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PolicyBalanceWithdrawResponse>> GetPolicyBalanceWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'id' when calling PoliciesApi->GetPolicyBalance");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", Openfort.SDK.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PolicyBalanceWithdrawResponse>("/v1/policies/{id}/withdraw", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPolicyBalance", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <returns>GasReportListResponse</returns>
+        public GasReportListResponse GetPolicyTotalGasUsage(string id)
+        {
+            Openfort.SDK.Client.ApiResponse<GasReportListResponse> localVarResponse = GetPolicyTotalGasUsageWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List all gas reports of a policy. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
+        /// <returns>ApiResponse of GasReportListResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<GasReportListResponse> GetPolicyTotalGasUsageWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1528,7 +1884,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GasReport>("/v1/policies/{id}/reports", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GasReportListResponse>("/v1/policies/{id}/reports", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1545,10 +1901,10 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GasReport</returns>
-        public async System.Threading.Tasks.Task<GasReport> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GasReportListResponse</returns>
+        public async System.Threading.Tasks.Task<GasReportListResponse> GetPolicyTotalGasUsageAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<GasReport> localVarResponse = await GetPolicyTotalGasUsageWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<GasReportListResponse> localVarResponse = await GetPolicyTotalGasUsageWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1558,8 +1914,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GasReport)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<GasReport>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GasReportListResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<GasReportListResponse>> GetPolicyTotalGasUsageWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1594,7 +1950,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GasReport>("/v1/policies/{id}/reports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GasReportListResponse>("/v1/policies/{id}/reports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

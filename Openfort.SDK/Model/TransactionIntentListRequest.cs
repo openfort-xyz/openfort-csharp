@@ -1,6 +1,6 @@
 ﻿namespace Openfort.SDK.Model
 {
-	public class TransactionIntentListRequest: BaseExpandableListRequest<TransactionIntentResponseExpandable>
+	public class TransactionIntentListRequest : BaseExpandableListRequest<TransactionIntentResponseExpandable>
 	{
 		public TransactionIntentListRequest(
 			int? limit = null,
@@ -10,11 +10,13 @@
 			int? chainId = null,
 			List<string>? accountIds = null,
 			List<string>? playerIds = null,
-			List<string>? policyIds = null): base(limit, skip, order, expand)
+			double? status = null,
+			List<string>? policyIds = null) : base(limit, skip, order, expand)
 		{
 			ChainId = chainId;
 			AccountIds = accountIds ?? new List<string>();
 			PlayerIds = playerIds ?? new List<string>();
+			Status = status;
 			PolicyIds = policyIds ?? new List<string>();
 		}
 
@@ -23,6 +25,7 @@
 		public List<string> AccountIds { get; set; }
 
 		public List<string> PlayerIds { get; set; }
+		public double? Status { get; set; }
 
 		public List<string> PolicyIds { get; set; }
 	}
