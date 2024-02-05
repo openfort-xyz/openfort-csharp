@@ -46,20 +46,15 @@ namespace Openfort.SDK.Model
         /// <param name="accountType">The type of smart account that will be created (e.g. ERC6551V1, ManagedV5, UpgradeableV5). Defaults to UpgradeableV5..</param>
         /// <param name="tokenContract">If ERC6551, the address of the NFT contract to use.</param>
         /// <param name="tokenId">If ERC6551, the tokenId from the NFT contract that will serve as owner.</param>
-        /// <param name="player">ID of the Player this Account belongs to (starts with &#x60;pla_&#x60;). (required).</param>
+        /// <param name="player">ID of the Player this Account belongs to (starts with &#x60;pla_&#x60;)..</param>
         public CreateAccountRequest(int chainId = default(int), string externalOwnerAddress = default(string), string accountType = default(string), string tokenContract = default(string), long tokenId = default(long), string player = default(string))
         {
             this.ChainId = chainId;
-            // to ensure "player" is required (not null)
-            if (player == null)
-            {
-                throw new ArgumentNullException("player is a required property for CreateAccountRequest and cannot be null");
-            }
-            this.Player = player;
             this.ExternalOwnerAddress = externalOwnerAddress;
             this.AccountType = accountType;
             this.TokenContract = tokenContract;
             this.TokenId = tokenId;
+            this.Player = player;
         }
 
         /// <summary>
@@ -107,7 +102,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>ID of the Player this Account belongs to (starts with &#x60;pla_&#x60;).</value>
         /// <example>&quot;pla_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
-        [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player", EmitDefaultValue = false)]
         public string Player { get; set; }
 
         /// <summary>
