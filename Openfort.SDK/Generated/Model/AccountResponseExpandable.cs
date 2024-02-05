@@ -37,7 +37,13 @@ namespace Openfort.SDK.Model
         /// Enum TransactionIntents for value: transactionIntents
         /// </summary>
         [EnumMember(Value = "transactionIntents")]
-        TransactionIntents = 1
+        TransactionIntents = 1,
+
+        /// <summary>
+        /// Enum Player for value: player
+        /// </summary>
+        [EnumMember(Value = "player")]
+        Player = 2
 
     }
 

@@ -36,21 +36,11 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerCreateRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PlayerCreateRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerCreateRequest" /> class.
-        /// </summary>
-        /// <param name="name">Specifies the player name. (required).</param>
+        /// <param name="name">Specifies the player name..</param>
         /// <param name="description">Specifies the player description..</param>
         /// <param name="metadata">metadata.</param>
         public PlayerCreateRequest(string name = default(string), string description = default(string), Dictionary<string, PlayerMetadataValue> metadata = default(Dictionary<string, PlayerMetadataValue>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for PlayerCreateRequest and cannot be null");
-            }
             this.Name = name;
             this.Description = description;
             this.Metadata = metadata;
@@ -61,7 +51,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>Specifies the player name.</value>
         /// <example>&quot;John&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
