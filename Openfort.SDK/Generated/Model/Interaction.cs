@@ -54,7 +54,6 @@ namespace Openfort.SDK.Model
         /// The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address.
         /// </summary>
         /// <value>The address of the recipient of native tokens. Use *only* to transfer native tokens. If you provide one of a &#x60;pla_...&#x60;,  or &#x60;acc_...&#x60; it will be converted to the corresponding address.</value>
-        /// <example>&quot;pla_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
         [DataMember(Name = "to", EmitDefaultValue = false)]
         public string To { get; set; }
 

@@ -52,7 +52,7 @@ namespace Openfort.SDK.Model
         /// <param name="logs">The logs of the transaction of this log..</param>
         /// <param name="to">The address of the contract of this log..</param>
         /// <param name="error">The error of the transaction of this log..</param>
-        public ResponseResponse(int createdAt = default(int), int blockNumber = default(int), string transactionHash = default(string), string l1GasUsed = default(string), long gasUsed = default(long), string gasFee = default(string), string l1GasFee = default(string), int status = default(int), List<Log> logs = default(List<Log>), string to = default(string), Object error = default(Object))
+        public ResponseResponse(int createdAt = default(int), int blockNumber = default(int), string transactionHash = default(string), string l1GasUsed = default(string), string gasUsed = default(string), string gasFee = default(string), string l1GasFee = default(string), int status = default(int), List<Log> logs = default(List<Log>), string to = default(string), Object error = default(Object))
         {
             this.CreatedAt = createdAt;
             this.BlockNumber = blockNumber;
@@ -100,7 +100,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <value>The gas used by the transaction of this log.</value>
         [DataMember(Name = "gasUsed", EmitDefaultValue = false)]
-        public long GasUsed { get; set; }
+        public string GasUsed { get; set; }
 
         /// <summary>
         /// The gas fee by the transaction of this log.
@@ -218,7 +218,8 @@ namespace Openfort.SDK.Model
                 ) && 
                 (
                     this.GasUsed == input.GasUsed ||
-                    this.GasUsed.Equals(input.GasUsed)
+                    (this.GasUsed != null &&
+                    this.GasUsed.Equals(input.GasUsed))
                 ) && 
                 (
                     this.GasFee == input.GasFee ||
@@ -271,7 +272,10 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.L1GasUsed.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.GasUsed.GetHashCode();
+                if (this.GasUsed != null)
+                {
+                    hashCode = (hashCode * 59) + this.GasUsed.GetHashCode();
+                }
                 if (this.GasFee != null)
                 {
                     hashCode = (hashCode * 59) + this.GasFee.GetHashCode();
