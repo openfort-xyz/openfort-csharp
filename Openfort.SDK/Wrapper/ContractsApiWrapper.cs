@@ -20,6 +20,8 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<ContractResponse> Get(string id) => await apiClient.GetContractAsync(id);
 
+        public async Task<ContractReadResponse> Read(ContractReadRequest request) => await apiClient.ReadContractAsync(request.Id, request.FunctionName, request.FunctionArgs);
+
         public async Task<ContractListResponse> List(ContractListRequest request)
         {
             return await apiClient.GetContractsAsync(request.Limit, request.Skip, request.Order, request.Name, request.Deleted, request.ChainId, request.Address);

@@ -47,8 +47,11 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> CreatePolicyWithHttpInfo(CreatePolicyRequest createPolicyRequest);
         /// <summary>
-        /// List all gas reports of a policy.
+        /// .
         /// </summary>
+        /// <remarks>
+        /// Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <param name="withdrawalPolicyRequest"></param>
@@ -56,10 +59,10 @@ namespace Openfort.SDK.Api
         TransactionIntentResponse CreatePolicyWithdrawal(string id, WithdrawalPolicyRequest withdrawalPolicyRequest);
 
         /// <summary>
-        /// List all gas reports of a policy.
+        /// .
         /// </summary>
         /// <remarks>
-        /// 
+        /// Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -179,18 +182,21 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of PolicyResponse</returns>
         ApiResponse<PolicyResponse> GetPolicyWithHttpInfo(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>));
         /// <summary>
-        /// List all gas reports of a policy.
+        /// Get amount of tokens paid for gas policy.
         /// </summary>
+        /// <remarks>
+        /// Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
         /// <returns>PolicyBalanceWithdrawResponse</returns>
         PolicyBalanceWithdrawResponse GetPolicyBalance(string id);
 
         /// <summary>
-        /// List all gas reports of a policy.
+        /// Get amount of tokens paid for gas policy.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -267,10 +273,10 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> CreatePolicyWithHttpInfoAsync(CreatePolicyRequest createPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List all gas reports of a policy.
+        /// .
         /// </summary>
         /// <remarks>
-        /// 
+        /// Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -280,10 +286,10 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<TransactionIntentResponse> CreatePolicyWithdrawalAsync(string id, WithdrawalPolicyRequest withdrawalPolicyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List all gas reports of a policy.
+        /// .
         /// </summary>
         /// <remarks>
-        /// 
+        /// Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -423,10 +429,10 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (PolicyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyResponse>> GetPolicyWithHttpInfoAsync(string id, List<PolicyResponseExpandable> expand = default(List<PolicyResponseExpandable>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List all gas reports of a policy.
+        /// Get amount of tokens paid for gas policy.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -435,10 +441,10 @@ namespace Openfort.SDK.Api
         System.Threading.Tasks.Task<PolicyBalanceWithdrawResponse> GetPolicyBalanceAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List all gas reports of a policy.
+        /// Get amount of tokens paid for gas policy.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -836,7 +842,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// . Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -849,7 +855,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// . Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -905,7 +911,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// . Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -919,7 +925,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// . Transfer ERC-20 tokens paid in gas to another account.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1708,7 +1714,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// Get amount of tokens paid for gas policy. Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1720,7 +1726,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// Get amount of tokens paid for gas policy. Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1769,7 +1775,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// Get amount of tokens paid for gas policy. Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1782,7 +1788,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List all gas reports of a policy. 
+        /// Get amount of tokens paid for gas policy. Get the amount of ERC-20 tokens paid as gas for a policy.  When using a policy that includes payment of gas in ERC-20 tokens, this endpoint returns the amount of tokens paid for gas. This is specific to a policy that doesn&#39;t use your own deposited tokens in the paymaster.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
