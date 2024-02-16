@@ -44,14 +44,16 @@ namespace Openfort.SDK.Model
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
         /// <param name="externalOwnerAddress">Use this parameter to create a new Account for Player with the provided owner address..</param>
         /// <param name="accountType">The type of smart account that will be created (e.g. ERC6551V1, ManagedV5, UpgradeableV5). Defaults to UpgradeableV5..</param>
+        /// <param name="defaultGuardian">For account types that support social recovery, wether to enable Openfort as guardian or not. Defaults to false..</param>
         /// <param name="tokenContract">If ERC6551, the address of the NFT contract to use.</param>
         /// <param name="tokenId">If ERC6551, the tokenId from the NFT contract that will serve as owner.</param>
         /// <param name="player">ID of the Player this Account belongs to (starts with &#x60;pla_&#x60;)..</param>
-        public CreateAccountRequest(int chainId = default(int), string externalOwnerAddress = default(string), string accountType = default(string), string tokenContract = default(string), long tokenId = default(long), string player = default(string))
+        public CreateAccountRequest(int chainId = default(int), string externalOwnerAddress = default(string), string accountType = default(string), bool defaultGuardian = default(bool), string tokenContract = default(string), long tokenId = default(long), string player = default(string))
         {
             this.ChainId = chainId;
             this.ExternalOwnerAddress = externalOwnerAddress;
             this.AccountType = accountType;
+            this.DefaultGuardian = defaultGuardian;
             this.TokenContract = tokenContract;
             this.TokenId = tokenId;
             this.Player = player;
@@ -80,6 +82,14 @@ namespace Openfort.SDK.Model
         /// <example>&quot;UpgradeableV5&quot;</example>
         [DataMember(Name = "accountType", EmitDefaultValue = false)]
         public string AccountType { get; set; }
+
+        /// <summary>
+        /// For account types that support social recovery, wether to enable Openfort as guardian or not. Defaults to false.
+        /// </summary>
+        /// <value>For account types that support social recovery, wether to enable Openfort as guardian or not. Defaults to false.</value>
+        /// <example>true</example>
+        [DataMember(Name = "defaultGuardian", EmitDefaultValue = true)]
+        public bool DefaultGuardian { get; set; }
 
         /// <summary>
         /// If ERC6551, the address of the NFT contract to use
@@ -116,6 +126,7 @@ namespace Openfort.SDK.Model
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("  ExternalOwnerAddress: ").Append(ExternalOwnerAddress).Append("\n");
             sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            sb.Append("  DefaultGuardian: ").Append(DefaultGuardian).Append("\n");
             sb.Append("  TokenContract: ").Append(TokenContract).Append("\n");
             sb.Append("  TokenId: ").Append(TokenId).Append("\n");
             sb.Append("  Player: ").Append(Player).Append("\n");
@@ -169,6 +180,10 @@ namespace Openfort.SDK.Model
                     this.AccountType.Equals(input.AccountType))
                 ) && 
                 (
+                    this.DefaultGuardian == input.DefaultGuardian ||
+                    this.DefaultGuardian.Equals(input.DefaultGuardian)
+                ) && 
+                (
                     this.TokenContract == input.TokenContract ||
                     (this.TokenContract != null &&
                     this.TokenContract.Equals(input.TokenContract))
@@ -202,6 +217,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.AccountType.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.DefaultGuardian.GetHashCode();
                 if (this.TokenContract != null)
                 {
                     hashCode = (hashCode * 59) + this.TokenContract.GetHashCode();

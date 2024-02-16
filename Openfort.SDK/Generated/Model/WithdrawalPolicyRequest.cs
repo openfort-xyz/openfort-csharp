@@ -41,7 +41,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WithdrawalPolicyRequest" /> class.
         /// </summary>
-        /// <param name="account">ID of the Dev Account this TransactionIntent is executed with (starts with &#x60;dac_&#x60;). (required).</param>
+        /// <param name="account">ID of the Dev Account this TransactionIntent will send the specified amount of tokens to (starts with &#x60;dac_&#x60;). (required).</param>
         /// <param name="amount">Amount in WEI to withdraw (i.e. factor 10^18).. (required).</param>
         public WithdrawalPolicyRequest(string account = default(string), string amount = default(string))
         {
@@ -60,9 +60,9 @@ namespace Openfort.SDK.Model
         }
 
         /// <summary>
-        /// ID of the Dev Account this TransactionIntent is executed with (starts with &#x60;dac_&#x60;).
+        /// ID of the Dev Account this TransactionIntent will send the specified amount of tokens to (starts with &#x60;dac_&#x60;).
         /// </summary>
-        /// <value>ID of the Dev Account this TransactionIntent is executed with (starts with &#x60;dac_&#x60;).</value>
+        /// <value>ID of the Dev Account this TransactionIntent will send the specified amount of tokens to (starts with &#x60;dac_&#x60;).</value>
         /// <example>&quot;dac_e1b24353-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
         [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
         public string Account { get; set; }
@@ -71,7 +71,7 @@ namespace Openfort.SDK.Model
         /// Amount in WEI to withdraw (i.e. factor 10^18)..
         /// </summary>
         /// <value>Amount in WEI to withdraw (i.e. factor 10^18)..</value>
-        /// <example>&quot;dac_e1b24353-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
+        /// <example>&quot;300000&quot;</example>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public string Amount { get; set; }
 

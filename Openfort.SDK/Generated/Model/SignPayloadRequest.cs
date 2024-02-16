@@ -95,7 +95,7 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Gets or Sets PrimaryType
         /// </summary>
-        /// <example>&quot;OrderComponents&quot;</example>
+        /// <example>&quot;Mail&quot;</example>
         [DataMember(Name = "primaryType", IsRequired = true, EmitDefaultValue = true)]
         public string PrimaryType { get; set; }
 
@@ -109,7 +109,7 @@ namespace Openfort.SDK.Model
         /// Hash to verify and that will be signed
         /// </summary>
         /// <value>Hash to verify and that will be signed</value>
-        /// <example>&quot;0xa8ef67af8361fc7f8cf9ba962074418e8cd9233a78237e1c83b1305405d92858&quot;</example>
+        /// <example>&quot;0x3d8c6cab96bc24c87162c529bed5ba88b4617a7ea8bef66489a541d043ac6e8b&quot;</example>
         [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = true)]
         public string Hash { get; set; }
 
