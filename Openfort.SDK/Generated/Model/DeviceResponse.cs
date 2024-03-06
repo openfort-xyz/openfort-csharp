@@ -28,54 +28,46 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthPlayerResponse
+    /// DeviceResponse
     /// </summary>
-    [DataContract(Name = "AuthPlayerResponse")]
-    public partial class AuthPlayerResponse : IEquatable<AuthPlayerResponse>, IValidatableObject
+    [DataContract(Name = "DeviceResponse")]
+    public partial class DeviceResponse : IEquatable<DeviceResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePLAYER Object { get; set; }
+        public EntityTypeDEVICE Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeviceResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthPlayerResponse() { }
+        protected DeviceResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeviceResponse" /> class.
         /// </summary>
-        /// <param name="player">player.</param>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="linkedAccounts">linkedAccounts (required).</param>
-        public AuthPlayerResponse(AuthPlayerResponsePlayer player = default(AuthPlayerResponsePlayer), string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), List<LinkedAccountResponse> linkedAccounts = default(List<LinkedAccountResponse>))
+        /// <param name="accountID">accountID (required).</param>
+        public DeviceResponse(string id = default(string), EntityTypeDEVICE _object = default(EntityTypeDEVICE), int createdAt = default(int), string accountID = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for DeviceResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
-            // to ensure "linkedAccounts" is required (not null)
-            if (linkedAccounts == null)
+            // to ensure "accountID" is required (not null)
+            if (accountID == null)
             {
-                throw new ArgumentNullException("linkedAccounts is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("accountID is a required property for DeviceResponse and cannot be null");
             }
-            this.LinkedAccounts = linkedAccounts;
-            this.Player = player;
+            this.AccountID = accountID;
         }
-
-        /// <summary>
-        /// Gets or Sets Player
-        /// </summary>
-        [DataMember(Name = "player", EmitDefaultValue = false)]
-        public AuthPlayerResponsePlayer Player { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -90,10 +82,10 @@ namespace Openfort.SDK.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets LinkedAccounts
+        /// Gets or Sets AccountID
         /// </summary>
-        [DataMember(Name = "linkedAccounts", IsRequired = true, EmitDefaultValue = true)]
-        public List<LinkedAccountResponse> LinkedAccounts { get; set; }
+        [DataMember(Name = "accountID", IsRequired = true, EmitDefaultValue = true)]
+        public string AccountID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,12 +94,11 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthPlayerResponse {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("class DeviceResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  LinkedAccounts: ").Append(LinkedAccounts).Append("\n");
+            sb.Append("  AccountID: ").Append(AccountID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,26 +119,21 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthPlayerResponse);
+            return this.Equals(input as DeviceResponse);
         }
 
         /// <summary>
-        /// Returns true if AuthPlayerResponse instances are equal
+        /// Returns true if DeviceResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthPlayerResponse to be compared</param>
+        /// <param name="input">Instance of DeviceResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthPlayerResponse input)
+        public bool Equals(DeviceResponse input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
@@ -162,10 +148,9 @@ namespace Openfort.SDK.Model
                     this.CreatedAt.Equals(input.CreatedAt)
                 ) && 
                 (
-                    this.LinkedAccounts == input.LinkedAccounts ||
-                    this.LinkedAccounts != null &&
-                    input.LinkedAccounts != null &&
-                    this.LinkedAccounts.SequenceEqual(input.LinkedAccounts)
+                    this.AccountID == input.AccountID ||
+                    (this.AccountID != null &&
+                    this.AccountID.Equals(input.AccountID))
                 );
         }
 
@@ -178,19 +163,15 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.LinkedAccounts != null)
+                if (this.AccountID != null)
                 {
-                    hashCode = (hashCode * 59) + this.LinkedAccounts.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AccountID.GetHashCode();
                 }
                 return hashCode;
             }

@@ -28,54 +28,74 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthPlayerResponse
+    /// Plan
     /// </summary>
-    [DataContract(Name = "AuthPlayerResponse")]
-    public partial class AuthPlayerResponse : IEquatable<AuthPlayerResponse>, IValidatableObject
+    [DataContract(Name = "Plan")]
+    public partial class Plan : IEquatable<Plan>, IValidatableObject
     {
+        /// <summary>
+        /// Defines ChangeType
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ChangeTypeEnum
+        {
+            /// <summary>
+            /// Enum Upgrade for value: upgrade
+            /// </summary>
+            [EnumMember(Value = "upgrade")]
+            Upgrade = 1,
+
+            /// <summary>
+            /// Enum Downgrade for value: downgrade
+            /// </summary>
+            [EnumMember(Value = "downgrade")]
+            Downgrade = 2,
+
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 3
+
+        }
+
 
         /// <summary>
-        /// Gets or Sets Object
+        /// Gets or Sets ChangeType
         /// </summary>
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePLAYER Object { get; set; }
+        [DataMember(Name = "change_type", IsRequired = true, EmitDefaultValue = true)]
+        public ChangeTypeEnum ChangeType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Initializes a new instance of the <see cref="Plan" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthPlayerResponse() { }
+        protected Plan() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Initializes a new instance of the <see cref="Plan" /> class.
         /// </summary>
-        /// <param name="player">player.</param>
         /// <param name="id">id (required).</param>
-        /// <param name="_object">_object (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="linkedAccounts">linkedAccounts (required).</param>
-        public AuthPlayerResponse(AuthPlayerResponsePlayer player = default(AuthPlayerResponsePlayer), string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), List<LinkedAccountResponse> linkedAccounts = default(List<LinkedAccountResponse>))
+        /// <param name="name">name (required).</param>
+        /// <param name="price">price (required).</param>
+        /// <param name="isCurrent">isCurrent (required).</param>
+        /// <param name="changeType">changeType (required).</param>
+        public Plan(string id = default(string), string name = default(string), double price = default(double), bool isCurrent = default(bool), ChangeTypeEnum changeType = default(ChangeTypeEnum))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for Plan and cannot be null");
             }
             this.Id = id;
-            this.Object = _object;
-            this.CreatedAt = createdAt;
-            // to ensure "linkedAccounts" is required (not null)
-            if (linkedAccounts == null)
+            // to ensure "name" is required (not null)
+            if (name == null)
             {
-                throw new ArgumentNullException("linkedAccounts is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("name is a required property for Plan and cannot be null");
             }
-            this.LinkedAccounts = linkedAccounts;
-            this.Player = player;
+            this.Name = name;
+            this.Price = price;
+            this.IsCurrent = isCurrent;
+            this.ChangeType = changeType;
         }
-
-        /// <summary>
-        /// Gets or Sets Player
-        /// </summary>
-        [DataMember(Name = "player", EmitDefaultValue = false)]
-        public AuthPlayerResponsePlayer Player { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -84,16 +104,22 @@ namespace Openfort.SDK.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedAt
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
-        public int CreatedAt { get; set; }
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets LinkedAccounts
+        /// Gets or Sets Price
         /// </summary>
-        [DataMember(Name = "linkedAccounts", IsRequired = true, EmitDefaultValue = true)]
-        public List<LinkedAccountResponse> LinkedAccounts { get; set; }
+        [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
+        public double Price { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsCurrent
+        /// </summary>
+        [DataMember(Name = "is_current", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsCurrent { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,12 +128,12 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthPlayerResponse {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("class Plan {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  LinkedAccounts: ").Append(LinkedAccounts).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  IsCurrent: ").Append(IsCurrent).Append("\n");
+            sb.Append("  ChangeType: ").Append(ChangeType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,15 +154,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthPlayerResponse);
+            return this.Equals(input as Plan);
         }
 
         /// <summary>
-        /// Returns true if AuthPlayerResponse instances are equal
+        /// Returns true if Plan instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthPlayerResponse to be compared</param>
+        /// <param name="input">Instance of Plan to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthPlayerResponse input)
+        public bool Equals(Plan input)
         {
             if (input == null)
             {
@@ -144,28 +170,26 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Object == input.Object ||
-                    this.Object.Equals(input.Object)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.CreatedAt == input.CreatedAt ||
-                    this.CreatedAt.Equals(input.CreatedAt)
+                    this.Price == input.Price ||
+                    this.Price.Equals(input.Price)
                 ) && 
                 (
-                    this.LinkedAccounts == input.LinkedAccounts ||
-                    this.LinkedAccounts != null &&
-                    input.LinkedAccounts != null &&
-                    this.LinkedAccounts.SequenceEqual(input.LinkedAccounts)
+                    this.IsCurrent == input.IsCurrent ||
+                    this.IsCurrent.Equals(input.IsCurrent)
+                ) && 
+                (
+                    this.ChangeType == input.ChangeType ||
+                    this.ChangeType.Equals(input.ChangeType)
                 );
         }
 
@@ -178,20 +202,17 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Object.GetHashCode();
-                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.LinkedAccounts != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.LinkedAccounts.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsCurrent.GetHashCode();
+                hashCode = (hashCode * 59) + this.ChangeType.GetHashCode();
                 return hashCode;
             }
         }

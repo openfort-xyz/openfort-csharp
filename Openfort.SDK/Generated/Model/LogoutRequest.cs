@@ -28,61 +28,35 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthResponse
+    /// LogoutRequest
     /// </summary>
-    [DataContract(Name = "AuthResponse")]
-    public partial class AuthResponse : IEquatable<AuthResponse>, IValidatableObject
+    [DataContract(Name = "LogoutRequest")]
+    public partial class LogoutRequest : IEquatable<LogoutRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthResponse" /> class.
+        /// Initializes a new instance of the <see cref="LogoutRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthResponse() { }
+        protected LogoutRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthResponse" /> class.
+        /// Initializes a new instance of the <see cref="LogoutRequest" /> class.
         /// </summary>
-        /// <param name="player">player (required).</param>
-        /// <param name="token">JWT access token. (required).</param>
-        /// <param name="refreshToken">Refresh token. (required).</param>
-        public AuthResponse(AuthPlayerResponse player = default(AuthPlayerResponse), string token = default(string), string refreshToken = default(string))
+        /// <param name="refreshToken">Specifies the refresh token. (required).</param>
+        public LogoutRequest(string refreshToken = default(string))
         {
-            // to ensure "player" is required (not null)
-            if (player == null)
-            {
-                throw new ArgumentNullException("player is a required property for AuthResponse and cannot be null");
-            }
-            this.Player = player;
-            // to ensure "token" is required (not null)
-            if (token == null)
-            {
-                throw new ArgumentNullException("token is a required property for AuthResponse and cannot be null");
-            }
-            this.Token = token;
             // to ensure "refreshToken" is required (not null)
             if (refreshToken == null)
             {
-                throw new ArgumentNullException("refreshToken is a required property for AuthResponse and cannot be null");
+                throw new ArgumentNullException("refreshToken is a required property for LogoutRequest and cannot be null");
             }
             this.RefreshToken = refreshToken;
         }
 
         /// <summary>
-        /// Gets or Sets Player
+        /// Specifies the refresh token.
         /// </summary>
-        [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
-        public AuthPlayerResponse Player { get; set; }
-
-        /// <summary>
-        /// JWT access token.
-        /// </summary>
-        /// <value>JWT access token.</value>
-        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
-        public string Token { get; set; }
-
-        /// <summary>
-        /// Refresh token.
-        /// </summary>
-        /// <value>Refresh token.</value>
+        /// <value>Specifies the refresh token.</value>
+        /// <example>&quot;60b329f3-8e8d-49db-bf21-50c251269db2&quot;</example>
         [DataMember(Name = "refreshToken", IsRequired = true, EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
 
@@ -93,9 +67,7 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthResponse {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
+            sb.Append("class LogoutRequest {\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,31 +89,21 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthResponse);
+            return this.Equals(input as LogoutRequest);
         }
 
         /// <summary>
-        /// Returns true if AuthResponse instances are equal
+        /// Returns true if LogoutRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthResponse to be compared</param>
+        /// <param name="input">Instance of LogoutRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthResponse input)
+        public bool Equals(LogoutRequest input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                ) && 
                 (
                     this.RefreshToken == input.RefreshToken ||
                     (this.RefreshToken != null &&
@@ -158,14 +120,6 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
                 if (this.RefreshToken != null)
                 {
                     hashCode = (hashCode * 59) + this.RefreshToken.GetHashCode();

@@ -28,63 +28,45 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthResponse
+    /// OAuthInitRequest
     /// </summary>
-    [DataContract(Name = "AuthResponse")]
-    public partial class AuthResponse : IEquatable<AuthResponse>, IValidatableObject
+    [DataContract(Name = "OAuthInitRequest")]
+    public partial class OAuthInitRequest : IEquatable<OAuthInitRequest>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthResponse" /> class.
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
+        public OAuthProvider Provider { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthInitRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthResponse() { }
+        protected OAuthInitRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthResponse" /> class.
+        /// Initializes a new instance of the <see cref="OAuthInitRequest" /> class.
         /// </summary>
-        /// <param name="player">player (required).</param>
-        /// <param name="token">JWT access token. (required).</param>
-        /// <param name="refreshToken">Refresh token. (required).</param>
-        public AuthResponse(AuthPlayerResponse player = default(AuthPlayerResponse), string token = default(string), string refreshToken = default(string))
+        /// <param name="token">Access token to be verified (required).</param>
+        /// <param name="provider">provider (required).</param>
+        public OAuthInitRequest(string token = default(string), OAuthProvider provider = default(OAuthProvider))
         {
-            // to ensure "player" is required (not null)
-            if (player == null)
-            {
-                throw new ArgumentNullException("player is a required property for AuthResponse and cannot be null");
-            }
-            this.Player = player;
             // to ensure "token" is required (not null)
             if (token == null)
             {
-                throw new ArgumentNullException("token is a required property for AuthResponse and cannot be null");
+                throw new ArgumentNullException("token is a required property for OAuthInitRequest and cannot be null");
             }
             this.Token = token;
-            // to ensure "refreshToken" is required (not null)
-            if (refreshToken == null)
-            {
-                throw new ArgumentNullException("refreshToken is a required property for AuthResponse and cannot be null");
-            }
-            this.RefreshToken = refreshToken;
+            this.Provider = provider;
         }
 
         /// <summary>
-        /// Gets or Sets Player
+        /// Access token to be verified
         /// </summary>
-        [DataMember(Name = "player", IsRequired = true, EmitDefaultValue = true)]
-        public AuthPlayerResponse Player { get; set; }
-
-        /// <summary>
-        /// JWT access token.
-        /// </summary>
-        /// <value>JWT access token.</value>
+        /// <value>Access token to be verified</value>
+        /// <example>&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</example>
         [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
         public string Token { get; set; }
-
-        /// <summary>
-        /// Refresh token.
-        /// </summary>
-        /// <value>Refresh token.</value>
-        [DataMember(Name = "refreshToken", IsRequired = true, EmitDefaultValue = true)]
-        public string RefreshToken { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,10 +75,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthResponse {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("class OAuthInitRequest {\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,15 +98,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthResponse);
+            return this.Equals(input as OAuthInitRequest);
         }
 
         /// <summary>
-        /// Returns true if AuthResponse instances are equal
+        /// Returns true if OAuthInitRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthResponse to be compared</param>
+        /// <param name="input">Instance of OAuthInitRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthResponse input)
+        public bool Equals(OAuthInitRequest input)
         {
             if (input == null)
             {
@@ -133,19 +114,13 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
-                (
                     this.Token == input.Token ||
                     (this.Token != null &&
                     this.Token.Equals(input.Token))
                 ) && 
                 (
-                    this.RefreshToken == input.RefreshToken ||
-                    (this.RefreshToken != null &&
-                    this.RefreshToken.Equals(input.RefreshToken))
+                    this.Provider == input.Provider ||
+                    this.Provider.Equals(input.Provider)
                 );
         }
 
@@ -158,18 +133,11 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
                 if (this.Token != null)
                 {
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
-                if (this.RefreshToken != null)
-                {
-                    hashCode = (hashCode * 59) + this.RefreshToken.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 return hashCode;
             }
         }

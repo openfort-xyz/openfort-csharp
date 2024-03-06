@@ -28,54 +28,56 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthPlayerResponse
+    /// ShareResponse
     /// </summary>
-    [DataContract(Name = "AuthPlayerResponse")]
-    public partial class AuthPlayerResponse : IEquatable<AuthPlayerResponse>, IValidatableObject
+    [DataContract(Name = "ShareResponse")]
+    public partial class ShareResponse : IEquatable<ShareResponse>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
         [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public EntityTypePLAYER Object { get; set; }
+        public EntityTypeSHARE Object { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public ShareType Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ShareResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthPlayerResponse() { }
+        protected ShareResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthPlayerResponse" /> class.
+        /// Initializes a new instance of the <see cref="ShareResponse" /> class.
         /// </summary>
-        /// <param name="player">player.</param>
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="linkedAccounts">linkedAccounts (required).</param>
-        public AuthPlayerResponse(AuthPlayerResponsePlayer player = default(AuthPlayerResponsePlayer), string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), List<LinkedAccountResponse> linkedAccounts = default(List<LinkedAccountResponse>))
+        /// <param name="share">share (required).</param>
+        /// <param name="userEntropy">userEntropy (required).</param>
+        /// <param name="type">type (required).</param>
+        public ShareResponse(string id = default(string), EntityTypeSHARE _object = default(EntityTypeSHARE), int createdAt = default(int), string share = default(string), bool userEntropy = default(bool), ShareType type = default(ShareType))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for ShareResponse and cannot be null");
             }
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
-            // to ensure "linkedAccounts" is required (not null)
-            if (linkedAccounts == null)
+            // to ensure "share" is required (not null)
+            if (share == null)
             {
-                throw new ArgumentNullException("linkedAccounts is a required property for AuthPlayerResponse and cannot be null");
+                throw new ArgumentNullException("share is a required property for ShareResponse and cannot be null");
             }
-            this.LinkedAccounts = linkedAccounts;
-            this.Player = player;
+            this.Share = share;
+            this.UserEntropy = userEntropy;
+            this.Type = type;
         }
-
-        /// <summary>
-        /// Gets or Sets Player
-        /// </summary>
-        [DataMember(Name = "player", EmitDefaultValue = false)]
-        public AuthPlayerResponsePlayer Player { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -90,10 +92,16 @@ namespace Openfort.SDK.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets LinkedAccounts
+        /// Gets or Sets Share
         /// </summary>
-        [DataMember(Name = "linkedAccounts", IsRequired = true, EmitDefaultValue = true)]
-        public List<LinkedAccountResponse> LinkedAccounts { get; set; }
+        [DataMember(Name = "share", IsRequired = true, EmitDefaultValue = true)]
+        public string Share { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserEntropy
+        /// </summary>
+        [DataMember(Name = "userEntropy", IsRequired = true, EmitDefaultValue = true)]
+        public bool UserEntropy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,12 +110,13 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthPlayerResponse {\n");
-            sb.Append("  Player: ").Append(Player).Append("\n");
+            sb.Append("class ShareResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  LinkedAccounts: ").Append(LinkedAccounts).Append("\n");
+            sb.Append("  Share: ").Append(Share).Append("\n");
+            sb.Append("  UserEntropy: ").Append(UserEntropy).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,26 +137,21 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthPlayerResponse);
+            return this.Equals(input as ShareResponse);
         }
 
         /// <summary>
-        /// Returns true if AuthPlayerResponse instances are equal
+        /// Returns true if ShareResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthPlayerResponse to be compared</param>
+        /// <param name="input">Instance of ShareResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthPlayerResponse input)
+        public bool Equals(ShareResponse input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
@@ -162,10 +166,17 @@ namespace Openfort.SDK.Model
                     this.CreatedAt.Equals(input.CreatedAt)
                 ) && 
                 (
-                    this.LinkedAccounts == input.LinkedAccounts ||
-                    this.LinkedAccounts != null &&
-                    input.LinkedAccounts != null &&
-                    this.LinkedAccounts.SequenceEqual(input.LinkedAccounts)
+                    this.Share == input.Share ||
+                    (this.Share != null &&
+                    this.Share.Equals(input.Share))
+                ) && 
+                (
+                    this.UserEntropy == input.UserEntropy ||
+                    this.UserEntropy.Equals(input.UserEntropy)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -178,20 +189,18 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.LinkedAccounts != null)
+                if (this.Share != null)
                 {
-                    hashCode = (hashCode * 59) + this.LinkedAccounts.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Share.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UserEntropy.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }

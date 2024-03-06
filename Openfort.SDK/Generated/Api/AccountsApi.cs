@@ -96,7 +96,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -108,7 +108,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -142,7 +142,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -157,7 +157,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -340,7 +340,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -353,7 +353,7 @@ namespace Openfort.SDK.Api
         /// Deploy an account.
         /// </summary>
         /// <remarks>
-        /// This endpoint can be used to deploy an account that was counterfactually generated.
+        /// This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -390,7 +390,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -406,7 +406,7 @@ namespace Openfort.SDK.Api
         /// List accounts of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1144,7 +1144,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// Deploy an account. This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1157,7 +1157,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// Deploy an account. This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1213,7 +1213,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// Deploy an account. This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1227,7 +1227,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Deploy an account. This endpoint can be used to deploy an account that was counterfactually generated.
+        /// Deploy an account. This endpoint can be used to deploy a smart contract account that was counterfactually generated.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique account ID (starts with acc_).</param>
@@ -1426,7 +1426,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1442,7 +1442,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1511,7 +1511,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
@@ -1528,7 +1528,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List accounts of a player. Returns a list of accounts for the given player.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
+        /// List accounts of a player. Returns a list of accounts for the given player.  This object represents a player&#39;s account, which is a blockchain smart account that can be used to interact with the blockchain.  The accounts are returned sorted by creation date, with the most recently created accounts appearing first.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">Specifies the unique player ID (starts with pla_)</param>
