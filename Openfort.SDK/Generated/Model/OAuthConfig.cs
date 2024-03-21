@@ -37,6 +37,18 @@ namespace Openfort.SDK.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="OIDCAuthConfig" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of OIDCAuthConfig.</param>
+        public OAuthConfig(OIDCAuthConfig actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
         /// with the <see cref="AccelbyteOAuthConfig" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of AccelbyteOAuthConfig.</param>
@@ -85,6 +97,18 @@ namespace Openfort.SDK.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="CustomAuthConfig" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of CustomAuthConfig.</param>
+        public OAuthConfig(CustomAuthConfig actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
         /// with the <see cref="LootLockerOAuthConfig" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LootLockerOAuthConfig.</param>
@@ -113,6 +137,10 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(CustomAuthConfig))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(FirebaseOAuthConfig))
                 {
                     this._actualInstance = value;
@@ -125,15 +153,29 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(OIDCAuthConfig))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(PlayFabOAuthConfig))
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, PlayFabOAuthConfig");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, CustomAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, OIDCAuthConfig, PlayFabOAuthConfig");
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `OIDCAuthConfig`. If the actual instance is not `OIDCAuthConfig`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of OIDCAuthConfig</returns>
+        public OIDCAuthConfig GetOIDCAuthConfig()
+        {
+            return (OIDCAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
@@ -174,6 +216,16 @@ namespace Openfort.SDK.Model
         public FirebaseOAuthConfig GetFirebaseOAuthConfig()
         {
             return (FirebaseOAuthConfig)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `CustomAuthConfig`. If the actual instance is not `CustomAuthConfig`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of CustomAuthConfig</returns>
+        public CustomAuthConfig GetCustomAuthConfig()
+        {
+            return (CustomAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
@@ -236,6 +288,18 @@ namespace Openfort.SDK.Model
 
             try
             {
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<CustomAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newOAuthConfig;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into CustomAuthConfig: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
                 newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<FirebaseOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newOAuthConfig;
@@ -268,6 +332,18 @@ namespace Openfort.SDK.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LootLockerOAuthConfig: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<OIDCAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newOAuthConfig;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into OIDCAuthConfig: {1}", jsonString, exception.ToString()));
             }
 
             try

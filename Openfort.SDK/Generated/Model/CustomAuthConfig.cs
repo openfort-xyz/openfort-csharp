@@ -28,45 +28,40 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Google oauth configuration
+    /// CustomAuthConfig
     /// </summary>
-    [DataContract(Name = "GoogleOAuthConfig")]
-    public partial class GoogleOAuthConfig : IEquatable<GoogleOAuthConfig>, IValidatableObject
+    [DataContract(Name = "CustomAuthConfig")]
+    public partial class CustomAuthConfig : IEquatable<CustomAuthConfig>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderGOOGLE Provider { get; set; }
+        public OAuthProviderCUSTOM Provider { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CustomAuthConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GoogleOAuthConfig() { }
+        protected CustomAuthConfig() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CustomAuthConfig" /> class.
         /// </summary>
         /// <param name="enabled">Enable OAuth provider. (required).</param>
         /// <param name="provider">provider (required).</param>
-        /// <param name="clientId">Google API client ID. (required).</param>
-        /// <param name="clientSecret">Google API client secret. (required).</param>
-        public GoogleOAuthConfig(bool enabled = default(bool), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE), string clientId = default(string), string clientSecret = default(string))
+        /// <param name="headers">Headers to send with the request.</param>
+        /// <param name="authenticationUrl">URL to send the request to to verify the payload (required).</param>
+        public CustomAuthConfig(bool enabled = default(bool), OAuthProviderCUSTOM provider = default(OAuthProviderCUSTOM), string headers = default(string), string authenticationUrl = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;
-            // to ensure "clientId" is required (not null)
-            if (clientId == null)
+            // to ensure "authenticationUrl" is required (not null)
+            if (authenticationUrl == null)
             {
-                throw new ArgumentNullException("clientId is a required property for GoogleOAuthConfig and cannot be null");
+                throw new ArgumentNullException("authenticationUrl is a required property for CustomAuthConfig and cannot be null");
             }
-            this.ClientId = clientId;
-            // to ensure "clientSecret" is required (not null)
-            if (clientSecret == null)
-            {
-                throw new ArgumentNullException("clientSecret is a required property for GoogleOAuthConfig and cannot be null");
-            }
-            this.ClientSecret = clientSecret;
+            this.AuthenticationUrl = authenticationUrl;
+            this.Headers = headers;
         }
 
         /// <summary>
@@ -77,18 +72,18 @@ namespace Openfort.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Google API client ID.
+        /// Headers to send with the request
         /// </summary>
-        /// <value>Google API client ID.</value>
-        [DataMember(Name = "clientId", IsRequired = true, EmitDefaultValue = true)]
-        public string ClientId { get; set; }
+        /// <value>Headers to send with the request</value>
+        [DataMember(Name = "headers", EmitDefaultValue = false)]
+        public string Headers { get; set; }
 
         /// <summary>
-        /// Google API client secret.
+        /// URL to send the request to to verify the payload
         /// </summary>
-        /// <value>Google API client secret.</value>
-        [DataMember(Name = "clientSecret", IsRequired = true, EmitDefaultValue = true)]
-        public string ClientSecret { get; set; }
+        /// <value>URL to send the request to to verify the payload</value>
+        [DataMember(Name = "authenticationUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string AuthenticationUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,11 +92,11 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GoogleOAuthConfig {\n");
+            sb.Append("class CustomAuthConfig {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
-            sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
+            sb.Append("  Headers: ").Append(Headers).Append("\n");
+            sb.Append("  AuthenticationUrl: ").Append(AuthenticationUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,15 +117,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GoogleOAuthConfig);
+            return this.Equals(input as CustomAuthConfig);
         }
 
         /// <summary>
-        /// Returns true if GoogleOAuthConfig instances are equal
+        /// Returns true if CustomAuthConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of GoogleOAuthConfig to be compared</param>
+        /// <param name="input">Instance of CustomAuthConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GoogleOAuthConfig input)
+        public bool Equals(CustomAuthConfig input)
         {
             if (input == null)
             {
@@ -146,14 +141,14 @@ namespace Openfort.SDK.Model
                     this.Provider.Equals(input.Provider)
                 ) && 
                 (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
+                    this.Headers == input.Headers ||
+                    (this.Headers != null &&
+                    this.Headers.Equals(input.Headers))
                 ) && 
                 (
-                    this.ClientSecret == input.ClientSecret ||
-                    (this.ClientSecret != null &&
-                    this.ClientSecret.Equals(input.ClientSecret))
+                    this.AuthenticationUrl == input.AuthenticationUrl ||
+                    (this.AuthenticationUrl != null &&
+                    this.AuthenticationUrl.Equals(input.AuthenticationUrl))
                 );
         }
 
@@ -168,13 +163,13 @@ namespace Openfort.SDK.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.ClientId != null)
+                if (this.Headers != null)
                 {
-                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Headers.GetHashCode();
                 }
-                if (this.ClientSecret != null)
+                if (this.AuthenticationUrl != null)
                 {
-                    hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AuthenticationUrl.GetHashCode();
                 }
                 return hashCode;
             }

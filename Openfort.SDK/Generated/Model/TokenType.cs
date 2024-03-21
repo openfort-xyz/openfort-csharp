@@ -32,49 +32,19 @@ namespace Openfort.SDK.Model
     /// </summary>
     /// <value>Enum of the supporting OAuth providers.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum OAuthProvider
+    public enum TokenType
     {
         /// <summary>
-        /// Enum Accelbyte for value: accelbyte
+        /// Enum IdToken for value: idToken
         /// </summary>
-        [EnumMember(Value = "accelbyte")]
-        Accelbyte = 1,
+        [EnumMember(Value = "idToken")]
+        IdToken = 1,
 
         /// <summary>
-        /// Enum Firebase for value: firebase
+        /// Enum CustomToken for value: customToken
         /// </summary>
-        [EnumMember(Value = "firebase")]
-        Firebase = 2,
-
-        /// <summary>
-        /// Enum Google for value: google
-        /// </summary>
-        [EnumMember(Value = "google")]
-        Google = 3,
-
-        /// <summary>
-        /// Enum Lootlocker for value: lootlocker
-        /// </summary>
-        [EnumMember(Value = "lootlocker")]
-        Lootlocker = 4,
-
-        /// <summary>
-        /// Enum Playfab for value: playfab
-        /// </summary>
-        [EnumMember(Value = "playfab")]
-        Playfab = 5,
-
-        /// <summary>
-        /// Enum Custom for value: custom
-        /// </summary>
-        [EnumMember(Value = "custom")]
-        Custom = 6,
-
-        /// <summary>
-        /// Enum Oidc for value: oidc
-        /// </summary>
-        [EnumMember(Value = "oidc")]
-        Oidc = 7
+        [EnumMember(Value = "customToken")]
+        CustomToken = 2
 
     }
 

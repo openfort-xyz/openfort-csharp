@@ -28,45 +28,42 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Google oauth configuration
+    /// OIDCAuthConfig
     /// </summary>
-    [DataContract(Name = "GoogleOAuthConfig")]
-    public partial class GoogleOAuthConfig : IEquatable<GoogleOAuthConfig>, IValidatableObject
+    [DataContract(Name = "OIDCAuthConfig")]
+    public partial class OIDCAuthConfig : IEquatable<OIDCAuthConfig>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderGOOGLE Provider { get; set; }
+        public OAuthProviderOIDC Provider { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="OIDCAuthConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GoogleOAuthConfig() { }
+        protected OIDCAuthConfig() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="OIDCAuthConfig" /> class.
         /// </summary>
         /// <param name="enabled">Enable OAuth provider. (required).</param>
         /// <param name="provider">provider (required).</param>
-        /// <param name="clientId">Google API client ID. (required).</param>
-        /// <param name="clientSecret">Google API client secret. (required).</param>
-        public GoogleOAuthConfig(bool enabled = default(bool), OAuthProviderGOOGLE provider = default(OAuthProviderGOOGLE), string clientId = default(string), string clientSecret = default(string))
+        /// <param name="publicVerificationKey">PEM encoded public key to verify the JWT token.</param>
+        /// <param name="aud">Audience of the JWT token (required).</param>
+        /// <param name="jwksUrl">JWKS URL to fetch the public key.</param>
+        public OIDCAuthConfig(bool enabled = default(bool), OAuthProviderOIDC provider = default(OAuthProviderOIDC), string publicVerificationKey = default(string), string aud = default(string), string jwksUrl = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;
-            // to ensure "clientId" is required (not null)
-            if (clientId == null)
+            // to ensure "aud" is required (not null)
+            if (aud == null)
             {
-                throw new ArgumentNullException("clientId is a required property for GoogleOAuthConfig and cannot be null");
+                throw new ArgumentNullException("aud is a required property for OIDCAuthConfig and cannot be null");
             }
-            this.ClientId = clientId;
-            // to ensure "clientSecret" is required (not null)
-            if (clientSecret == null)
-            {
-                throw new ArgumentNullException("clientSecret is a required property for GoogleOAuthConfig and cannot be null");
-            }
-            this.ClientSecret = clientSecret;
+            this.Aud = aud;
+            this.PublicVerificationKey = publicVerificationKey;
+            this.JwksUrl = jwksUrl;
         }
 
         /// <summary>
@@ -77,18 +74,25 @@ namespace Openfort.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Google API client ID.
+        /// PEM encoded public key to verify the JWT token
         /// </summary>
-        /// <value>Google API client ID.</value>
-        [DataMember(Name = "clientId", IsRequired = true, EmitDefaultValue = true)]
-        public string ClientId { get; set; }
+        /// <value>PEM encoded public key to verify the JWT token</value>
+        [DataMember(Name = "publicVerificationKey", EmitDefaultValue = false)]
+        public string PublicVerificationKey { get; set; }
 
         /// <summary>
-        /// Google API client secret.
+        /// Audience of the JWT token
         /// </summary>
-        /// <value>Google API client secret.</value>
-        [DataMember(Name = "clientSecret", IsRequired = true, EmitDefaultValue = true)]
-        public string ClientSecret { get; set; }
+        /// <value>Audience of the JWT token</value>
+        [DataMember(Name = "aud", IsRequired = true, EmitDefaultValue = true)]
+        public string Aud { get; set; }
+
+        /// <summary>
+        /// JWKS URL to fetch the public key
+        /// </summary>
+        /// <value>JWKS URL to fetch the public key</value>
+        [DataMember(Name = "jwksUrl", EmitDefaultValue = false)]
+        public string JwksUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,11 +101,12 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GoogleOAuthConfig {\n");
+            sb.Append("class OIDCAuthConfig {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
-            sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
+            sb.Append("  PublicVerificationKey: ").Append(PublicVerificationKey).Append("\n");
+            sb.Append("  Aud: ").Append(Aud).Append("\n");
+            sb.Append("  JwksUrl: ").Append(JwksUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,15 +127,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GoogleOAuthConfig);
+            return this.Equals(input as OIDCAuthConfig);
         }
 
         /// <summary>
-        /// Returns true if GoogleOAuthConfig instances are equal
+        /// Returns true if OIDCAuthConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of GoogleOAuthConfig to be compared</param>
+        /// <param name="input">Instance of OIDCAuthConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GoogleOAuthConfig input)
+        public bool Equals(OIDCAuthConfig input)
         {
             if (input == null)
             {
@@ -146,14 +151,19 @@ namespace Openfort.SDK.Model
                     this.Provider.Equals(input.Provider)
                 ) && 
                 (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
+                    this.PublicVerificationKey == input.PublicVerificationKey ||
+                    (this.PublicVerificationKey != null &&
+                    this.PublicVerificationKey.Equals(input.PublicVerificationKey))
                 ) && 
                 (
-                    this.ClientSecret == input.ClientSecret ||
-                    (this.ClientSecret != null &&
-                    this.ClientSecret.Equals(input.ClientSecret))
+                    this.Aud == input.Aud ||
+                    (this.Aud != null &&
+                    this.Aud.Equals(input.Aud))
+                ) && 
+                (
+                    this.JwksUrl == input.JwksUrl ||
+                    (this.JwksUrl != null &&
+                    this.JwksUrl.Equals(input.JwksUrl))
                 );
         }
 
@@ -168,13 +178,17 @@ namespace Openfort.SDK.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.ClientId != null)
+                if (this.PublicVerificationKey != null)
                 {
-                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PublicVerificationKey.GetHashCode();
                 }
-                if (this.ClientSecret != null)
+                if (this.Aud != null)
                 {
-                    hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Aud.GetHashCode();
+                }
+                if (this.JwksUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.JwksUrl.GetHashCode();
                 }
                 return hashCode;
             }

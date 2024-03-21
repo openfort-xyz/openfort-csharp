@@ -41,10 +41,10 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignupRequest" /> class.
         /// </summary>
-        /// <param name="email">The email address of the user. (required).</param>
-        /// <param name="password">The password of the user. (required).</param>
-        /// <param name="name">The name of the user. (required).</param>
-        /// <param name="description">The description of the user..</param>
+        /// <param name="email">The email address of the player. (required).</param>
+        /// <param name="password">The password of the player. (required).</param>
+        /// <param name="name">The name of the player..</param>
+        /// <param name="description">The description of the player..</param>
         public SignupRequest(string email = default(string), string password = default(string), string name = default(string), string description = default(string))
         {
             // to ensure "email" is required (not null)
@@ -59,43 +59,38 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("password is a required property for SignupRequest and cannot be null");
             }
             this.Password = password;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for SignupRequest and cannot be null");
-            }
             this.Name = name;
             this.Description = description;
         }
 
         /// <summary>
-        /// The email address of the user.
+        /// The email address of the player.
         /// </summary>
-        /// <value>The email address of the user.</value>
+        /// <value>The email address of the player.</value>
         /// <example>&quot;user@email.com&quot;</example>
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The password of the user.
+        /// The password of the player.
         /// </summary>
-        /// <value>The password of the user.</value>
+        /// <value>The password of the player.</value>
         /// <example>&quot;password&quot;</example>
         [DataMember(Name = "password", IsRequired = true, EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
-        /// The name of the user.
+        /// The name of the player.
         /// </summary>
-        /// <value>The name of the user.</value>
+        /// <value>The name of the player.</value>
         /// <example>&quot;John Doe&quot;</example>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of the user.
+        /// The description of the player.
         /// </summary>
-        /// <value>The description of the user.</value>
+        /// <value>The description of the player.</value>
         /// <example>&quot;I&#39;m a developer.&quot;</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }

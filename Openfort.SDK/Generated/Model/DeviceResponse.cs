@@ -50,8 +50,8 @@ namespace Openfort.SDK.Model
         /// <param name="id">id (required).</param>
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="accountID">accountID (required).</param>
-        public DeviceResponse(string id = default(string), EntityTypeDEVICE _object = default(EntityTypeDEVICE), int createdAt = default(int), string accountID = default(string))
+        /// <param name="account">account (required).</param>
+        public DeviceResponse(string id = default(string), EntityTypeDEVICE _object = default(EntityTypeDEVICE), int createdAt = default(int), string account = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -61,12 +61,12 @@ namespace Openfort.SDK.Model
             this.Id = id;
             this.Object = _object;
             this.CreatedAt = createdAt;
-            // to ensure "accountID" is required (not null)
-            if (accountID == null)
+            // to ensure "account" is required (not null)
+            if (account == null)
             {
-                throw new ArgumentNullException("accountID is a required property for DeviceResponse and cannot be null");
+                throw new ArgumentNullException("account is a required property for DeviceResponse and cannot be null");
             }
-            this.AccountID = accountID;
+            this.Account = account;
         }
 
         /// <summary>
@@ -82,10 +82,10 @@ namespace Openfort.SDK.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountID
+        /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name = "accountID", IsRequired = true, EmitDefaultValue = true)]
-        public string AccountID { get; set; }
+        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
+        public string Account { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,7 +98,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  AccountID: ").Append(AccountID).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,9 +148,9 @@ namespace Openfort.SDK.Model
                     this.CreatedAt.Equals(input.CreatedAt)
                 ) && 
                 (
-                    this.AccountID == input.AccountID ||
-                    (this.AccountID != null &&
-                    this.AccountID.Equals(input.AccountID))
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 );
         }
 
@@ -169,9 +169,9 @@ namespace Openfort.SDK.Model
                 }
                 hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.AccountID != null)
+                if (this.Account != null)
                 {
-                    hashCode = (hashCode * 59) + this.AccountID.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
                 }
                 return hashCode;
             }

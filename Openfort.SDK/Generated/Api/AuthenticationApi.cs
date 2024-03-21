@@ -115,8 +115,8 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
-        /// <returns>GetSigninUrlResponse</returns>
-        GetSigninUrlResponse InitOAuth(OAuthInitRequest oAuthInitRequest);
+        /// <returns>OAuthResponse</returns>
+        OAuthResponse InitOAuth(OAuthInitRequest oAuthInitRequest);
 
         /// <summary>
         /// Initialize OAuth.
@@ -126,8 +126,8 @@ namespace Openfort.SDK.Api
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
-        /// <returns>ApiResponse of GetSigninUrlResponse</returns>
-        ApiResponse<GetSigninUrlResponse> InitOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest);
+        /// <returns>ApiResponse of OAuthResponse</returns>
+        ApiResponse<OAuthResponse> InitOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest);
         /// <summary>
         /// Initialize SIWE.
         /// </summary>
@@ -255,9 +255,9 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <returns>AuthPlayerResponse</returns>
-        AuthPlayerResponse UnlinkOAuth(LinkRequest linkRequest);
+        AuthPlayerResponse UnlinkOAuth(UnlinkRequest unlinkRequest);
 
         /// <summary>
         /// Unlink OAuth account
@@ -266,9 +266,9 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
-        ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(LinkRequest linkRequest);
+        ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkRequest unlinkRequest);
         /// <summary>
         /// Unlink external wallet.
         /// </summary>
@@ -447,8 +447,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSigninUrlResponse</returns>
-        System.Threading.Tasks.Task<GetSigninUrlResponse> InitOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of OAuthResponse</returns>
+        System.Threading.Tasks.Task<OAuthResponse> InitOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Initialize OAuth.
@@ -459,8 +459,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSigninUrlResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSigninUrlResponse>> InitOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (OAuthResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OAuthResponse>> InitOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Initialize SIWE.
         /// </summary>
@@ -606,10 +606,10 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerResponse</returns>
-        System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(LinkRequest linkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Unlink OAuth account
@@ -618,10 +618,10 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(LinkRequest linkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unlink external wallet.
         /// </summary>
@@ -1437,10 +1437,10 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
-        /// <returns>GetSigninUrlResponse</returns>
-        public GetSigninUrlResponse InitOAuth(OAuthInitRequest oAuthInitRequest)
+        /// <returns>OAuthResponse</returns>
+        public OAuthResponse InitOAuth(OAuthInitRequest oAuthInitRequest)
         {
-            Openfort.SDK.Client.ApiResponse<GetSigninUrlResponse> localVarResponse = InitOAuthWithHttpInfo(oAuthInitRequest);
+            Openfort.SDK.Client.ApiResponse<OAuthResponse> localVarResponse = InitOAuthWithHttpInfo(oAuthInitRequest);
             return localVarResponse.Data;
         }
 
@@ -1449,8 +1449,8 @@ namespace Openfort.SDK.Api
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
-        /// <returns>ApiResponse of GetSigninUrlResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<GetSigninUrlResponse> InitOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest)
+        /// <returns>ApiResponse of OAuthResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<OAuthResponse> InitOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest)
         {
             // verify the required parameter 'oAuthInitRequest' is set
             if (oAuthInitRequest == null)
@@ -1483,7 +1483,7 @@ namespace Openfort.SDK.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GetSigninUrlResponse>("/iam/v1/oauth/init", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<OAuthResponse>("/iam/v1/oauth/init", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1500,10 +1500,10 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetSigninUrlResponse</returns>
-        public async System.Threading.Tasks.Task<GetSigninUrlResponse> InitOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of OAuthResponse</returns>
+        public async System.Threading.Tasks.Task<OAuthResponse> InitOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<GetSigninUrlResponse> localVarResponse = await InitOAuthWithHttpInfoAsync(oAuthInitRequest, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<OAuthResponse> localVarResponse = await InitOAuthWithHttpInfoAsync(oAuthInitRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1513,8 +1513,8 @@ namespace Openfort.SDK.Api
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="oAuthInitRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetSigninUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<GetSigninUrlResponse>> InitOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (OAuthResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<OAuthResponse>> InitOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'oAuthInitRequest' is set
             if (oAuthInitRequest == null)
@@ -1550,7 +1550,7 @@ namespace Openfort.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GetSigninUrlResponse>("/iam/v1/oauth/init", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthResponse>("/iam/v1/oauth/init", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2299,11 +2299,11 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <returns>AuthPlayerResponse</returns>
-        public AuthPlayerResponse UnlinkOAuth(LinkRequest linkRequest)
+        public AuthPlayerResponse UnlinkOAuth(UnlinkRequest unlinkRequest)
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = UnlinkOAuthWithHttpInfo(linkRequest);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = UnlinkOAuthWithHttpInfo(unlinkRequest);
             return localVarResponse.Data;
         }
 
@@ -2311,13 +2311,13 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(LinkRequest linkRequest)
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkRequest unlinkRequest)
         {
-            // verify the required parameter 'linkRequest' is set
-            if (linkRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'linkRequest' when calling AuthenticationApi->UnlinkOAuth");
+            // verify the required parameter 'unlinkRequest' is set
+            if (unlinkRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkRequest' when calling AuthenticationApi->UnlinkOAuth");
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -2336,7 +2336,7 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = linkRequest;
+            localVarRequestOptions.Data = unlinkRequest;
 
 
             // make the HTTP request
@@ -2355,12 +2355,12 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerResponse</returns>
-        public async System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(LinkRequest linkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await UnlinkOAuthWithHttpInfoAsync(linkRequest, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await UnlinkOAuthWithHttpInfoAsync(unlinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2368,14 +2368,14 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="linkRequest"></param>
+        /// <param name="unlinkRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(LinkRequest linkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'linkRequest' is set
-            if (linkRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'linkRequest' when calling AuthenticationApi->UnlinkOAuth");
+            // verify the required parameter 'unlinkRequest' is set
+            if (unlinkRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkRequest' when calling AuthenticationApi->UnlinkOAuth");
 
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -2396,7 +2396,7 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = linkRequest;
+            localVarRequestOptions.Data = unlinkRequest;
 
 
             // make the HTTP request
