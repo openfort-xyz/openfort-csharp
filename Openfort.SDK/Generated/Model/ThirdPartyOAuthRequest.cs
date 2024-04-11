@@ -28,52 +28,53 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// CreateDeviceRequest
+    /// ThirdPartyOAuthRequest
     /// </summary>
-    [DataContract(Name = "CreateDeviceRequest")]
-    public partial class CreateDeviceRequest : IEquatable<CreateDeviceRequest>, IValidatableObject
+    [DataContract(Name = "ThirdPartyOAuthRequest")]
+    public partial class ThirdPartyOAuthRequest : IEquatable<ThirdPartyOAuthRequest>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateDeviceRequest" /> class.
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
+        public ThirdPartyOAuthProvider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenType
+        /// </summary>
+        [DataMember(Name = "tokenType", IsRequired = true, EmitDefaultValue = true)]
+        public TokenType TokenType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ThirdPartyOAuthRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateDeviceRequest() { }
+        protected ThirdPartyOAuthRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateDeviceRequest" /> class.
+        /// Initializes a new instance of the <see cref="ThirdPartyOAuthRequest" /> class.
         /// </summary>
-        /// <param name="account">Specifies the unique account ID (starts with acc_) (required).</param>
-        /// <param name="share">Specifies the share data (required).</param>
-        public CreateDeviceRequest(string account = default(string), string share = default(string))
+        /// <param name="provider">provider (required).</param>
+        /// <param name="token">Token to be verified (required).</param>
+        /// <param name="tokenType">tokenType (required).</param>
+        public ThirdPartyOAuthRequest(ThirdPartyOAuthProvider provider = default(ThirdPartyOAuthProvider), string token = default(string), TokenType tokenType = default(TokenType))
         {
-            // to ensure "account" is required (not null)
-            if (account == null)
+            this.Provider = provider;
+            // to ensure "token" is required (not null)
+            if (token == null)
             {
-                throw new ArgumentNullException("account is a required property for CreateDeviceRequest and cannot be null");
+                throw new ArgumentNullException("token is a required property for ThirdPartyOAuthRequest and cannot be null");
             }
-            this.Account = account;
-            // to ensure "share" is required (not null)
-            if (share == null)
-            {
-                throw new ArgumentNullException("share is a required property for CreateDeviceRequest and cannot be null");
-            }
-            this.Share = share;
+            this.Token = token;
+            this.TokenType = tokenType;
         }
 
         /// <summary>
-        /// Specifies the unique account ID (starts with acc_)
+        /// Token to be verified
         /// </summary>
-        /// <value>Specifies the unique account ID (starts with acc_)</value>
-        /// <example>&quot;acc_6f6c9067-89fa-4fc8-ac72-c242a268c584&quot;</example>
-        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
-        public string Account { get; set; }
-
-        /// <summary>
-        /// Specifies the share data
-        /// </summary>
-        /// <value>Specifies the share data</value>
-        /// <example>&quot;7d526b7e99fbf52850a183...&quot;</example>
-        [DataMember(Name = "share", IsRequired = true, EmitDefaultValue = true)]
-        public string Share { get; set; }
+        /// <value>Token to be verified</value>
+        /// <example>&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</example>
+        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
+        public string Token { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,9 +83,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateDeviceRequest {\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  Share: ").Append(Share).Append("\n");
+            sb.Append("class ThirdPartyOAuthRequest {\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  Token: ").Append(Token).Append("\n");
+            sb.Append("  TokenType: ").Append(TokenType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,15 +107,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateDeviceRequest);
+            return this.Equals(input as ThirdPartyOAuthRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateDeviceRequest instances are equal
+        /// Returns true if ThirdPartyOAuthRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateDeviceRequest to be compared</param>
+        /// <param name="input">Instance of ThirdPartyOAuthRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateDeviceRequest input)
+        public bool Equals(ThirdPartyOAuthRequest input)
         {
             if (input == null)
             {
@@ -121,14 +123,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
+                    this.Provider == input.Provider ||
+                    this.Provider.Equals(input.Provider)
                 ) && 
                 (
-                    this.Share == input.Share ||
-                    (this.Share != null &&
-                    this.Share.Equals(input.Share))
+                    this.Token == input.Token ||
+                    (this.Token != null &&
+                    this.Token.Equals(input.Token))
+                ) && 
+                (
+                    this.TokenType == input.TokenType ||
+                    this.TokenType.Equals(input.TokenType)
                 );
         }
 
@@ -141,14 +146,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Account != null)
+                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                if (this.Token != null)
                 {
-                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
-                if (this.Share != null)
-                {
-                    hashCode = (hashCode * 59) + this.Share.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.TokenType.GetHashCode();
                 return hashCode;
             }
         }

@@ -37,6 +37,18 @@ namespace Openfort.SDK.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="SupabaseAuthConfig" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of SupabaseAuthConfig.</param>
+        public OAuthConfig(SupabaseAuthConfig actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
         /// with the <see cref="OIDCAuthConfig" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of OIDCAuthConfig.</param>
@@ -161,11 +173,25 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(SupabaseAuthConfig))
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, CustomAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, OIDCAuthConfig, PlayFabOAuthConfig");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, CustomAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, OIDCAuthConfig, PlayFabOAuthConfig, SupabaseAuthConfig");
                 }
             }
+        }
+
+        /// <summary>
+        /// Get the actual instance of `SupabaseAuthConfig`. If the actual instance is not `SupabaseAuthConfig`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of SupabaseAuthConfig</returns>
+        public SupabaseAuthConfig GetSupabaseAuthConfig()
+        {
+            return (SupabaseAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
@@ -356,6 +382,18 @@ namespace Openfort.SDK.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PlayFabOAuthConfig: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<SupabaseAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newOAuthConfig;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SupabaseAuthConfig: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception

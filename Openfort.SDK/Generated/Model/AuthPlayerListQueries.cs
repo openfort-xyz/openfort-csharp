@@ -46,12 +46,14 @@ namespace Openfort.SDK.Model
         /// <param name="skip">Specifies the offset for the first records to return..</param>
         /// <param name="order">order.</param>
         /// <param name="email">Specifies the email address of the user..</param>
-        public AuthPlayerListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), string email = default(string))
+        /// <param name="externalUserId">Specifies the external user ID..</param>
+        public AuthPlayerListQueries(int limit = default(int), int skip = default(int), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string))
         {
             this.Limit = limit;
             this.Skip = skip;
             this.Order = order;
             this.Email = email;
+            this.ExternalUserId = externalUserId;
         }
 
         /// <summary>
@@ -77,6 +79,14 @@ namespace Openfort.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// Specifies the external user ID.
+        /// </summary>
+        /// <value>Specifies the external user ID.</value>
+        /// <example>&quot;externalUserId&quot;</example>
+        [DataMember(Name = "externalUserId", EmitDefaultValue = false)]
+        public string ExternalUserId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +98,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Skip: ").Append(Skip).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  ExternalUserId: ").Append(ExternalUserId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +150,11 @@ namespace Openfort.SDK.Model
                     this.Email == input.Email ||
                     (this.Email != null &&
                     this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.ExternalUserId == input.ExternalUserId ||
+                    (this.ExternalUserId != null &&
+                    this.ExternalUserId.Equals(input.ExternalUserId))
                 );
         }
 
@@ -157,6 +173,10 @@ namespace Openfort.SDK.Model
                 if (this.Email != null)
                 {
                     hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
+                if (this.ExternalUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExternalUserId.GetHashCode();
                 }
                 return hashCode;
             }

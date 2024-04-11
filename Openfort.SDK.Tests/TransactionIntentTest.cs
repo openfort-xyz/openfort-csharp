@@ -13,7 +13,7 @@ public class TransactionIntentTest
         var playerRequest = new PlayerCreateRequest("test");
         var playerResponse = await client.Players.Create(playerRequest);
         var chainId = 80001;
-        await client.Players.CreateAccount(new PlayerCreateAccountRequest(playerResponse.Id, chainId, "0xDC91aDF855306A44F4041625328abEAB3887b3b8"));
+        await client.Accounts.Create(new CreateAccountRequest(chainId, "0xDC91aDF855306A44F4041625328abEAB3887b3b8", playerResponse.Id));
 
         var contractRequest = new CreateContractRequest("test", chainId, "0x38090d1636069c0ff1af6bc1737fb996b7f63ac0");
         var contractResponse = await client.Contracts.Create(contractRequest);
@@ -31,8 +31,8 @@ public class TransactionIntentTest
         };
 
         var transactionIntentRequest = new CreateTransactionIntentRequest(
-            playerResponse.Id,
             chainId,
+            playerResponse.Id,
             policyResponse.Id,
             interactions: interactions
         );

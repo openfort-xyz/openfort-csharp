@@ -51,7 +51,9 @@ namespace Openfort.SDK.Model
         /// <param name="_object">_object (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="account">account (required).</param>
-        public DeviceResponse(string id = default(string), EntityTypeDEVICE _object = default(EntityTypeDEVICE), int createdAt = default(int), string account = default(string))
+        /// <param name="share">share (required).</param>
+        /// <param name="isPrimary">isPrimary (required).</param>
+        public DeviceResponse(string id = default(string), EntityTypeDEVICE _object = default(EntityTypeDEVICE), int createdAt = default(int), string account = default(string), string share = default(string), bool isPrimary = default(bool))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -67,6 +69,13 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("account is a required property for DeviceResponse and cannot be null");
             }
             this.Account = account;
+            // to ensure "share" is required (not null)
+            if (share == null)
+            {
+                throw new ArgumentNullException("share is a required property for DeviceResponse and cannot be null");
+            }
+            this.Share = share;
+            this.IsPrimary = isPrimary;
         }
 
         /// <summary>
@@ -88,6 +97,18 @@ namespace Openfort.SDK.Model
         public string Account { get; set; }
 
         /// <summary>
+        /// Gets or Sets Share
+        /// </summary>
+        [DataMember(Name = "share", IsRequired = true, EmitDefaultValue = true)]
+        public string Share { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsPrimary
+        /// </summary>
+        [DataMember(Name = "isPrimary", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +120,8 @@ namespace Openfort.SDK.Model
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("  Share: ").Append(Share).Append("\n");
+            sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +174,15 @@ namespace Openfort.SDK.Model
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
+                ) && 
+                (
+                    this.Share == input.Share ||
+                    (this.Share != null &&
+                    this.Share.Equals(input.Share))
+                ) && 
+                (
+                    this.IsPrimary == input.IsPrimary ||
+                    this.IsPrimary.Equals(input.IsPrimary)
                 );
         }
 
@@ -173,6 +205,11 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Account.GetHashCode();
                 }
+                if (this.Share != null)
+                {
+                    hashCode = (hashCode * 59) + this.Share.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPrimary.GetHashCode();
                 return hashCode;
             }
         }

@@ -55,7 +55,7 @@ namespace Openfort.SDK.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="transactionIntents">transactionIntents.</param>
         /// <param name="accounts">accounts.</param>
-        public PlayerResponse(string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), string name = default(string), string description = default(string), Dictionary<string, PlayerMetadataValue> metadata = default(Dictionary<string, PlayerMetadataValue>), List<PlayerResponseTransactionIntentsInner> transactionIntents = default(List<PlayerResponseTransactionIntentsInner>), List<PlayerResponseAccountsInner> accounts = default(List<PlayerResponseAccountsInner>))
+        public PlayerResponse(string id = default(string), EntityTypePLAYER _object = default(EntityTypePLAYER), int createdAt = default(int), string name = default(string), string description = default(string), Dictionary<string, object> metadata = default(Dictionary<string, object>), List<PlayerResponseTransactionIntentsInner> transactionIntents = default(List<PlayerResponseTransactionIntentsInner>), List<PlayerResponseAccountsInner> accounts = default(List<PlayerResponseAccountsInner>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -105,7 +105,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, PlayerMetadataValue> Metadata { get; set; }
+        public Dictionary<string, object> Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionIntents
@@ -169,42 +169,42 @@ namespace Openfort.SDK.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
+                ) &&
                 (
                     this.Object == input.Object ||
                     this.Object.Equals(input.Object)
-                ) && 
+                ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
                     this.CreatedAt.Equals(input.CreatedAt)
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
                     this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
+                ) &&
                 (
                     this.TransactionIntents == input.TransactionIntents ||
                     this.TransactionIntents != null &&
                     input.TransactionIntents != null &&
                     this.TransactionIntents.SequenceEqual(input.TransactionIntents)
-                ) && 
+                ) &&
                 (
                     this.Accounts == input.Accounts ||
                     this.Accounts != null &&

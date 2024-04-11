@@ -102,8 +102,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <returns>AuthPlayerListResponse</returns>
-        AuthPlayerListResponse GetAuthPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string));
+        AuthPlayerListResponse GetAuthPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string));
 
         /// <summary>
         /// List authenticated players.
@@ -116,8 +117,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <returns>ApiResponse of AuthPlayerListResponse</returns>
-        ApiResponse<AuthPlayerListResponse> GetAuthPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string));
+        ApiResponse<AuthPlayerListResponse> GetAuthPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string));
         /// <summary>
         /// Get oauth configuration.
         /// </summary>
@@ -314,9 +316,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerListResponse</returns>
-        System.Threading.Tasks.Task<AuthPlayerListResponse> GetAuthPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuthPlayerListResponse> GetAuthPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List authenticated players.
@@ -329,9 +332,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthPlayerListResponse>> GetAuthPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerListResponse>> GetAuthPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get oauth configuration.
         /// </summary>
@@ -1041,10 +1045,11 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <returns>AuthPlayerListResponse</returns>
-        public AuthPlayerListResponse GetAuthPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string))
+        public AuthPlayerListResponse GetAuthPlayers(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string))
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> localVarResponse = GetAuthPlayersWithHttpInfo(limit, skip, order, email);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> localVarResponse = GetAuthPlayersWithHttpInfo(limit, skip, order, email, externalUserId);
             return localVarResponse.Data;
         }
 
@@ -1056,8 +1061,9 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <returns>ApiResponse of AuthPlayerListResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> GetAuthPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string))
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> GetAuthPlayersWithHttpInfo(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string))
         {
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -1090,6 +1096,10 @@ namespace Openfort.SDK.Api
             if (email != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (externalUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "externalUserId", externalUserId));
             }
 
             // authentication (sk) required
@@ -1119,11 +1129,12 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerListResponse</returns>
-        public async System.Threading.Tasks.Task<AuthPlayerListResponse> GetAuthPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuthPlayerListResponse> GetAuthPlayersAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> localVarResponse = await GetAuthPlayersWithHttpInfoAsync(limit, skip, order, email, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse> localVarResponse = await GetAuthPlayersWithHttpInfoAsync(limit, skip, order, email, externalUserId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1135,9 +1146,10 @@ namespace Openfort.SDK.Api
         /// <param name="skip">Specifies the offset for the first records to return. (optional)</param>
         /// <param name="order">Specifies the order in which to sort the results. (optional)</param>
         /// <param name="email">Specifies the email address of the user. (optional)</param>
+        /// <param name="externalUserId">Specifies the external user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerListResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse>> GetAuthPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerListResponse>> GetAuthPlayersWithHttpInfoAsync(int? limit = default(int?), int? skip = default(int?), SortOrder? order = default(SortOrder?), string email = default(string), string externalUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -1172,6 +1184,10 @@ namespace Openfort.SDK.Api
             if (email != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (externalUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "externalUserId", externalUserId));
             }
 
             // authentication (sk) required

@@ -28,11 +28,11 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Enum of the supporting OAuth providers.
+    /// Enum of the supporting third party auth providers.
     /// </summary>
-    /// <value>Enum of the supporting OAuth providers.</value>
+    /// <value>Enum of the supporting third party auth providers.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum OAuthProvider
+    public enum ThirdPartyOAuthProvider
     {
         /// <summary>
         /// Enum Accelbyte for value: accelbyte
@@ -47,22 +47,22 @@ namespace Openfort.SDK.Model
         Firebase = 2,
 
         /// <summary>
-        /// Enum Google for value: google
-        /// </summary>
-        [EnumMember(Value = "google")]
-        Google = 3,
-
-        /// <summary>
         /// Enum Lootlocker for value: lootlocker
         /// </summary>
         [EnumMember(Value = "lootlocker")]
-        Lootlocker = 4,
+        Lootlocker = 3,
 
         /// <summary>
         /// Enum Playfab for value: playfab
         /// </summary>
         [EnumMember(Value = "playfab")]
-        Playfab = 5,
+        Playfab = 4,
+
+        /// <summary>
+        /// Enum Supabase for value: supabase
+        /// </summary>
+        [EnumMember(Value = "supabase")]
+        Supabase = 5,
 
         /// <summary>
         /// Enum Custom for value: custom
@@ -74,13 +74,7 @@ namespace Openfort.SDK.Model
         /// Enum Oidc for value: oidc
         /// </summary>
         [EnumMember(Value = "oidc")]
-        Oidc = 7,
-
-        /// <summary>
-        /// Enum Supabase for value: supabase
-        /// </summary>
-        [EnumMember(Value = "supabase")]
-        Supabase = 8
+        Oidc = 7
 
     }
 

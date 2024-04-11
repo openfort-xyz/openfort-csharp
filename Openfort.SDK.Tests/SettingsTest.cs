@@ -11,7 +11,8 @@ public class SettingsTest
     [TestMethod]
     public async Task GetDepositorAddresses()
     {
-        var response = await client.Settings.GetDepositorAddresses();
+
+        var response = await client.Settings.GetDeveloperAccounts();
 
         Assert.AreEqual(response.Data.Count, 0, "Depositor addresses were not retrieved");
     }
@@ -20,7 +21,7 @@ public class SettingsTest
     [ExpectedException(typeof(ApiException), "equest has invalid parameters. Invalid address: 'test'.")]
     public async Task AddDepositorAddress()
     {
-        var request = new PaymasterDepositorCreateRequest("test", "signature");
-        await client.Settings.AddDepositorAddress(request);
+        var request = new DeveloperAccountCreateRequest("test", "signature");
+        await client.Settings.CreateDeveloperAccount(request);
     }
 }

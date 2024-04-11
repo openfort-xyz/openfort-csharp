@@ -210,6 +210,22 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LogoutWithHttpInfo(LogoutRequest logoutRequest);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>AuthPlayerResponse</returns>
+        AuthPlayerResponse Me();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        ApiResponse<AuthPlayerResponse> MeWithHttpInfo();
+        /// <summary>
         /// Refresh or create auth session.
         /// </summary>
         /// <remarks>
@@ -251,6 +267,24 @@ namespace Openfort.SDK.Api
         /// <param name="signupRequest"></param>
         /// <returns>ApiResponse of AuthResponse</returns>
         ApiResponse<AuthResponse> SignupEmailPasswordWithHttpInfo(SignupRequest signupRequest);
+        /// <summary>
+        /// Verify oauth token of a third party auth provider.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        AuthPlayerResponse ThirdParty(ThirdPartyOAuthRequest thirdPartyOAuthRequest);
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        ApiResponse<AuthPlayerResponse> ThirdPartyWithHttpInfo(ThirdPartyOAuthRequest thirdPartyOAuthRequest);
         /// <summary>
         /// Unlink OAuth account
         /// </summary>
@@ -554,6 +588,27 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> LogoutWithHttpInfoAsync(LogoutRequest logoutRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        System.Threading.Tasks.Task<AuthPlayerResponse> MeAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> MeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Refresh or create auth session.
         /// </summary>
         /// <remarks>
@@ -599,6 +654,29 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthResponse>> SignupEmailPasswordWithHttpInfoAsync(SignupRequest signupRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Verify oauth token of a third party auth provider.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        System.Threading.Tasks.Task<AuthPlayerResponse> ThirdPartyAsync(ThirdPartyOAuthRequest thirdPartyOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> ThirdPartyWithHttpInfoAsync(ThirdPartyOAuthRequest thirdPartyOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unlink OAuth account
         /// </summary>
@@ -2050,6 +2128,107 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>AuthPlayerResponse</returns>
+        public AuthPlayerResponse Me()
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = MeWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> MeWithHttpInfo()
+        {
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AuthPlayerResponse>("/iam/v1/me", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Me", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> MeAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await MeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> MeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AuthPlayerResponse>("/iam/v1/me", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Me", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Refresh or create auth session. Get or create a new session for the player based on the refresh token.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2289,6 +2468,135 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SignupEmailPassword", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        public AuthPlayerResponse ThirdParty(ThirdPartyOAuthRequest thirdPartyOAuthRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = ThirdPartyWithHttpInfo(thirdPartyOAuthRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> ThirdPartyWithHttpInfo(ThirdPartyOAuthRequest thirdPartyOAuthRequest)
+        {
+            // verify the required parameter 'thirdPartyOAuthRequest' is set
+            if (thirdPartyOAuthRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'thirdPartyOAuthRequest' when calling AuthenticationApi->ThirdParty");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = thirdPartyOAuthRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AuthPlayerResponse>("/iam/v1/oauth/third_party", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThirdParty", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> ThirdPartyAsync(ThirdPartyOAuthRequest thirdPartyOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await ThirdPartyWithHttpInfoAsync(thirdPartyOAuthRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Verify oauth token of a third party auth provider. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="thirdPartyOAuthRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> ThirdPartyWithHttpInfoAsync(ThirdPartyOAuthRequest thirdPartyOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'thirdPartyOAuthRequest' is set
+            if (thirdPartyOAuthRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'thirdPartyOAuthRequest' when calling AuthenticationApi->ThirdParty");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = thirdPartyOAuthRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AuthPlayerResponse>("/iam/v1/oauth/third_party", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ThirdParty", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -38,7 +38,7 @@ public class PlayerTest
         var deleteResponse = await client.Players.Delete(response.Id);
         Assert.AreEqual(deleteResponse.Deleted, true, "Player was not deleted");
 
-        var getRequest = new PlayerGetRequest(response.Id);
+        var getRequest = new PlayerRequest(response.Id);
         await client.Players.Get(getRequest);
     }
 }
