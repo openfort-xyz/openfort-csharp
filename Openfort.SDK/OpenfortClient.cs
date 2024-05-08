@@ -188,14 +188,14 @@ namespace Openfort.SDK
         }
 
 
-        public APITopic? ConstructWebhookEvent(string body, string signature)
+        public WebHookEvent? ConstructWebhookEvent(string body, string signature)
         {
             var signedPayload = Sign(body);
             if (!string.Equals(signedPayload, signature, StringComparison.OrdinalIgnoreCase))
             {
                 throw new Exception("Invalid signature");
             }
-            return JsonConvert.DeserializeObject<APITopic>(body);
+            return JsonConvert.DeserializeObject<WebHookEvent>(body);
         }
 
         private byte[] signingKey;
