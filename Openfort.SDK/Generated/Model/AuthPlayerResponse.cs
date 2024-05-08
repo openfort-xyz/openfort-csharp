@@ -142,25 +142,25 @@ namespace Openfort.SDK.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Player == input.Player ||
                     (this.Player != null &&
                     this.Player.Equals(input.Player))
-                ) && 
+                ) &&
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
+                ) &&
                 (
                     this.Object == input.Object ||
                     this.Object.Equals(input.Object)
-                ) && 
+                ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
                     this.CreatedAt.Equals(input.CreatedAt)
-                ) && 
+                ) &&
                 (
                     this.LinkedAccounts == input.LinkedAccounts ||
                     this.LinkedAccounts != null &&
@@ -204,6 +204,11 @@ namespace Openfort.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
+        }
+
+        public static implicit operator AuthPlayerResponse(AuthPlayerResponseWithRecoveryShare v)
+        {
+            throw new NotImplementedException();
         }
     }
 

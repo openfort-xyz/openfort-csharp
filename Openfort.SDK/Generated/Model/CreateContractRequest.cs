@@ -77,7 +77,7 @@ namespace Openfort.SDK.Model
         /// Specifies the chain ID of the contract. Must be a [supported chain](/chains).
         /// </summary>
         /// <value>Specifies the chain ID of the contract. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 

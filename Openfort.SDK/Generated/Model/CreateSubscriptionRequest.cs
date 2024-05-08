@@ -35,10 +35,10 @@ namespace Openfort.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Method
+        /// Gets or Sets Topic
         /// </summary>
-        [DataMember(Name = "method", IsRequired = true, EmitDefaultValue = true)]
-        public SubscriptionType Method { get; set; }
+        [DataMember(Name = "topic", IsRequired = true, EmitDefaultValue = true)]
+        public APITopic Topic { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionRequest" /> class.
         /// </summary>
@@ -47,41 +47,25 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSubscriptionRequest" /> class.
         /// </summary>
-        /// <param name="notification">The notification ID (starts with not_). (required).</param>
-        /// <param name="method">method (required).</param>
-        /// <param name="target">The receiver of notifications. (required).</param>
-        public CreateSubscriptionRequest(string notification = default(string), SubscriptionType method = default(SubscriptionType), string target = default(string))
+        /// <param name="topic">topic (required).</param>
+        /// <param name="triggers">Specifies the triggers of the subscription (required).</param>
+        public CreateSubscriptionRequest(APITopic topic = default(APITopic), List<CreateTriggerRequest> triggers = default(List<CreateTriggerRequest>))
         {
-            // to ensure "notification" is required (not null)
-            if (notification == null)
+            this.Topic = topic;
+            // to ensure "triggers" is required (not null)
+            if (triggers == null)
             {
-                throw new ArgumentNullException("notification is a required property for CreateSubscriptionRequest and cannot be null");
+                throw new ArgumentNullException("triggers is a required property for CreateSubscriptionRequest and cannot be null");
             }
-            this.Notification = notification;
-            this.Method = method;
-            // to ensure "target" is required (not null)
-            if (target == null)
-            {
-                throw new ArgumentNullException("target is a required property for CreateSubscriptionRequest and cannot be null");
-            }
-            this.Target = target;
+            this.Triggers = triggers;
         }
 
         /// <summary>
-        /// The notification ID (starts with not_).
+        /// Specifies the triggers of the subscription
         /// </summary>
-        /// <value>The notification ID (starts with not_).</value>
-        /// <example>&quot;not_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
-        [DataMember(Name = "notification", IsRequired = true, EmitDefaultValue = true)]
-        public string Notification { get; set; }
-
-        /// <summary>
-        /// The receiver of notifications.
-        /// </summary>
-        /// <value>The receiver of notifications.</value>
-        /// <example>&quot;jaume@openfort.xyz&quot;</example>
-        [DataMember(Name = "target", IsRequired = true, EmitDefaultValue = true)]
-        public string Target { get; set; }
+        /// <value>Specifies the triggers of the subscription</value>
+        [DataMember(Name = "triggers", IsRequired = true, EmitDefaultValue = true)]
+        public List<CreateTriggerRequest> Triggers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,9 +75,8 @@ namespace Openfort.SDK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateSubscriptionRequest {\n");
-            sb.Append("  Notification: ").Append(Notification).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
+            sb.Append("  Topic: ").Append(Topic).Append("\n");
+            sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,18 +113,14 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Notification == input.Notification ||
-                    (this.Notification != null &&
-                    this.Notification.Equals(input.Notification))
+                    this.Topic == input.Topic ||
+                    this.Topic.Equals(input.Topic)
                 ) && 
                 (
-                    this.Method == input.Method ||
-                    this.Method.Equals(input.Method)
-                ) && 
-                (
-                    this.Target == input.Target ||
-                    (this.Target != null &&
-                    this.Target.Equals(input.Target))
+                    this.Triggers == input.Triggers ||
+                    this.Triggers != null &&
+                    input.Triggers != null &&
+                    this.Triggers.SequenceEqual(input.Triggers)
                 );
         }
 
@@ -154,14 +133,10 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Notification != null)
+                hashCode = (hashCode * 59) + this.Topic.GetHashCode();
+                if (this.Triggers != null)
                 {
-                    hashCode = (hashCode * 59) + this.Notification.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Method.GetHashCode();
-                if (this.Target != null)
-                {
-                    hashCode = (hashCode * 59) + this.Target.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Triggers.GetHashCode();
                 }
                 return hashCode;
             }

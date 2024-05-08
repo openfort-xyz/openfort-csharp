@@ -43,7 +43,19 @@ namespace Openfort.SDK.Model
         /// Enum Sk for value: sk
         /// </summary>
         [EnumMember(Value = "sk")]
-        Sk = 2
+        Sk = 2,
+
+        /// <summary>
+        /// Enum PkShield for value: pk_shield
+        /// </summary>
+        [EnumMember(Value = "pk_shield")]
+        PkShield = 3,
+
+        /// <summary>
+        /// Enum SkShield for value: sk_shield
+        /// </summary>
+        [EnumMember(Value = "sk_shield")]
+        SkShield = 4
 
     }
 

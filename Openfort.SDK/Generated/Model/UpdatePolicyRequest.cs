@@ -39,12 +39,14 @@ namespace Openfort.SDK.Model
         /// <param name="name">Specifies the name of the policy..</param>
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
         /// <param name="strategy">strategy.</param>
+        /// <param name="paymaster">The ID of the paymaster..</param>
         /// <param name="deleted">Specifies whether to delete the policy..</param>
-        public UpdatePolicyRequest(string name = default(string), int chainId = default(int), PolicyStrategyRequest strategy = default(PolicyStrategyRequest), bool deleted = default(bool))
+        public UpdatePolicyRequest(string name = default(string), int chainId = default(int), PolicyStrategyRequest strategy = default(PolicyStrategyRequest), string paymaster = default(string), bool deleted = default(bool))
         {
             this.Name = name;
             this.ChainId = chainId;
             this.Strategy = strategy;
+            this.Paymaster = paymaster;
             this.Deleted = deleted;
         }
 
@@ -60,7 +62,7 @@ namespace Openfort.SDK.Model
         /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
         /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 
@@ -69,6 +71,14 @@ namespace Openfort.SDK.Model
         /// </summary>
         [DataMember(Name = "strategy", EmitDefaultValue = false)]
         public PolicyStrategyRequest Strategy { get; set; }
+
+        /// <summary>
+        /// The ID of the paymaster.
+        /// </summary>
+        /// <value>The ID of the paymaster.</value>
+        /// <example>&quot;pay_6f6c9067-89fa-4fc8-ac72-c242a268c584&quot;</example>
+        [DataMember(Name = "paymaster", EmitDefaultValue = false)]
+        public string Paymaster { get; set; }
 
         /// <summary>
         /// Specifies whether to delete the policy.
@@ -89,6 +99,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("  Strategy: ").Append(Strategy).Append("\n");
+            sb.Append("  Paymaster: ").Append(Paymaster).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,6 +151,11 @@ namespace Openfort.SDK.Model
                     this.Strategy.Equals(input.Strategy))
                 ) && 
                 (
+                    this.Paymaster == input.Paymaster ||
+                    (this.Paymaster != null &&
+                    this.Paymaster.Equals(input.Paymaster))
+                ) && 
+                (
                     this.Deleted == input.Deleted ||
                     this.Deleted.Equals(input.Deleted)
                 );
@@ -162,6 +178,10 @@ namespace Openfort.SDK.Model
                 if (this.Strategy != null)
                 {
                     hashCode = (hashCode * 59) + this.Strategy.GetHashCode();
+                }
+                if (this.Paymaster != null)
+                {
+                    hashCode = (hashCode * 59) + this.Paymaster.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 return hashCode;

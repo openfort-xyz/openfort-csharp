@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public NotificationTriggerType Type { get; set; }
+        public APITriggerType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTriggerRequest" /> class.
         /// </summary>
@@ -47,90 +47,36 @@ namespace Openfort.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTriggerRequest" /> class.
         /// </summary>
-        /// <param name="notification">The notification ID (starts with not_). (required).</param>
+        /// <param name="target">Specifies the target of the trigger (required).</param>
         /// <param name="type">type (required).</param>
-        /// <param name="functionName">The function name of the contract. Accepts a a function signature as well (e.g. mint(address))..</param>
-        /// <param name="functionArgs">The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
-        /// <param name="contract">The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;..</param>
-        /// <param name="threshold">The threshold value at which (greater or equal) the notification will be triggered. (required).</param>
-        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
-        /// <param name="account">ID of the Developer Account this trigger will check the balance of (starts with &#x60;dac_&#x60;)..</param>
-        public CreateTriggerRequest(string notification = default(string), NotificationTriggerType type = default(NotificationTriggerType), string functionName = default(string), List<string> functionArgs = default(List<string>), string contract = default(string), string threshold = default(string), int chainId = default(int), string account = default(string))
+        /// <param name="subscription">Specifies the subscription ID.</param>
+        public CreateTriggerRequest(string target = default(string), APITriggerType type = default(APITriggerType), string subscription = default(string))
         {
-            // to ensure "notification" is required (not null)
-            if (notification == null)
+            // to ensure "target" is required (not null)
+            if (target == null)
             {
-                throw new ArgumentNullException("notification is a required property for CreateTriggerRequest and cannot be null");
+                throw new ArgumentNullException("target is a required property for CreateTriggerRequest and cannot be null");
             }
-            this.Notification = notification;
+            this.Target = target;
             this.Type = type;
-            // to ensure "threshold" is required (not null)
-            if (threshold == null)
-            {
-                throw new ArgumentNullException("threshold is a required property for CreateTriggerRequest and cannot be null");
-            }
-            this.Threshold = threshold;
-            this.FunctionName = functionName;
-            this.FunctionArgs = functionArgs;
-            this.Contract = contract;
-            this.ChainId = chainId;
-            this.Account = account;
+            this.Subscription = subscription;
         }
 
         /// <summary>
-        /// The notification ID (starts with not_).
+        /// Specifies the target of the trigger
         /// </summary>
-        /// <value>The notification ID (starts with not_).</value>
-        /// <example>&quot;not_e0b84653-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
-        [DataMember(Name = "notification", IsRequired = true, EmitDefaultValue = true)]
-        public string Notification { get; set; }
+        /// <value>Specifies the target of the trigger</value>
+        /// <example>&quot;https://example.com&quot;</example>
+        [DataMember(Name = "target", IsRequired = true, EmitDefaultValue = true)]
+        public string Target { get; set; }
 
         /// <summary>
-        /// The function name of the contract. Accepts a a function signature as well (e.g. mint(address)).
+        /// Specifies the subscription ID
         /// </summary>
-        /// <value>The function name of the contract. Accepts a a function signature as well (e.g. mint(address)).</value>
-        /// <example>&quot;mint&quot;</example>
-        [DataMember(Name = "functionName", EmitDefaultValue = false)]
-        public string FunctionName { get; set; }
-
-        /// <summary>
-        /// The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address.
-        /// </summary>
-        /// <value>The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address.</value>
-        [DataMember(Name = "functionArgs", EmitDefaultValue = false)]
-        public List<string> FunctionArgs { get; set; }
-
-        /// <summary>
-        /// The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;.
-        /// </summary>
-        /// <value>The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;.</value>
-        /// <example>&quot;con_0cddb398-1dc6-4e6f-8726-9ec7cea85f35&quot;</example>
-        [DataMember(Name = "contract", EmitDefaultValue = false)]
-        public string Contract { get; set; }
-
-        /// <summary>
-        /// The threshold value at which (greater or equal) the notification will be triggered.
-        /// </summary>
-        /// <value>The threshold value at which (greater or equal) the notification will be triggered.</value>
-        /// <example>&quot;1000000000&quot;</example>
-        [DataMember(Name = "threshold", IsRequired = true, EmitDefaultValue = true)]
-        public string Threshold { get; set; }
-
-        /// <summary>
-        /// The chain ID. Must be a [supported chain](/chains).
-        /// </summary>
-        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
-        [DataMember(Name = "chainId", EmitDefaultValue = false)]
-        public int ChainId { get; set; }
-
-        /// <summary>
-        /// ID of the Developer Account this trigger will check the balance of (starts with &#x60;dac_&#x60;).
-        /// </summary>
-        /// <value>ID of the Developer Account this trigger will check the balance of (starts with &#x60;dac_&#x60;).</value>
-        /// <example>&quot;dac_e1b24353-1741-4a3d-9e91-2b0fd2942f60&quot;</example>
-        [DataMember(Name = "account", EmitDefaultValue = false)]
-        public string Account { get; set; }
+        /// <value>Specifies the subscription ID</value>
+        /// <example>&quot;sub_6f6c9067-89fa-4fc8-ac72-c242a268c584&quot;</example>
+        [DataMember(Name = "subscription", EmitDefaultValue = false)]
+        public string Subscription { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,14 +86,9 @@ namespace Openfort.SDK.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateTriggerRequest {\n");
-            sb.Append("  Notification: ").Append(Notification).Append("\n");
+            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
-            sb.Append("  FunctionArgs: ").Append(FunctionArgs).Append("\n");
-            sb.Append("  Contract: ").Append(Contract).Append("\n");
-            sb.Append("  Threshold: ").Append(Threshold).Append("\n");
-            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("  Subscription: ").Append(Subscription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,43 +125,18 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Notification == input.Notification ||
-                    (this.Notification != null &&
-                    this.Notification.Equals(input.Notification))
+                    this.Target == input.Target ||
+                    (this.Target != null &&
+                    this.Target.Equals(input.Target))
                 ) && 
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.FunctionName == input.FunctionName ||
-                    (this.FunctionName != null &&
-                    this.FunctionName.Equals(input.FunctionName))
-                ) && 
-                (
-                    this.FunctionArgs == input.FunctionArgs ||
-                    this.FunctionArgs != null &&
-                    input.FunctionArgs != null &&
-                    this.FunctionArgs.SequenceEqual(input.FunctionArgs)
-                ) && 
-                (
-                    this.Contract == input.Contract ||
-                    (this.Contract != null &&
-                    this.Contract.Equals(input.Contract))
-                ) && 
-                (
-                    this.Threshold == input.Threshold ||
-                    (this.Threshold != null &&
-                    this.Threshold.Equals(input.Threshold))
-                ) && 
-                (
-                    this.ChainId == input.ChainId ||
-                    this.ChainId.Equals(input.ChainId)
-                ) && 
-                (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
+                    this.Subscription == input.Subscription ||
+                    (this.Subscription != null &&
+                    this.Subscription.Equals(input.Subscription))
                 );
         }
 
@@ -233,31 +149,14 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Notification != null)
+                if (this.Target != null)
                 {
-                    hashCode = (hashCode * 59) + this.Notification.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Target.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this.FunctionName != null)
+                if (this.Subscription != null)
                 {
-                    hashCode = (hashCode * 59) + this.FunctionName.GetHashCode();
-                }
-                if (this.FunctionArgs != null)
-                {
-                    hashCode = (hashCode * 59) + this.FunctionArgs.GetHashCode();
-                }
-                if (this.Contract != null)
-                {
-                    hashCode = (hashCode * 59) + this.Contract.GetHashCode();
-                }
-                if (this.Threshold != null)
-                {
-                    hashCode = (hashCode * 59) + this.Threshold.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
-                if (this.Account != null)
-                {
-                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Subscription.GetHashCode();
                 }
                 return hashCode;
             }

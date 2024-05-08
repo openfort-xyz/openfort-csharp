@@ -56,7 +56,8 @@ namespace Openfort.SDK.Model
         /// <param name="provider">provider (required).</param>
         /// <param name="token">Token to be verified (required).</param>
         /// <param name="tokenType">tokenType (required).</param>
-        public AuthenticateOAuthRequest(OAuthProvider provider = default(OAuthProvider), string token = default(string), TokenType tokenType = default(TokenType))
+        /// <param name="expand">Specifies the fields to expand in the response..</param>
+        public AuthenticateOAuthRequest(OAuthProvider provider = default(OAuthProvider), string token = default(string), TokenType tokenType = default(TokenType), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>))
         {
             this.Provider = provider;
             // to ensure "token" is required (not null)
@@ -66,6 +67,7 @@ namespace Openfort.SDK.Model
             }
             this.Token = token;
             this.TokenType = tokenType;
+            this.Expand = expand;
         }
 
         /// <summary>
@@ -75,6 +77,13 @@ namespace Openfort.SDK.Model
         /// <example>&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</example>
         [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
         public string Token { get; set; }
+
+        /// <summary>
+        /// Specifies the fields to expand in the response.
+        /// </summary>
+        /// <value>Specifies the fields to expand in the response.</value>
+        [DataMember(Name = "expand", EmitDefaultValue = false)]
+        public List<PlayerResponseExpandable> Expand { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,6 +96,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("  TokenType: ").Append(TokenType).Append("\n");
+            sb.Append("  Expand: ").Append(Expand).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +144,12 @@ namespace Openfort.SDK.Model
                 (
                     this.TokenType == input.TokenType ||
                     this.TokenType.Equals(input.TokenType)
+                ) && 
+                (
+                    this.Expand == input.Expand ||
+                    this.Expand != null &&
+                    input.Expand != null &&
+                    this.Expand.SequenceEqual(input.Expand)
                 );
         }
 
@@ -152,6 +168,10 @@ namespace Openfort.SDK.Model
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TokenType.GetHashCode();
+                if (this.Expand != null)
+                {
+                    hashCode = (hashCode * 59) + this.Expand.GetHashCode();
+                }
                 return hashCode;
             }
         }

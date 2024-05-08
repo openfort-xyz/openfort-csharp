@@ -41,13 +41,17 @@ namespace Openfort.SDK.Model
         /// <param name="contract">The contract ID you want to interact with. Must have been added to Openfort first, starts with &#x60;con_&#x60;..</param>
         /// <param name="functionName">The function name of the contract. Accepts a a function signature as well (e.g. mint(address))..</param>
         /// <param name="functionArgs">The function arguments of the contract, in string format. If you provide one of a &#x60;pla_...&#x60;, &#x60;con_...&#x60; or &#x60;acc_...&#x60; it will be converted to the corresponding address..</param>
-        public Interaction(string to = default(string), string value = default(string), string contract = default(string), string functionName = default(string), List<Object> functionArgs = default(List<Object>))
+        /// <param name="dataSuffix">Data to append to the end of the calldata. Useful for [adding a \&quot;domain\&quot; tag](https://opensea.notion.site/opensea/Seaport-Order-Attributions-ec2d69bf455041a5baa490941aad307f).</param>
+        /// <param name="data">The encoded calldata of the contract..</param>
+        public Interaction(string to = default(string), string value = default(string), string contract = default(string), string functionName = default(string), List<Object> functionArgs = default(List<Object>), string dataSuffix = default(string), string data = default(string))
         {
             this.To = to;
             this.Value = value;
             this.Contract = contract;
             this.FunctionName = functionName;
             this.FunctionArgs = functionArgs;
+            this.DataSuffix = dataSuffix;
+            this.Data = data;
         }
 
         /// <summary>
@@ -88,6 +92,22 @@ namespace Openfort.SDK.Model
         public List<Object> FunctionArgs { get; set; }
 
         /// <summary>
+        /// Data to append to the end of the calldata. Useful for [adding a \&quot;domain\&quot; tag](https://opensea.notion.site/opensea/Seaport-Order-Attributions-ec2d69bf455041a5baa490941aad307f)
+        /// </summary>
+        /// <value>Data to append to the end of the calldata. Useful for [adding a \&quot;domain\&quot; tag](https://opensea.notion.site/opensea/Seaport-Order-Attributions-ec2d69bf455041a5baa490941aad307f)</value>
+        /// <example>&quot;0x12345678&quot;</example>
+        [DataMember(Name = "dataSuffix", EmitDefaultValue = false)]
+        public string DataSuffix { get; set; }
+
+        /// <summary>
+        /// The encoded calldata of the contract.
+        /// </summary>
+        /// <value>The encoded calldata of the contract.</value>
+        /// <example>&quot;0x12345678&quot;</example>
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public string Data { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +120,8 @@ namespace Openfort.SDK.Model
             sb.Append("  Contract: ").Append(Contract).Append("\n");
             sb.Append("  FunctionName: ").Append(FunctionName).Append("\n");
             sb.Append("  FunctionArgs: ").Append(FunctionArgs).Append("\n");
+            sb.Append("  DataSuffix: ").Append(DataSuffix).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +182,16 @@ namespace Openfort.SDK.Model
                     this.FunctionArgs != null &&
                     input.FunctionArgs != null &&
                     this.FunctionArgs.SequenceEqual(input.FunctionArgs)
+                ) && 
+                (
+                    this.DataSuffix == input.DataSuffix ||
+                    (this.DataSuffix != null &&
+                    this.DataSuffix.Equals(input.DataSuffix))
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -191,6 +223,14 @@ namespace Openfort.SDK.Model
                 if (this.FunctionArgs != null)
                 {
                     hashCode = (hashCode * 59) + this.FunctionArgs.GetHashCode();
+                }
+                if (this.DataSuffix != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataSuffix.GetHashCode();
+                }
+                if (this.Data != null)
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
                 return hashCode;
             }

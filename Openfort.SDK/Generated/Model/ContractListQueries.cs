@@ -94,7 +94,7 @@ namespace Openfort.SDK.Model
         /// The chain ID of the contract.
         /// </summary>
         /// <value>The chain ID of the contract.</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 

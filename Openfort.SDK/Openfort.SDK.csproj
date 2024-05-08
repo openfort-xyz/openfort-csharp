@@ -4,6 +4,9 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Author>Openfort</Author>
+    <PackageId>Openfort.SDK</PackageId>
+    <Version>1.0.42</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -22,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Openfort.Shield.SDK" Version="1.0.0" />
     <PackageReference Include="Polly" Version="7.2.4" />
   </ItemGroup>
 </Project>

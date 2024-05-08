@@ -44,7 +44,8 @@ namespace Openfort.SDK.Model
         /// <param name="name">Specifies the name of the policy. (required).</param>
         /// <param name="chainId">The chain ID. Must be a [supported chain](/chains). (required).</param>
         /// <param name="strategy">strategy (required).</param>
-        public CreatePolicyRequest(string name = default(string), int chainId = default(int), PolicyStrategyRequest strategy = default(PolicyStrategyRequest))
+        /// <param name="paymaster">The ID of the paymaster..</param>
+        public CreatePolicyRequest(string name = default(string), int chainId = default(int), PolicyStrategyRequest strategy = default(PolicyStrategyRequest), string paymaster = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -59,6 +60,7 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("strategy is a required property for CreatePolicyRequest and cannot be null");
             }
             this.Strategy = strategy;
+            this.Paymaster = paymaster;
         }
 
         /// <summary>
@@ -73,7 +75,7 @@ namespace Openfort.SDK.Model
         /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
         /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
@@ -82,6 +84,14 @@ namespace Openfort.SDK.Model
         /// </summary>
         [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = true)]
         public PolicyStrategyRequest Strategy { get; set; }
+
+        /// <summary>
+        /// The ID of the paymaster.
+        /// </summary>
+        /// <value>The ID of the paymaster.</value>
+        /// <example>&quot;pay_6f6c9067-89fa-4fc8-ac72-c242a268c584&quot;</example>
+        [DataMember(Name = "paymaster", EmitDefaultValue = false)]
+        public string Paymaster { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,6 +104,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
             sb.Append("  Strategy: ").Append(Strategy).Append("\n");
+            sb.Append("  Paymaster: ").Append(Paymaster).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +153,11 @@ namespace Openfort.SDK.Model
                     this.Strategy == input.Strategy ||
                     (this.Strategy != null &&
                     this.Strategy.Equals(input.Strategy))
+                ) && 
+                (
+                    this.Paymaster == input.Paymaster ||
+                    (this.Paymaster != null &&
+                    this.Paymaster.Equals(input.Paymaster))
                 );
         }
 
@@ -162,6 +178,10 @@ namespace Openfort.SDK.Model
                 if (this.Strategy != null)
                 {
                     hashCode = (hashCode * 59) + this.Strategy.GetHashCode();
+                }
+                if (this.Paymaster != null)
+                {
+                    hashCode = (hashCode * 59) + this.Paymaster.GetHashCode();
                 }
                 return hashCode;
             }

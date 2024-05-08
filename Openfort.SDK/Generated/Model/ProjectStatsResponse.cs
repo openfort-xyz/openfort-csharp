@@ -42,7 +42,8 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="ProjectStatsResponse" /> class.
         /// </summary>
         /// <param name="transactionIntents">transactionIntents (required).</param>
-        public ProjectStatsResponse(List<Stat> transactionIntents = default(List<Stat>))
+        /// <param name="devices">devices (required).</param>
+        public ProjectStatsResponse(List<TransactionStat> transactionIntents = default(List<TransactionStat>), List<Stat> devices = default(List<Stat>))
         {
             // to ensure "transactionIntents" is required (not null)
             if (transactionIntents == null)
@@ -50,13 +51,25 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("transactionIntents is a required property for ProjectStatsResponse and cannot be null");
             }
             this.TransactionIntents = transactionIntents;
+            // to ensure "devices" is required (not null)
+            if (devices == null)
+            {
+                throw new ArgumentNullException("devices is a required property for ProjectStatsResponse and cannot be null");
+            }
+            this.Devices = devices;
         }
 
         /// <summary>
         /// Gets or Sets TransactionIntents
         /// </summary>
         [DataMember(Name = "transactionIntents", IsRequired = true, EmitDefaultValue = true)]
-        public List<Stat> TransactionIntents { get; set; }
+        public List<TransactionStat> TransactionIntents { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Devices
+        /// </summary>
+        [DataMember(Name = "devices", IsRequired = true, EmitDefaultValue = true)]
+        public List<Stat> Devices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,6 +80,7 @@ namespace Openfort.SDK.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProjectStatsResponse {\n");
             sb.Append("  TransactionIntents: ").Append(TransactionIntents).Append("\n");
+            sb.Append("  Devices: ").Append(Devices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +121,12 @@ namespace Openfort.SDK.Model
                     this.TransactionIntents != null &&
                     input.TransactionIntents != null &&
                     this.TransactionIntents.SequenceEqual(input.TransactionIntents)
+                ) && 
+                (
+                    this.Devices == input.Devices ||
+                    this.Devices != null &&
+                    input.Devices != null &&
+                    this.Devices.SequenceEqual(input.Devices)
                 );
         }
 
@@ -122,6 +142,10 @@ namespace Openfort.SDK.Model
                 if (this.TransactionIntents != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionIntents.GetHashCode();
+                }
+                if (this.Devices != null)
+                {
+                    hashCode = (hashCode * 59) + this.Devices.GetHashCode();
                 }
                 return hashCode;
             }

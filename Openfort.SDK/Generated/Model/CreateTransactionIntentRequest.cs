@@ -70,7 +70,7 @@ namespace Openfort.SDK.Model
         /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
         /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 
@@ -120,6 +120,7 @@ namespace Openfort.SDK.Model
         /// <value>Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5.</value>
         /// <example>5</example>
         [DataMember(Name = "confirmationBlocks", EmitDefaultValue = false)]
+        [Obsolete]
         public int ConfirmationBlocks { get; set; }
 
         /// <summary>

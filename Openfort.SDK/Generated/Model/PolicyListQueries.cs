@@ -103,7 +103,7 @@ namespace Openfort.SDK.Model
         /// The chain ID of the policy.
         /// </summary>
         /// <value>The chain ID of the policy.</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", EmitDefaultValue = false)]
         public int ChainId { get; set; }
 

@@ -43,9 +43,7 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="timestamp">timestamp (required).</param>
         /// <param name="total">total (required).</param>
-        /// <param name="successful">successful (required).</param>
-        /// <param name="gasUsed">gasUsed (required).</param>
-        public Stat(string timestamp = default(string), int total = default(int), int successful = default(int), string gasUsed = default(string))
+        public Stat(string timestamp = default(string), int total = default(int))
         {
             // to ensure "timestamp" is required (not null)
             if (timestamp == null)
@@ -54,13 +52,6 @@ namespace Openfort.SDK.Model
             }
             this.Timestamp = timestamp;
             this.Total = total;
-            this.Successful = successful;
-            // to ensure "gasUsed" is required (not null)
-            if (gasUsed == null)
-            {
-                throw new ArgumentNullException("gasUsed is a required property for Stat and cannot be null");
-            }
-            this.GasUsed = gasUsed;
         }
 
         /// <summary>
@@ -76,18 +67,6 @@ namespace Openfort.SDK.Model
         public int Total { get; set; }
 
         /// <summary>
-        /// Gets or Sets Successful
-        /// </summary>
-        [DataMember(Name = "successful", IsRequired = true, EmitDefaultValue = true)]
-        public int Successful { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GasUsed
-        /// </summary>
-        [DataMember(Name = "gasUsed", IsRequired = true, EmitDefaultValue = true)]
-        public string GasUsed { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,8 +76,6 @@ namespace Openfort.SDK.Model
             sb.Append("class Stat {\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
-            sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  GasUsed: ").Append(GasUsed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,15 +119,6 @@ namespace Openfort.SDK.Model
                 (
                     this.Total == input.Total ||
                     this.Total.Equals(input.Total)
-                ) && 
-                (
-                    this.Successful == input.Successful ||
-                    this.Successful.Equals(input.Successful)
-                ) && 
-                (
-                    this.GasUsed == input.GasUsed ||
-                    (this.GasUsed != null &&
-                    this.GasUsed.Equals(input.GasUsed))
                 );
         }
 
@@ -168,11 +136,6 @@ namespace Openfort.SDK.Model
                     hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Total.GetHashCode();
-                hashCode = (hashCode * 59) + this.Successful.GetHashCode();
-                if (this.GasUsed != null)
-                {
-                    hashCode = (hashCode * 59) + this.GasUsed.GetHashCode();
-                }
                 return hashCode;
             }
         }

@@ -54,10 +54,11 @@ namespace Openfort.SDK.Model
         /// <param name="deleted">deleted (required).</param>
         /// <param name="enabled">enabled (required).</param>
         /// <param name="chainId">The chain ID. (required).</param>
+        /// <param name="paymaster">paymaster.</param>
         /// <param name="strategy">strategy (required).</param>
         /// <param name="transactionIntents">transactionIntents (required).</param>
         /// <param name="policyRules">policyRules (required).</param>
-        public Policy(string id = default(string), EntityTypePOLICY _object = default(EntityTypePOLICY), int createdAt = default(int), string name = default(string), bool deleted = default(bool), bool enabled = default(bool), int chainId = default(int), PolicyStrategy strategy = default(PolicyStrategy), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> policyRules = default(List<EntityIdResponse>))
+        public Policy(string id = default(string), EntityTypePOLICY _object = default(EntityTypePOLICY), int createdAt = default(int), string name = default(string), bool deleted = default(bool), bool enabled = default(bool), int chainId = default(int), EntityIdResponse paymaster = default(EntityIdResponse), PolicyStrategy strategy = default(PolicyStrategy), List<EntityIdResponse> transactionIntents = default(List<EntityIdResponse>), List<EntityIdResponse> policyRules = default(List<EntityIdResponse>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -94,6 +95,7 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("policyRules is a required property for Policy and cannot be null");
             }
             this.PolicyRules = policyRules;
+            this.Paymaster = paymaster;
         }
 
         /// <summary>
@@ -134,6 +136,12 @@ namespace Openfort.SDK.Model
         public int ChainId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Paymaster
+        /// </summary>
+        [DataMember(Name = "paymaster", EmitDefaultValue = false)]
+        public EntityIdResponse Paymaster { get; set; }
+
+        /// <summary>
         /// Gets or Sets Strategy
         /// </summary>
         [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = true)]
@@ -166,6 +174,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  ChainId: ").Append(ChainId).Append("\n");
+            sb.Append("  Paymaster: ").Append(Paymaster).Append("\n");
             sb.Append("  Strategy: ").Append(Strategy).Append("\n");
             sb.Append("  TransactionIntents: ").Append(TransactionIntents).Append("\n");
             sb.Append("  PolicyRules: ").Append(PolicyRules).Append("\n");
@@ -235,6 +244,11 @@ namespace Openfort.SDK.Model
                     this.ChainId.Equals(input.ChainId)
                 ) && 
                 (
+                    this.Paymaster == input.Paymaster ||
+                    (this.Paymaster != null &&
+                    this.Paymaster.Equals(input.Paymaster))
+                ) && 
+                (
                     this.Strategy == input.Strategy ||
                     (this.Strategy != null &&
                     this.Strategy.Equals(input.Strategy))
@@ -275,6 +289,10 @@ namespace Openfort.SDK.Model
                 hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
+                if (this.Paymaster != null)
+                {
+                    hashCode = (hashCode * 59) + this.Paymaster.GetHashCode();
+                }
                 if (this.Strategy != null)
                 {
                     hashCode = (hashCode * 59) + this.Strategy.GetHashCode();

@@ -1,8 +1,6 @@
 ﻿using Openfort.SDK.Wrapper;
-using Openfort.SDK.Model;
 using Openfort.SDK.Extensions;
 using System.Security.Cryptography;
-using Newtonsoft.Json;
 using System.Text;
 
 namespace Openfort.SDK
@@ -161,15 +159,32 @@ namespace Openfort.SDK
             }
         }
 
-        public WebHookEvent? ConstructWebhookEvent(string body, string signature)
+        private PaymastersApiWrapper? paymasters;
+        public PaymastersApiWrapper Paymasters
         {
-            var signedPayload = Sign(body);
-            if (!string.Equals(signedPayload, signature, StringComparison.OrdinalIgnoreCase))
+            get
             {
-                throw new Exception("Invalid signature");
+                if (paymasters == null)
+                {
+                    paymasters = new PaymastersApiWrapper(apiKey, basePath);
+                }
+                return paymasters;
             }
-            return JsonConvert.DeserializeObject<WebHookEvent>(body);
         }
+
+        private ExchangeApiWrapper? exchange;
+        public ExchangeApiWrapper Exchange
+        {
+            get
+            {
+                if (exchange == null)
+                {
+                    exchange = new ExchangeApiWrapper(apiKey, basePath);
+                }
+                return exchange;
+            }
+        }
+
 
         private byte[] signingKey;
         private byte[] SigningKey

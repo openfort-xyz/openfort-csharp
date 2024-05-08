@@ -29,6 +29,27 @@ namespace Openfort.SDK.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create an authenticated player.
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <returns>AuthPlayerResponseWithRecoveryShare</returns>
+        AuthPlayerResponseWithRecoveryShare CreateAuthPlayer(CreateAuthPlayerRequest createAuthPlayerRequest);
+
+        /// <summary>
+        /// Create an authenticated player.
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponseWithRecoveryShare</returns>
+        ApiResponse<AuthPlayerResponseWithRecoveryShare> CreateAuthPlayerWithHttpInfo(CreateAuthPlayerRequest createAuthPlayerRequest);
+        /// <summary>
         /// Create oauth configuration.
         /// </summary>
         /// <remarks>
@@ -236,6 +257,29 @@ namespace Openfort.SDK.Api
     public interface IAdminAuthenticationApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Create an authenticated player.
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponseWithRecoveryShare</returns>
+        System.Threading.Tasks.Task<AuthPlayerResponseWithRecoveryShare> CreateAuthPlayerAsync(CreateAuthPlayerRequest createAuthPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create an authenticated player.
+        /// </summary>
+        /// <remarks>
+        /// Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponseWithRecoveryShare)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponseWithRecoveryShare>> CreateAuthPlayerWithHttpInfoAsync(CreateAuthPlayerRequest createAuthPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create oauth configuration.
         /// </summary>
@@ -664,6 +708,135 @@ namespace Openfort.SDK.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Create an authenticated player. Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <returns>AuthPlayerResponseWithRecoveryShare</returns>
+        public AuthPlayerResponseWithRecoveryShare CreateAuthPlayer(CreateAuthPlayerRequest createAuthPlayerRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponseWithRecoveryShare> localVarResponse = CreateAuthPlayerWithHttpInfo(createAuthPlayerRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an authenticated player. Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponseWithRecoveryShare</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponseWithRecoveryShare> CreateAuthPlayerWithHttpInfo(CreateAuthPlayerRequest createAuthPlayerRequest)
+        {
+            // verify the required parameter 'createAuthPlayerRequest' is set
+            if (createAuthPlayerRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'createAuthPlayerRequest' when calling AdminAuthenticationApi->CreateAuthPlayer");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createAuthPlayerRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AuthPlayerResponseWithRecoveryShare>("/iam/v1/players", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAuthPlayer", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create an authenticated player. Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponseWithRecoveryShare</returns>
+        public async System.Threading.Tasks.Task<AuthPlayerResponseWithRecoveryShare> CreateAuthPlayerAsync(CreateAuthPlayerRequest createAuthPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponseWithRecoveryShare> localVarResponse = await CreateAuthPlayerWithHttpInfoAsync(createAuthPlayerRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an authenticated player. Creates an authenticated player.  The player will be authenticated with the provider and an embedded account can be pre generated.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAuthPlayerRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponseWithRecoveryShare)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponseWithRecoveryShare>> CreateAuthPlayerWithHttpInfoAsync(CreateAuthPlayerRequest createAuthPlayerRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'createAuthPlayerRequest' is set
+            if (createAuthPlayerRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'createAuthPlayerRequest' when calling AdminAuthenticationApi->CreateAuthPlayer");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createAuthPlayerRequest;
+
+            // authentication (sk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AuthPlayerResponseWithRecoveryShare>("/iam/v1/players", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAuthPlayer", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

@@ -66,7 +66,7 @@ namespace Openfort.SDK.Model
         /// The chain ID. Must be a [supported chain](/chains).
         /// </summary>
         /// <value>The chain ID. Must be a [supported chain](/chains).</value>
-        /// <example>80001</example>
+        /// <example>80002</example>
         [DataMember(Name = "chainId", IsRequired = true, EmitDefaultValue = true)]
         public int ChainId { get; set; }
 

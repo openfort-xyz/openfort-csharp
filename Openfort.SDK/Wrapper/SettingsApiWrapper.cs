@@ -22,9 +22,6 @@ namespace Openfort.SDK.Wrapper
 
         public async Task<DeveloperAccountDeleteResponse> DeleteDeveloperAccount(string id) => await apiClient.DeleteDeveloperAccountAsync(id);
 
-        public async Task UpdateWebhook(string url) => await apiClient.UpdateWebhookAsync(new SettingsWebhookUpdateRequest(url));
-
-        public async Task RemoveWebhook() => await apiClient.RemoveWebhookAsync();
     }
 }
 

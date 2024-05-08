@@ -49,7 +49,8 @@ namespace Openfort.SDK.Model
         /// </summary>
         /// <param name="type">type (required).</param>
         /// <param name="uuid">The API key to update. (required).</param>
-        public UpdateProjectApiKeyRequest(ApiKeyType type = default(ApiKeyType), string uuid = default(string))
+        /// <param name="useForWebhooks">Whether key to use to sign webhooks..</param>
+        public UpdateProjectApiKeyRequest(ApiKeyType type = default(ApiKeyType), string uuid = default(string), bool useForWebhooks = default(bool))
         {
             this.Type = type;
             // to ensure "uuid" is required (not null)
@@ -58,6 +59,7 @@ namespace Openfort.SDK.Model
                 throw new ArgumentNullException("uuid is a required property for UpdateProjectApiKeyRequest and cannot be null");
             }
             this.Uuid = uuid;
+            this.UseForWebhooks = useForWebhooks;
         }
 
         /// <summary>
@@ -69,6 +71,14 @@ namespace Openfort.SDK.Model
         public string Uuid { get; set; }
 
         /// <summary>
+        /// Whether key to use to sign webhooks.
+        /// </summary>
+        /// <value>Whether key to use to sign webhooks.</value>
+        /// <example>true</example>
+        [DataMember(Name = "use_for_webhooks", EmitDefaultValue = true)]
+        public bool UseForWebhooks { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +88,7 @@ namespace Openfort.SDK.Model
             sb.Append("class UpdateProjectApiKeyRequest {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Uuid: ").Append(Uuid).Append("\n");
+            sb.Append("  UseForWebhooks: ").Append(UseForWebhooks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +132,10 @@ namespace Openfort.SDK.Model
                     this.Uuid == input.Uuid ||
                     (this.Uuid != null &&
                     this.Uuid.Equals(input.Uuid))
+                ) && 
+                (
+                    this.UseForWebhooks == input.UseForWebhooks ||
+                    this.UseForWebhooks.Equals(input.UseForWebhooks)
                 );
         }
 
@@ -138,6 +153,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Uuid.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UseForWebhooks.GetHashCode();
                 return hashCode;
             }
         }
