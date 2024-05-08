@@ -1,7 +1,9 @@
 ﻿using Openfort.SDK.Wrapper;
 using Openfort.SDK.Extensions;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
 using System.Text;
+using Openfort.SDK.Model;
 
 namespace Openfort.SDK
 {
@@ -185,6 +187,16 @@ namespace Openfort.SDK
             }
         }
 
+
+        public APITopic? ConstructWebhookEvent(string body, string signature)
+        {
+            var signedPayload = Sign(body);
+            if (!string.Equals(signedPayload, signature, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("Invalid signature");
+            }
+            return JsonConvert.DeserializeObject<APITopic>(body);
+        }
 
         private byte[] signingKey;
         private byte[] SigningKey
