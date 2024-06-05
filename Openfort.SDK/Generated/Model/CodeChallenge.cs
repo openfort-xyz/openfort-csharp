@@ -28,53 +28,68 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayFab oauth configuration
+    /// CodeChallenge
     /// </summary>
-    [DataContract(Name = "PlayFabOAuthConfig")]
-    public partial class PlayFabOAuthConfig : IEquatable<PlayFabOAuthConfig>, IValidatableObject
+    [DataContract(Name = "CodeChallenge")]
+    public partial class CodeChallenge : IEquatable<CodeChallenge>, IValidatableObject
     {
+        /// <summary>
+        /// The code verifier.
+        /// </summary>
+        /// <value>The code verifier.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MethodEnum
+        {
+            /// <summary>
+            /// Enum Plain for value: plain
+            /// </summary>
+            [EnumMember(Value = "plain")]
+            Plain = 1,
+
+            /// <summary>
+            /// Enum S256 for value: S256
+            /// </summary>
+            [EnumMember(Value = "S256")]
+            S256 = 2
+
+        }
+
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// The code verifier.
         /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderPLAYFAB Provider { get; set; }
+        /// <value>The code verifier.</value>
+        /// <example>&quot;S256&quot;</example>
+        [DataMember(Name = "method", IsRequired = true, EmitDefaultValue = true)]
+        public MethodEnum Method { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CodeChallenge" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayFabOAuthConfig() { }
+        protected CodeChallenge() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CodeChallenge" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        /// <param name="titleId">Title ID of your Play Fab gaming service environment. (required).</param>
-        public PlayFabOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderPLAYFAB provider = default(ThirdPartyOAuthProviderPLAYFAB), string titleId = default(string))
+        /// <param name="codeChallenge">The code challenge. (required).</param>
+        /// <param name="method">The code verifier. (required).</param>
+        public CodeChallenge(string codeChallenge = default(string), MethodEnum method = default(MethodEnum))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
-            // to ensure "titleId" is required (not null)
-            if (titleId == null)
+            // to ensure "codeChallenge" is required (not null)
+            if (codeChallenge == null)
             {
-                throw new ArgumentNullException("titleId is a required property for PlayFabOAuthConfig and cannot be null");
+                throw new ArgumentNullException("codeChallenge is a required property for CodeChallenge and cannot be null");
             }
-            this.TitleId = titleId;
+            this._CodeChallenge = codeChallenge;
+            this.Method = method;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// The code challenge.
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
-
-        /// <summary>
-        /// Title ID of your Play Fab gaming service environment.
-        /// </summary>
-        /// <value>Title ID of your Play Fab gaming service environment.</value>
-        [DataMember(Name = "titleId", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleId { get; set; }
+        /// <value>The code challenge.</value>
+        /// <example>&quot;code&quot;</example>
+        [DataMember(Name = "codeChallenge", IsRequired = true, EmitDefaultValue = true)]
+        public string _CodeChallenge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +98,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayFabOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  TitleId: ").Append(TitleId).Append("\n");
+            sb.Append("class CodeChallenge {\n");
+            sb.Append("  _CodeChallenge: ").Append(_CodeChallenge).Append("\n");
+            sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,15 +121,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayFabOAuthConfig);
+            return this.Equals(input as CodeChallenge);
         }
 
         /// <summary>
-        /// Returns true if PlayFabOAuthConfig instances are equal
+        /// Returns true if CodeChallenge instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayFabOAuthConfig to be compared</param>
+        /// <param name="input">Instance of CodeChallenge to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayFabOAuthConfig input)
+        public bool Equals(CodeChallenge input)
         {
             if (input == null)
             {
@@ -123,17 +137,13 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
+                    this._CodeChallenge == input._CodeChallenge ||
+                    (this._CodeChallenge != null &&
+                    this._CodeChallenge.Equals(input._CodeChallenge))
                 ) && 
                 (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
-                ) && 
-                (
-                    this.TitleId == input.TitleId ||
-                    (this.TitleId != null &&
-                    this.TitleId.Equals(input.TitleId))
+                    this.Method == input.Method ||
+                    this.Method.Equals(input.Method)
                 );
         }
 
@@ -146,12 +156,11 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.TitleId != null)
+                if (this._CodeChallenge != null)
                 {
-                    hashCode = (hashCode * 59) + this.TitleId.GetHashCode();
+                    hashCode = (hashCode * 59) + this._CodeChallenge.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Method.GetHashCode();
                 return hashCode;
             }
         }

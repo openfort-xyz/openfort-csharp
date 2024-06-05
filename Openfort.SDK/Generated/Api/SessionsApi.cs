@@ -53,7 +53,7 @@ namespace Openfort.SDK.Api
         /// List session keys of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Sessions.
+        /// Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -68,7 +68,7 @@ namespace Openfort.SDK.Api
         /// List session keys of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Sessions.
+        /// Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -82,7 +82,7 @@ namespace Openfort.SDK.Api
         /// Returns a player session by session id
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Session that has previously been created.
+        /// Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -94,7 +94,7 @@ namespace Openfort.SDK.Api
         /// Returns a player session by session id
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Session that has previously been created.
+        /// Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -175,7 +175,7 @@ namespace Openfort.SDK.Api
         /// List session keys of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Sessions.
+        /// Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -191,7 +191,7 @@ namespace Openfort.SDK.Api
         /// List session keys of a player.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Sessions.
+        /// Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -206,7 +206,7 @@ namespace Openfort.SDK.Api
         /// Returns a player session by session id
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Session that has previously been created.
+        /// Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -219,7 +219,7 @@ namespace Openfort.SDK.Api
         /// Returns a player session by session id
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Session that has previously been created.
+        /// Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -618,7 +618,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List session keys of a player. Returns a list of Sessions.
+        /// List session keys of a player. Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -634,7 +634,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List session keys of a player. Returns a list of Sessions.
+        /// List session keys of a player. Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -703,7 +703,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List session keys of a player. Returns a list of Sessions.
+        /// List session keys of a player. Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -720,7 +720,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List session keys of a player. Returns a list of Sessions.
+        /// List session keys of a player. Returns a list of Sessions.  Returns the latest 10 transaction intents for each session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player">The player ID (starts with pla_)</param>
@@ -793,7 +793,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.
+        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -806,7 +806,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.
+        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -860,7 +860,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.
+        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>
@@ -874,7 +874,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.
+        /// Returns a player session by session id Retrieves the details of a Session that has previously been created.  Returns the latest 10 transaction intents that used this session.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique session ID (starts with ses_).</param>

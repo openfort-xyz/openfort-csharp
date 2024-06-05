@@ -47,9 +47,8 @@ namespace Openfort.SDK.Model
         /// <param name="policy">ID of the Policy that defines the gas sponsorship strategy (starts with &#x60;pol_&#x60;). If no Policy is provided, the own Account native token funds will be used to pay for gas..</param>
         /// <param name="externalOwnerAddress">Use this parameter to create a new Account for Player with the provided owner address.  If you omit this parameter and no Account exists for the Player, a custodial Account will be created..</param>
         /// <param name="optimistic">Set to &#x60;true&#x60; to indicate that the transactionIntent request should be resolved as soon as possible, after the transactionIntent is created and simulated and before it arrives on chain..</param>
-        /// <param name="confirmationBlocks">Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5..</param>
         /// <param name="interactions">interactions (required).</param>
-        public CreateTransactionIntentRequest(int chainId = default(int), string player = default(string), string account = default(string), string policy = default(string), string externalOwnerAddress = default(string), bool optimistic = default(bool), int confirmationBlocks = default(int), List<Interaction> interactions = default(List<Interaction>))
+        public CreateTransactionIntentRequest(int chainId = default(int), string player = default(string), string account = default(string), string policy = default(string), string externalOwnerAddress = default(string), bool optimistic = default(bool), List<Interaction> interactions = default(List<Interaction>))
         {
             this.ChainId = chainId;
             // to ensure "interactions" is required (not null)
@@ -63,7 +62,6 @@ namespace Openfort.SDK.Model
             this.Policy = policy;
             this.ExternalOwnerAddress = externalOwnerAddress;
             this.Optimistic = optimistic;
-            this.ConfirmationBlocks = confirmationBlocks;
         }
 
         /// <summary>
@@ -115,15 +113,6 @@ namespace Openfort.SDK.Model
         public bool Optimistic { get; set; }
 
         /// <summary>
-        /// Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5.
-        /// </summary>
-        /// <value>Specify the number of confirmation blocks after which the confirmation webhook will be sent when the transaction arrives on-chain. Default is 5.</value>
-        /// <example>5</example>
-        [DataMember(Name = "confirmationBlocks", EmitDefaultValue = false)]
-        [Obsolete]
-        public int ConfirmationBlocks { get; set; }
-
-        /// <summary>
         /// Gets or Sets Interactions
         /// </summary>
         [DataMember(Name = "interactions", IsRequired = true, EmitDefaultValue = true)]
@@ -143,7 +132,6 @@ namespace Openfort.SDK.Model
             sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  ExternalOwnerAddress: ").Append(ExternalOwnerAddress).Append("\n");
             sb.Append("  Optimistic: ").Append(Optimistic).Append("\n");
-            sb.Append("  ConfirmationBlocks: ").Append(ConfirmationBlocks).Append("\n");
             sb.Append("  Interactions: ").Append(Interactions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -209,10 +197,6 @@ namespace Openfort.SDK.Model
                     this.Optimistic.Equals(input.Optimistic)
                 ) && 
                 (
-                    this.ConfirmationBlocks == input.ConfirmationBlocks ||
-                    this.ConfirmationBlocks.Equals(input.ConfirmationBlocks)
-                ) && 
-                (
                     this.Interactions == input.Interactions ||
                     this.Interactions != null &&
                     input.Interactions != null &&
@@ -247,7 +231,6 @@ namespace Openfort.SDK.Model
                     hashCode = (hashCode * 59) + this.ExternalOwnerAddress.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Optimistic.GetHashCode();
-                hashCode = (hashCode * 59) + this.ConfirmationBlocks.GetHashCode();
                 if (this.Interactions != null)
                 {
                     hashCode = (hashCode * 59) + this.Interactions.GetHashCode();
@@ -263,12 +246,6 @@ namespace Openfort.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ConfirmationBlocks (int) minimum
-            if (this.ConfirmationBlocks < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConfirmationBlocks, must be a value greater than or equal to 1.", new [] { "ConfirmationBlocks" });
-            }
-
             yield break;
         }
     }

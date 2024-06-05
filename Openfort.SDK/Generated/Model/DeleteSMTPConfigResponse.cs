@@ -28,39 +28,38 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// LootLocker oauth configuration
+    /// DeleteSMTPConfigResponse
     /// </summary>
-    [DataContract(Name = "LootLockerOAuthConfig")]
-    public partial class LootLockerOAuthConfig : IEquatable<LootLockerOAuthConfig>, IValidatableObject
+    [DataContract(Name = "DeleteSMTPConfigResponse")]
+    public partial class DeleteSMTPConfigResponse : IEquatable<DeleteSMTPConfigResponse>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// Gets or Sets Object
         /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderLOOTLOCKER Provider { get; set; }
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeSMTPCONFIG Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="DeleteSMTPConfigResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LootLockerOAuthConfig() { }
+        protected DeleteSMTPConfigResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="DeleteSMTPConfigResponse" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        public LootLockerOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderLOOTLOCKER provider = default(ThirdPartyOAuthProviderLOOTLOCKER))
+        /// <param name="deleted">deleted (required).</param>
+        /// <param name="_object">_object (required).</param>
+        public DeleteSMTPConfigResponse(bool deleted = default(bool), EntityTypeSMTPCONFIG _object = default(EntityTypeSMTPCONFIG))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
+            this.Deleted = deleted;
+            this.Object = _object;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// Gets or Sets Deleted
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +68,9 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LootLockerOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("class DeleteSMTPConfigResponse {\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +91,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LootLockerOAuthConfig);
+            return this.Equals(input as DeleteSMTPConfigResponse);
         }
 
         /// <summary>
-        /// Returns true if LootLockerOAuthConfig instances are equal
+        /// Returns true if DeleteSMTPConfigResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of LootLockerOAuthConfig to be compared</param>
+        /// <param name="input">Instance of DeleteSMTPConfigResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LootLockerOAuthConfig input)
+        public bool Equals(DeleteSMTPConfigResponse input)
         {
             if (input == null)
             {
@@ -108,12 +107,12 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 ) && 
                 (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
                 );
         }
 
@@ -126,8 +125,8 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 return hashCode;
             }
         }

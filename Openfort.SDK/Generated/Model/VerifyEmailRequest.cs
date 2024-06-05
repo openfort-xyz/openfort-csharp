@@ -28,62 +28,60 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// AuthenticateOAuthRequest
+    /// VerifyEmailRequest
     /// </summary>
-    [DataContract(Name = "AuthenticateOAuthRequest")]
-    public partial class AuthenticateOAuthRequest : IEquatable<AuthenticateOAuthRequest>, IValidatableObject
+    [DataContract(Name = "VerifyEmailRequest")]
+    public partial class VerifyEmailRequest : IEquatable<VerifyEmailRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProvders Provider { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TokenType
-        /// </summary>
-        [DataMember(Name = "tokenType", IsRequired = true, EmitDefaultValue = true)]
-        public TokenType TokenType { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticateOAuthRequest" /> class.
+        /// Initializes a new instance of the <see cref="VerifyEmailRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AuthenticateOAuthRequest() { }
+        protected VerifyEmailRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticateOAuthRequest" /> class.
+        /// Initializes a new instance of the <see cref="VerifyEmailRequest" /> class.
         /// </summary>
-        /// <param name="provider">provider (required).</param>
-        /// <param name="token">Token to be verified (required).</param>
-        /// <param name="tokenType">tokenType (required).</param>
-        /// <param name="expand">Specifies the fields to expand in the response..</param>
-        public AuthenticateOAuthRequest(OAuthProvders provider = default(OAuthProvders), string token = default(string), TokenType tokenType = default(TokenType), List<PlayerResponseExpandable> expand = default(List<PlayerResponseExpandable>))
+        /// <param name="email">The email address of the user. (required).</param>
+        /// <param name="token">Unique value to identify the request. Obtained from the email. (required).</param>
+        /// <param name="challenge">challenge.</param>
+        public VerifyEmailRequest(string email = default(string), string token = default(string), CodeChallengeVerify challenge = default(CodeChallengeVerify))
         {
-            this.Provider = provider;
+            // to ensure "email" is required (not null)
+            if (email == null)
+            {
+                throw new ArgumentNullException("email is a required property for VerifyEmailRequest and cannot be null");
+            }
+            this.Email = email;
             // to ensure "token" is required (not null)
             if (token == null)
             {
-                throw new ArgumentNullException("token is a required property for AuthenticateOAuthRequest and cannot be null");
+                throw new ArgumentNullException("token is a required property for VerifyEmailRequest and cannot be null");
             }
             this.Token = token;
-            this.TokenType = tokenType;
-            this.Expand = expand;
+            this.Challenge = challenge;
         }
 
         /// <summary>
-        /// Token to be verified
+        /// The email address of the user.
         /// </summary>
-        /// <value>Token to be verified</value>
-        /// <example>&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;</example>
+        /// <value>The email address of the user.</value>
+        /// <example>&quot;user@email.com&quot;</example>
+        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Unique value to identify the request. Obtained from the email.
+        /// </summary>
+        /// <value>Unique value to identify the request. Obtained from the email.</value>
+        /// <example>&quot;515151&quot;</example>
         [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
-        /// Specifies the fields to expand in the response.
+        /// Gets or Sets Challenge
         /// </summary>
-        /// <value>Specifies the fields to expand in the response.</value>
-        [DataMember(Name = "expand", EmitDefaultValue = false)]
-        public List<PlayerResponseExpandable> Expand { get; set; }
+        [DataMember(Name = "challenge", EmitDefaultValue = false)]
+        public CodeChallengeVerify Challenge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,11 +90,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AuthenticateOAuthRequest {\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("class VerifyEmailRequest {\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  TokenType: ").Append(TokenType).Append("\n");
-            sb.Append("  Expand: ").Append(Expand).Append("\n");
+            sb.Append("  Challenge: ").Append(Challenge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,15 +114,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AuthenticateOAuthRequest);
+            return this.Equals(input as VerifyEmailRequest);
         }
 
         /// <summary>
-        /// Returns true if AuthenticateOAuthRequest instances are equal
+        /// Returns true if VerifyEmailRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AuthenticateOAuthRequest to be compared</param>
+        /// <param name="input">Instance of VerifyEmailRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AuthenticateOAuthRequest input)
+        public bool Equals(VerifyEmailRequest input)
         {
             if (input == null)
             {
@@ -133,8 +130,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
                     this.Token == input.Token ||
@@ -142,14 +140,9 @@ namespace Openfort.SDK.Model
                     this.Token.Equals(input.Token))
                 ) && 
                 (
-                    this.TokenType == input.TokenType ||
-                    this.TokenType.Equals(input.TokenType)
-                ) && 
-                (
-                    this.Expand == input.Expand ||
-                    this.Expand != null &&
-                    input.Expand != null &&
-                    this.Expand.SequenceEqual(input.Expand)
+                    this.Challenge == input.Challenge ||
+                    (this.Challenge != null &&
+                    this.Challenge.Equals(input.Challenge))
                 );
         }
 
@@ -162,15 +155,17 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                if (this.Email != null)
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.Token != null)
                 {
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TokenType.GetHashCode();
-                if (this.Expand != null)
+                if (this.Challenge != null)
                 {
-                    hashCode = (hashCode * 59) + this.Expand.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Challenge.GetHashCode();
                 }
                 return hashCode;
             }

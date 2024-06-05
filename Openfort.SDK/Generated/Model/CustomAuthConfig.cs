@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderCUSTOM Provider { get; set; }
+        public ThirdPartyOAuthProviderCUSTOM Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomAuthConfig" /> class.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Openfort.SDK.Model
         /// <param name="provider">provider (required).</param>
         /// <param name="headers">Headers to send with the request.</param>
         /// <param name="authenticationUrl">URL to send the request to to verify the payload (required).</param>
-        public CustomAuthConfig(bool enabled = default(bool), OAuthProviderCUSTOM provider = default(OAuthProviderCUSTOM), string headers = default(string), string authenticationUrl = default(string))
+        public CustomAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderCUSTOM provider = default(ThirdPartyOAuthProviderCUSTOM), string headers = default(string), string authenticationUrl = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;

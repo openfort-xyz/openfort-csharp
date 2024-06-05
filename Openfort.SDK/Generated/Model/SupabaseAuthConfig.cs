@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderSUPABASE Provider { get; set; }
+        public ThirdPartyOAuthProviderSUPABASE Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SupabaseAuthConfig" /> class.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Openfort.SDK.Model
         /// <param name="provider">provider (required).</param>
         /// <param name="url">The unique Supabase URL which is supplied when you create a new project in your project dashboard. (required).</param>
         /// <param name="key">The unique Supabase Key which is supplied when you create a new project in your project dashboard. (required).</param>
-        public SupabaseAuthConfig(bool enabled = default(bool), OAuthProviderSUPABASE provider = default(OAuthProviderSUPABASE), string url = default(string), string key = default(string))
+        public SupabaseAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderSUPABASE provider = default(ThirdPartyOAuthProviderSUPABASE), string url = default(string), string key = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;

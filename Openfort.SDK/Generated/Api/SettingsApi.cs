@@ -74,7 +74,7 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve a developer account.
+        /// Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -86,7 +86,7 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve a developer account.
+        /// Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -97,7 +97,7 @@ namespace Openfort.SDK.Api
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -112,7 +112,7 @@ namespace Openfort.SDK.Api
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -202,7 +202,7 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve a developer account.
+        /// Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -215,7 +215,7 @@ namespace Openfort.SDK.Api
         /// Get existing developer account.
         /// </summary>
         /// <remarks>
-        /// Retrieve a developer account.
+        /// Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -227,7 +227,7 @@ namespace Openfort.SDK.Api
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -243,7 +243,7 @@ namespace Openfort.SDK.Api
         /// List of developer accounts.
         /// </summary>
         /// <remarks>
-        /// Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -747,7 +747,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve a developer account.
+        /// Get existing developer account. Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -760,7 +760,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve a developer account.
+        /// Get existing developer account. Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -814,7 +814,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve a developer account.
+        /// Get existing developer account. Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -828,7 +828,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get existing developer account. Retrieve a developer account.
+        /// Get existing developer account. Retrieve a developer account.  Returns the latest 10 transaction intents that were created with each developer account.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique developer account ID (starts with dac_).</param>
@@ -886,7 +886,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -902,7 +902,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -970,7 +970,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -987,7 +987,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  By default, a maximum of 10 accounts are shown per page.
+        /// List of developer accounts. Retrieve the list of the developer accounts for the current project.  Returns the latest 10 transaction intents that were created with each developer account.  By default, a maximum of 10 accounts are shown per page.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>

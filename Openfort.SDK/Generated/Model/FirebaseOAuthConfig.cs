@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderFIREBASE Provider { get; set; }
+        public ThirdPartyOAuthProviderFIREBASE Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FirebaseOAuthConfig" /> class.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Openfort.SDK.Model
         /// <param name="enabled">Enable OAuth provider. (required).</param>
         /// <param name="provider">provider (required).</param>
         /// <param name="projectId">Project ID of your Firebase service environment. (required).</param>
-        public FirebaseOAuthConfig(bool enabled = default(bool), OAuthProviderFIREBASE provider = default(OAuthProviderFIREBASE), string projectId = default(string))
+        public FirebaseOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderFIREBASE provider = default(ThirdPartyOAuthProviderFIREBASE), string projectId = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;

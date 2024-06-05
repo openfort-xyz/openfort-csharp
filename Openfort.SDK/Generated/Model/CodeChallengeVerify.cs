@@ -28,39 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// LootLocker oauth configuration
+    /// CodeChallengeVerify
     /// </summary>
-    [DataContract(Name = "LootLockerOAuthConfig")]
-    public partial class LootLockerOAuthConfig : IEquatable<LootLockerOAuthConfig>, IValidatableObject
+    [DataContract(Name = "CodeChallengeVerify")]
+    public partial class CodeChallengeVerify : IEquatable<CodeChallengeVerify>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderLOOTLOCKER Provider { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CodeChallengeVerify" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LootLockerOAuthConfig() { }
+        protected CodeChallengeVerify() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="CodeChallengeVerify" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        public LootLockerOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderLOOTLOCKER provider = default(ThirdPartyOAuthProviderLOOTLOCKER))
+        /// <param name="codeVerifier">The code verifier. (required).</param>
+        public CodeChallengeVerify(string codeVerifier = default(string))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
+            // to ensure "codeVerifier" is required (not null)
+            if (codeVerifier == null)
+            {
+                throw new ArgumentNullException("codeVerifier is a required property for CodeChallengeVerify and cannot be null");
+            }
+            this.CodeVerifier = codeVerifier;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// The code verifier.
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        /// <value>The code verifier.</value>
+        /// <example>&quot;verifier&quot;</example>
+        [DataMember(Name = "codeVerifier", IsRequired = true, EmitDefaultValue = true)]
+        public string CodeVerifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +67,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LootLockerOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("class CodeChallengeVerify {\n");
+            sb.Append("  CodeVerifier: ").Append(CodeVerifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +89,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LootLockerOAuthConfig);
+            return this.Equals(input as CodeChallengeVerify);
         }
 
         /// <summary>
-        /// Returns true if LootLockerOAuthConfig instances are equal
+        /// Returns true if CodeChallengeVerify instances are equal
         /// </summary>
-        /// <param name="input">Instance of LootLockerOAuthConfig to be compared</param>
+        /// <param name="input">Instance of CodeChallengeVerify to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LootLockerOAuthConfig input)
+        public bool Equals(CodeChallengeVerify input)
         {
             if (input == null)
             {
@@ -108,12 +105,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    this.CodeVerifier == input.CodeVerifier ||
+                    (this.CodeVerifier != null &&
+                    this.CodeVerifier.Equals(input.CodeVerifier))
                 );
         }
 
@@ -126,8 +120,10 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                if (this.CodeVerifier != null)
+                {
+                    hashCode = (hashCode * 59) + this.CodeVerifier.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderOIDC Provider { get; set; }
+        public ThirdPartyOAuthProviderOIDC Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OIDCAuthConfig" /> class.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Openfort.SDK.Model
         /// <param name="publicVerificationKey">PEM encoded public key to verify the JWT token.</param>
         /// <param name="aud">Audience of the JWT token (required).</param>
         /// <param name="jwksUrl">JWKS URL to fetch the public key.</param>
-        public OIDCAuthConfig(bool enabled = default(bool), OAuthProviderOIDC provider = default(OAuthProviderOIDC), string publicVerificationKey = default(string), string aud = default(string), string jwksUrl = default(string))
+        public OIDCAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderOIDC provider = default(ThirdPartyOAuthProviderOIDC), string publicVerificationKey = default(string), string aud = default(string), string jwksUrl = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;

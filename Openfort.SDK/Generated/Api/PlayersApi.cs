@@ -55,7 +55,7 @@ namespace Openfort.SDK.Api
         /// Create a player object.
         /// </summary>
         /// <remarks>
-        /// Creates a Player.
+        /// Creates a player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -66,7 +66,7 @@ namespace Openfort.SDK.Api
         /// Create a player object.
         /// </summary>
         /// <remarks>
-        /// Creates a Player.
+        /// Creates a player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -93,6 +93,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Retrieves the details of an existing player.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
         /// <param name="expand">Specifies the expandable fields. (optional)</param>
@@ -103,7 +106,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -114,7 +117,7 @@ namespace Openfort.SDK.Api
         /// List players.
         /// </summary>
         /// <remarks>
-        /// By default, a maximum of ten players are shown.
+        /// By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -129,7 +132,7 @@ namespace Openfort.SDK.Api
         /// List players.
         /// </summary>
         /// <remarks>
-        /// By default, a maximum of ten players are shown.
+        /// By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -166,7 +169,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object.
         /// </summary>
         /// <remarks>
-        /// Updates the specified Player by setting the values of the parameters passed.
+        /// Updates the specified player by setting the values of the parameters passed.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -178,7 +181,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object.
         /// </summary>
         /// <remarks>
-        /// Updates the specified Player by setting the values of the parameters passed.
+        /// Updates the specified player by setting the values of the parameters passed.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -223,7 +226,7 @@ namespace Openfort.SDK.Api
         /// Create a player object.
         /// </summary>
         /// <remarks>
-        /// Creates a Player.
+        /// Creates a player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -235,7 +238,7 @@ namespace Openfort.SDK.Api
         /// Create a player object.
         /// </summary>
         /// <remarks>
-        /// Creates a Player.
+        /// Creates a player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -269,7 +272,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -282,7 +285,7 @@ namespace Openfort.SDK.Api
         /// Retrieves the details of an existing player.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -294,7 +297,7 @@ namespace Openfort.SDK.Api
         /// List players.
         /// </summary>
         /// <remarks>
-        /// By default, a maximum of ten players are shown.
+        /// By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -310,7 +313,7 @@ namespace Openfort.SDK.Api
         /// List players.
         /// </summary>
         /// <remarks>
-        /// By default, a maximum of ten players are shown.
+        /// By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -350,7 +353,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object.
         /// </summary>
         /// <remarks>
-        /// Updates the specified Player by setting the values of the parameters passed.
+        /// Updates the specified player by setting the values of the parameters passed.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -363,7 +366,7 @@ namespace Openfort.SDK.Api
         /// Updates a player object.
         /// </summary>
         /// <remarks>
-        /// Updates the specified Player by setting the values of the parameters passed.
+        /// Updates the specified player by setting the values of the parameters passed.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -728,7 +731,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a player object. Creates a Player.
+        /// Create a player object. Creates a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -740,7 +743,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a player object. Creates a Player.
+        /// Create a player object. Creates a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -790,7 +793,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a player object. Creates a Player.
+        /// Create a player object. Creates a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -803,7 +806,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Create a player object. Creates a Player.
+        /// Create a player object. Creates a player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="playerCreateRequest"></param>
@@ -984,7 +987,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the details of an existing player. 
+        /// Retrieves the details of an existing player. Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -997,7 +1000,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the details of an existing player. 
+        /// Retrieves the details of an existing player. Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1051,7 +1054,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the details of an existing player. 
+        /// Retrieves the details of an existing player. Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1065,7 +1068,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieves the details of an existing player. 
+        /// Retrieves the details of an existing player. Retrieves the details of a player that has previously been created.  Returns the latest 10 transaction intents that were created with this player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1123,7 +1126,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List players. By default, a maximum of ten players are shown.
+        /// List players. By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1139,7 +1142,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List players. By default, a maximum of ten players are shown.
+        /// List players. By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1207,7 +1210,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List players. By default, a maximum of ten players are shown.
+        /// List players. By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1224,7 +1227,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List players. By default, a maximum of ten players are shown.
+        /// List players. By default, a maximum of 10 players are shown.  Returns the latest 10 transaction intents that were created with each player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1439,7 +1442,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Updates a player object. Updates the specified Player by setting the values of the parameters passed.
+        /// Updates a player object. Updates the specified player by setting the values of the parameters passed.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1452,7 +1455,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Updates a player object. Updates the specified Player by setting the values of the parameters passed.
+        /// Updates a player object. Updates the specified player by setting the values of the parameters passed.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1508,7 +1511,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Updates a player object. Updates the specified Player by setting the values of the parameters passed.
+        /// Updates a player object. Updates the specified player by setting the values of the parameters passed.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>
@@ -1522,7 +1525,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Updates a player object. Updates the specified Player by setting the values of the parameters passed.
+        /// Updates a player object. Updates the specified player by setting the values of the parameters passed.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique player ID (starts with pla_).</param>

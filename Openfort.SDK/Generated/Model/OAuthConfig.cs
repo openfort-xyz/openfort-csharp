@@ -85,6 +85,30 @@ namespace Openfort.SDK.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="TwitterOAuthConfig" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TwitterOAuthConfig.</param>
+        public OAuthConfig(TwitterOAuthConfig actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
+        /// with the <see cref="FacebookOAuthConfig" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of FacebookOAuthConfig.</param>
+        public OAuthConfig(FacebookOAuthConfig actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "anyOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OAuthConfig" /> class
         /// with the <see cref="PlayFabOAuthConfig" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PlayFabOAuthConfig.</param>
@@ -153,6 +177,10 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(FacebookOAuthConfig))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(FirebaseOAuthConfig))
                 {
                     this._actualInstance = value;
@@ -177,9 +205,13 @@ namespace Openfort.SDK.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(TwitterOAuthConfig))
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, CustomAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, OIDCAuthConfig, PlayFabOAuthConfig, SupabaseAuthConfig");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: AccelbyteOAuthConfig, CustomAuthConfig, FacebookOAuthConfig, FirebaseOAuthConfig, GoogleOAuthConfig, LootLockerOAuthConfig, OIDCAuthConfig, PlayFabOAuthConfig, SupabaseAuthConfig, TwitterOAuthConfig");
                 }
             }
         }
@@ -222,6 +254,26 @@ namespace Openfort.SDK.Model
         public GoogleOAuthConfig GetGoogleOAuthConfig()
         {
             return (GoogleOAuthConfig)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TwitterOAuthConfig`. If the actual instance is not `TwitterOAuthConfig`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TwitterOAuthConfig</returns>
+        public TwitterOAuthConfig GetTwitterOAuthConfig()
+        {
+            return (TwitterOAuthConfig)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `FacebookOAuthConfig`. If the actual instance is not `FacebookOAuthConfig`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of FacebookOAuthConfig</returns>
+        public FacebookOAuthConfig GetFacebookOAuthConfig()
+        {
+            return (FacebookOAuthConfig)this.ActualInstance;
         }
 
         /// <summary>
@@ -326,6 +378,18 @@ namespace Openfort.SDK.Model
 
             try
             {
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<FacebookOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newOAuthConfig;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FacebookOAuthConfig: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
                 newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<FirebaseOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newOAuthConfig;
@@ -394,6 +458,18 @@ namespace Openfort.SDK.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SupabaseAuthConfig: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newOAuthConfig = new OAuthConfig(JsonConvert.DeserializeObject<TwitterOAuthConfig>(jsonString, OAuthConfig.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newOAuthConfig;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TwitterOAuthConfig: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception

@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public AuthProvider Provider { get; set; }
+        public AuthProviderResponse Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LinkedAccountResponse" /> class.
         /// </summary>
@@ -51,15 +51,17 @@ namespace Openfort.SDK.Model
         /// <param name="email">email.</param>
         /// <param name="externalUserId">externalUserId.</param>
         /// <param name="disabled">disabled (required).</param>
+        /// <param name="verified">verified.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="address">address.</param>
         /// <param name="metadata">metadata.</param>
-        public LinkedAccountResponse(AuthProvider provider = default(AuthProvider), string email = default(string), string externalUserId = default(string), bool disabled = default(bool), double updatedAt = default(double), string address = default(string), PrismaInputJsonValue metadata = default(PrismaInputJsonValue))
+        public LinkedAccountResponse(AuthProviderResponse provider = default(AuthProviderResponse), string email = default(string), string externalUserId = default(string), bool disabled = default(bool), bool verified = default(bool), double updatedAt = default(double), string address = default(string), PrismaInputJsonValue metadata = default(PrismaInputJsonValue))
         {
             this.Provider = provider;
             this.Disabled = disabled;
             this.Email = email;
             this.ExternalUserId = externalUserId;
+            this.Verified = verified;
             this.UpdatedAt = updatedAt;
             this.Address = address;
             this.Metadata = metadata;
@@ -82,6 +84,12 @@ namespace Openfort.SDK.Model
         /// </summary>
         [DataMember(Name = "disabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Disabled { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Verified
+        /// </summary>
+        [DataMember(Name = "verified", EmitDefaultValue = true)]
+        public bool Verified { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
@@ -113,6 +121,7 @@ namespace Openfort.SDK.Model
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  ExternalUserId: ").Append(ExternalUserId).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
+            sb.Append("  Verified: ").Append(Verified).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
@@ -170,6 +179,10 @@ namespace Openfort.SDK.Model
                     this.Disabled.Equals(input.Disabled)
                 ) && 
                 (
+                    this.Verified == input.Verified ||
+                    this.Verified.Equals(input.Verified)
+                ) && 
+                (
                     this.UpdatedAt == input.UpdatedAt ||
                     this.UpdatedAt.Equals(input.UpdatedAt)
                 ) && 
@@ -204,6 +217,7 @@ namespace Openfort.SDK.Model
                     hashCode = (hashCode * 59) + this.ExternalUserId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Disabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.Verified.GetHashCode();
                 hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
                 if (this.Address != null)
                 {

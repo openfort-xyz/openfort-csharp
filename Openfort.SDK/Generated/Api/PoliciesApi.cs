@@ -127,7 +127,7 @@ namespace Openfort.SDK.Api
         /// List policies.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Policies.
+        /// Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -145,7 +145,7 @@ namespace Openfort.SDK.Api
         /// List policies.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Policies.
+        /// Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -162,7 +162,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Policy that has previously been created.
+        /// Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -174,7 +174,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Policy that has previously been created.
+        /// Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -370,7 +370,7 @@ namespace Openfort.SDK.Api
         /// List policies.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Policies.
+        /// Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -389,7 +389,7 @@ namespace Openfort.SDK.Api
         /// List policies.
         /// </summary>
         /// <remarks>
-        /// Returns a list of Policies.
+        /// Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -407,7 +407,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Policy that has previously been created.
+        /// Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -420,7 +420,7 @@ namespace Openfort.SDK.Api
         /// Get a policy object.
         /// </summary>
         /// <remarks>
-        /// Retrieves the details of a Policy that has previously been created.
+        /// Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1366,7 +1366,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List policies. Returns a list of Policies.
+        /// List policies. Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1385,7 +1385,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List policies. Returns a list of Policies.
+        /// List policies. Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1468,7 +1468,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List policies. Returns a list of Policies.
+        /// List policies. Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1488,7 +1488,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// List policies. Returns a list of Policies.
+        /// List policies. Returns a list of Policies.  Returns the latest 10 transaction intents for each policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the maximum number of records to return. (optional)</param>
@@ -1575,7 +1575,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a policy object. Retrieves the details of a Policy that has previously been created.
+        /// Get a policy object. Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1588,7 +1588,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a policy object. Retrieves the details of a Policy that has previously been created.
+        /// Get a policy object. Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1642,7 +1642,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a policy object. Retrieves the details of a Policy that has previously been created.
+        /// Get a policy object. Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>
@@ -1656,7 +1656,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Get a policy object. Retrieves the details of a Policy that has previously been created.
+        /// Get a policy object. Retrieves the details of a Policy that has previously been created.  Returns the latest 10 transaction intents that used this policy.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Specifies the unique policy ID (starts with pol_).</param>

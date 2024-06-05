@@ -48,11 +48,13 @@ namespace Openfort.SDK.Model
         /// Initializes a new instance of the <see cref="OAuthInitRequest" /> class.
         /// </summary>
         /// <param name="options">options.</param>
+        /// <param name="usePooling">Use Pooling for the OAuth flow  This option is for the flow that requires the user can&#39;t be redirected from the authorization page to the application. The client should poll the server to check if the user has authorized the application..</param>
         /// <param name="provider">provider (required).</param>
-        public OAuthInitRequest(OAuthInitRequestOptions options = default(OAuthInitRequestOptions), OAuthProvider provider = default(OAuthProvider))
+        public OAuthInitRequest(OAuthInitRequestOptions options = default(OAuthInitRequestOptions), bool usePooling = default(bool), OAuthProvider provider = default(OAuthProvider))
         {
             this.Provider = provider;
             this.Options = options;
+            this.UsePooling = usePooling;
         }
 
         /// <summary>
@@ -60,6 +62,13 @@ namespace Openfort.SDK.Model
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = false)]
         public OAuthInitRequestOptions Options { get; set; }
+
+        /// <summary>
+        /// Use Pooling for the OAuth flow  This option is for the flow that requires the user can&#39;t be redirected from the authorization page to the application. The client should poll the server to check if the user has authorized the application.
+        /// </summary>
+        /// <value>Use Pooling for the OAuth flow  This option is for the flow that requires the user can&#39;t be redirected from the authorization page to the application. The client should poll the server to check if the user has authorized the application.</value>
+        [DataMember(Name = "usePooling", EmitDefaultValue = true)]
+        public bool UsePooling { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,6 +79,7 @@ namespace Openfort.SDK.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class OAuthInitRequest {\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
+            sb.Append("  UsePooling: ").Append(UsePooling).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,6 +122,10 @@ namespace Openfort.SDK.Model
                     this.Options.Equals(input.Options))
                 ) && 
                 (
+                    this.UsePooling == input.UsePooling ||
+                    this.UsePooling.Equals(input.UsePooling)
+                ) && 
+                (
                     this.Provider == input.Provider ||
                     this.Provider.Equals(input.Provider)
                 );
@@ -130,6 +144,7 @@ namespace Openfort.SDK.Model
                 {
                     hashCode = (hashCode * 59) + this.Options.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UsePooling.GetHashCode();
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
                 return hashCode;
             }

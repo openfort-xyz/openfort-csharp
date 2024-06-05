@@ -38,7 +38,7 @@ namespace Openfort.SDK.Model
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public OAuthProviderACCELBYTE Provider { get; set; }
+        public ThirdPartyOAuthProviderACCELBYTE Provider { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AccelbyteOAuthConfig" /> class.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Openfort.SDK.Model
         /// <param name="baseUrl">Base URI of your accelbyte gaming service environment. E.g. https://mygame.dev.gamingservices.accelbyte.io/ (required).</param>
         /// <param name="clientId">Client ID of your accelbyte gaming service environment. (required).</param>
         /// <param name="clientSecret">Secret of your confidential IAM client. (required).</param>
-        public AccelbyteOAuthConfig(bool enabled = default(bool), OAuthProviderACCELBYTE provider = default(OAuthProviderACCELBYTE), string baseUrl = default(string), string clientId = default(string), string clientSecret = default(string))
+        public AccelbyteOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderACCELBYTE provider = default(ThirdPartyOAuthProviderACCELBYTE), string baseUrl = default(string), string clientId = default(string), string clientSecret = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;

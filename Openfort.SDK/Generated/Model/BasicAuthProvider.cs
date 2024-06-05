@@ -28,29 +28,23 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// Enum of the supporting OAuth providers.
+    /// Enum of the supporting Basic Auth providers.
     /// </summary>
-    /// <value>Enum of the supporting OAuth providers.</value>
+    /// <value>Enum of the supporting Basic Auth providers.</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum OAuthProvider
+    public enum BasicAuthProvider
     {
         /// <summary>
-        /// Enum Google for value: google
+        /// Enum Email for value: email
         /// </summary>
-        [EnumMember(Value = "google")]
-        Google = 1,
+        [EnumMember(Value = "email")]
+        Email = 1,
 
         /// <summary>
-        /// Enum Twitter for value: twitter
+        /// Enum Wallet for value: wallet
         /// </summary>
-        [EnumMember(Value = "twitter")]
-        Twitter = 2,
-
-        /// <summary>
-        /// Enum Facebook for value: facebook
-        /// </summary>
-        [EnumMember(Value = "facebook")]
-        Facebook = 3
+        [EnumMember(Value = "wallet")]
+        Wallet = 2
 
     }
 

@@ -28,53 +28,51 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayFab oauth configuration
+    /// EmailSampleDeleteResponse
     /// </summary>
-    [DataContract(Name = "PlayFabOAuthConfig")]
-    public partial class PlayFabOAuthConfig : IEquatable<PlayFabOAuthConfig>, IValidatableObject
+    [DataContract(Name = "EmailSampleDeleteResponse")]
+    public partial class EmailSampleDeleteResponse : IEquatable<EmailSampleDeleteResponse>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// Gets or Sets Object
         /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderPLAYFAB Provider { get; set; }
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public EntityTypeEMAILSAMPLE Object { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="EmailSampleDeleteResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayFabOAuthConfig() { }
+        protected EmailSampleDeleteResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="EmailSampleDeleteResponse" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        /// <param name="titleId">Title ID of your Play Fab gaming service environment. (required).</param>
-        public PlayFabOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderPLAYFAB provider = default(ThirdPartyOAuthProviderPLAYFAB), string titleId = default(string))
+        /// <param name="deleted">deleted (required).</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="_object">_object (required).</param>
+        public EmailSampleDeleteResponse(bool deleted = default(bool), string id = default(string), EntityTypeEMAILSAMPLE _object = default(EntityTypeEMAILSAMPLE))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
-            // to ensure "titleId" is required (not null)
-            if (titleId == null)
+            this.Deleted = deleted;
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new ArgumentNullException("titleId is a required property for PlayFabOAuthConfig and cannot be null");
+                throw new ArgumentNullException("id is a required property for EmailSampleDeleteResponse and cannot be null");
             }
-            this.TitleId = titleId;
+            this.Id = id;
+            this.Object = _object;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// Gets or Sets Deleted
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        [DataMember(Name = "deleted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Deleted { get; set; }
 
         /// <summary>
-        /// Title ID of your Play Fab gaming service environment.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>Title ID of your Play Fab gaming service environment.</value>
-        [DataMember(Name = "titleId", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleId { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +81,10 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayFabOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  TitleId: ").Append(TitleId).Append("\n");
+            sb.Append("class EmailSampleDeleteResponse {\n");
+            sb.Append("  Deleted: ").Append(Deleted).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,15 +105,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayFabOAuthConfig);
+            return this.Equals(input as EmailSampleDeleteResponse);
         }
 
         /// <summary>
-        /// Returns true if PlayFabOAuthConfig instances are equal
+        /// Returns true if EmailSampleDeleteResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayFabOAuthConfig to be compared</param>
+        /// <param name="input">Instance of EmailSampleDeleteResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayFabOAuthConfig input)
+        public bool Equals(EmailSampleDeleteResponse input)
         {
             if (input == null)
             {
@@ -123,17 +121,17 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
                 ) && 
                 (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.TitleId == input.TitleId ||
-                    (this.TitleId != null &&
-                    this.TitleId.Equals(input.TitleId))
+                    this.Object == input.Object ||
+                    this.Object.Equals(input.Object)
                 );
         }
 
@@ -146,12 +144,12 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.TitleId != null)
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.TitleId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Object.GetHashCode();
                 return hashCode;
             }
         }

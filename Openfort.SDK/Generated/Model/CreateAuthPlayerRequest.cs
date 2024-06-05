@@ -50,7 +50,9 @@ namespace Openfort.SDK.Model
         /// <param name="thirdPartyUserId">The third party user id. (required).</param>
         /// <param name="thirdPartyProvider">thirdPartyProvider (required).</param>
         /// <param name="preGenerateEmbeddedAccount">Pre generate embedded account. (required).</param>
-        public CreateAuthPlayerRequest(string thirdPartyUserId = default(string), ThirdPartyOAuthProvider thirdPartyProvider = default(ThirdPartyOAuthProvider), bool preGenerateEmbeddedAccount = default(bool))
+        /// <param name="chainId">The chain ID. Must be a [supported chain](/chains)..</param>
+        /// <param name="metadata">metadata.</param>
+        public CreateAuthPlayerRequest(string thirdPartyUserId = default(string), ThirdPartyOAuthProvider thirdPartyProvider = default(ThirdPartyOAuthProvider), bool preGenerateEmbeddedAccount = default(bool), int chainId = default(int), Dictionary<string, PlayerMetadataValue> metadata = default(Dictionary<string, PlayerMetadataValue>))
         {
             // to ensure "thirdPartyUserId" is required (not null)
             if (thirdPartyUserId == null)
@@ -60,6 +62,8 @@ namespace Openfort.SDK.Model
             this.ThirdPartyUserId = thirdPartyUserId;
             this.ThirdPartyProvider = thirdPartyProvider;
             this.PreGenerateEmbeddedAccount = preGenerateEmbeddedAccount;
+            this.ChainId = chainId;
+            this.Metadata = metadata;
         }
 
         /// <summary>
@@ -79,6 +83,20 @@ namespace Openfort.SDK.Model
         public bool PreGenerateEmbeddedAccount { get; set; }
 
         /// <summary>
+        /// The chain ID. Must be a [supported chain](/chains).
+        /// </summary>
+        /// <value>The chain ID. Must be a [supported chain](/chains).</value>
+        /// <example>80002</example>
+        [DataMember(Name = "chainId", EmitDefaultValue = false)]
+        public int ChainId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, PlayerMetadataValue> Metadata { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,6 +107,8 @@ namespace Openfort.SDK.Model
             sb.Append("  ThirdPartyUserId: ").Append(ThirdPartyUserId).Append("\n");
             sb.Append("  ThirdPartyProvider: ").Append(ThirdPartyProvider).Append("\n");
             sb.Append("  PreGenerateEmbeddedAccount: ").Append(PreGenerateEmbeddedAccount).Append("\n");
+            sb.Append("  ChainId: ").Append(ChainId).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +156,16 @@ namespace Openfort.SDK.Model
                 (
                     this.PreGenerateEmbeddedAccount == input.PreGenerateEmbeddedAccount ||
                     this.PreGenerateEmbeddedAccount.Equals(input.PreGenerateEmbeddedAccount)
+                ) && 
+                (
+                    this.ChainId == input.ChainId ||
+                    this.ChainId.Equals(input.ChainId)
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -154,6 +184,11 @@ namespace Openfort.SDK.Model
                 }
                 hashCode = (hashCode * 59) + this.ThirdPartyProvider.GetHashCode();
                 hashCode = (hashCode * 59) + this.PreGenerateEmbeddedAccount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ChainId.GetHashCode();
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -28,39 +28,37 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// LootLocker oauth configuration
+    /// UnlinkEmailRequest
     /// </summary>
-    [DataContract(Name = "LootLockerOAuthConfig")]
-    public partial class LootLockerOAuthConfig : IEquatable<LootLockerOAuthConfig>, IValidatableObject
+    [DataContract(Name = "UnlinkEmailRequest")]
+    public partial class UnlinkEmailRequest : IEquatable<UnlinkEmailRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Provider
-        /// </summary>
-        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderLOOTLOCKER Provider { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkEmailRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LootLockerOAuthConfig() { }
+        protected UnlinkEmailRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LootLockerOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkEmailRequest" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
-        /// <param name="provider">provider (required).</param>
-        public LootLockerOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderLOOTLOCKER provider = default(ThirdPartyOAuthProviderLOOTLOCKER))
+        /// <param name="email">The email address of the user. (required).</param>
+        public UnlinkEmailRequest(string email = default(string))
         {
-            this.Enabled = enabled;
-            this.Provider = provider;
+            // to ensure "email" is required (not null)
+            if (email == null)
+            {
+                throw new ArgumentNullException("email is a required property for UnlinkEmailRequest and cannot be null");
+            }
+            this.Email = email;
         }
 
         /// <summary>
-        /// Enable OAuth provider.
+        /// The email address of the user.
         /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
+        /// <value>The email address of the user.</value>
+        /// <example>&quot;user@email.com&quot;</example>
+        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +67,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LootLockerOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("class UnlinkEmailRequest {\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,15 +89,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LootLockerOAuthConfig);
+            return this.Equals(input as UnlinkEmailRequest);
         }
 
         /// <summary>
-        /// Returns true if LootLockerOAuthConfig instances are equal
+        /// Returns true if UnlinkEmailRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of LootLockerOAuthConfig to be compared</param>
+        /// <param name="input">Instance of UnlinkEmailRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LootLockerOAuthConfig input)
+        public bool Equals(UnlinkEmailRequest input)
         {
             if (input == null)
             {
@@ -108,12 +105,9 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
-                    this.Provider == input.Provider ||
-                    this.Provider.Equals(input.Provider)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 );
         }
 
@@ -126,8 +120,10 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Provider.GetHashCode();
+                if (this.Email != null)
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 return hashCode;
             }
         }

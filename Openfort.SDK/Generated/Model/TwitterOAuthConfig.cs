@@ -28,38 +28,45 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayFab oauth configuration
+    /// Twitter oauth configuration
     /// </summary>
-    [DataContract(Name = "PlayFabOAuthConfig")]
-    public partial class PlayFabOAuthConfig : IEquatable<PlayFabOAuthConfig>, IValidatableObject
+    [DataContract(Name = "TwitterOAuthConfig")]
+    public partial class TwitterOAuthConfig : IEquatable<TwitterOAuthConfig>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderPLAYFAB Provider { get; set; }
+        public OAuthProviderTWITTER Provider { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="TwitterOAuthConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayFabOAuthConfig() { }
+        protected TwitterOAuthConfig() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="TwitterOAuthConfig" /> class.
         /// </summary>
         /// <param name="enabled">Enable OAuth provider. (required).</param>
         /// <param name="provider">provider (required).</param>
-        /// <param name="titleId">Title ID of your Play Fab gaming service environment. (required).</param>
-        public PlayFabOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderPLAYFAB provider = default(ThirdPartyOAuthProviderPLAYFAB), string titleId = default(string))
+        /// <param name="clientId">Twitter API consumer key. (required).</param>
+        /// <param name="clientSecret">Twitter API consumer secret. (required).</param>
+        public TwitterOAuthConfig(bool enabled = default(bool), OAuthProviderTWITTER provider = default(OAuthProviderTWITTER), string clientId = default(string), string clientSecret = default(string))
         {
             this.Enabled = enabled;
             this.Provider = provider;
-            // to ensure "titleId" is required (not null)
-            if (titleId == null)
+            // to ensure "clientId" is required (not null)
+            if (clientId == null)
             {
-                throw new ArgumentNullException("titleId is a required property for PlayFabOAuthConfig and cannot be null");
+                throw new ArgumentNullException("clientId is a required property for TwitterOAuthConfig and cannot be null");
             }
-            this.TitleId = titleId;
+            this.ClientId = clientId;
+            // to ensure "clientSecret" is required (not null)
+            if (clientSecret == null)
+            {
+                throw new ArgumentNullException("clientSecret is a required property for TwitterOAuthConfig and cannot be null");
+            }
+            this.ClientSecret = clientSecret;
         }
 
         /// <summary>
@@ -70,11 +77,18 @@ namespace Openfort.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Title ID of your Play Fab gaming service environment.
+        /// Twitter API consumer key.
         /// </summary>
-        /// <value>Title ID of your Play Fab gaming service environment.</value>
-        [DataMember(Name = "titleId", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleId { get; set; }
+        /// <value>Twitter API consumer key.</value>
+        [DataMember(Name = "clientId", IsRequired = true, EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// Twitter API consumer secret.
+        /// </summary>
+        /// <value>Twitter API consumer secret.</value>
+        [DataMember(Name = "clientSecret", IsRequired = true, EmitDefaultValue = true)]
+        public string ClientSecret { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +97,11 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayFabOAuthConfig {\n");
+            sb.Append("class TwitterOAuthConfig {\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  TitleId: ").Append(TitleId).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,15 +122,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayFabOAuthConfig);
+            return this.Equals(input as TwitterOAuthConfig);
         }
 
         /// <summary>
-        /// Returns true if PlayFabOAuthConfig instances are equal
+        /// Returns true if TwitterOAuthConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayFabOAuthConfig to be compared</param>
+        /// <param name="input">Instance of TwitterOAuthConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayFabOAuthConfig input)
+        public bool Equals(TwitterOAuthConfig input)
         {
             if (input == null)
             {
@@ -131,9 +146,14 @@ namespace Openfort.SDK.Model
                     this.Provider.Equals(input.Provider)
                 ) && 
                 (
-                    this.TitleId == input.TitleId ||
-                    (this.TitleId != null &&
-                    this.TitleId.Equals(input.TitleId))
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
+                ) && 
+                (
+                    this.ClientSecret == input.ClientSecret ||
+                    (this.ClientSecret != null &&
+                    this.ClientSecret.Equals(input.ClientSecret))
                 );
         }
 
@@ -148,9 +168,13 @@ namespace Openfort.SDK.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.TitleId != null)
+                if (this.ClientId != null)
                 {
-                    hashCode = (hashCode * 59) + this.TitleId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
+                if (this.ClientSecret != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
                 }
                 return hashCode;
             }

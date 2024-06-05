@@ -31,6 +31,9 @@ namespace Openfort.SDK.Api
         /// <summary>
         /// Authenticate player with oauth token.
         /// </summary>
+        /// <remarks>
+        /// Deprecated
+        /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
         /// <returns>AuthResponse</returns>
@@ -40,7 +43,7 @@ namespace Openfort.SDK.Api
         /// Authenticate player with oauth token.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -75,7 +78,7 @@ namespace Openfort.SDK.Api
         /// <param name="oAuthRequest"></param>
         /// <returns>DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        DeprecatedAuthenticatedPlayerResponse AuthorizeWithOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest);
+        DeprecatedAuthenticatedPlayerResponse AuthorizeWithOAuthToken(AuthProvider provider, OAuthRequest oAuthRequest);
 
         /// <summary>
         /// Authorize player with token.
@@ -88,7 +91,7 @@ namespace Openfort.SDK.Api
         /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        ApiResponse<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest);
+        ApiResponse<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenWithHttpInfo(AuthProvider provider, OAuthRequest oAuthRequest);
         /// <summary>
         /// Get the jwks.json file.
         /// </summary>
@@ -149,6 +152,42 @@ namespace Openfort.SDK.Api
         /// <param name="sIWERequest"></param>
         /// <returns>ApiResponse of SIWEInitResponse</returns>
         ApiResponse<SIWEInitResponse> InitSIWEWithHttpInfo(SIWERequest sIWERequest);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        AuthPlayerResponse LinkEmail(LoginRequest loginRequest);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        ApiResponse<AuthPlayerResponse> LinkEmailWithHttpInfo(LoginRequest loginRequest);
+        /// <summary>
+        /// Initialize Link OAuth.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <returns>OAuthResponse</returns>
+        OAuthResponse LinkOAuth(OAuthInitRequest oAuthInitRequest);
+
+        /// <summary>
+        /// Initialize Link OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <returns>ApiResponse of OAuthResponse</returns>
+        ApiResponse<OAuthResponse> LinkOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest);
         /// <summary>
         /// Link external wallet.
         /// </summary>
@@ -226,6 +265,24 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
         ApiResponse<AuthPlayerResponse> MeWithHttpInfo();
         /// <summary>
+        /// Initialize OAuth.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <returns>AuthResponse</returns>
+        AuthResponse PoolOAuth(string key);
+
+        /// <summary>
+        /// Initialize OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <returns>ApiResponse of AuthResponse</returns>
+        ApiResponse<AuthResponse> PoolOAuthWithHttpInfo(string key);
+        /// <summary>
         /// Refresh or create auth session.
         /// </summary>
         /// <remarks>
@@ -246,6 +303,69 @@ namespace Openfort.SDK.Api
         /// <param name="refreshTokenRequest"></param>
         /// <returns>ApiResponse of AuthResponse</returns>
         ApiResponse<AuthResponse> RefreshWithHttpInfo(RefreshTokenRequest refreshTokenRequest);
+        /// <summary>
+        /// Request an Email Verification.
+        /// </summary>
+        /// <remarks>
+        /// Start the Email Verification process for a player.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <returns></returns>
+        void RequestEmailVerification(RequestVerifyEmailRequest requestVerifyEmailRequest);
+
+        /// <summary>
+        /// Request an Email Verification.
+        /// </summary>
+        /// <remarks>
+        /// Start the Email Verification process for a player.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RequestEmailVerificationWithHttpInfo(RequestVerifyEmailRequest requestVerifyEmailRequest);
+        /// <summary>
+        /// Request a Reset password.
+        /// </summary>
+        /// <remarks>
+        /// Start the Reset process for a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <returns></returns>
+        void RequestResetPassword(RequestResetPasswordRequest requestResetPasswordRequest);
+
+        /// <summary>
+        /// Request a Reset password.
+        /// </summary>
+        /// <remarks>
+        /// Start the Reset process for a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> RequestResetPasswordWithHttpInfo(RequestResetPasswordRequest requestResetPasswordRequest);
+        /// <summary>
+        /// Reset a password.
+        /// </summary>
+        /// <remarks>
+        /// Reset a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns></returns>
+        void ResetPassword(ResetPasswordRequest resetPasswordRequest);
+
+        /// <summary>
+        /// Reset a password.
+        /// </summary>
+        /// <remarks>
+        /// Reset a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ResetPasswordWithHttpInfo(ResetPasswordRequest resetPasswordRequest);
         /// <summary>
         /// Email and password signup.
         /// </summary>
@@ -286,12 +406,30 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
         ApiResponse<AuthPlayerResponse> ThirdPartyWithHttpInfo(ThirdPartyOAuthRequest thirdPartyOAuthRequest);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        AuthPlayerResponse UnlinkEmail(UnlinkEmailRequest unlinkEmailRequest);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        ApiResponse<AuthPlayerResponse> UnlinkEmailWithHttpInfo(UnlinkEmailRequest unlinkEmailRequest);
+        /// <summary>
         /// Unlink OAuth account
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <returns>AuthPlayerResponse</returns>
-        AuthPlayerResponse UnlinkOAuth(UnlinkRequest unlinkRequest);
+        AuthPlayerResponse UnlinkOAuth(UnlinkOAuthRequest unlinkOAuthRequest);
 
         /// <summary>
         /// Unlink OAuth account
@@ -300,9 +438,9 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
-        ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkRequest unlinkRequest);
+        ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkOAuthRequest unlinkOAuthRequest);
         /// <summary>
         /// Unlink external wallet.
         /// </summary>
@@ -322,35 +460,56 @@ namespace Openfort.SDK.Api
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
         ApiResponse<AuthPlayerResponse> UnlinkSIWEWithHttpInfo(SIWERequest sIWERequest);
         /// <summary>
+        /// Verify an email.
+        /// </summary>
+        /// <remarks>
+        /// Verify a player&#39;s email address.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <returns></returns>
+        void VerifyEmail(VerifyEmailRequest verifyEmailRequest);
+
+        /// <summary>
+        /// Verify an email.
+        /// </summary>
+        /// <remarks>
+        /// Verify a player&#39;s email address.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> VerifyEmailWithHttpInfo(VerifyEmailRequest verifyEmailRequest);
+        /// <summary>
         /// Retrieve player by token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
         /// <param name="oAuthRequest"></param>
         /// <returns>PlayerResponse</returns>
         [Obsolete]
-        PlayerResponse VerifyOAuth(OAuthProvider provider, OAuthRequest oAuthRequest);
+        PlayerResponse VerifyOAuth(AuthProvider provider, OAuthRequest oAuthRequest);
 
         /// <summary>
         /// Retrieve player by token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
         /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         [Obsolete]
-        ApiResponse<PlayerResponse> VerifyOAuthWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest);
+        ApiResponse<PlayerResponse> VerifyOAuthWithHttpInfo(AuthProvider provider, OAuthRequest oAuthRequest);
         /// <summary>
         /// Retrieve player by oauth token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -361,7 +520,7 @@ namespace Openfort.SDK.Api
         /// Retrieve player by oauth token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -380,7 +539,7 @@ namespace Openfort.SDK.Api
         /// Authenticate player with oauth token.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -392,7 +551,7 @@ namespace Openfort.SDK.Api
         /// Authenticate player with oauth token.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -434,7 +593,7 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Authorize player with token.
@@ -448,7 +607,7 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeprecatedAuthenticatedPlayerResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<DeprecatedAuthenticatedPlayerResponse>> AuthorizeWithOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeprecatedAuthenticatedPlayerResponse>> AuthorizeWithOAuthTokenWithHttpInfoAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get the jwks.json file.
         /// </summary>
@@ -518,6 +677,52 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SIWEInitResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SIWEInitResponse>> InitSIWEWithHttpInfoAsync(SIWERequest sIWERequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        System.Threading.Tasks.Task<AuthPlayerResponse> LinkEmailAsync(LoginRequest loginRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> LinkEmailWithHttpInfoAsync(LoginRequest loginRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Initialize Link OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OAuthResponse</returns>
+        System.Threading.Tasks.Task<OAuthResponse> LinkOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Initialize Link OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OAuthResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OAuthResponse>> LinkOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Link external wallet.
         /// </summary>
@@ -609,6 +814,29 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> MeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Initialize OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthResponse</returns>
+        System.Threading.Tasks.Task<AuthResponse> PoolOAuthAsync(string key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Initialize OAuth.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthResponse>> PoolOAuthWithHttpInfoAsync(string key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Refresh or create auth session.
         /// </summary>
         /// <remarks>
@@ -631,6 +859,75 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthResponse>> RefreshWithHttpInfoAsync(RefreshTokenRequest refreshTokenRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Request an Email Verification.
+        /// </summary>
+        /// <remarks>
+        /// Start the Email Verification process for a player.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RequestEmailVerificationAsync(RequestVerifyEmailRequest requestVerifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Request an Email Verification.
+        /// </summary>
+        /// <remarks>
+        /// Start the Email Verification process for a player.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RequestEmailVerificationWithHttpInfoAsync(RequestVerifyEmailRequest requestVerifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Request a Reset password.
+        /// </summary>
+        /// <remarks>
+        /// Start the Reset process for a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task RequestResetPasswordAsync(RequestResetPasswordRequest requestResetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Request a Reset password.
+        /// </summary>
+        /// <remarks>
+        /// Start the Reset process for a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> RequestResetPasswordWithHttpInfoAsync(RequestResetPasswordRequest requestResetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Reset a password.
+        /// </summary>
+        /// <remarks>
+        /// Reset a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ResetPasswordAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Reset a password.
+        /// </summary>
+        /// <remarks>
+        /// Reset a player&#39;s password.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResetPasswordWithHttpInfoAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Email and password signup.
         /// </summary>
@@ -678,16 +975,39 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> ThirdPartyWithHttpInfoAsync(ThirdPartyOAuthRequest thirdPartyOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkEmailAsync(UnlinkEmailRequest unlinkEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkEmailWithHttpInfoAsync(UnlinkEmailRequest unlinkEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Unlink OAuth account
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerResponse</returns>
-        System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkOAuthRequest unlinkOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Unlink OAuth account
@@ -696,10 +1016,10 @@ namespace Openfort.SDK.Api
         /// 
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkOAuthRequest unlinkOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unlink external wallet.
         /// </summary>
@@ -724,10 +1044,33 @@ namespace Openfort.SDK.Api
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthPlayerResponse>> UnlinkSIWEWithHttpInfoAsync(SIWERequest sIWERequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Verify an email.
+        /// </summary>
+        /// <remarks>
+        /// Verify a player&#39;s email address.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task VerifyEmailAsync(VerifyEmailRequest verifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Verify an email.
+        /// </summary>
+        /// <remarks>
+        /// Verify a player&#39;s email address.
+        /// </remarks>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyEmailWithHttpInfoAsync(VerifyEmailRequest verifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieve player by token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
@@ -735,13 +1078,13 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve player by token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
@@ -749,12 +1092,12 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<PlayerResponse>> VerifyOAuthWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerResponse>> VerifyOAuthWithHttpInfoAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve player by oauth token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -766,7 +1109,7 @@ namespace Openfort.SDK.Api
         /// Retrieve player by oauth token.
         /// </summary>
         /// <remarks>
-        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </remarks>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -987,7 +1330,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Authenticate player with oauth token. 
+        /// Authenticate player with oauth token. Deprecated
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -999,7 +1342,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Authenticate player with oauth token. 
+        /// Authenticate player with oauth token. Deprecated
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -1049,7 +1392,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Authenticate player with oauth token. 
+        /// Authenticate player with oauth token. Deprecated
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -1062,7 +1405,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Authenticate player with oauth token. 
+        /// Authenticate player with oauth token. Deprecated
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -1252,7 +1595,7 @@ namespace Openfort.SDK.Api
         /// <param name="oAuthRequest"></param>
         /// <returns>DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        public DeprecatedAuthenticatedPlayerResponse AuthorizeWithOAuthToken(OAuthProvider provider, OAuthRequest oAuthRequest)
+        public DeprecatedAuthenticatedPlayerResponse AuthorizeWithOAuthToken(AuthProvider provider, OAuthRequest oAuthRequest)
         {
             Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse> localVarResponse = AuthorizeWithOAuthTokenWithHttpInfo(provider, oAuthRequest);
             return localVarResponse.Data;
@@ -1266,8 +1609,12 @@ namespace Openfort.SDK.Api
         /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        public Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest)
+        public Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenWithHttpInfo(AuthProvider provider, OAuthRequest oAuthRequest)
         {
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'provider' when calling AuthenticationApi->AuthorizeWithOAuthToken");
+
             // verify the required parameter 'oAuthRequest' is set
             if (oAuthRequest == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthRequest' when calling AuthenticationApi->AuthorizeWithOAuthToken");
@@ -1326,7 +1673,7 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeprecatedAuthenticatedPlayerResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeprecatedAuthenticatedPlayerResponse> AuthorizeWithOAuthTokenAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse> localVarResponse = await AuthorizeWithOAuthTokenWithHttpInfoAsync(provider, oAuthRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1341,8 +1688,12 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeprecatedAuthenticatedPlayerResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse>> AuthorizeWithOAuthTokenWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<DeprecatedAuthenticatedPlayerResponse>> AuthorizeWithOAuthTokenWithHttpInfoAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'provider' when calling AuthenticationApi->AuthorizeWithOAuthToken");
+
             // verify the required parameter 'oAuthRequest' is set
             if (oAuthRequest == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthRequest' when calling AuthenticationApi->AuthorizeWithOAuthToken");
@@ -1762,6 +2113,240 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InitSIWE", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        public AuthPlayerResponse LinkEmail(LoginRequest loginRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = LinkEmailWithHttpInfo(loginRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> LinkEmailWithHttpInfo(LoginRequest loginRequest)
+        {
+            // verify the required parameter 'loginRequest' is set
+            if (loginRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'loginRequest' when calling AuthenticationApi->LinkEmail");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = loginRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AuthPlayerResponse>("/iam/v1/password/link", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LinkEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> LinkEmailAsync(LoginRequest loginRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await LinkEmailWithHttpInfoAsync(loginRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loginRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> LinkEmailWithHttpInfoAsync(LoginRequest loginRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'loginRequest' is set
+            if (loginRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'loginRequest' when calling AuthenticationApi->LinkEmail");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = loginRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AuthPlayerResponse>("/iam/v1/password/link", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LinkEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Initialize Link OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <returns>OAuthResponse</returns>
+        public OAuthResponse LinkOAuth(OAuthInitRequest oAuthInitRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<OAuthResponse> localVarResponse = LinkOAuthWithHttpInfo(oAuthInitRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Initialize Link OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <returns>ApiResponse of OAuthResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<OAuthResponse> LinkOAuthWithHttpInfo(OAuthInitRequest oAuthInitRequest)
+        {
+            // verify the required parameter 'oAuthInitRequest' is set
+            if (oAuthInitRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthInitRequest' when calling AuthenticationApi->LinkOAuth");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = oAuthInitRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<OAuthResponse>("/iam/v1/oauth/init_link", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LinkOAuth", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Initialize Link OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OAuthResponse</returns>
+        public async System.Threading.Tasks.Task<OAuthResponse> LinkOAuthAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<OAuthResponse> localVarResponse = await LinkOAuthWithHttpInfoAsync(oAuthInitRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Initialize Link OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="oAuthInitRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OAuthResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<OAuthResponse>> LinkOAuthWithHttpInfoAsync(OAuthInitRequest oAuthInitRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'oAuthInitRequest' is set
+            if (oAuthInitRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthInitRequest' when calling AuthenticationApi->LinkOAuth");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = oAuthInitRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthResponse>("/iam/v1/oauth/init_link", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LinkOAuth", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2229,6 +2814,133 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
+        /// Initialize OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <returns>AuthResponse</returns>
+        public AuthResponse PoolOAuth(string key)
+        {
+            Openfort.SDK.Client.ApiResponse<AuthResponse> localVarResponse = PoolOAuthWithHttpInfo(key);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Initialize OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <returns>ApiResponse of AuthResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthResponse> PoolOAuthWithHttpInfo(string key)
+        {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'key' when calling AuthenticationApi->PoolOAuth");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "key", key));
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AuthResponse>("/iam/v1/oauth/pool", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PoolOAuth", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Initialize OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthResponse</returns>
+        public async System.Threading.Tasks.Task<AuthResponse> PoolOAuthAsync(string key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthResponse> localVarResponse = await PoolOAuthWithHttpInfoAsync(key, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Initialize OAuth. 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthResponse>> PoolOAuthWithHttpInfoAsync(string key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'key' when calling AuthenticationApi->PoolOAuth");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(Openfort.SDK.Client.ClientUtils.ParameterToMultiMap("", "key", key));
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AuthResponse>("/iam/v1/oauth/pool", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PoolOAuth", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Refresh or create auth session. Get or create a new session for the player based on the refresh token.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2339,6 +3051,381 @@ namespace Openfort.SDK.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Refresh", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Request an Email Verification. Start the Email Verification process for a player.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <returns></returns>
+        public void RequestEmailVerification(RequestVerifyEmailRequest requestVerifyEmailRequest)
+        {
+            RequestEmailVerificationWithHttpInfo(requestVerifyEmailRequest);
+        }
+
+        /// <summary>
+        /// Request an Email Verification. Start the Email Verification process for a player.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Openfort.SDK.Client.ApiResponse<Object> RequestEmailVerificationWithHttpInfo(RequestVerifyEmailRequest requestVerifyEmailRequest)
+        {
+            // verify the required parameter 'requestVerifyEmailRequest' is set
+            if (requestVerifyEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'requestVerifyEmailRequest' when calling AuthenticationApi->RequestEmailVerification");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = requestVerifyEmailRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/iam/v1/password/request_email_verification", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestEmailVerification", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Request an Email Verification. Start the Email Verification process for a player.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RequestEmailVerificationAsync(RequestVerifyEmailRequest requestVerifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await RequestEmailVerificationWithHttpInfoAsync(requestVerifyEmailRequest, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Request an Email Verification. Start the Email Verification process for a player.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestVerifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> RequestEmailVerificationWithHttpInfoAsync(RequestVerifyEmailRequest requestVerifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'requestVerifyEmailRequest' is set
+            if (requestVerifyEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'requestVerifyEmailRequest' when calling AuthenticationApi->RequestEmailVerification");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = requestVerifyEmailRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/iam/v1/password/request_email_verification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestEmailVerification", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Request a Reset password. Start the Reset process for a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <returns></returns>
+        public void RequestResetPassword(RequestResetPasswordRequest requestResetPasswordRequest)
+        {
+            RequestResetPasswordWithHttpInfo(requestResetPasswordRequest);
+        }
+
+        /// <summary>
+        /// Request a Reset password. Start the Reset process for a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Openfort.SDK.Client.ApiResponse<Object> RequestResetPasswordWithHttpInfo(RequestResetPasswordRequest requestResetPasswordRequest)
+        {
+            // verify the required parameter 'requestResetPasswordRequest' is set
+            if (requestResetPasswordRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'requestResetPasswordRequest' when calling AuthenticationApi->RequestResetPassword");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = requestResetPasswordRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/iam/v1/password/request_reset", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestResetPassword", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Request a Reset password. Start the Reset process for a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task RequestResetPasswordAsync(RequestResetPasswordRequest requestResetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await RequestResetPasswordWithHttpInfoAsync(requestResetPasswordRequest, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Request a Reset password. Start the Reset process for a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestResetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> RequestResetPasswordWithHttpInfoAsync(RequestResetPasswordRequest requestResetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'requestResetPasswordRequest' is set
+            if (requestResetPasswordRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'requestResetPasswordRequest' when calling AuthenticationApi->RequestResetPassword");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = requestResetPasswordRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/iam/v1/password/request_reset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestResetPassword", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset a password. Reset a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns></returns>
+        public void ResetPassword(ResetPasswordRequest resetPasswordRequest)
+        {
+            ResetPasswordWithHttpInfo(resetPasswordRequest);
+        }
+
+        /// <summary>
+        /// Reset a password. Reset a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Openfort.SDK.Client.ApiResponse<Object> ResetPasswordWithHttpInfo(ResetPasswordRequest resetPasswordRequest)
+        {
+            // verify the required parameter 'resetPasswordRequest' is set
+            if (resetPasswordRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'resetPasswordRequest' when calling AuthenticationApi->ResetPassword");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = resetPasswordRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/iam/v1/password/reset", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetPassword", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Reset a password. Reset a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ResetPasswordAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await ResetPasswordWithHttpInfoAsync(resetPasswordRequest, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Reset a password. Reset a player&#39;s password.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> ResetPasswordWithHttpInfoAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'resetPasswordRequest' is set
+            if (resetPasswordRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'resetPasswordRequest' when calling AuthenticationApi->ResetPassword");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = resetPasswordRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/iam/v1/password/reset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetPassword", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2604,28 +3691,28 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Unlink OAuth account 
+        ///  
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkEmailRequest"></param>
         /// <returns>AuthPlayerResponse</returns>
-        public AuthPlayerResponse UnlinkOAuth(UnlinkRequest unlinkRequest)
+        public AuthPlayerResponse UnlinkEmail(UnlinkEmailRequest unlinkEmailRequest)
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = UnlinkOAuthWithHttpInfo(unlinkRequest);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = UnlinkEmailWithHttpInfo(unlinkEmailRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Unlink OAuth account 
+        ///  
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkEmailRequest"></param>
         /// <returns>ApiResponse of AuthPlayerResponse</returns>
-        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkRequest unlinkRequest)
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> UnlinkEmailWithHttpInfo(UnlinkEmailRequest unlinkEmailRequest)
         {
-            // verify the required parameter 'unlinkRequest' is set
-            if (unlinkRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkRequest' when calling AuthenticationApi->UnlinkOAuth");
+            // verify the required parameter 'unlinkEmailRequest' is set
+            if (unlinkEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkEmailRequest' when calling AuthenticationApi->UnlinkEmail");
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
 
@@ -2644,7 +3731,124 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = unlinkRequest;
+            localVarRequestOptions.Data = unlinkEmailRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AuthPlayerResponse>("/iam/v1/password/unlink", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnlinkEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AuthPlayerResponse</returns>
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkEmailAsync(UnlinkEmailRequest unlinkEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await UnlinkEmailWithHttpInfoAsync(unlinkEmailRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> UnlinkEmailWithHttpInfoAsync(UnlinkEmailRequest unlinkEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'unlinkEmailRequest' is set
+            if (unlinkEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkEmailRequest' when calling AuthenticationApi->UnlinkEmail");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = unlinkEmailRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AuthPlayerResponse>("/iam/v1/password/unlink", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnlinkEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Unlink OAuth account 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkOAuthRequest"></param>
+        /// <returns>AuthPlayerResponse</returns>
+        public AuthPlayerResponse UnlinkOAuth(UnlinkOAuthRequest unlinkOAuthRequest)
+        {
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = UnlinkOAuthWithHttpInfo(unlinkOAuthRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Unlink OAuth account 
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unlinkOAuthRequest"></param>
+        /// <returns>ApiResponse of AuthPlayerResponse</returns>
+        public Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> UnlinkOAuthWithHttpInfo(UnlinkOAuthRequest unlinkOAuthRequest)
+        {
+            // verify the required parameter 'unlinkOAuthRequest' is set
+            if (unlinkOAuthRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkOAuthRequest' when calling AuthenticationApi->UnlinkOAuth");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = unlinkOAuthRequest;
 
 
             // make the HTTP request
@@ -2663,12 +3867,12 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AuthPlayerResponse</returns>
-        public async System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuthPlayerResponse> UnlinkOAuthAsync(UnlinkOAuthRequest unlinkOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await UnlinkOAuthWithHttpInfoAsync(unlinkRequest, cancellationToken).ConfigureAwait(false);
+            Openfort.SDK.Client.ApiResponse<AuthPlayerResponse> localVarResponse = await UnlinkOAuthWithHttpInfoAsync(unlinkOAuthRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2676,14 +3880,14 @@ namespace Openfort.SDK.Api
         /// Unlink OAuth account 
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unlinkRequest"></param>
+        /// <param name="unlinkOAuthRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AuthPlayerResponse)</returns>
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkRequest unlinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<AuthPlayerResponse>> UnlinkOAuthWithHttpInfoAsync(UnlinkOAuthRequest unlinkOAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'unlinkRequest' is set
-            if (unlinkRequest == null)
-                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkRequest' when calling AuthenticationApi->UnlinkOAuth");
+            // verify the required parameter 'unlinkOAuthRequest' is set
+            if (unlinkOAuthRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'unlinkOAuthRequest' when calling AuthenticationApi->UnlinkOAuth");
 
 
             Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
@@ -2704,7 +3908,7 @@ namespace Openfort.SDK.Api
             var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = unlinkRequest;
+            localVarRequestOptions.Data = unlinkOAuthRequest;
 
 
             // make the HTTP request
@@ -2838,29 +4042,158 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Verify an email. Verify a player&#39;s email address.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <returns></returns>
+        public void VerifyEmail(VerifyEmailRequest verifyEmailRequest)
+        {
+            VerifyEmailWithHttpInfo(verifyEmailRequest);
+        }
+
+        /// <summary>
+        /// Verify an email. Verify a player&#39;s email address.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Openfort.SDK.Client.ApiResponse<Object> VerifyEmailWithHttpInfo(VerifyEmailRequest verifyEmailRequest)
+        {
+            // verify the required parameter 'verifyEmailRequest' is set
+            if (verifyEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'verifyEmailRequest' when calling AuthenticationApi->VerifyEmail");
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = verifyEmailRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/iam/v1/password/verify_email", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Verify an email. Verify a player&#39;s email address.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task VerifyEmailAsync(VerifyEmailRequest verifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await VerifyEmailWithHttpInfoAsync(verifyEmailRequest, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Verify an email. Verify a player&#39;s email address.
+        /// </summary>
+        /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="verifyEmailRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<Object>> VerifyEmailWithHttpInfoAsync(VerifyEmailRequest verifyEmailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'verifyEmailRequest' is set
+            if (verifyEmailRequest == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'verifyEmailRequest' when calling AuthenticationApi->VerifyEmail");
+
+
+            Openfort.SDK.Client.RequestOptions localVarRequestOptions = new Openfort.SDK.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+
+            var localVarContentType = Openfort.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Openfort.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = verifyEmailRequest;
+
+            // authentication (pk) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/iam/v1/password/verify_email", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
         /// <param name="oAuthRequest"></param>
         /// <returns>PlayerResponse</returns>
         [Obsolete]
-        public PlayerResponse VerifyOAuth(OAuthProvider provider, OAuthRequest oAuthRequest)
+        public PlayerResponse VerifyOAuth(AuthProvider provider, OAuthRequest oAuthRequest)
         {
             Openfort.SDK.Client.ApiResponse<PlayerResponse> localVarResponse = VerifyOAuthWithHttpInfo(provider, oAuthRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
         /// <param name="oAuthRequest"></param>
         /// <returns>ApiResponse of PlayerResponse</returns>
         [Obsolete]
-        public Openfort.SDK.Client.ApiResponse<PlayerResponse> VerifyOAuthWithHttpInfo(OAuthProvider provider, OAuthRequest oAuthRequest)
+        public Openfort.SDK.Client.ApiResponse<PlayerResponse> VerifyOAuthWithHttpInfo(AuthProvider provider, OAuthRequest oAuthRequest)
         {
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'provider' when calling AuthenticationApi->VerifyOAuth");
+
             // verify the required parameter 'oAuthRequest' is set
             if (oAuthRequest == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthRequest' when calling AuthenticationApi->VerifyOAuth");
@@ -2905,7 +4238,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
@@ -2913,14 +4246,14 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerResponse> VerifyOAuthAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Openfort.SDK.Client.ApiResponse<PlayerResponse> localVarResponse = await VerifyOAuthWithHttpInfoAsync(provider, oAuthRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">OAuth provider</param>
@@ -2928,8 +4261,12 @@ namespace Openfort.SDK.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerResponse>> VerifyOAuthWithHttpInfoAsync(OAuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Openfort.SDK.Client.ApiResponse<PlayerResponse>> VerifyOAuthWithHttpInfoAsync(AuthProvider provider, OAuthRequest oAuthRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'provider' is set
+            if (provider == null)
+                throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'provider' when calling AuthenticationApi->VerifyOAuth");
+
             // verify the required parameter 'oAuthRequest' is set
             if (oAuthRequest == null)
                 throw new Openfort.SDK.Client.ApiException(400, "Missing required parameter 'oAuthRequest' when calling AuthenticationApi->VerifyOAuth");
@@ -2977,7 +4314,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -2989,7 +4326,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -3039,7 +4376,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>
@@ -3052,7 +4389,7 @@ namespace Openfort.SDK.Api
         }
 
         /// <summary>
-        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.
+        /// Retrieve player by oauth token. The endpoint verifies the token generated by OAuth provider and retrieves a corresponding player.  Returns the latest 10 transaction intents for the player.
         /// </summary>
         /// <exception cref="Openfort.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticateOAuthRequest"></param>

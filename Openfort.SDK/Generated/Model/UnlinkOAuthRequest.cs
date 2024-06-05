@@ -28,53 +28,30 @@ using OpenAPIDateConverter = Openfort.SDK.Client.OpenAPIDateConverter;
 namespace Openfort.SDK.Model
 {
     /// <summary>
-    /// PlayFab oauth configuration
+    /// The request to verify access token
     /// </summary>
-    [DataContract(Name = "PlayFabOAuthConfig")]
-    public partial class PlayFabOAuthConfig : IEquatable<PlayFabOAuthConfig>, IValidatableObject
+    [DataContract(Name = "UnlinkOAuthRequest")]
+    public partial class UnlinkOAuthRequest : IEquatable<UnlinkOAuthRequest>, IValidatableObject
     {
 
         /// <summary>
         /// Gets or Sets Provider
         /// </summary>
         [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
-        public ThirdPartyOAuthProviderPLAYFAB Provider { get; set; }
+        public OAuthProvider Provider { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkOAuthRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PlayFabOAuthConfig() { }
+        protected UnlinkOAuthRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PlayFabOAuthConfig" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkOAuthRequest" /> class.
         /// </summary>
-        /// <param name="enabled">Enable OAuth provider. (required).</param>
         /// <param name="provider">provider (required).</param>
-        /// <param name="titleId">Title ID of your Play Fab gaming service environment. (required).</param>
-        public PlayFabOAuthConfig(bool enabled = default(bool), ThirdPartyOAuthProviderPLAYFAB provider = default(ThirdPartyOAuthProviderPLAYFAB), string titleId = default(string))
+        public UnlinkOAuthRequest(OAuthProvider provider = default(OAuthProvider))
         {
-            this.Enabled = enabled;
             this.Provider = provider;
-            // to ensure "titleId" is required (not null)
-            if (titleId == null)
-            {
-                throw new ArgumentNullException("titleId is a required property for PlayFabOAuthConfig and cannot be null");
-            }
-            this.TitleId = titleId;
         }
-
-        /// <summary>
-        /// Enable OAuth provider.
-        /// </summary>
-        /// <value>Enable OAuth provider.</value>
-        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
-
-        /// <summary>
-        /// Title ID of your Play Fab gaming service environment.
-        /// </summary>
-        /// <value>Title ID of your Play Fab gaming service environment.</value>
-        [DataMember(Name = "titleId", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +60,8 @@ namespace Openfort.SDK.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlayFabOAuthConfig {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("class UnlinkOAuthRequest {\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  TitleId: ").Append(TitleId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,15 +82,15 @@ namespace Openfort.SDK.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlayFabOAuthConfig);
+            return this.Equals(input as UnlinkOAuthRequest);
         }
 
         /// <summary>
-        /// Returns true if PlayFabOAuthConfig instances are equal
+        /// Returns true if UnlinkOAuthRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlayFabOAuthConfig to be compared</param>
+        /// <param name="input">Instance of UnlinkOAuthRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlayFabOAuthConfig input)
+        public bool Equals(UnlinkOAuthRequest input)
         {
             if (input == null)
             {
@@ -123,17 +98,8 @@ namespace Openfort.SDK.Model
             }
             return 
                 (
-                    this.Enabled == input.Enabled ||
-                    this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
                     this.Provider == input.Provider ||
                     this.Provider.Equals(input.Provider)
-                ) && 
-                (
-                    this.TitleId == input.TitleId ||
-                    (this.TitleId != null &&
-                    this.TitleId.Equals(input.TitleId))
                 );
         }
 
@@ -146,12 +112,7 @@ namespace Openfort.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.Provider.GetHashCode();
-                if (this.TitleId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TitleId.GetHashCode();
-                }
                 return hashCode;
             }
         }
