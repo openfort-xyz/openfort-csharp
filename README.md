@@ -1,4 +1,4 @@
-![Illustration_05 1](https://github.com/user-attachments/assets/098a6d3d-1e80-4303-afa0-daeecb5b9b20)
+![Illustration_05 1-min](https://github.com/user-attachments/assets/56778295-55e6-47a9-a3ee-7971f2fdba0e)
 
 <div align="center">
   <h4>
