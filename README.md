@@ -2,19 +2,15 @@
 
 <div align="center">
   <h4>
-    <a href="https://www.openfort.xyz/">
+    <a href="https://www.openfort.io/">
       Website
     </a>
     <span> | </span>
-    <a href="https://www.openfort.xyz/docs">
+    <a href="https://www.openfort.io/docs">
       Documentation
     </a>
     <span> | </span>
-    <a href="https://www.openfort.xyz/docs/reference/api/authentication">
-      API Docs
-    </a>
-    <span> | </span>
-    <a href="https://twitter.com/openfortxyz">
+    <a href="https://x.com/openfortxyz">
       Twitter
     </a>
   </h4>
@@ -23,10 +19,6 @@
 # Openfort C# Library
 
 The Openfort SDK library provides convenient access to the Openfort API from the server-side code of your applications.
-
-## Documentation
-
-See the (https://www.openfort.xyz/docs/libraries).
 
 ## Installation
 
@@ -61,7 +53,7 @@ Console.WriteLine(players.Data.Count);
 
 New features and bug fixes are released on the latest major version of the `openfort` package. If you are on an older major version, we recommend that you upgrade to the latest in order to use the new features and bug fixes including those for security vulnerabilities. Older major versions of the package will continue to be available for use, but will not be receiving any updates.
 
-[api-keys]: https://dashboard.openfort.xyz/api-keys
+[api-keys]: https://dashboard.openfort.io/api-keys
 
 <!--
 # vim: set tw=79:
